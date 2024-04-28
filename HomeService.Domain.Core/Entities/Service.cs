@@ -10,10 +10,11 @@ public class Service
     public ServiceSubCategory ServiceSubCategory { get; set; }
     public int SubCategoryId { get; set; }
     public List<Expert> Experts { get; set; }
-    public Image Images { get; set; }
+    public List<Order> Orders { get; set; }
+    public Image Image { get; set; }
     public int ImageId { get; set; }
     [DisplayName("قیمت")]
-    public int Price { get; set; }
+    public decimal Price { get; set; }
     public bool IsDeleted { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
 }

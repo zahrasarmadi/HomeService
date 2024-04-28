@@ -17,13 +17,11 @@ public class Customer
     public string PhoneNumber { get; set; }
     [DisplayName("شماره تلفن ذخیره")]
     public string BackUpPhoneNumber { get; set; }
-    [DisplayName("تاریخ تولد")]
-    public string? BirthDate { get; set; }
-    public List<CustomerAddress> Addresses { get; set; }
     [DisplayName("شماره کارت بانکی")]
     public string BankCardNumber { get; set; }
+    public List<CustomerAddress> Addresses { get; set; }
     public List<Comment>? Comments { get; set; }
-    public List<Bid>? Bids { get; set; }
+    public List<Order>? Orders { get; set; }
     public DateTime RegisteredAt { get; set; } = DateTime.Now;
     public DateTime? CreatedAt { get; set; } = DateTime.Now;
     public DateTime? LastUpdatedAt { get; set; } = DateTime.Now;

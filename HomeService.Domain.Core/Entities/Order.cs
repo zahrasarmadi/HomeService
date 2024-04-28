@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace HomeService.Domain.Core.Entities;
 
-public class Bid
+public class Order
 {
     public int Id { get; set; }
     [DisplayName("عنوان")]
@@ -15,7 +15,10 @@ public class Bid
     public Customer Customer { get; set; }
     public int CustomerId { get; set; }
     public Expert Expert { get; set; }
-    public int EmployeeId { get; set; }
+    public int ExpertId { get; set; }
+    public List<Suggestion> Suggestions  { get; set; }
+    public Service Service { get; set; }
+    public int ServiceId { get; set; }
     [DisplayName("عکس ها")]
     public List<Image> Images { get; set; }
     public bool IsDeleted { get; set; }=false;

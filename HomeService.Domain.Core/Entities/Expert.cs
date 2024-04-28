@@ -18,14 +18,16 @@ public class Expert
     public string BirthDate { get; set; }
     [DisplayName("عکس مدرک")]
     public Image EvidenceImage { get; set; }
-    [DisplayName("شماره کارت بانکی")]
-    public string BankCardNumber { get; set; }
-    public List<Bid> Bids { get; set; }
-    public List<Service> Services { get; set; }
-    public List<Comment>? Comments { get; set; }
+    public int EvidenceImageId { get; set; }
     [DisplayName("عکس پروفایل")]
     public Image ProfileImage { get; set; }
-    public int ImageId { get; set; }
+    public int ProfileImageId { get; set; }
+    [DisplayName("شماره کارت بانکی")]
+    public string BankCardNumber { get; set; }
+    public List<Order> Orders { get; set; }
+    public List<Service> Services { get; set; }
+    public List<Suggestion> Suggestions { get; set; }
+    public List<Comment>? Comments { get; set; }
     [DisplayName("آدرس")]
     public ExpertAddress Address { get; set; }
     public int AddressId { get; set; }
