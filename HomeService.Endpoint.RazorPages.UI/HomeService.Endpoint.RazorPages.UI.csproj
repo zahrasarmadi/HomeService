@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HomeService.Infra.DataBase.SQLServer\HomeService.Infra.DataBase.SQLServer.csproj" />
+  </ItemGroup>
+
 </Project>

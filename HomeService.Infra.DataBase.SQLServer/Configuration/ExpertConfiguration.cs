@@ -20,8 +20,8 @@ public class ExpertConfiguration : IEntityTypeConfiguration<Expert>
             .WithOne(e => e.Expert)
             .OnDelete(DeleteBehavior.NoAction);
 
-        builder.HasOne(e => e.EvidenceImage)
-            .WithOne(e => e.Expert)
-            .OnDelete(DeleteBehavior.NoAction);
+        //builder.HasOne(e => e.EvidenceImage)
+        //    .WithOne(e => e.Expert)
+        //    .OnDelete(DeleteBehavior.NoAction);
     }
 }

@@ -5,11 +5,16 @@ namespace HomeService.Infra.DataBase.SQLServer;
 
 public class AppDbContext : DbContext
 {
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
-        optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Database=CW18;TrustServerCertificate=True;");
-        base.OnConfiguring(optionsBuilder);
+
     }
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //   optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Database=CW18;TrustServerCertificate=True;");
+    //    base.OnConfiguring(optionsBuilder);
+    //}
+
 
     public DbSet<Admin> Admins { get; set; }
     public DbSet<Order> Orders { get; set; }
