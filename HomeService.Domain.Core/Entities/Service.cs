@@ -12,9 +12,9 @@ public class Service
     public List<Expert> Experts { get; set; }
     public List<Order> Orders { get; set; }
     public Image Image { get; set; }
-    public int ImageId { get; set; }
+   // public int ImageId { get; set; }
     [DisplayName("قیمت")]
-    public decimal Price { get; set; }
+    public int Price { get; set; }
     public bool IsDeleted { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
 }

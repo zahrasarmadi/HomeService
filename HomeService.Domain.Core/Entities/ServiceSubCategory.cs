@@ -13,7 +13,7 @@ public class ServiceSubCategory
     public int ServiceCategoryId { get; set; }
     public List<Service> Services { get; set; }
     public Image Image { get; set; }
-    public int ImageId { get; set; }
+  //  public int ImageId { get; set; }
     public bool IsDeleted { get; set; } = false;
     public DateTime CreatedAt { get; set; } = DateTime.Now;
 }

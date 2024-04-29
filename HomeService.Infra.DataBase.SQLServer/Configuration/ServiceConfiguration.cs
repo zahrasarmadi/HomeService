@@ -14,7 +14,6 @@ public class ServiceConfiguration : IEntityTypeConfiguration<Service>
 
         builder.HasMany(s => s.Experts)
             .WithMany(e => e.Services);
-           // .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasMany(s=>s.Orders)
             .WithOne(o=>o.Service)

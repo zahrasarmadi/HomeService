@@ -1,6 +1,7 @@
 ﻿using HomeService.Domain.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection.Emit;
 
 namespace HomeService.Infra.DataBase.SQLServer.Configuration;
 
@@ -19,9 +20,6 @@ public class ExpertConfiguration : IEntityTypeConfiguration<Expert>
         builder.HasOne(e => e.ProfileImage)
             .WithOne(e => e.Expert)
             .OnDelete(DeleteBehavior.NoAction);
-
-        //builder.HasOne(e => e.EvidenceImage)
-        //    .WithOne(e => e.Expert)
-        //    .OnDelete(DeleteBehavior.NoAction);
     }
 }
+

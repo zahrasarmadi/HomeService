@@ -22,17 +22,12 @@ public class ImageConfiguration : IEntityTypeConfiguration<Image>
             .WithOne(s=>s.Image)
             .OnDelete(DeleteBehavior.NoAction);
 
-        //builder.HasOne(i=>i.Expert)
-        //    .WithOne(e=>e.EvidenceImage)
-        //    .OnDelete(DeleteBehavior.NoAction);
-
-        //builder.HasOne(i => i.Expert)
-        //    .WithOne(e => e.ProfileImage)
-        //    .OnDelete(DeleteBehavior.NoAction);
+        builder.HasOne(i => i.Expert)
+            .WithOne(e => e.ProfileImage)
+            .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasOne(i=>i.Order)
             .WithMany(r=>r.Images)
             .OnDelete(DeleteBehavior.NoAction);
-
     }
 }

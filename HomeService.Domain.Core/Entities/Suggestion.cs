@@ -12,7 +12,7 @@ public class Suggestion
     public Order Order { get; set; }
     public int OrderId { get; set; }
     [DisplayName("قیمت پیشنهادی")]
-    public decimal Price { get; set; }
+    public int Price { get; set; }
     public bool IsAccept { get; set; }
     public DateTime CreateAt { get; set; }
     public bool IsDeleted { get; set; } = false;

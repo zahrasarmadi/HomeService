@@ -8,6 +8,14 @@ public class ExpertAddressConfiguration : IEntityTypeConfiguration<ExpertAddress
 {
     public void Configure(EntityTypeBuilder<ExpertAddress> builder)
     {
-        throw new NotImplementedException();
+        builder.HasKey(e => e.Id);
+
+        builder.HasOne(e => e.Expert)
+            .WithOne(e => e.Address)
+            .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasOne(e => e.City)
+            .WithMany(c => c.ExpertAddress)
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }

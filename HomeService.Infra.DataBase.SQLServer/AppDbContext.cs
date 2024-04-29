@@ -9,26 +9,6 @@ public class AppDbContext : DbContext
     {
 
     }
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //{
-    //   optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Database=CW18;TrustServerCertificate=True;");
-    //    base.OnConfiguring(optionsBuilder);
-    //}
-
-
-    public DbSet<Admin> Admins { get; set; }
-    public DbSet<Order> Orders { get; set; }
-    public DbSet<City> Cities { get; set; }
-    public DbSet<Comment> Comments { get; set; }
-    public DbSet<Customer> Customers { get; set; }
-    public DbSet<CustomerAddress> CustomerAddresses { get; set; }
-    public DbSet<Expert> Experts { get; set; }
-    public DbSet<ExpertAddress> ExpertAddresses { get; set; }
-    public DbSet<Image> Images { get; set; }
-    public DbSet<Service> Services { get; set; }
-    public DbSet<ServiceCategory> ServiceCategories { get; set; }
-    public DbSet<ServiceSubCategory> ServiceSubCategories { get; set; }
-    public DbSet<Suggestion> Suggestions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -45,5 +25,21 @@ public class AppDbContext : DbContext
         builder.ApplyConfiguration(new ServiceCategoryConfiguration());
         builder.ApplyConfiguration(new ServiceSubCategoryConfiguration());
         builder.ApplyConfiguration(new SuggestionConfiguration());
+
+        base.OnModelCreating(builder);
     }
+
+    public DbSet<Admin> Admins { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<City> Cities { get; set; }
+    public DbSet<Comment> Comments { get; set; }
+    public DbSet<Customer> Customers { get; set; }
+    public DbSet<CustomerAddress> CustomerAddresses { get; set; }
+    public DbSet<Expert> Experts { get; set; }
+    public DbSet<ExpertAddress> ExpertAddresses { get; set; }
+    public DbSet<Image> Images { get; set; }
+    public DbSet<Service> Services { get; set; }
+    public DbSet<ServiceCategory> ServiceCategories { get; set; }
+    public DbSet<ServiceSubCategory> ServiceSubCategories { get; set; }
+    public DbSet<Suggestion> Suggestions { get; set; }
 }
