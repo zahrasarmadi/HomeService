@@ -18,12 +18,12 @@ public class Address
     public string Title { get; set; }
     public int CityId { get; set; }
     [DisplayName("شهر")]
-    public City City { get; set; }
+    public City? City { get; set; }
     [DisplayName("[خیابان")]
     public string Street { get; set; }
     [DisplayName("منطقه و کوچه و آپارتمان و ...")]
     public string Area { get; set; }
-    public string FullAddress { get; private set; }
+    public string? FullAddress { get; private set; }
     [DisplayName("کدپستی")]
     public string PostalCode { get; set; }
     [DisplayName("پیش فرض")]

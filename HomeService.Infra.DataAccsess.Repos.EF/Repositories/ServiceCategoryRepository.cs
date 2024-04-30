@@ -18,7 +18,6 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
         var newModel = new ServiceCategory()
         {
             Name = serviceCategoryCreateDto.Name,
-            Description = serviceCategoryCreateDto.Description,
             ServiceSubCategories = serviceCategoryCreateDto.ServiceSubCategories,
             Image = serviceCategoryCreateDto.Image,
         };
@@ -52,7 +51,6 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
         var targetModel = _context.ServiceCategories.FirstOrDefault(a => a.Id == serviceCategoryUpdateDto.Id);
 
         targetModel.Name = serviceCategoryUpdateDto.Name;
-        targetModel.Description = serviceCategoryUpdateDto.Description;
         targetModel.ServiceSubCategories = serviceCategoryUpdateDto.ServiceSubCategories;
         targetModel.Image = serviceCategoryUpdateDto.Image;
 

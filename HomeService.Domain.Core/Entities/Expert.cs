@@ -15,7 +15,7 @@ public class Expert
     [DisplayName("شماره تلفن")]
     public string PhoneNumber { get; set; }
     [DisplayName("تاریخ تولد")]
-    public string BirthDate { get; set; }
+    public DateTime BirthDate { get; set; }
     [DisplayName("عکس پروفایل")]
     public Image ProfileImage { get; set; }
     [DisplayName("شماره کارت بانکی")]

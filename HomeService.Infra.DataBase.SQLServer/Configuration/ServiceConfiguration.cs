@@ -15,12 +15,19 @@ public class ServiceConfiguration : IEntityTypeConfiguration<Service>
         builder.HasMany(s => s.Experts)
             .WithMany(e => e.Services);
 
-        builder.HasMany(s=>s.Orders)
-            .WithOne(o=>o.Service)
+        builder.HasMany(s => s.Orders)
+            .WithOne(o => o.Service)
             .OnDelete(DeleteBehavior.NoAction);
 
-        builder.HasOne(s=>s.Image)
-            .WithOne(i=>i.Service)
+        builder.HasOne(s => s.Image)
+            .WithOne(i => i.Service)
             .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasData
+            (
+            new Service { Id = 1, Name = "سرویس عادی نظافت", Price = 700000, SubCategoryId = 1, CreatedAt = DateTime.Now, IsDeleted = false },
+            new Service { Id = 2, Name = "سرویس لوکسن نظافت", Price = 850000, SubCategoryId = 1, CreatedAt = DateTime.Now, IsDeleted = false },
+            new Service { Id = 3, Name = "سرویس ویژه نظافت", Price = 1000000, SubCategoryId = 1, CreatedAt = DateTime.Now, IsDeleted = false,}
+            );
     }
 }

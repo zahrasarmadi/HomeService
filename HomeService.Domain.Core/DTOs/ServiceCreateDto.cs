@@ -7,7 +7,6 @@ public class ServiceCreateDto
 {
     [DisplayName("نام سرویس")]
     public string Name { get; set; }
-    public string Description { get; set; }
     public ServiceSubCategory ServiceSubCategory { get; set; }
     public int SubCategoryId { get; set; }
     public List<Expert>? Experts { get; set; }

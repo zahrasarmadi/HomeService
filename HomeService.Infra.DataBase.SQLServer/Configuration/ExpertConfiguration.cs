@@ -24,6 +24,17 @@ public class ExpertConfiguration : IEntityTypeConfiguration<Expert>
         builder.HasOne(e=>e.Address)
             .WithOne(a=>a.Expert)
             .OnDelete(DeleteBehavior.NoAction);
+
+        //builder.HasData
+        //    (
+        //    new Expert
+        //    {
+        //        FirstName = "منصور",
+        //        LastName = "آموزگار",
+        //        BirthDate = new DateTime(1998, 12, 03),
+        //        PhoneNumber = "09362356998",
+        //    }
+        //    );
     }
 }
 

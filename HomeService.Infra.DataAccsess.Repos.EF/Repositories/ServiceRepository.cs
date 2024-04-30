@@ -22,7 +22,6 @@ public class ServiceRepository : IServiceRepository
         var newModel = new Service()
         {
             Name = serviceCreateDto.Name,
-            Description = serviceCreateDto.Description,
             ServiceSubCategory = serviceCreateDto.ServiceSubCategory,
             SubCategoryId = serviceCreateDto.SubCategoryId,
             Experts = serviceCreateDto.Experts,
@@ -60,7 +59,6 @@ public class ServiceRepository : IServiceRepository
         var targetModel = _context.Services.FirstOrDefault(a => a.Id == serviceUpdateDto.Id);
 
         targetModel.Name = serviceUpdateDto.Name;
-            targetModel.Description = serviceUpdateDto.Description;
             targetModel.ServiceSubCategory = serviceUpdateDto.ServiceSubCategory;
             targetModel.SubCategoryId = serviceUpdateDto.SubCategoryId;
             targetModel.Experts = serviceUpdateDto.Experts;

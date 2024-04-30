@@ -8,7 +8,7 @@ internal class ServiceCategoryConfiguration : IEntityTypeConfiguration<ServiceCa
 {
     public void Configure(EntityTypeBuilder<ServiceCategory> builder)
     {
-        builder.HasKey(s=>s.Id);
+        builder.HasKey(s => s.Id);
 
         builder.HasMany(s => s.ServiceSubCategories)
             .WithOne(s => s.ServiceCategory)
@@ -17,5 +17,16 @@ internal class ServiceCategoryConfiguration : IEntityTypeConfiguration<ServiceCa
         builder.HasOne(s => s.Image)
             .WithOne(i => i.ServiceCategory)
             .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasData
+            (
+            new ServiceCategory() { Id = 1, Name = "ساختمان",CreatedAt=DateTime.Now,IsDeleted=false },
+            new ServiceCategory() { Id = 2, Name = "تعمیرات اشیاء", CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceCategory() { Id = 3, Name = "اسباب کشی و حمل بار", CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceCategory() { Id = 4, Name = "خودرو", CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceCategory() { Id = 5, Name = "سازمان ها و مجتمع ها", CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceCategory() { Id = 6, Name = "سلامت و زیبایی", CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceCategory() { Id = 7, Name = "کشکول", CreatedAt = DateTime.Now, IsDeleted = false }
+            );
     }
 }

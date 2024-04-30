@@ -1,7 +1,6 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
 using HomeService.Domain.Core.DTOs;
 using HomeService.Domain.Core.Entities;
-using HomeService.Domain.Core.Enums;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +20,6 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
         var newModel = new ServiceSubCategory()
         {
             Name = serviceSubCategoryCreateDto.Name,
-            Description = serviceSubCategoryCreateDto.Description,
             ServiceCategory = serviceSubCategoryCreateDto.ServiceCategory,
             ServiceCategoryId = serviceSubCategoryCreateDto.ServiceCategoryId,
             Services = serviceSubCategoryCreateDto.Services,
@@ -31,7 +29,6 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
 
         _context.SaveChanges();
         return true;
-
     }
 
     public bool Delete(int serviceSubCategoryId)
@@ -57,7 +54,6 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
         var targetModel = _context.ServiceSubCategories.FirstOrDefault(a => a.Id == serviceSubCategoryUpdateDto.Id);
 
         targetModel.Name = serviceSubCategoryUpdateDto.Name;
-        targetModel.Description = serviceSubCategoryUpdateDto.Description;
         targetModel.ServiceCategory= serviceSubCategoryUpdateDto.ServiceCategory;
         targetModel.Image = serviceSubCategoryUpdateDto.Image;
         targetModel.Services = serviceSubCategoryUpdateDto.Services;

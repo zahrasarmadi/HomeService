@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
+
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
 namespace HomeService.Infra.DataBase.SQLServer.Migrations
 {
@@ -57,7 +60,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     BackUpPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BankCardNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RegisteredAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -76,7 +79,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BirthDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BankCardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RegisteredAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -95,7 +98,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -116,7 +118,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     CityId = table.Column<int>(type: "int", nullable: false),
                     Street = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Area = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FullAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FullAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDefault = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -178,7 +180,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ServiceCategoryId = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -200,8 +201,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ServiceSubCategoryId = table.Column<int>(type: "int", nullable: false),
+                    ServiceSubCategoryId = table.Column<int>(type: "int", nullable: true),
                     SubCategoryId = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -351,6 +351,101 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.InsertData(
+                table: "Admins",
+                columns: new[] { "Id", "CreatedAt", "Email", "FirstName", "Gender", "IsDeleted", "LastName", "Password", "PhoneNumber" },
+                values: new object[] { 1, new DateTime(2024, 4, 30, 13, 41, 48, 819, DateTimeKind.Local).AddTicks(7847), "zahrasarmadi17@gmail.com", "زهرا", 1, false, "سرمدی", "zahrasarmadi", "09927848276" });
+
+            migrationBuilder.InsertData(
+                table: "Cities",
+                columns: new[] { "Id", "CreatedAt", "Name" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4537), "آذربایجان شرقی" },
+                    { 2, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4540), "آذربایجان غربی" },
+                    { 3, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4542), "اردبیل" },
+                    { 4, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4544), "اصفهان" },
+                    { 5, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4546), "البرز" },
+                    { 6, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4548), "ایلام" },
+                    { 7, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4550), "بوشهر" },
+                    { 8, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4551), "تهران" },
+                    { 9, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4553), "چهارمحال و بختیاری" },
+                    { 10, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4555), "خراسان جنوبی" },
+                    { 11, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4557), "خراسان رضوی" },
+                    { 12, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4559), "خراسان شمالی" },
+                    { 13, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4561), "خوزستان" },
+                    { 14, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4563), "زنجان" },
+                    { 15, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4565), "سمنان" },
+                    { 16, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4567), "سیستان و بلوچستان" },
+                    { 17, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4569), "فارس" },
+                    { 18, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4572), "قزوین" },
+                    { 19, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4574), "قم" },
+                    { 20, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4576), "کردستان" },
+                    { 21, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4578), "کرمان" },
+                    { 22, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4580), "کرمانشاه" },
+                    { 23, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4583), "کهگیلویه و بویراحمد" },
+                    { 24, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4585), "گلستان" },
+                    { 25, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4587), "گیلان" },
+                    { 26, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4589), "لرستان" },
+                    { 27, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4591), "مازندران" },
+                    { 28, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4593), "مرکزی" },
+                    { 29, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4596), "هرمزگان" },
+                    { 30, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4598), "همدان" },
+                    { 31, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4600), "یزد" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Customers",
+                columns: new[] { "Id", "BackUpPhoneNumber", "BankCardNumber", "CreatedAt", "FirstName", "Gender", "IsDeleted", "LastName", "LastUpdatedAt", "PhoneNumber", "RegisteredAt" },
+                values: new object[,]
+                {
+                    { 1, "09123669858", "1234123412341234", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5407), "سارا", 1, false, "محمودی", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5400), "09192365988", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5408) },
+                    { 2, "09123623258", "1239684412341234", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5414), "محمد", 2, false, "اصغری", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5411), "09199655988", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5415) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ServiceCategories",
+                columns: new[] { "Id", "CreatedAt", "IsDeleted", "Name" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4509), false, "ساختمان" },
+                    { 2, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4512), false, "تعمیرات اشیاء" },
+                    { 3, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4514), false, "اسباب کشی و حمل بار" },
+                    { 4, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4515), false, "خودرو" },
+                    { 5, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4518), false, "سازمان ها و مجتمع ها" },
+                    { 6, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4520), false, "سلامت و زیبایی" },
+                    { 7, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4522), false, "کشکول" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Services",
+                columns: new[] { "Id", "CreatedAt", "IsDeleted", "Name", "Price", "ServiceSubCategoryId", "SubCategoryId" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(2341), false, "سرویس عادی نظافت", 700000, null, 1 },
+                    { 2, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(2344), false, "سرویس لوکسن نظافت", 850000, null, 1 },
+                    { 3, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(2347), false, "سرویس ویژه نظافت", 1000000, null, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Images",
+                columns: new[] { "Id", "Alt", "CreatedAt", "ExpertId", "ImageAddress", "IsDeleted", "OrderId", "ServiceCategoryId", "ServiceId", "ServiceSubCategoryId" },
+                values: new object[,]
+                {
+                    { 1, "ساختمان", new DateTime(2024, 4, 30, 13, 41, 48, 823, DateTimeKind.Local).AddTicks(8547), null, "..\\HomeService\\HomeService.Endpoint.RazorPages.UI\\wwwroot\\img\\ServiceCategory\\f842e927-824f-49f6-8710-124e7f517ed6-mainCategory-icon.webp", false, null, 1, null, null },
+                    { 2, "تعمیرات اشیاء", new DateTime(2024, 4, 30, 13, 41, 48, 823, DateTimeKind.Local).AddTicks(8552), null, "..\\HomeService\\HomeService.Endpoint.RazorPages.UI\\wwwroot\\img\\ServiceCategory\\08a5087d-cd08-49a2-82dd-4738cb2182bd-mainCategory-icon.webp", false, null, 2, null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ServiceSubCategories",
+                columns: new[] { "Id", "CreatedAt", "IsDeleted", "Name", "ServiceCategoryId" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(6012), false, "نظافت و پذیرایی", 1 },
+                    { 2, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(6015), false, "شستشو", 1 },
+                    { 3, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(6017), false, "کارواش و دیتیلینگ", 1 }
                 });
 
             migrationBuilder.CreateIndex(

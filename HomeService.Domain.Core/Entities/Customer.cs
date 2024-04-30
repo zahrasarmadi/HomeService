@@ -19,11 +19,11 @@ public class Customer
     public string BackUpPhoneNumber { get; set; }
     [DisplayName("شماره کارت بانکی")]
     public string? BankCardNumber { get; set; }
-    public List<Address> Addresses { get; set; }
+    public List<Address>? Addresses { get; set; }
     public List<Comment>? Comments { get; set; }
     public List<Order>? Orders { get; set; }
     public DateTime RegisteredAt { get; set; } = DateTime.Now;
-    public DateTime? CreatedAt { get; set; } = DateTime.Now;
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
     public DateTime? LastUpdatedAt { get; set; } = DateTime.Now;
     public bool IsDeleted { get; set; }= false;
 }

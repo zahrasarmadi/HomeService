@@ -9,7 +9,6 @@ public class ServiceUpdateDto
     [DisplayName("نام سرویس")]
     public string Name { get; set; }
     [DisplayName("توضیحات")]
-    public string Description { get; set; }
     public ServiceSubCategory ServiceSubCategory { get; set; }
     public int SubCategoryId { get; set; }
     public List<Expert>? Experts { get; set; }

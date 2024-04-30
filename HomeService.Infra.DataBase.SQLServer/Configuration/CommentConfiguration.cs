@@ -17,5 +17,7 @@ public class CommentConfiguration : IEntityTypeConfiguration<Comment>
         builder.HasOne(c=>c.Expert)
             .WithMany(c => c.Comments)
             .OnDelete(DeleteBehavior.NoAction);
+
+        
     }
 }

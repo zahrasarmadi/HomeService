@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HomeService.Infra.DataBase.SQLServer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240430061613_init")]
+    [Migration("20240430101153_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -65,7 +65,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FullAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDefault")
@@ -139,6 +138,20 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Admins");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 819, DateTimeKind.Local).AddTicks(7847),
+                            Email = "zahrasarmadi17@gmail.com",
+                            FirstName = "زهرا",
+                            Gender = 1,
+                            IsDeleted = false,
+                            LastName = "سرمدی",
+                            Password = "zahrasarmadi",
+                            PhoneNumber = "09927848276"
+                        });
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.City", b =>
@@ -159,6 +172,194 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cities");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4537),
+                            Name = "آذربایجان شرقی"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4540),
+                            Name = "آذربایجان غربی"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4542),
+                            Name = "اردبیل"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4544),
+                            Name = "اصفهان"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4546),
+                            Name = "البرز"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4548),
+                            Name = "ایلام"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4550),
+                            Name = "بوشهر"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4551),
+                            Name = "تهران"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4553),
+                            Name = "چهارمحال و بختیاری"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4555),
+                            Name = "خراسان جنوبی"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4557),
+                            Name = "خراسان رضوی"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4559),
+                            Name = "خراسان شمالی"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4561),
+                            Name = "خوزستان"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4563),
+                            Name = "زنجان"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4565),
+                            Name = "سمنان"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4567),
+                            Name = "سیستان و بلوچستان"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4569),
+                            Name = "فارس"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4572),
+                            Name = "قزوین"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4574),
+                            Name = "قم"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4576),
+                            Name = "کردستان"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4578),
+                            Name = "کرمان"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4580),
+                            Name = "کرمانشاه"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4583),
+                            Name = "کهگیلویه و بویراحمد"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4585),
+                            Name = "گلستان"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4587),
+                            Name = "گیلان"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4589),
+                            Name = "لرستان"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4591),
+                            Name = "مازندران"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4593),
+                            Name = "مرکزی"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4596),
+                            Name = "هرمزگان"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4598),
+                            Name = "همدان"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4600),
+                            Name = "یزد"
+                        });
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Comment", b =>
@@ -216,7 +417,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<string>("BankCardNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
@@ -246,6 +447,36 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BackUpPhoneNumber = "09123669858",
+                            BankCardNumber = "1234123412341234",
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5407),
+                            FirstName = "سارا",
+                            Gender = 1,
+                            IsDeleted = false,
+                            LastName = "محمودی",
+                            LastUpdatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5400),
+                            PhoneNumber = "09192365988",
+                            RegisteredAt = new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5408)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BackUpPhoneNumber = "09123623258",
+                            BankCardNumber = "1239684412341234",
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5414),
+                            FirstName = "محمد",
+                            Gender = 2,
+                            IsDeleted = false,
+                            LastName = "اصغری",
+                            LastUpdatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5411),
+                            PhoneNumber = "09199655988",
+                            RegisteredAt = new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5415)
+                        });
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Expert", b =>
@@ -260,9 +491,8 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BirthDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -353,6 +583,26 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .HasFilter("[ServiceSubCategoryId] IS NOT NULL");
 
                     b.ToTable("Images");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Alt = "ساختمان",
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 823, DateTimeKind.Local).AddTicks(8547),
+                            ImageAddress = "..\\HomeService\\HomeService.Endpoint.RazorPages.UI\\wwwroot\\img\\ServiceCategory\\f842e927-824f-49f6-8710-124e7f517ed6-mainCategory-icon.webp",
+                            IsDeleted = false,
+                            ServiceCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Alt = "تعمیرات اشیاء",
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 823, DateTimeKind.Local).AddTicks(8552),
+                            ImageAddress = "..\\HomeService\\HomeService.Endpoint.RazorPages.UI\\wwwroot\\img\\ServiceCategory\\08a5087d-cd08-49a2-82dd-4738cb2182bd-mainCategory-icon.webp",
+                            IsDeleted = false,
+                            ServiceCategoryId = 2
+                        });
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Order", b =>
@@ -417,10 +667,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -431,7 +677,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int>("ServiceSubCategoryId")
+                    b.Property<int?>("ServiceSubCategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("SubCategoryId")
@@ -442,6 +688,35 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasIndex("ServiceSubCategoryId");
 
                     b.ToTable("Services");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(2341),
+                            IsDeleted = false,
+                            Name = "سرویس عادی نظافت",
+                            Price = 700000,
+                            SubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(2344),
+                            IsDeleted = false,
+                            Name = "سرویس لوکسن نظافت",
+                            Price = 850000,
+                            SubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(2347),
+                            IsDeleted = false,
+                            Name = "سرویس ویژه نظافت",
+                            Price = 1000000,
+                            SubCategoryId = 1
+                        });
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.ServiceCategory", b =>
@@ -455,10 +730,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -469,6 +740,57 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ServiceCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4509),
+                            IsDeleted = false,
+                            Name = "ساختمان"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4512),
+                            IsDeleted = false,
+                            Name = "تعمیرات اشیاء"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4514),
+                            IsDeleted = false,
+                            Name = "اسباب کشی و حمل بار"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4515),
+                            IsDeleted = false,
+                            Name = "خودرو"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4518),
+                            IsDeleted = false,
+                            Name = "سازمان ها و مجتمع ها"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4520),
+                            IsDeleted = false,
+                            Name = "سلامت و زیبایی"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4522),
+                            IsDeleted = false,
+                            Name = "کشکول"
+                        });
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.ServiceSubCategory", b =>
@@ -481,10 +803,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -501,6 +819,32 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasIndex("ServiceCategoryId");
 
                     b.ToTable("ServiceSubCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(6012),
+                            IsDeleted = false,
+                            Name = "نظافت و پذیرایی",
+                            ServiceCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(6015),
+                            IsDeleted = false,
+                            Name = "شستشو",
+                            ServiceCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(6017),
+                            IsDeleted = false,
+                            Name = "کارواش و دیتیلینگ",
+                            ServiceCategoryId = 1
+                        });
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Suggestion", b =>
@@ -670,8 +1014,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasOne("HomeService.Domain.Core.Entities.ServiceSubCategory", "ServiceSubCategory")
                         .WithMany("Services")
                         .HasForeignKey("ServiceSubCategoryId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("ServiceSubCategory");
                 });
@@ -744,24 +1087,21 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Service", b =>
                 {
-                    b.Navigation("Image")
-                        .IsRequired();
+                    b.Navigation("Image");
 
                     b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.ServiceCategory", b =>
                 {
-                    b.Navigation("Image")
-                        .IsRequired();
+                    b.Navigation("Image");
 
                     b.Navigation("ServiceSubCategories");
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.ServiceSubCategory", b =>
                 {
-                    b.Navigation("Image")
-                        .IsRequired();
+                    b.Navigation("Image");
 
                     b.Navigation("Services");
                 });
