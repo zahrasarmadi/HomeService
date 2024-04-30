@@ -20,6 +20,10 @@ public class ExpertConfiguration : IEntityTypeConfiguration<Expert>
         builder.HasOne(e => e.ProfileImage)
             .WithOne(e => e.Expert)
             .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasOne(e=>e.Address)
+            .WithOne(a=>a.Expert)
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }
 

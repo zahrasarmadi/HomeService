@@ -17,9 +17,8 @@ public class AppDbContext : DbContext
         builder.ApplyConfiguration(new CityConfiguration());
         builder.ApplyConfiguration(new CommentConfiguration());
         builder.ApplyConfiguration(new CustomerConfiguration());
-        builder.ApplyConfiguration(new CustomerAddressConfiguration());
+        builder.ApplyConfiguration(new AddressConfiguration());
         builder.ApplyConfiguration(new ExpertConfiguration());
-        builder.ApplyConfiguration(new ExpertAddressConfiguration());
         builder.ApplyConfiguration(new ImageConfiguration());
         builder.ApplyConfiguration(new ServiceConfiguration());
         builder.ApplyConfiguration(new ServiceCategoryConfiguration());
@@ -34,9 +33,8 @@ public class AppDbContext : DbContext
     public DbSet<City> Cities { get; set; }
     public DbSet<Comment> Comments { get; set; }
     public DbSet<Customer> Customers { get; set; }
-    public DbSet<CustomerAddress> CustomerAddresses { get; set; }
+    public DbSet<Address> Addresses { get; set; }
     public DbSet<Expert> Experts { get; set; }
-    public DbSet<ExpertAddress> ExpertAddresses { get; set; }
     public DbSet<Image> Images { get; set; }
     public DbSet<Service> Services { get; set; }
     public DbSet<ServiceCategory> ServiceCategories { get; set; }

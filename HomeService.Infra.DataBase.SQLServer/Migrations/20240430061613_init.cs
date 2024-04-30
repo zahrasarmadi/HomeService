@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -56,7 +55,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     Gender = table.Column<int>(type: "int", nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BackUpPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BankCardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BankCardNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RegisteredAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     LastUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -106,12 +105,13 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CustomerAddresses",
+                name: "Addresses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    CustomerId = table.Column<int>(type: "int", nullable: true),
+                    ExpertId = table.Column<int>(type: "int", nullable: true),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CityId = table.Column<int>(type: "int", nullable: false),
                     Street = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -124,16 +124,21 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CustomerAddresses", x => x.Id);
+                    table.PrimaryKey("PK_Addresses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CustomerAddresses_Cities_CityId",
+                        name: "FK_Addresses_Cities_CityId",
                         column: x => x.CityId,
                         principalTable: "Cities",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_CustomerAddresses_Customers_CustomerId",
+                        name: "FK_Addresses_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Addresses_Experts_ExpertId",
+                        column: x => x.ExpertId,
+                        principalTable: "Experts",
                         principalColumn: "Id");
                 });
 
@@ -161,38 +166,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Comments_Experts_ExpertId",
-                        column: x => x.ExpertId,
-                        principalTable: "Experts",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ExpertAddresses",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ExpertId = table.Column<int>(type: "int", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CityId = table.Column<int>(type: "int", nullable: false),
-                    Street = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Area = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FullAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsDefault = table.Column<bool>(type: "bit", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ExpertAddresses", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ExpertAddresses_Cities_CityId",
-                        column: x => x.CityId,
-                        principalTable: "Cities",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_ExpertAddresses_Experts_ExpertId",
                         column: x => x.ExpertId,
                         principalTable: "Experts",
                         principalColumn: "Id");
@@ -227,6 +200,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ServiceSubCategoryId = table.Column<int>(type: "int", nullable: false),
                     SubCategoryId = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false),
@@ -277,12 +251,12 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
-                    ExpertId = table.Column<int>(type: "int", nullable: false),
+                    ExpertId = table.Column<int>(type: "int", nullable: true),
                     ServiceId = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RequestedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DoneAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DoneAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -312,12 +286,11 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Alt = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ExpertId = table.Column<int>(type: "int", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: false),
-                    RequestId = table.Column<int>(type: "int", nullable: false),
-                    ServiceId = table.Column<int>(type: "int", nullable: false),
-                    ServiceCategoryId = table.Column<int>(type: "int", nullable: false),
-                    ServiceSubCategoryId = table.Column<int>(type: "int", nullable: false),
+                    ExpertId = table.Column<int>(type: "int", nullable: true),
+                    OrderId = table.Column<int>(type: "int", nullable: true),
+                    ServiceId = table.Column<int>(type: "int", nullable: true),
+                    ServiceCategoryId = table.Column<int>(type: "int", nullable: true),
+                    ServiceSubCategoryId = table.Column<int>(type: "int", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -361,7 +334,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     ExpertId = table.Column<int>(type: "int", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false),
-                    IsAccept = table.Column<bool>(type: "bit", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -381,6 +354,23 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Addresses_CityId",
+                table: "Addresses",
+                column: "CityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Addresses_CustomerId",
+                table: "Addresses",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Addresses_ExpertId",
+                table: "Addresses",
+                column: "ExpertId",
+                unique: true,
+                filter: "[ExpertId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Comments_CustomerId",
                 table: "Comments",
                 column: "CustomerId");
@@ -391,27 +381,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                 column: "ExpertId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CustomerAddresses_CityId",
-                table: "CustomerAddresses",
-                column: "CityId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CustomerAddresses_CustomerId",
-                table: "CustomerAddresses",
-                column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ExpertAddresses_CityId",
-                table: "ExpertAddresses",
-                column: "CityId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ExpertAddresses_ExpertId",
-                table: "ExpertAddresses",
-                column: "ExpertId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ExpertService_ServicesId",
                 table: "ExpertService",
                 column: "ServicesId");
@@ -420,7 +389,8 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                 name: "IX_Images_ExpertId",
                 table: "Images",
                 column: "ExpertId",
-                unique: true);
+                unique: true,
+                filter: "[ExpertId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Images_OrderId",
@@ -431,19 +401,22 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                 name: "IX_Images_ServiceCategoryId",
                 table: "Images",
                 column: "ServiceCategoryId",
-                unique: true);
+                unique: true,
+                filter: "[ServiceCategoryId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Images_ServiceId",
                 table: "Images",
                 column: "ServiceId",
-                unique: true);
+                unique: true,
+                filter: "[ServiceId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Images_ServiceSubCategoryId",
                 table: "Images",
                 column: "ServiceSubCategoryId",
-                unique: true);
+                unique: true,
+                filter: "[ServiceSubCategoryId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_CustomerId",
@@ -485,16 +458,13 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Addresses");
+
+            migrationBuilder.DropTable(
                 name: "Admins");
 
             migrationBuilder.DropTable(
                 name: "Comments");
-
-            migrationBuilder.DropTable(
-                name: "CustomerAddresses");
-
-            migrationBuilder.DropTable(
-                name: "ExpertAddresses");
 
             migrationBuilder.DropTable(
                 name: "ExpertService");

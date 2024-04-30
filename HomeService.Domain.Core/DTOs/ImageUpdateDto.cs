@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
+﻿using HomeService.Domain.Core.Entities;
+using System.ComponentModel;
 
-namespace HomeService.Domain.Core.Entities;
+namespace HomeService.Domain.Core.DTOs;
 
-public class Image
+public class ImageUpdateDto
 {
     public int Id { get; set; }
     [DisplayName("توضیحات عکس")]
@@ -12,13 +13,11 @@ public class Image
     public Expert? Expert { get; set; }
     public int? ExpertId { get; set; }
     public Order? Order { get; set; }
-    public int? OrderId { get; set; }
+    public int OrderId { get; set; }
     public Service? Service { get; set; }
     public int? ServiceId { get; set; }
     public ServiceCategory? ServiceCategory { get; set; }
     public int? ServiceCategoryId { get; set; }
     public ServiceSubCategory? ServiceSubCategory { get; set; }
     public int? ServiceSubCategoryId { get; set; }
-    public bool IsDeleted { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
 }

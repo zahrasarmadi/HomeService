@@ -1,13 +1,12 @@
-﻿using HomeService.Domain.Core.Enums;
+﻿using HomeService.Domain.Core.Entities;
+using HomeService.Domain.Core.Enums;
 using System.ComponentModel;
-using System.Reflection;
 
-namespace HomeService.Domain.Core.Entities;
+namespace HomeService.Domain.Core.DTOs;
 
-public class Customer
+public class CustomerUpdateDto
 {
     public int Id { get; set; }
-    [DisplayName("نام")]
     public string FirstName { get; set; }
     [DisplayName("نام خانوادگی")]
     public string LastName { get; set; }
@@ -19,12 +18,4 @@ public class Customer
     public string BackUpPhoneNumber { get; set; }
     [DisplayName("شماره کارت بانکی")]
     public string? BankCardNumber { get; set; }
-    public List<Address> Addresses { get; set; }
-    public List<Comment>? Comments { get; set; }
-    public List<Order>? Orders { get; set; }
-    public DateTime RegisteredAt { get; set; } = DateTime.Now;
-    public DateTime? CreatedAt { get; set; } = DateTime.Now;
-    public DateTime? LastUpdatedAt { get; set; } = DateTime.Now;
-    public bool IsDeleted { get; set; }= false;
 }
-

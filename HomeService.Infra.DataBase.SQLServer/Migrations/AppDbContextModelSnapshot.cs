@@ -37,6 +37,65 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.ToTable("ExpertService");
                 });
 
+            modelBuilder.Entity("HomeService.Domain.Core.Entities.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Area")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ExpertId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FullAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDefault")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("ExpertId")
+                        .IsUnique()
+                        .HasFilter("[ExpertId] IS NOT NULL");
+
+                    b.ToTable("Addresses");
+                });
+
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Admin", b =>
                 {
                     b.Property<int>("Id")
@@ -152,7 +211,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BankCardNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreatedAt")
@@ -185,58 +243,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("HomeService.Domain.Core.Entities.CustomerAddress", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Area")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FullAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDefault")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("PostalCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CustomerId");
-
-                    b.ToTable("CustomerAddresses");
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Expert", b =>
@@ -287,59 +293,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.ToTable("Experts");
                 });
 
-            modelBuilder.Entity("HomeService.Domain.Core.Entities.ExpertAddress", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Area")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ExpertId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FullAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDefault")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("PostalCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("ExpertId")
-                        .IsUnique();
-
-                    b.ToTable("ExpertAddresses");
-                });
-
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Image", b =>
                 {
                     b.Property<int>("Id")
@@ -354,7 +307,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ExpertId")
+                    b.Property<int?>("ExpertId")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageAddress")
@@ -364,36 +317,37 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("OrderId")
+                    b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RequestId")
+                    b.Property<int?>("ServiceCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ServiceCategoryId")
+                    b.Property<int?>("ServiceId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ServiceSubCategoryId")
+                    b.Property<int?>("ServiceSubCategoryId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ExpertId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[ExpertId] IS NOT NULL");
 
                     b.HasIndex("OrderId");
 
                     b.HasIndex("ServiceCategoryId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[ServiceCategoryId] IS NOT NULL");
 
                     b.HasIndex("ServiceId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[ServiceId] IS NOT NULL");
 
                     b.HasIndex("ServiceSubCategoryId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[ServiceSubCategoryId] IS NOT NULL");
 
                     b.ToTable("Images");
                 });
@@ -416,10 +370,10 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DoneAt")
+                    b.Property<DateTime?>("DoneAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ExpertId")
+                    b.Property<int?>("ExpertId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
@@ -459,6 +413,10 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -560,9 +518,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<int>("ExpertId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsAccept")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -570,6 +525,9 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -596,6 +554,31 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("HomeService.Domain.Core.Entities.Address", b =>
+                {
+                    b.HasOne("HomeService.Domain.Core.Entities.City", "City")
+                        .WithMany("Address")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("HomeService.Domain.Core.Entities.Customer", "Customer")
+                        .WithMany("Addresses")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("HomeService.Domain.Core.Entities.Expert", "Expert")
+                        .WithOne("Address")
+                        .HasForeignKey("HomeService.Domain.Core.Entities.Address", "ExpertId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("City");
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Expert");
+                });
+
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Comment", b =>
                 {
                     b.HasOne("HomeService.Domain.Core.Entities.Customer", "Customer")
@@ -615,75 +598,32 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Navigation("Expert");
                 });
 
-            modelBuilder.Entity("HomeService.Domain.Core.Entities.CustomerAddress", b =>
-                {
-                    b.HasOne("HomeService.Domain.Core.Entities.City", "City")
-                        .WithMany("CustomerAddress")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("HomeService.Domain.Core.Entities.Customer", "Customer")
-                        .WithMany("Addresses")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("City");
-
-                    b.Navigation("Customer");
-                });
-
-            modelBuilder.Entity("HomeService.Domain.Core.Entities.ExpertAddress", b =>
-                {
-                    b.HasOne("HomeService.Domain.Core.Entities.City", "City")
-                        .WithMany("ExpertAddress")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("HomeService.Domain.Core.Entities.Expert", "Expert")
-                        .WithOne("Address")
-                        .HasForeignKey("HomeService.Domain.Core.Entities.ExpertAddress", "ExpertId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("City");
-
-                    b.Navigation("Expert");
-                });
-
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Image", b =>
                 {
                     b.HasOne("HomeService.Domain.Core.Entities.Expert", "Expert")
                         .WithOne("ProfileImage")
                         .HasForeignKey("HomeService.Domain.Core.Entities.Image", "ExpertId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("HomeService.Domain.Core.Entities.Order", "Order")
                         .WithMany("Images")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("HomeService.Domain.Core.Entities.ServiceCategory", "ServiceCategory")
                         .WithOne("Image")
                         .HasForeignKey("HomeService.Domain.Core.Entities.Image", "ServiceCategoryId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("HomeService.Domain.Core.Entities.Service", "Service")
                         .WithOne("Image")
                         .HasForeignKey("HomeService.Domain.Core.Entities.Image", "ServiceId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("HomeService.Domain.Core.Entities.ServiceSubCategory", "ServiceSubCategory")
                         .WithOne("Image")
                         .HasForeignKey("HomeService.Domain.Core.Entities.Image", "ServiceSubCategoryId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Expert");
 
@@ -707,8 +647,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasOne("HomeService.Domain.Core.Entities.Expert", "Expert")
                         .WithMany("Orders")
                         .HasForeignKey("ExpertId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("HomeService.Domain.Core.Entities.Service", "Service")
                         .WithMany("Orders")
@@ -766,9 +705,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.City", b =>
                 {
-                    b.Navigation("CustomerAddress");
-
-                    b.Navigation("ExpertAddress");
+                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Customer", b =>

@@ -1,9 +1,10 @@
-﻿using HomeService.Domain.Core.Enums;
+﻿using HomeService.Domain.Core.Entities;
+using HomeService.Domain.Core.Enums;
 using System.ComponentModel;
 
-namespace HomeService.Domain.Core.Entities;
+namespace HomeService.Domain.Core.DTOs;
 
-public class Expert
+public class ExpertUpdateDto
 {
     public int Id { get; set; }
     [DisplayName("نام")]
@@ -20,14 +21,7 @@ public class Expert
     public Image ProfileImage { get; set; }
     [DisplayName("شماره کارت بانکی")]
     public string BankCardNumber { get; set; }
-    public List<Order>? Orders { get; set; }
-    public List<Service>? Services { get; set; }
-    public List<Suggestion>? Suggestions { get; set; }
-    public List<Comment>? Comments { get; set; }
     [DisplayName("آدرس")]
     public Address Address { get; set; }
-    public DateTime RegisteredAt { get; set; } = DateTime.Now;
-    public DateTime? CreatedAt { get; set; } = DateTime.Now;
-    public bool IsConfrim { get; set; } = false;
-    public bool IsDeleted { get; set; } = false;
+    public List<Service> Services { get; set; }
 }

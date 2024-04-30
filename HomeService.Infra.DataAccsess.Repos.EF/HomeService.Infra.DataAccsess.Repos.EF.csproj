@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HomeService.Domain.Core\HomeService.Domain.Core.csproj" />
+    <ProjectReference Include="..\HomeService.Infra.DataBase.SQLServer\HomeService.Infra.DataBase.SQLServer.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -10,12 +10,8 @@ public class CityConfiguration : IEntityTypeConfiguration<City>
     {
         builder.HasKey(c => c.Id);
 
-        builder.HasMany(c => c.CustomerAddress)
+        builder.HasMany(c => c.Address)
             .WithOne(c => c.City)
             .OnDelete(DeleteBehavior.NoAction);
-
-        builder.HasMany(c => c.ExpertAddress)
-            .WithOne(c => c.City)
-            .OnDelete(DeleteBehavior.NoAction); 
     }
 }

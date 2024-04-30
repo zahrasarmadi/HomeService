@@ -1,13 +1,12 @@
-﻿using System.ComponentModel;
+﻿using HomeService.Domain.Core.Entities;
+using System.ComponentModel;
 
-namespace HomeService.Domain.Core.Entities;
+namespace HomeService.Domain.Core.DTOs;
 
-public class Service
+public class ServiceCreateDto
 {
-    public int Id { get; set; }
     [DisplayName("نام سرویس")]
     public string Name { get; set; }
-    [DisplayName("توضیحات")]
     public string Description { get; set; }
     public ServiceSubCategory ServiceSubCategory { get; set; }
     public int SubCategoryId { get; set; }
@@ -16,6 +15,4 @@ public class Service
     public Image Image { get; set; }
     [DisplayName("قیمت")]
     public int Price { get; set; }
-    public bool IsDeleted { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
 }

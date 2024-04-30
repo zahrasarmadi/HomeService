@@ -1,11 +1,10 @@
-﻿using System.ComponentModel;
+﻿using HomeService.Domain.Core.Entities;
+using System.ComponentModel;
 
-namespace HomeService.Domain.Core.Entities;
+namespace HomeService.Domain.Core.DTOs;
 
-public class Comment
+public class CommentCreateDto
 {
-    public int Id { get; set; }
-    [DisplayName("عنوان")]
     public string Title { get; set; }
     [DisplayName("متن کامنت")]
     public string Description { get; set; }
@@ -15,6 +14,4 @@ public class Comment
     public Customer Customer { get; set; }
     public int ExpertId { get; set; }
     public Expert Expert { get; set; }
-    public bool IsDeleted { get; set; } = false;
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
 }

@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
+﻿using HomeService.Domain.Core.Entities;
+using System.ComponentModel;
 
-namespace HomeService.Domain.Core.Entities;
+namespace HomeService.Domain.Core.DTOs;
 
-public class Service
+public class ServiceUpdateDto
 {
     public int Id { get; set; }
     [DisplayName("نام سرویس")]
@@ -16,6 +17,4 @@ public class Service
     public Image Image { get; set; }
     [DisplayName("قیمت")]
     public int Price { get; set; }
-    public bool IsDeleted { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
 }

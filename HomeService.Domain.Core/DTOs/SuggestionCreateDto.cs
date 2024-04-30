@@ -1,11 +1,10 @@
-﻿using HomeService.Domain.Core.Enums;
+﻿using HomeService.Domain.Core.Entities;
 using System.ComponentModel;
 
-namespace HomeService.Domain.Core.Entities;
+namespace HomeService.Domain.Core.DTOs;
 
-public class Suggestion
+public class SuggestionCreateDto
 {
-    public int Id { get; set; }
     [DisplayName("توضیحات")]
     public string Description { get; set; }
     public Expert Expert { get; set; }
@@ -14,7 +13,4 @@ public class Suggestion
     public int OrderId { get; set; }
     [DisplayName("قیمت پیشنهادی")]
     public int Price { get; set; }
-    public StatusEnum Status { get; set; } = StatusEnum.AwaitingCustomerConfirmation;
-    public DateTime CreateAt { get; set; }
-    public bool IsDeleted { get; set; } = false;
 }
