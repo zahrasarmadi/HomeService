@@ -5,9 +5,9 @@ namespace HomeService.Domain.Core.Contracts.Repositories;
 
 public interface IImageRepository
 {
-    public bool Create(ImageCreateDto imageCreateDto);
-    public bool Update(ImageUpdateDto imageUpdateDto);
-    public bool Delete(int imageId);
-    public Image GetById(int imageId);
-    //public List<Image> GetAll();
+    public Task<bool> Create(ImageCreateDto imageCreateDto, CancellationToken cancellationToken);
+    public Task<bool> Update(ImageUpdateDto imageUpdateDto, CancellationToken cancellationToken);
+    public Task<bool> Delete(int imageId, CancellationToken cancellationToken);
+    public Task<Image> GetById(int imageId, CancellationToken cancellationToken);
+    //public Task<List<Image>> GetAll( CancellationToken cancellationToken);
 }

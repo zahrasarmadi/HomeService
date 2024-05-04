@@ -13,13 +13,13 @@ public class CityRepository : ICityRepository
     {
         _context = context;
     }
-    public List<City> GetAll()
+    public async Task<List<City>> GetAll(CancellationToken cancellationToken)
     {
-      return _context.Cities.AsNoTracking().ToList();
+        return await _context.Cities.AsNoTracking().ToListAsync(cancellationToken);
     }
 
-    public City GetById(int cityId)
+    public async Task<City> GetById(int cityId,CancellationToken cancellationToken)
     {
-        return _context.Cities.AsNoTracking().FirstOrDefault(c => c.Id == cityId);
+        return await _context.Cities.AsNoTracking().FirstOrDefaultAsync(c => c.Id == cityId,cancellationToken);
     }
 }

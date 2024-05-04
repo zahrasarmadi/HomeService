@@ -16,7 +16,7 @@ public class ServiceRepository : IServiceRepository
         _context = context;
     }
 
-    public bool Create(ServiceCreateDto serviceCreateDto)
+    public async Task<bool> Create(ServiceCreateDto serviceCreateDto, CancellationToken cancellationToken)
     {
 
         var newModel = new Service()
@@ -29,45 +29,48 @@ public class ServiceRepository : IServiceRepository
             Image = serviceCreateDto.Image,
             Price = serviceCreateDto.Price,
         };
-        _context.Services.Add(newModel);
+        await _context.Services.AddAsync(newModel, cancellationToken);
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
 
     }
 
-    public bool Delete(int serviceId)
+    public async Task<bool> Delete(int serviceId, CancellationToken cancellationToken)
     {
-        _context.Services
-           .FirstOrDefault(a => a.Id == serviceId).IsDeleted = true;
-        _context.SaveChanges();
+        var targetModel = await FindService(serviceId, cancellationToken);
+        targetModel.IsDeleted = true;
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public List<Service> GetAll()
+    public async Task< List<Service> >GetAll(CancellationToken cancellationToken)
     {
-        return _context.Services.AsNoTracking().ToList();
+        return await _context.Services.AsNoTracking().ToListAsync(cancellationToken);
     }
 
-    public Service GetById(int serviceId)
+    public async Task< Service> GetById(int serviceId, CancellationToken cancellationToken)
     {
-        return _context.Services.AsNoTracking().FirstOrDefault(a => a.Id == serviceId);
+        return await FindService(serviceId,cancellationToken);
     }
 
-    public bool Update(ServiceUpdateDto serviceUpdateDto)
+    public async Task< bool> Update(ServiceUpdateDto serviceUpdateDto,CancellationToken cancellationToken)
     {
-        var targetModel = _context.Services.FirstOrDefault(a => a.Id == serviceUpdateDto.Id);
+        var targetModel = await FindService(serviceUpdateDto.Id, cancellationToken);
 
         targetModel.Name = serviceUpdateDto.Name;
-            targetModel.ServiceSubCategory = serviceUpdateDto.ServiceSubCategory;
-            targetModel.SubCategoryId = serviceUpdateDto.SubCategoryId;
-            targetModel.Experts = serviceUpdateDto.Experts;
-           targetModel.Orders = serviceUpdateDto.Orders;
-           targetModel.Image = serviceUpdateDto.Image;
-           targetModel.Price = serviceUpdateDto.Price;
+        targetModel.ServiceSubCategory = serviceUpdateDto.ServiceSubCategory;
+        targetModel.SubCategoryId = serviceUpdateDto.SubCategoryId;
+        targetModel.Experts = serviceUpdateDto.Experts;
+        targetModel.Orders = serviceUpdateDto.Orders;
+        targetModel.Image = serviceUpdateDto.Image;
+        targetModel.Price = serviceUpdateDto.Price;
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
 
         return true;
     }
+
+    private async Task<Service> FindService(int id, CancellationToken cancellationToken)
+   => await _context.Services.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

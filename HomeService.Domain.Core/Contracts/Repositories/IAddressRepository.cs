@@ -5,9 +5,9 @@ namespace HomeService.Domain.Core.Contracts.Repositories;
 
 public interface IAddressRepository
 {
-    public bool Create(AddressCreateDto addressCreateDto);
-    public bool Update(AddressUpdateDto addrressUpdateDto);
-    public bool Delete(int addressId);
-    public Address GetById(int addressId);
-    public List<Address> GetAll();
+    public Task<bool> Create(AddressCreateDto addressCreateDto, CancellationToken cancellationToken);
+    public Task<bool> Update(AddressUpdateDto addrressUpdateDto, CancellationToken cancellationToken);
+    public Task<bool> Delete(int addressId, CancellationToken cancellationToken);
+    public Task<Address> GetById(int addressId, CancellationToken cancellationToken);
+    public Task<List<Address>> GetAll(CancellationToken cancellationToken);
 }

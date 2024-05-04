@@ -13,7 +13,7 @@ public class ImageRepository : IImageRepository
     {
         _context = context;
     }
-    public bool Create(ImageCreateDto imageCreateDto)
+    public async Task<bool> Create(ImageCreateDto imageCreateDto, CancellationToken cancellationToken)
     {
         var newModel = new Image()
         {
@@ -28,28 +28,28 @@ public class ImageRepository : IImageRepository
             ServiceCategory = imageCreateDto.ServiceCategory,
             ServiceSubCategory = imageCreateDto.ServiceSubCategory,
         };
-        _context.Images.Add(newModel);
+        await _context.Images.AddAsync(newModel, cancellationToken);
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public bool Delete(int imageId)
+    public async Task<bool> Delete(int imageId, CancellationToken cancellationToken)
     {
-        _context.Customers
-          .FirstOrDefault(a => a.Id == imageId).IsDeleted = true;
-        _context.SaveChanges();
+        var targetModel =await FindImage(imageId, cancellationToken);
+        targetModel.IsDeleted = true;
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public Image GetById(int imageId)
+    public async Task<Image> GetById(int imageId,CancellationToken cancellationToken)
     {
-        return _context.Images.AsNoTracking().FirstOrDefault(a => a.Id == imageId);
+        return await FindImage(imageId,cancellationToken);
     }
 
-    public bool Update(ImageUpdateDto imageUpdateDto)
+    public async Task< bool> Update(ImageUpdateDto imageUpdateDto,CancellationToken cancellationToken)
     {
-        var targetModel = _context.Images.FirstOrDefault(a => a.Id == imageUpdateDto.Id);
+        var targetModel = await FindImage(imageUpdateDto.Id,cancellationToken);
 
         targetModel.Alt = imageUpdateDto.Alt;
         targetModel.ImageAddress = imageUpdateDto.ImageAddress;
@@ -61,8 +61,11 @@ public class ImageRepository : IImageRepository
         targetModel.ServiceId = imageUpdateDto.ServiceId;
         targetModel.ServiceCategory = imageUpdateDto.ServiceCategory;
         targetModel.ServiceSubCategory = imageUpdateDto.ServiceSubCategory;
-        _context.SaveChanges();
+       await _context.SaveChangesAsync(cancellationToken);
 
         return true;
     }
+
+    private async Task<Image> FindImage(int id, CancellationToken cancellationToken)
+   => await _context.Images.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

@@ -3,67 +3,71 @@ using HomeService.Domain.Core.DTOs;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.Design;
+using System.Threading;
 
-namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories
+
+namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
+
+public class CustomerRepository : ICustomerRepository
 {
-    public class CustomerRepository : ICustomerRepository
+    private readonly AppDbContext _context;
+    public CustomerRepository(AppDbContext context)
     {
-        private readonly AppDbContext _context;
-        public CustomerRepository(AppDbContext context)
-        {
-            _context = context;
-        }
-        public bool Create(CustomerCreateDto customerCreateDto)
-        {
-            var newModel = new Customer()
-            {
-                FirstName = customerCreateDto.FirstName,
-                LastName = customerCreateDto.LastName,
-                Gender = customerCreateDto.Gender,
-                PhoneNumber = customerCreateDto.PhoneNumber,
-                BackUpPhoneNumber = customerCreateDto.BackUpPhoneNumber,
-                BankCardNumber = customerCreateDto.BankCardNumber,
-                Addresses = customerCreateDto.Addresses,
-            };
-            _context.Customers.Add(newModel);
-
-            _context.SaveChanges();
-            return true;
-        }
-
-        public bool Delete(int customerId)
-        {
-            _context.Customers
-                .FirstOrDefault(a => a.Id == customerId).IsDeleted = true;
-            _context.SaveChanges();
-            return true;
-        }
-
-        public List<Customer> GetAll()
-        {
-            return _context.Customers.AsNoTracking().ToList();
-        }
-
-        public Customer GetById(int customerId)
-        {
-            return _context.Customers.AsNoTracking().FirstOrDefault(a => a.Id == customerId);
-        }
-
-        public bool Update(CustomerUpdateDto customerUpdateDto)
-        {
-            var targetModel = _context.Customers.FirstOrDefault(a => a.Id == customerUpdateDto.Id);
-
-            targetModel.FirstName = customerUpdateDto.FirstName;
-            targetModel.LastName = customerUpdateDto.LastName;
-            targetModel.Gender = customerUpdateDto.Gender;
-            targetModel.PhoneNumber = customerUpdateDto.PhoneNumber;
-            targetModel.BackUpPhoneNumber = customerUpdateDto.BackUpPhoneNumber;
-            targetModel.BankCardNumber = customerUpdateDto.BankCardNumber;
-
-            _context.SaveChanges();
-
-            return true;
-        }
+        _context = context;
     }
+    public async Task<bool> Create(CustomerCreateDto customerCreateDto, CancellationToken cancellationToken)
+    {
+        var newModel = new Customer()
+        {
+            FirstName = customerCreateDto.FirstName,
+            LastName = customerCreateDto.LastName,
+            Gender = customerCreateDto.Gender,
+            PhoneNumber = customerCreateDto.PhoneNumber,
+            BackUpPhoneNumber = customerCreateDto.BackUpPhoneNumber,
+            BankCardNumber = customerCreateDto.BankCardNumber,
+            Addresses = customerCreateDto.Addresses,
+        };
+        await _context.Customers.AddAsync(newModel, cancellationToken);
+
+        await _context.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+
+    public async Task<bool> Delete(int customerId, CancellationToken cancellationToken)
+    {
+        var targetModel = await FindCustomer(customerId, cancellationToken);
+        targetModel.IsDeleted = true;
+
+        _context.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+
+    public async Task<List<Customer>> GetAll(CancellationToken cancellationToken)
+    {
+        return await _context.Customers.AsNoTracking().ToListAsync(cancellationToken);
+    }
+
+    public async Task<Customer> GetById(int customerId, CancellationToken cancellationToken)
+    {
+        return await FindCustomer(customerId, cancellationToken);
+    }
+
+    public async Task<bool> Update(CustomerUpdateDto customerUpdateDto, CancellationToken cancellationToken)
+    {
+        var targetModel = await FindCustomer(customerUpdateDto.Id, cancellationToken);
+
+        targetModel.FirstName = customerUpdateDto.FirstName;
+        targetModel.LastName = customerUpdateDto.LastName;
+        targetModel.Gender = customerUpdateDto.Gender;
+        targetModel.PhoneNumber = customerUpdateDto.PhoneNumber;
+        targetModel.BackUpPhoneNumber = customerUpdateDto.BackUpPhoneNumber;
+        targetModel.BankCardNumber = customerUpdateDto.BankCardNumber;
+
+        await _context.SaveChangesAsync(cancellationToken);
+
+        return true;
+    }
+
+    private async Task<Customer> FindCustomer(int id, CancellationToken cancellationToken)
+       => await _context.Customers.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

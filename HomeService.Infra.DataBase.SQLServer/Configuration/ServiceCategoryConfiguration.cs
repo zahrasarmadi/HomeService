@@ -20,13 +20,14 @@ internal class ServiceCategoryConfiguration : IEntityTypeConfiguration<ServiceCa
 
         builder.HasData
             (
-            new ServiceCategory() { Id = 1, Name = "ساختمان",CreatedAt=DateTime.Now,IsDeleted=false },
-            new ServiceCategory() { Id = 2, Name = "تعمیرات اشیاء", CreatedAt = DateTime.Now, IsDeleted = false },
-            new ServiceCategory() { Id = 3, Name = "اسباب کشی و حمل بار", CreatedAt = DateTime.Now, IsDeleted = false },
-            new ServiceCategory() { Id = 4, Name = "خودرو", CreatedAt = DateTime.Now, IsDeleted = false },
-            new ServiceCategory() { Id = 5, Name = "سازمان ها و مجتمع ها", CreatedAt = DateTime.Now, IsDeleted = false },
-            new ServiceCategory() { Id = 6, Name = "سلامت و زیبایی", CreatedAt = DateTime.Now, IsDeleted = false },
-            new ServiceCategory() { Id = 7, Name = "کشکول", CreatedAt = DateTime.Now, IsDeleted = false }
+            new ServiceCategory() { Id = 1, Name = "تمیزکاری", CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceCategory() { Id = 2, Name = "ساختمان",CreatedAt=DateTime.Now,IsDeleted=false },
+            new ServiceCategory() { Id = 3, Name = "تعمیرات اشیاء", CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceCategory() { Id = 4, Name = "اسباب کشی و حمل بار", CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceCategory() { Id = 5, Name = "خودرو", CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceCategory() { Id = 6, Name = "سازمان ها و مجتمع ها", CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceCategory() { Id = 7, Name = "سلامت و زیبایی", CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceCategory() { Id = 8, Name = "کشکول", CreatedAt = DateTime.Now, IsDeleted = false }
             );
     }
 }

@@ -8,13 +8,13 @@ namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 
 public class AddressRepository : IAddressRepository
 {
-
     private readonly AppDbContext _context;
     public AddressRepository(AppDbContext context)
     {
         _context = context;
     }
-    public bool Create(AddressCreateDto addressCreateDto)
+
+    public async Task<bool> Create(AddressCreateDto addressCreateDto, CancellationToken cancellationToken)
     {
         var newModel = new Address()
         {
@@ -26,33 +26,31 @@ public class AddressRepository : IAddressRepository
             Title = addressCreateDto.Title,
             IsDefault = addressCreateDto.IsDefault,
         };
-        _context.Addresses.Add(newModel);
+        await _context.Addresses.AddAsync(newModel);
 
-        _context.SaveChanges();
+        _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public bool Delete(int addressId)
+    public async Task<bool> Delete(int addressId, CancellationToken cancellationToken)
     {
-       _context.Addresses
-            .FirstOrDefault(a => a.Id == addressId).IsDeleted = true;
-        _context.SaveChanges();
+        var targetMidel = await FindAddress(addressId, cancellationToken);
+        targetMidel.IsDeleted = true;
+
+        _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public List<Address> GetAll()
-    {
-        return _context.Addresses.AsNoTracking().ToList();
-    }
+    public async Task<List<Address>> GetAll(CancellationToken cancellationToken)
+        => await _context.Addresses.AsNoTracking().ToListAsync(cancellationToken);
 
-    public Address GetById(int addressId)
-    {
-       return _context.Addresses.AsNoTracking().FirstOrDefault(a => a.Id == addressId);
-    }
+    public async Task<Address> GetById(int addressId, CancellationToken cancellationToken)
+      => await FindAddress(addressId, cancellationToken);
 
-    public bool Update(AddressUpdateDto addrressUpdateDto)
+
+    public async Task<bool> Update(AddressUpdateDto addrressUpdateDto, CancellationToken cancellationToken)
     {
-        var targetModel = _context.Addresses.FirstOrDefault(a => a.Id == addrressUpdateDto.Id);
+        var targetModel = await FindAddress(addrressUpdateDto.Id, cancellationToken);
 
         targetModel.Area = addrressUpdateDto.Area;
         targetModel.Title = addrressUpdateDto.Title;
@@ -60,10 +58,13 @@ public class AddressRepository : IAddressRepository
         targetModel.City = addrressUpdateDto.City;
         targetModel.Street = addrressUpdateDto.Street;
         targetModel.PostalCode = addrressUpdateDto.PostalCode;
-        targetModel.IsDefault=addrressUpdateDto.IsDefault;
+        targetModel.IsDefault = addrressUpdateDto.IsDefault;
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
 
         return true;
     }
+
+    private async Task<Address> FindAddress(int id, CancellationToken cancellationToken)
+        => await _context.Addresses.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

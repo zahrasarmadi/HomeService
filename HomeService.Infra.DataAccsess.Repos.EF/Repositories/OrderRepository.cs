@@ -15,7 +15,7 @@ public class OrderRepository : IOrderRepository
     {
         _context = context;
     }
-    public bool Create(OrderCreateDto orderCreateDto)
+    public async Task<bool> Create(OrderCreateDto orderCreateDto, CancellationToken cancellationToken)
     {
         var newModel = new Order()
         {
@@ -28,33 +28,33 @@ public class OrderRepository : IOrderRepository
             ServiceId = orderCreateDto.ServiceId,
             Images = orderCreateDto.Images,
         };
-        _context.Orders.Add(newModel);
+        await _context.Orders.AddAsync(newModel, cancellationToken);
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public bool Delete(int orderId)
+    public async Task<bool> Delete(int orderId, CancellationToken cancellationToken)
     {
-        _context.Orders
-          .FirstOrDefault(a => a.Id == orderId).IsDeleted = true;
-        _context.SaveChanges();
+        var targetModel = await FindOrder(orderId, cancellationToken);
+        targetModel.IsDeleted = true;
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public List<Order> GetAll()
+    public async Task< List<Order>> GetAll(CancellationToken cancellationToken)
     {
-        return _context.Orders.AsNoTracking().ToList();
+        return await _context.Orders.AsNoTracking().ToListAsync(cancellationToken);
     }
 
-    public Order GetById(int orderId)
+    public async Task< Order>GetById(int orderId,CancellationToken cancellationToken)
     {
-        return _context.Orders.AsNoTracking().FirstOrDefault(a => a.Id == orderId);
+        return await FindOrder(orderId,cancellationToken);
     }
 
-    public bool Update(OrderUpdateDto orderUpdateDto)
+    public async Task< bool> Update(OrderUpdateDto orderUpdateDto,CancellationToken cancellationToken)
     {
-        var targetModel = _context.Orders.FirstOrDefault(a => a.Id == orderUpdateDto.Id);
+        var targetModel = await FindOrder(orderUpdateDto.Id, cancellationToken);
 
         targetModel.Title = orderUpdateDto.Title;
         targetModel.Description = orderUpdateDto.Description;
@@ -65,10 +65,13 @@ public class OrderRepository : IOrderRepository
         targetModel.ServiceId = orderUpdateDto.ServiceId;
         targetModel.Images = orderUpdateDto.Images;
         targetModel.DoneAt = orderUpdateDto.DoneAt;
-        targetModel.Suggestions= orderUpdateDto.Suggestions;
+        targetModel.Suggestions = orderUpdateDto.Suggestions;
 
-        _context.SaveChanges();
+       await _context.SaveChangesAsync(cancellationToken);
 
         return true;
     }
+
+    private async Task<Order> FindOrder(int id, CancellationToken cancellationToken)
+      => await _context.Orders.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

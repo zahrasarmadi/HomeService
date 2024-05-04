@@ -5,9 +5,9 @@ namespace HomeService.Domain.Core.Contracts.Repositories;
 
 public interface IServiceSubCategoryRepository
 {
-    public bool Create(ServiceSubCategoryCreateDto serviceSubCategoryCreateDto);
-    public bool Update(ServiceSubCategoryUpdateDto serviceSubCategoryUpdateDto);
-    public bool Delete(int serviceSubCategoryId);
-    public ServiceSubCategory GetById(int serviceSubCategoryId);
-    public List<ServiceSubCategory> GetAll();
+    public Task<bool> Create(ServiceSubCategoryCreateDto serviceSubCategoryCreateDto, CancellationToken cancellationToken);
+    public Task<bool> Update(ServiceSubCategoryUpdateDto serviceSubCategoryUpdateDto, CancellationToken cancellationToken);
+    public Task<bool> Delete(int serviceSubCategoryId, CancellationToken cancellationToken);
+    public Task<ServiceSubCategory> GetById(int serviceSubCategoryId, CancellationToken cancellationToken);
+    public Task<List<ServiceSubCategory>> GetAll( CancellationToken cancellationToken);
 }

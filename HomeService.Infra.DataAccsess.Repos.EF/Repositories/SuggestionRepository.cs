@@ -13,7 +13,7 @@ public class SuggestionRepository : ISuggestionRepository
     {
         _context = context;
     }
-    public bool Create(SuggestionCreateDto suggestionCreateDto)
+    public async Task<bool> Create(SuggestionCreateDto suggestionCreateDto, CancellationToken cancellationToken)
     {
         var newModel = new Suggestion()
         {
@@ -24,39 +24,42 @@ public class SuggestionRepository : ISuggestionRepository
             OrderId = suggestionCreateDto.OrderId,
             Price = suggestionCreateDto.Price,
         };
-        _context.Suggestions.Add(newModel);
+        await _context.Suggestions.AddAsync(newModel, cancellationToken);
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public bool Delete(int suggestionId)
+    public async Task<bool> Delete(int suggestionId, CancellationToken cancellationToken)
     {
-        _context.Suggestions
-           .FirstOrDefault(a => a.Id == suggestionId).IsDeleted = true;
-        _context.SaveChanges();
+        var targetModel = await FindSuggestion(suggestionId, cancellationToken);
+        targetModel.IsDeleted = true;
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public List<Suggestion> GetAll()
+    public async Task<List<Suggestion>> GetAll(CancellationToken cancellationToken)
     {
-        return _context.Suggestions.AsNoTracking().ToList();
+        return await _context.Suggestions.AsNoTracking().ToListAsync(cancellationToken);
     }
 
-    public Suggestion GetById(int suggestionId)
+    public async Task<Suggestion> GetById(int suggestionId, CancellationToken cancellationToken)
     {
-        return _context.Suggestions.AsNoTracking().FirstOrDefault(a => a.Id == suggestionId);
+        return await FindSuggestion(suggestionId, cancellationToken);
     }
 
-    public bool Update(SuggestionUpdateDto suggestionUpdateDto)
+    public async Task<bool> Update(SuggestionUpdateDto suggestionUpdateDto, CancellationToken cancellationToken)
     {
-        var targetModel = _context.Suggestions.FirstOrDefault(a => a.Id == suggestionUpdateDto.Id);
+        var targetModel = await FindSuggestion(suggestionUpdateDto.Id, cancellationToken);
 
         targetModel.Description = suggestionUpdateDto.Description;
         targetModel.Price = suggestionUpdateDto.Price;
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
 
         return true;
     }
+
+    private async Task<Suggestion> FindSuggestion(int id, CancellationToken cancellationToken)
+   => await _context.Suggestions.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

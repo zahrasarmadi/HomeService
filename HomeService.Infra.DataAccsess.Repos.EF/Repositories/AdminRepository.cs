@@ -3,6 +3,7 @@ using HomeService.Domain.Core.DTOs;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
 
 namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 
@@ -14,7 +15,7 @@ public class AdminRepository : IAdminRepository
         _context = context;
     }
 
-    public bool Create(AdminCreateDto adminCreateDto)
+    public async Task<bool> Create(AdminCreateDto adminCreateDto, CancellationToken cancellationToken)
     {
         var newModel = new Admin()
         {
@@ -26,34 +27,32 @@ public class AdminRepository : IAdminRepository
             PhoneNumber = adminCreateDto.PhoneNumber,
         };
 
-        _context.Admins.Add(newModel);
-        _context.SaveChanges();
+        await _context.Admins.AddAsync(newModel,cancellationToken);
+        _context.SaveChangesAsync(cancellationToken);
         return true;
 
     }
 
-    public bool Delete(int adminId)
+    public async Task<bool> Delete(int adminId, CancellationToken cancellationToken)
     {
-        var targetAdmin = _context.Admins.FirstOrDefault(a => a.Id == adminId);
+        var targetAdmin = await FindAdmin(adminId, cancellationToken);
         targetAdmin.IsDeleted = true;
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
 
     }
 
-    public List<Admin> GetAll()
-    {
-        return _context.Admins.AsNoTracking().ToList();
-    }
+    public async Task<List<Admin>> GetAll(CancellationToken cancellationToken)
+        => await _context.Admins.AsNoTracking().ToListAsync(cancellationToken);
 
-    public Admin GetById(int adminId)
-    {
-        return _context.Admins.AsNoTracking().FirstOrDefault(a => a.Id == adminId);
-    }
 
-    public bool Update(AdminUpdateDto adminUpdateDto)
+    public async Task<Admin> GetById(int adminId, CancellationToken cancellationToken)
+      => await FindAdmin(adminId, cancellationToken);
+
+
+    public async Task<bool> Update(AdminUpdateDto adminUpdateDto, CancellationToken cancellationToken)
     {
-        var targetModel = _context.Admins.FirstOrDefault(a => a.Id == adminUpdateDto.Id);
+        var targetModel =await FindAdmin(adminUpdateDto.Id, cancellationToken);
 
         targetModel.FirstName = adminUpdateDto.FirstName;
         targetModel.LastName = adminUpdateDto.LastName;
@@ -62,7 +61,10 @@ public class AdminRepository : IAdminRepository
         targetModel.Password = adminUpdateDto.Password;
         targetModel.PhoneNumber = adminUpdateDto.PhoneNumber;
 
-        _context.SaveChanges();
+        _context.SaveChangesAsync(cancellationToken);
         return true;
     }
+
+    private async Task<Admin> FindAdmin(int id, CancellationToken cancellationToken)
+      => await _context.Admins.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
 }

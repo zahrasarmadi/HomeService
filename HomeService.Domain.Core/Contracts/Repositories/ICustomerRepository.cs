@@ -5,9 +5,9 @@ namespace HomeService.Domain.Core.Contracts.Repositories;
 
 public interface ICustomerRepository
 {
-    public bool Create(CustomerCreateDto customerCreateDto);
-    public bool Update(CustomerUpdateDto customerUpdateDto);
-    public bool Delete(int customerId);
-    public Customer GetById(int customerId);
-    public List<Customer> GetAll();
+    public Task<bool> Create(CustomerCreateDto customerCreateDto, CancellationToken cancellationToken);
+    public Task<bool> Update(CustomerUpdateDto customerUpdateDto, CancellationToken cancellationToken);
+    public Task<bool> Delete(int customerId, CancellationToken cancellationToken);
+    public Task<Customer> GetById(int customerId, CancellationToken cancellationToken);
+    public Task<List<Customer>> GetAll(CancellationToken cancellationToken);
 }

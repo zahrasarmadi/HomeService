@@ -5,9 +5,9 @@ namespace HomeService.Domain.Core.Contracts.Repositories;
 
 public interface IOrderRepository
 {
-    public bool Create(OrderCreateDto orderCreateDto);
-    public bool Update(OrderUpdateDto orderUpdateDto);
-    public bool Delete(int orderId);
-    public Order GetById(int orderId);
-    public List<Order> GetAll();
+    public Task<bool> Create(OrderCreateDto orderCreateDto, CancellationToken cancellationToken);
+    public Task<bool> Update(OrderUpdateDto orderUpdateDto, CancellationToken cancellationToken);
+    public Task<bool> Delete(int orderId, CancellationToken cancellationToken);
+    public Task<Order> GetById(int orderId, CancellationToken cancellationToken);
+    public Task<List<Order>> GetAll( CancellationToken cancellationToken);
 }

@@ -356,44 +356,44 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
             migrationBuilder.InsertData(
                 table: "Admins",
                 columns: new[] { "Id", "CreatedAt", "Email", "FirstName", "Gender", "IsDeleted", "LastName", "Password", "PhoneNumber" },
-                values: new object[] { 1, new DateTime(2024, 4, 30, 13, 41, 48, 819, DateTimeKind.Local).AddTicks(7847), "zahrasarmadi17@gmail.com", "زهرا", 1, false, "سرمدی", "zahrasarmadi", "09927848276" });
+                values: new object[] { 1, new DateTime(2024, 4, 30, 18, 0, 18, 83, DateTimeKind.Local).AddTicks(6845), "zahrasarmadi17@gmail.com", "زهرا", 1, false, "سرمدی", "zahrasarmadi", "09927848276" });
 
             migrationBuilder.InsertData(
                 table: "Cities",
                 columns: new[] { "Id", "CreatedAt", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4537), "آذربایجان شرقی" },
-                    { 2, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4540), "آذربایجان غربی" },
-                    { 3, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4542), "اردبیل" },
-                    { 4, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4544), "اصفهان" },
-                    { 5, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4546), "البرز" },
-                    { 6, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4548), "ایلام" },
-                    { 7, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4550), "بوشهر" },
-                    { 8, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4551), "تهران" },
-                    { 9, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4553), "چهارمحال و بختیاری" },
-                    { 10, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4555), "خراسان جنوبی" },
-                    { 11, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4557), "خراسان رضوی" },
-                    { 12, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4559), "خراسان شمالی" },
-                    { 13, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4561), "خوزستان" },
-                    { 14, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4563), "زنجان" },
-                    { 15, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4565), "سمنان" },
-                    { 16, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4567), "سیستان و بلوچستان" },
-                    { 17, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4569), "فارس" },
-                    { 18, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4572), "قزوین" },
-                    { 19, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4574), "قم" },
-                    { 20, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4576), "کردستان" },
-                    { 21, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4578), "کرمان" },
-                    { 22, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4580), "کرمانشاه" },
-                    { 23, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4583), "کهگیلویه و بویراحمد" },
-                    { 24, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4585), "گلستان" },
-                    { 25, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4587), "گیلان" },
-                    { 26, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4589), "لرستان" },
-                    { 27, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4591), "مازندران" },
-                    { 28, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4593), "مرکزی" },
-                    { 29, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4596), "هرمزگان" },
-                    { 30, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4598), "همدان" },
-                    { 31, new DateTime(2024, 4, 30, 13, 41, 48, 821, DateTimeKind.Local).AddTicks(4600), "یزد" }
+                    { 1, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3532), "آذربایجان شرقی" },
+                    { 2, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3535), "آذربایجان غربی" },
+                    { 3, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3536), "اردبیل" },
+                    { 4, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3538), "اصفهان" },
+                    { 5, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3539), "البرز" },
+                    { 6, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3541), "ایلام" },
+                    { 7, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3543), "بوشهر" },
+                    { 8, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3544), "تهران" },
+                    { 9, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3545), "چهارمحال و بختیاری" },
+                    { 10, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3547), "خراسان جنوبی" },
+                    { 11, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3548), "خراسان رضوی" },
+                    { 12, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3550), "خراسان شمالی" },
+                    { 13, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3551), "خوزستان" },
+                    { 14, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3553), "زنجان" },
+                    { 15, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3554), "سمنان" },
+                    { 16, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3555), "سیستان و بلوچستان" },
+                    { 17, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3557), "فارس" },
+                    { 18, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3558), "قزوین" },
+                    { 19, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3560), "قم" },
+                    { 20, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3561), "کردستان" },
+                    { 21, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3563), "کرمان" },
+                    { 22, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3564), "کرمانشاه" },
+                    { 23, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3566), "کهگیلویه و بویراحمد" },
+                    { 24, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3567), "گلستان" },
+                    { 25, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3569), "گیلان" },
+                    { 26, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3570), "لرستان" },
+                    { 27, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3572), "مازندران" },
+                    { 28, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3573), "مرکزی" },
+                    { 29, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3575), "هرمزگان" },
+                    { 30, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3576), "همدان" },
+                    { 31, new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3579), "یزد" }
                 });
 
             migrationBuilder.InsertData(
@@ -401,8 +401,8 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                 columns: new[] { "Id", "BackUpPhoneNumber", "BankCardNumber", "CreatedAt", "FirstName", "Gender", "IsDeleted", "LastName", "LastUpdatedAt", "PhoneNumber", "RegisteredAt" },
                 values: new object[,]
                 {
-                    { 1, "09123669858", "1234123412341234", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5407), "سارا", 1, false, "محمودی", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5400), "09192365988", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5408) },
-                    { 2, "09123623258", "1239684412341234", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5414), "محمد", 2, false, "اصغری", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5411), "09199655988", new DateTime(2024, 4, 30, 13, 41, 48, 822, DateTimeKind.Local).AddTicks(5415) }
+                    { 1, "09123669858", "1234123412341234", new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8754), "سارا", 1, false, "محمودی", new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8746), "09192365988", new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8754) },
+                    { 2, "09123623258", "1239684412341234", new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8759), "محمد", 2, false, "اصغری", new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8757), "09199655988", new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8759) }
                 });
 
             migrationBuilder.InsertData(
@@ -410,13 +410,14 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                 columns: new[] { "Id", "CreatedAt", "IsDeleted", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4509), false, "ساختمان" },
-                    { 2, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4512), false, "تعمیرات اشیاء" },
-                    { 3, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4514), false, "اسباب کشی و حمل بار" },
-                    { 4, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4515), false, "خودرو" },
-                    { 5, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4518), false, "سازمان ها و مجتمع ها" },
-                    { 6, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4520), false, "سلامت و زیبایی" },
-                    { 7, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(4522), false, "کشکول" }
+                    { 1, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4811), false, "تمیزکاری" },
+                    { 2, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4817), false, "ساختمان" },
+                    { 3, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4819), false, "تعمیرات اشیاء" },
+                    { 4, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4820), false, "اسباب کشی و حمل بار" },
+                    { 5, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4822), false, "خودرو" },
+                    { 6, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4824), false, "سازمان ها و مجتمع ها" },
+                    { 7, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4825), false, "سلامت و زیبایی" },
+                    { 8, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4827), false, "کشکول" }
                 });
 
             migrationBuilder.InsertData(
@@ -424,9 +425,9 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                 columns: new[] { "Id", "CreatedAt", "IsDeleted", "Name", "Price", "ServiceSubCategoryId", "SubCategoryId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(2341), false, "سرویس عادی نظافت", 700000, null, 1 },
-                    { 2, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(2344), false, "سرویس لوکسن نظافت", 850000, null, 1 },
-                    { 3, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(2347), false, "سرویس ویژه نظافت", 1000000, null, 1 }
+                    { 1, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(1998), false, "سرویس عادی نظافت", 700000, null, 1 },
+                    { 2, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(2001), false, "سرویس لوکسن نظافت", 850000, null, 1 },
+                    { 3, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(2003), false, "سرویس ویژه نظافت", 1000000, null, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -434,8 +435,8 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                 columns: new[] { "Id", "Alt", "CreatedAt", "ExpertId", "ImageAddress", "IsDeleted", "OrderId", "ServiceCategoryId", "ServiceId", "ServiceSubCategoryId" },
                 values: new object[,]
                 {
-                    { 1, "ساختمان", new DateTime(2024, 4, 30, 13, 41, 48, 823, DateTimeKind.Local).AddTicks(8547), null, "..\\HomeService\\HomeService.Endpoint.RazorPages.UI\\wwwroot\\img\\ServiceCategory\\f842e927-824f-49f6-8710-124e7f517ed6-mainCategory-icon.webp", false, null, 1, null, null },
-                    { 2, "تعمیرات اشیاء", new DateTime(2024, 4, 30, 13, 41, 48, 823, DateTimeKind.Local).AddTicks(8552), null, "..\\HomeService\\HomeService.Endpoint.RazorPages.UI\\wwwroot\\img\\ServiceCategory\\08a5087d-cd08-49a2-82dd-4738cb2182bd-mainCategory-icon.webp", false, null, 2, null, null }
+                    { 1, "ساختمان", new DateTime(2024, 4, 30, 18, 0, 18, 87, DateTimeKind.Local).AddTicks(9031), null, "..\\HomeService\\HomeService.Endpoint.RazorPages.UI\\wwwroot\\img\\ServiceCategory\\f842e927-824f-49f6-8710-124e7f517ed6-mainCategory-icon.webp", false, null, 1, null, null },
+                    { 2, "تعمیرات اشیاء", new DateTime(2024, 4, 30, 18, 0, 18, 87, DateTimeKind.Local).AddTicks(9034), null, "..\\HomeService\\HomeService.Endpoint.RazorPages.UI\\wwwroot\\img\\ServiceCategory\\08a5087d-cd08-49a2-82dd-4738cb2182bd-mainCategory-icon.webp", false, null, 2, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -443,9 +444,30 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                 columns: new[] { "Id", "CreatedAt", "IsDeleted", "Name", "ServiceCategoryId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(6012), false, "نظافت و پذیرایی", 1 },
-                    { 2, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(6015), false, "شستشو", 1 },
-                    { 3, new DateTime(2024, 4, 30, 13, 41, 48, 824, DateTimeKind.Local).AddTicks(6017), false, "کارواش و دیتیلینگ", 1 }
+                    { 1, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6414), false, "نظافت و پذیرایی", 1 },
+                    { 2, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6419), false, "شستشو", 1 },
+                    { 3, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6422), false, "کارواش و دیتیلینگ", 1 },
+                    { 4, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6423), false, "سرمایش و گرمایش", 3 },
+                    { 5, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6425), false, "نصب وتعمیر لوازم خانگی", 3 },
+                    { 6, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6427), false, "کارواش و دیتیلینگ", 3 },
+                    { 7, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6429), false, "خذمات کامپیوتری", 3 },
+                    { 8, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6431), false, "تعمیرات موبایل", 3 },
+                    { 9, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6432), false, "سرمایش و گرمایش", 2 },
+                    { 10, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6434), false, "تعمیرا ساختمان", 2 },
+                    { 11, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6436), false, "لوله کشی", 2 },
+                    { 12, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6437), false, "طراحی و بازسازی ساختمان", 2 },
+                    { 13, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6439), false, "برق کاری", 2 },
+                    { 14, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6441), false, "چوب و کابینت", 2 },
+                    { 15, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6443), false, "خدمات شیشه ای ساختمان", 2 },
+                    { 16, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6444), false, "باغبانی و فضای سبز", 2 },
+                    { 17, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6446), false, "باربری و جا به جایی", 4 },
+                    { 18, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6448), false, "خدمات و تعمیرات خودرو", 5 },
+                    { 19, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6450), false, "کارواش و دیتیلینگ", 5 },
+                    { 20, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6452), false, "خدمات شرکتی", 6 },
+                    { 21, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6454), false, "زیبایی بانوان", 7 },
+                    { 22, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6455), false, "پیرایش و زیبایی آقایان", 7 },
+                    { 23, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6457), false, "پزشکی و پرستاری", 7 },
+                    { 24, new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6459), false, "حیوانات خانگی", 7 }
                 });
 
             migrationBuilder.CreateIndex(

@@ -4,6 +4,6 @@ namespace HomeService.Domain.Core.Contracts.Repositories;
 
 public interface ICityRepository
 {
-    public City GetById(int cityId);
-    public List<City> GetAll();
+    public Task<City> GetById(int cityId, CancellationToken cancellationToken);
+    public Task<List<City>> GetAll(CancellationToken cancellationToken);
 }

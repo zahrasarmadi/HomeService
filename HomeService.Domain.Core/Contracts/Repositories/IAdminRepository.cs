@@ -5,9 +5,9 @@ namespace HomeService.Domain.Core.Contracts.Repositories;
 
 public interface IAdminRepository
 {
-    public bool Create(AdminCreateDto adminCreateDto);
-    public bool Update(AdminUpdateDto adminUpdateDto);
-    public bool Delete(int adminId);
-    public Admin GetById(int adminId);
-    public List<Admin> GetAll();
+    public Task<bool> Create(AdminCreateDto adminCreateDto, CancellationToken cancellationToken);
+    public Task<bool> Update(AdminUpdateDto adminUpdateDto, CancellationToken cancellationToken);
+    public Task<bool> Delete(int adminId, CancellationToken cancellationToken);
+    public Task<Admin> GetById(int adminId, CancellationToken cancellationToken);
+    public Task<List<Admin>> GetAll(CancellationToken cancellationToken);
 }

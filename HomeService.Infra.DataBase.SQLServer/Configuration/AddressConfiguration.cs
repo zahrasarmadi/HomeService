@@ -9,6 +9,7 @@ public class AddressConfiguration : IEntityTypeConfiguration<Address>
     public void Configure(EntityTypeBuilder<Address> builder)
     {
         builder.HasKey(c=>c.Id);
+
         builder.HasOne(c => c.Customer)
             .WithMany(c => c.Addresses)
             .OnDelete(DeleteBehavior.NoAction);

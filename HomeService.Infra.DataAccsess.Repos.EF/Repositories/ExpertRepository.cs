@@ -14,7 +14,7 @@ public class ExpertRepository : IExpertRepository
     {
         _context = context;
     }
-    public bool Create(ExpertCreateDto expertCreateDto)
+    public async Task<bool> Create(ExpertCreateDto expertCreateDto, CancellationToken cancellationToken)
     {
         var newModel = new Expert()
         {
@@ -28,33 +28,33 @@ public class ExpertRepository : IExpertRepository
             ProfileImage = expertCreateDto.ProfileImage,
             Services = expertCreateDto.Services,
         };
-        _context.Experts.Add(newModel);
+        await _context.Experts.AddAsync(newModel, cancellationToken);
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public bool Delete(int expertId)
+    public async Task<bool> Delete(int expertId, CancellationToken cancellationToken)
     {
-        _context.Experts
-          .FirstOrDefault(a => a.Id == expertId).IsDeleted = true;
-        _context.SaveChanges();
+        var targetModel = await FindExpert(expertId, cancellationToken);
+        targetModel.IsDeleted = true;
+        await _context.SaveChangesAsync();
         return true;
     }
 
-    public List<Expert> GetAll()
+    public async Task<List<Expert>> GetAll(CancellationToken cancellationToken)
     {
-        return _context.Experts.AsNoTracking().ToList();
+        return await _context.Experts.AsNoTracking().ToListAsync(cancellationToken);
     }
 
-    public Expert GetById(int expertId)
+    public async Task<Expert> GetById(int expertId, CancellationToken cancellationToken)
     {
-        return _context.Experts.AsNoTracking().FirstOrDefault(a => a.Id == expertId);
+        return await FindExpert(expertId, cancellationToken);
     }
 
-    public bool Update(ExpertUpdateDto expertUpdateDto)
+    public async Task<bool> Update(ExpertUpdateDto expertUpdateDto, CancellationToken cancellationToken)
     {
-        var targetModel = _context.Experts.FirstOrDefault(a => a.Id == expertUpdateDto.Id);
+        var targetModel = await FindExpert(expertUpdateDto.Id, cancellationToken);
         targetModel.FirstName = expertUpdateDto.FirstName;
         targetModel.LastName = expertUpdateDto.LastName;
         targetModel.Gender = expertUpdateDto.Gender;
@@ -64,8 +64,11 @@ public class ExpertRepository : IExpertRepository
         targetModel.BirthDate = expertUpdateDto.BirthDate;
         targetModel.ProfileImage = expertUpdateDto.ProfileImage;
         targetModel.Services = expertUpdateDto.Services;
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
 
         return true;
     }
+
+    private async Task<Expert> FindExpert(int id, CancellationToken cancellationToken)
+   => await _context.Experts.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

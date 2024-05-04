@@ -14,7 +14,7 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
     {
         _context = context;
     }
-    public bool Create(ServiceSubCategoryCreateDto serviceSubCategoryCreateDto)
+    public async Task<bool> Create(ServiceSubCategoryCreateDto serviceSubCategoryCreateDto, CancellationToken cancellationToken)
     {
 
         var newModel = new ServiceSubCategory()
@@ -25,41 +25,44 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
             Services = serviceSubCategoryCreateDto.Services,
             Image = serviceSubCategoryCreateDto.Image,
         };
-        _context.ServiceSubCategories.Add(newModel);
+        await _context.ServiceSubCategories.AddAsync(newModel, cancellationToken);
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public bool Delete(int serviceSubCategoryId)
+    public async Task<bool> Delete(int serviceSubCategoryId, CancellationToken cancellationToken)
     {
-        _context.ServiceSubCategories
-          .FirstOrDefault(a => a.Id == serviceSubCategoryId).IsDeleted = true;
-        _context.SaveChanges();
+        var targetModel = await FindServiceSubCategory(serviceSubCategoryId, cancellationToken);
+        targetModel.IsDeleted = true;
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
-    public List<ServiceSubCategory> GetAll()
+    public async Task< List<ServiceSubCategory>> GetAll(CancellationToken cancellationToken)
     {
-        return _context.ServiceSubCategories.AsNoTracking().ToList();
+        return await _context.ServiceSubCategories.AsNoTracking().ToListAsync(cancellationToken);
     }
 
-    public ServiceSubCategory GetById(int serviceSubCategoryId)
+    public async Task< ServiceSubCategory> GetById(int serviceSubCategoryId,CancellationToken cancellationToken)
     {
-        return _context.ServiceSubCategories.AsNoTracking().FirstOrDefault(a => a.Id == serviceSubCategoryId);
+        return await FindServiceSubCategory(serviceSubCategoryId,cancellationToken);
     }
 
-    public bool Update(ServiceSubCategoryUpdateDto serviceSubCategoryUpdateDto)
+    public async Task< bool> Update(ServiceSubCategoryUpdateDto serviceSubCategoryUpdateDto,CancellationToken cancellationToken)
     {
-        var targetModel = _context.ServiceSubCategories.FirstOrDefault(a => a.Id == serviceSubCategoryUpdateDto.Id);
+        var targetModel =await FindServiceSubCategory(serviceSubCategoryUpdateDto.Id,cancellationToken);
 
         targetModel.Name = serviceSubCategoryUpdateDto.Name;
-        targetModel.ServiceCategory= serviceSubCategoryUpdateDto.ServiceCategory;
+        targetModel.ServiceCategory = serviceSubCategoryUpdateDto.ServiceCategory;
         targetModel.Image = serviceSubCategoryUpdateDto.Image;
         targetModel.Services = serviceSubCategoryUpdateDto.Services;
 
-        _context.SaveChanges();
+       await _context.SaveChangesAsync(cancellationToken);
 
         return true;
     }
+
+    private async Task<ServiceSubCategory> FindServiceSubCategory(int id, CancellationToken cancellationToken)
+    => await _context.ServiceSubCategories.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }
