@@ -2,9 +2,9 @@
 using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Enums;
 
-namespace HomeService.Domain.Core.Contracts.Repositories;
+namespace HomeService.Domain.Core.Contracts.Services;
 
-public interface IOrderRepository
+public interface IOrderServices
 {
     Task<bool> Create(OrderCreateDto orderCreateDto, CancellationToken cancellationToken);
     Task<bool> Update(OrderUpdateDto orderUpdateDto, CancellationToken cancellationToken);

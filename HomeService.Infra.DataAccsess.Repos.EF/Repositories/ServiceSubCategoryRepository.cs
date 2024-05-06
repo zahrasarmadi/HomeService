@@ -40,14 +40,12 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
     }
 
     public async Task< List<ServiceSubCategory>> GetAll(CancellationToken cancellationToken)
-    {
-        return await _context.ServiceSubCategories.AsNoTracking().ToListAsync(cancellationToken);
-    }
+        => await _context.ServiceSubCategories.AsNoTracking().ToListAsync(cancellationToken);
+    
 
     public async Task< ServiceSubCategory> GetById(int serviceSubCategoryId,CancellationToken cancellationToken)
-    {
-        return await FindServiceSubCategory(serviceSubCategoryId,cancellationToken);
-    }
+       =>  await FindServiceSubCategory(serviceSubCategoryId,cancellationToken);
+    
 
     public async Task< bool> Update(ServiceSubCategoryUpdateDto serviceSubCategoryUpdateDto,CancellationToken cancellationToken)
     {

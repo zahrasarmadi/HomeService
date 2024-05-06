@@ -1,10 +1,8 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
 using HomeService.Domain.Core.DTOs;
 using HomeService.Domain.Core.Entities;
-using HomeService.Domain.Core.Enums;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 
 namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 
@@ -45,14 +43,11 @@ public class ServiceRepository : IServiceRepository
     }
 
     public async Task< List<Service> >GetAll(CancellationToken cancellationToken)
-    {
-        return await _context.Services.AsNoTracking().ToListAsync(cancellationToken);
-    }
+        => await _context.Services.AsNoTracking().ToListAsync(cancellationToken);
+    
 
     public async Task< Service> GetById(int serviceId, CancellationToken cancellationToken)
-    {
-        return await FindService(serviceId,cancellationToken);
-    }
+        => await FindService(serviceId,cancellationToken);
 
     public async Task< bool> Update(ServiceUpdateDto serviceUpdateDto,CancellationToken cancellationToken)
     {
@@ -72,5 +67,6 @@ public class ServiceRepository : IServiceRepository
     }
 
     private async Task<Service> FindService(int id, CancellationToken cancellationToken)
-   => await _context.Services.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+       => await _context.Services.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+
 }

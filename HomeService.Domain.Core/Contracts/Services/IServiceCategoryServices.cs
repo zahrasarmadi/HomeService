@@ -1,9 +1,9 @@
 ﻿using HomeService.Domain.Core.DTOs;
 using HomeService.Domain.Core.Entities;
 
-namespace HomeService.Domain.Core.Contracts.Repositories;
+namespace HomeService.Domain.Core.Contracts.Services;
 
-public interface IServiceCategoryRepository
+public interface IServiceCategoryServices
 {
     Task<bool> Create(ServiceCategoryCreateDto serviceCategoryCreateDto, CancellationToken cancellationToken);
     Task<bool> Update(ServiceCategoryUpdateDto serviceCategoryUpdateDto, CancellationToken cancellationToken);

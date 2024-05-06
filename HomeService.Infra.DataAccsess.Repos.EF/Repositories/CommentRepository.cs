@@ -62,6 +62,16 @@ public class CommentRepository : ICommentRepository
         return true;
     }
 
+    public async Task<bool> SetScore(int expertId,int  score, CancellationToken cancellationToken)
+    {
+        var targetModel = await _context.Comments.FirstOrDefaultAsync(c => c.ExpertId == expertId,cancellationToken);
+
+        targetModel.Score=score;
+        await _context.SaveChangesAsync(cancellationToken);
+
+        return true;
+    }
+
     private async Task<Comment> FindComment(int id, CancellationToken cancellationToken)
        => await _context.Comments.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

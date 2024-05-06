@@ -1,9 +1,9 @@
 ﻿using HomeService.Domain.Core.DTOs;
 using HomeService.Domain.Core.Entities;
 
-namespace HomeService.Domain.Core.Contracts.Repositories;
+namespace HomeService.Domain.Core.Contracts.Services;
 
-public interface ICommentRepository
+public interface ICommentServices
 {
     Task<bool> Create(CommentCreateDto commentCreateDto, CancellationToken cancellationToken);
     Task<bool> Update(CommentUpdateDto commentUpdateDto, CancellationToken cancellationToken);

@@ -1,9 +1,9 @@
 ﻿using HomeService.Domain.Core.DTOs;
 using HomeService.Domain.Core.Entities;
 
-namespace HomeService.Domain.Core.Contracts.Repositories;
+namespace HomeService.Domain.Core.Contracts.Services;
 
-public interface IAdminRepository
+public interface IAdminServices
 {
     Task<bool> Create(AdminCreateDto adminCreateDto, CancellationToken cancellationToken);
     Task<bool> Update(AdminUpdateDto adminUpdateDto, CancellationToken cancellationToken);

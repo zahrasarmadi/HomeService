@@ -37,14 +37,11 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
     }
 
     public async Task<List<ServiceCategory>> GetAll(CancellationToken cancellationToken)
-    {
-        return await _context.ServiceCategories.AsNoTracking().ToListAsync(cancellationToken);
-    }
+        => await _context.ServiceCategories.AsNoTracking().ToListAsync(cancellationToken);
 
     public async Task<ServiceCategory> GetById(int serviceCategoryId, CancellationToken cancellationToken)
-    {
-        return await FindServiceCategory(serviceCategoryId, cancellationToken);
-    }
+         =>await FindServiceCategory(serviceCategoryId, cancellationToken);
+    
 
     public async Task<bool> Update(ServiceCategoryUpdateDto serviceCategoryUpdateDto, CancellationToken cancellationToken)
     {

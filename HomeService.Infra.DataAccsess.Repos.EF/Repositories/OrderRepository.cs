@@ -42,17 +42,15 @@ public class OrderRepository : IOrderRepository
         return true;
     }
 
-    public async Task< List<Order>> GetAll(CancellationToken cancellationToken)
-    {
-        return await _context.Orders.AsNoTracking().ToListAsync(cancellationToken);
-    }
+    public async Task<List<Order>> GetAll(CancellationToken cancellationToken)
+      => await _context.Orders.AsNoTracking().ToListAsync(cancellationToken);
 
-    public async Task< Order>GetById(int orderId,CancellationToken cancellationToken)
-    {
-        return await FindOrder(orderId,cancellationToken);
-    }
 
-    public async Task< bool> Update(OrderUpdateDto orderUpdateDto,CancellationToken cancellationToken)
+    public async Task<Order> GetById(int orderId, CancellationToken cancellationToken)
+        => await FindOrder(orderId, cancellationToken);
+
+
+    public async Task<bool> Update(OrderUpdateDto orderUpdateDto, CancellationToken cancellationToken)
     {
         var targetModel = await FindOrder(orderUpdateDto.Id, cancellationToken);
 
@@ -67,8 +65,17 @@ public class OrderRepository : IOrderRepository
         targetModel.DoneAt = orderUpdateDto.DoneAt;
         targetModel.Suggestions = orderUpdateDto.Suggestions;
 
-       await _context.SaveChangesAsync(cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
 
+        return true;
+    }
+
+    public async Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken)
+    {
+        var targetModel = await FindOrder(orderId, cancellationToken);
+        targetModel.Status = status;
+
+        await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
 
