@@ -43,7 +43,6 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
                 ServiceId=1,
                 Title="نظافت",
                 Status=StatusEnum.Done,
-                
             }
             );
     }

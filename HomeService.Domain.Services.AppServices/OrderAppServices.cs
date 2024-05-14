@@ -24,7 +24,7 @@ public class OrderAppServices : IOrderAppServices
     public async Task<bool> Delete(int orderId, CancellationToken cancellationToken)
       => await _orderServices.Delete(orderId, cancellationToken);
 
-    public async Task<List<Order>> GetAll(CancellationToken cancellationToken)
+    public async Task<List<GetOrderDto>> GetAll(CancellationToken cancellationToken)
       => await _orderServices.GetAll(cancellationToken);
 
     public async Task<Order> GetById(int orderId, CancellationToken cancellationToken)

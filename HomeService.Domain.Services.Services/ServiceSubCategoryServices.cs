@@ -30,6 +30,9 @@ public class ServiceSubCategoryServices : IServiceSubCategoryServices
     public async Task<List<SubCategoryNameDto>> GetCategorisName(CancellationToken cancellationToken)
        => await _serviceSubCategoryRepository.GetCategorisName(cancellationToken);
 
+    public async Task<List<GetSubCategoryDto>> GetSubCategories(CancellationToken cancellationToken)
+      =>await _serviceSubCategoryRepository.GetSubCategories(cancellationToken);
+
     public async Task<bool> Update(ServiceSubCategoryUpdateDto serviceSubCategoryUpdateDto, CancellationToken cancellationToken)
       => await _serviceSubCategoryRepository.Update(serviceSubCategoryUpdateDto, cancellationToken);
 }

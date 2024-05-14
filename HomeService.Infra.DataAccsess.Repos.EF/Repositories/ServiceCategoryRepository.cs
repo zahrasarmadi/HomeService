@@ -1,5 +1,6 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
 using HomeService.Domain.Core.DTOs.CategoryDTO;
+using HomeService.Domain.Core.DTOs.SubCategoryDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,17 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
 
     }
 
+    public async Task<List<CategoryNameDto>> GetCategorisName(CancellationToken cancellationToken)
+    {
+        var categories = await _context.ServiceCategories.AsNoTracking()
+             .Select(s => new CategoryNameDto
+             {
+                 Id = s.Id,
+                 Name = s.Name,
+             }).ToListAsync(cancellationToken);
+        return categories;
+    }
+
     public async Task<bool> Delete(int serviceCategoryId, CancellationToken cancellationToken)
     {
         var targetModel = await FindServiceCategory(serviceCategoryId, cancellationToken);
@@ -35,8 +47,17 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
         return true;
     }
 
-    public async Task<List<ServiceCategory>> GetAll(CancellationToken cancellationToken)
-        => await _context.ServiceCategories.AsNoTracking().ToListAsync(cancellationToken);
+    public async Task<List<GetCategoryDto>> GetAll(CancellationToken cancellationToken)
+    {
+        var categories = await _context.ServiceCategories.AsNoTracking()
+            .Select(c => new GetCategoryDto
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Image = c.Image,
+            }).ToListAsync(cancellationToken);
+        return categories;
+    }
 
     public async Task<ServiceCategory> GetById(int serviceCategoryId, CancellationToken cancellationToken)
          =>await FindServiceCategory(serviceCategoryId, cancellationToken);
@@ -47,7 +68,7 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
         var targetModel = await FindServiceCategory(serviceCategoryUpdateDto.Id, cancellationToken);
 
         targetModel.Name = serviceCategoryUpdateDto.Name;
-        targetModel.ServiceSubCategories = serviceCategoryUpdateDto.ServiceSubCategories;
+      //  targetModel.ServiceSubCategories = serviceCategoryUpdateDto.ServiceSubCategories;
        targetModel.Image = serviceCategoryUpdateDto.Image;
 
         await _context.SaveChangesAsync(cancellationToken);

@@ -20,11 +20,14 @@ public class ServiceCategoryServices : IServiceCategoryServices
     public async Task<bool> Delete(int serviceCategoryId, CancellationToken cancellationToken)
        => await _serviceCategoryRepository.Delete(serviceCategoryId, cancellationToken);
 
-    public async Task<List<ServiceCategory>> GetAll(CancellationToken cancellationToken)
+    public async Task<List<GetCategoryDto>> GetAll(CancellationToken cancellationToken)
       => await _serviceCategoryRepository.GetAll(cancellationToken);
 
     public async Task<ServiceCategory> GetById(int serviceCategoryId, CancellationToken cancellationToken)
       => await _serviceCategoryRepository.GetById(serviceCategoryId, cancellationToken);
+
+    public async Task<List<CategoryNameDto>> GetCategorisName(CancellationToken cancellationToken)
+      =>await _serviceCategoryRepository.GetCategorisName(cancellationToken);
 
     public async Task<bool> Update(ServiceCategoryUpdateDto serviceCategoryUpdateDto, CancellationToken cancellationToken)
       => await _serviceCategoryRepository.Update(serviceCategoryUpdateDto, cancellationToken);

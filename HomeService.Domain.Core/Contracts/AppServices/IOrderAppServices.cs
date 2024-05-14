@@ -11,6 +11,6 @@ public interface IOrderAppServices
     Task<bool> Delete(int orderId, CancellationToken cancellationToken);
     Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken);
     Task<Order> GetById(int orderId, CancellationToken cancellationToken);
-    Task<List<Order>> GetAll(CancellationToken cancellationToken);
+    Task<List<GetOrderDto>> GetAll(CancellationToken cancellationToken);
     Task<int> OrderCount(CancellationToken cancellationToken);
 }

@@ -32,6 +32,6 @@ public class AddServiceModel : PageModel
     public async Task<IActionResult> OnPostAdd(ServiceCreateDto serviceCreate, CancellationToken cancellationToken, IFormFile image)
     {
         await _serviceAppServices.Create(serviceCreate, cancellationToken, image);
-        return RedirectToPage("Service");
+        return RedirectToPage("SubCategory");
     }
 }

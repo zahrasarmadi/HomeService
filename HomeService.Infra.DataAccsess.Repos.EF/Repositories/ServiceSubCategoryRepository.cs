@@ -37,6 +37,21 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
         return true;
     }
 
+    public async Task<List<GetSubCategoryDto>> GetSubCategories(CancellationToken cancellationToken)
+    {
+        var subcategories = await _context.ServiceSubCategories.AsNoTracking()
+            .Select(s => new GetSubCategoryDto
+            {
+                Name = s.Name,
+                Id=s.Id,
+                Image=s.Image,
+                ServiceCategory=s.ServiceCategory,
+                ServiceCategoryId=s.ServiceCategoryId
+
+            }).ToListAsync(cancellationToken);
+        return subcategories;
+    }
+
     public async Task<List<ServiceSubCategory>> GetAll(CancellationToken cancellationToken)
         => await _context.ServiceSubCategories.AsNoTracking().ToListAsync(cancellationToken);
 
@@ -61,8 +76,8 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
 
         targetModel.Name = serviceSubCategoryUpdateDto.Name;
         targetModel.Image = serviceSubCategoryUpdateDto.Image;
-        targetModel.Services = serviceSubCategoryUpdateDto.Services;
-        targetModel.ServiceCategory = serviceSubCategoryUpdateDto.ServiceCategory;
+        //targetModel.Services = serviceSubCategoryUpdateDto.Services;
+        //targetModel.ServiceCategory = serviceSubCategoryUpdateDto.ServiceCategory;
 
         await _context.SaveChangesAsync(cancellationToken);
 

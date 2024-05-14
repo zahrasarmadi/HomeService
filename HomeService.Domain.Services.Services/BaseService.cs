@@ -1,4 +1,5 @@
 ﻿using HomeService.Domain.Core.Contracts.Services;
+using HomeService.Domain.Core.Enums;
 using Microsoft.AspNetCore.Http;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -12,10 +13,10 @@ public class BaseService : IBaseSevices
 
         if (image != null && image.Length > 0)
         {
-            filePath =@"E:\Project\HomeService\HomeService.Endpoint.RazorPages.UI\wwwroot\uploads\"+ image.FileName;
-             using (var stream = new FileStream(filePath, FileMode.Create))
+            filePath = @"E:\Project\HomeService\HomeService.Endpoint.RazorPages.UI\wwwroot\uploads\" + image.FileName;
+            using (var stream = new FileStream(filePath, FileMode.Create))
             {
-               await image.CopyToAsync(stream);
+                await image.CopyToAsync(stream);
             }
             return filePath;
         }

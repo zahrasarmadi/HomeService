@@ -68,6 +68,7 @@ builder.Services.AddScoped<IExpertServices, ExpertServices>();
 builder.Services.AddScoped<IExpertAppServices, ExpertAppServices>();
 
 builder.Services.AddScoped<IBaseSevices, BaseService>();
+builder.Services.AddScoped<IBaseAppServices, BaseAppServices>();
 
 var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")

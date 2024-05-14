@@ -9,5 +9,6 @@ public interface IServiceCategoryServices
     Task<bool> Update(ServiceCategoryUpdateDto serviceCategoryUpdateDto, CancellationToken cancellationToken);
     Task<bool> Delete(int serviceCategoryId, CancellationToken cancellationToken);
     Task<ServiceCategory> GetById(int serviceCategoryId, CancellationToken cancellationToken);
-    Task<List<ServiceCategory>> GetAll(CancellationToken cancellationToken);
+    Task<List<GetCategoryDto>> GetAll(CancellationToken cancellationToken);
+    Task<List<CategoryNameDto>> GetCategorisName(CancellationToken cancellationToken);
 }

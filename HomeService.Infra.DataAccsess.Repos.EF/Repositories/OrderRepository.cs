@@ -41,8 +41,23 @@ public class OrderRepository : IOrderRepository
         return true;
     }
 
-    public async Task<List<Order>> GetAll(CancellationToken cancellationToken)
-      => await _context.Orders.AsNoTracking().ToListAsync(cancellationToken);
+    public async Task<List<GetOrderDto>> GetAll(CancellationToken cancellationToken)
+    {
+       var orders= await _context.Orders.AsNoTracking()
+            .Select(o=>new GetOrderDto
+            {
+                Id = o.Id,
+                Title = o.Title,
+                Description = o.Description,
+                Status = o.Status,
+                Customer = o.Customer,
+                Expert=o.Expert,
+                Service = o.Service,
+                Suggestions = o.Suggestions
+            }).ToListAsync(cancellationToken);
+
+        return orders;
+    }
 
 
     public async Task<Order> GetById(int orderId, CancellationToken cancellationToken)

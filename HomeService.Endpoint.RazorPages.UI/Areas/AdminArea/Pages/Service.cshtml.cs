@@ -21,4 +21,10 @@ public class ServiceModel : PageModel
         Services = await _serviceAppServices.GetAll(cancellationToken);
     }
 
+    public async Task<IActionResult> OnGetDelete(int id,CancellationToken cancellationToken)
+    {
+        await _serviceAppServices.Delete(id, cancellationToken);
+        return RedirectToAction("OnGet");
+    }
+
 }
