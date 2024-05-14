@@ -21,12 +21,13 @@ public class CityRepository : ICityRepository
         var cities = _memoryCache.Get<List<City>>("Cities");
         if (cities is null)
         {
-            return await _context.Cities.AsNoTracking().ToListAsync(cancellationToken);
+            cities = await _context.Cities.AsNoTracking().ToListAsync(cancellationToken);
+            _memoryCache.Set("Cities", cities, new MemoryCacheEntryOptions
+            {
+                SlidingExpiration = TimeSpan.FromSeconds(200)
+            });
         }
-        _memoryCache.Set("Cities", cities, new MemoryCacheEntryOptions
-        {
-            SlidingExpiration = TimeSpan.FromSeconds(200)
-        });
+
         return cities;
     }
 

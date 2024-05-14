@@ -46,7 +46,8 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
                 Id=s.Id,
                 Image=s.Image,
                 ServiceCategory=s.ServiceCategory,
-                ServiceCategoryId=s.ServiceCategoryId
+                ServiceCategoryId=s.ServiceCategoryId,
+                 IsDeleted=s.IsDeleted
 
             }).ToListAsync(cancellationToken);
         return subcategories;

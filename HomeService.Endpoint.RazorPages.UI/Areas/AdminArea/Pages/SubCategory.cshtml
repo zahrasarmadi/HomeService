@@ -24,6 +24,8 @@
 
                 @foreach (var category in Model.SubCategories)
                 {
+                    @if (category.IsDeleted == false)
+                    {
                     <tr>
                         <td>
                             @category.Id
@@ -51,6 +53,7 @@
                             </div>
                         </td>
                     </tr>
+                }
                 }
             </tbody>
         </table>

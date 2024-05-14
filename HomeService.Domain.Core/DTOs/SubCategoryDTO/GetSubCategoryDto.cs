@@ -10,4 +10,5 @@ public class GetSubCategoryDto
     public ServiceCategory? ServiceCategory { get; set; }
     public int ServiceCategoryId { get; set; }
     public string? Image { get; set; }
+    public bool IsDeleted { get; set; }
 }

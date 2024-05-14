@@ -23,6 +23,8 @@
 
                 @foreach (var category in Model.GetCategories)
                 {
+                    @if(category.IsDeleted==false)
+                    {
                     <tr>
                         <td>
                             @category.Id
@@ -49,6 +51,7 @@
                             </div>
                         </td>
                     </tr>
+                }
                 }
             </tbody>
         </table>

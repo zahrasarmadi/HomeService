@@ -50,7 +50,8 @@ public class ServiceRepository : IServiceRepository
                 Price = s.Price,
                 ServiceSubCategoryId = s. ServiceSubCategoryId,
                 ServiceSubCategory = s.ServiceSubCategory,
-                Image=s.Image
+                Image=s.Image,
+               
             })
             .ToListAsync(cancellationToken);
 

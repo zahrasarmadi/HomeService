@@ -75,6 +75,7 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
                    Id = c.Id,
                    Name = c.Name,
                    Image = c.Image,
+                   IsDeleted=c.IsDeleted
                }).ToListAsync(cancellationToken);
 
             return categories;
