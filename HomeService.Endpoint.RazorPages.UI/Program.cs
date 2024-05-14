@@ -5,9 +5,13 @@ using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Entities.Configs;
 using HomeService.Domain.Services.AppServices;
 using HomeService.Domain.Services.Services;
+using HomeService.Endpoint.RazorPages.UI.Infrastructure;
 using HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,9 +70,11 @@ builder.Services.AddScoped<ICustomerAppServices, CustomerAppServices>();
 builder.Services.AddScoped<IExpertRepository, ExpertRepository>();
 builder.Services.AddScoped<IExpertServices, ExpertServices>();
 builder.Services.AddScoped<IExpertAppServices, ExpertAppServices>();
-
+//Base Services
 builder.Services.AddScoped<IBaseSevices, BaseService>();
 builder.Services.AddScoped<IBaseAppServices, BaseAppServices>();
+
+builder.Services.AddMemoryCache();
 
 var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
@@ -76,11 +82,24 @@ var configuration = new ConfigurationBuilder()
 
 var siteSettings = configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>();
 
-builder.Services.AddLogging(LoggingBuilder =>
+//builder.Services.AddLogging(LoggingBuilder =>
+//{
+//    LoggingBuilder.ClearProviders();
+//    LoggingBuilder.AddConsole();
+//    LoggingBuilder.AddSeq(serverUrl: configuration.GetSection("SiteSettings:Seq:ServerUrl"),apiKey:configuration.GetSection("SiteSettings:Seq:ApiKey"));
+//});
+
+builder.Host.ConfigureLogging(loggingBuilder =>
 {
-    LoggingBuilder.ClearProviders();
-    LoggingBuilder.AddSeq(configuration.GetSection("SiteSettings:Seq"));
+    loggingBuilder.ClearProviders();
+
+}).UseSerilog((context, config) =>
+{
+    config.WriteTo.Console();
+    config.WriteTo.Seq(siteSettings.Seq.ServerUrl,LogEventLevel.Information,apiKey:siteSettings.Seq.ApiKey);
 });
+
+
 
 builder.Services.AddSingleton(siteSettings);
 
@@ -96,6 +115,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.CustomExceptionHandlingMiddleware();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

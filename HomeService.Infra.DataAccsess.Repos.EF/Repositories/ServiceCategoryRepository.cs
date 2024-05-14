@@ -5,6 +5,7 @@ using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
 
 namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 
@@ -12,11 +13,13 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
 {
     private readonly AppDbContext _context;
     private readonly IMemoryCache _memoryCache;
+    private readonly ILogger<ServiceCategoryRepository> _logger;
 
-    public ServiceCategoryRepository(AppDbContext context, IMemoryCache memoryCache)
+    public ServiceCategoryRepository(AppDbContext context, IMemoryCache memoryCache, ILogger<ServiceCategoryRepository> logger)
     {
         _context = context;
         _memoryCache = memoryCache;
+        _logger = logger;
     }
 
     public async Task<bool> Create(ServiceCategoryCreateDto serviceCategoryCreateDto, CancellationToken cancellationToken)
@@ -29,6 +32,7 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
         await _context.ServiceCategories.AddAsync(newModel, cancellationToken);
 
         await _context.SaveChangesAsync(cancellationToken);
+        _memoryCache.Remove("Categories");
         return true;
     }
 
@@ -40,8 +44,6 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
                    Id = s.Id,
                    Name = s.Name,
                }).ToListAsync(cancellationToken);
-
-
         return categories;
     }
 
@@ -52,13 +54,13 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
         try
         {
             await _context.SaveChangesAsync(cancellationToken);
+           _logger.LogInformation("category is deleted");
         }
         catch (Exception ex)
         {
-
             throw ex;
         }
-
+        _memoryCache.Remove("Categories");
         return true;
     }
 
@@ -74,6 +76,7 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
                    Name = c.Name,
                    Image = c.Image,
                }).ToListAsync(cancellationToken);
+
             return categories;
         }
         _memoryCache.Set("Categories", categories, new MemoryCacheEntryOptions()
@@ -96,6 +99,7 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
         targetModel.Image = serviceCategoryUpdateDto.Image;
 
         await _context.SaveChangesAsync(cancellationToken);
+        _memoryCache.Remove("Categories");
 
         return true;
     }
