@@ -1,5 +1,5 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
-using HomeService.Domain.Core.DTOs;
+using HomeService.Domain.Core.DTOs.AddressDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;

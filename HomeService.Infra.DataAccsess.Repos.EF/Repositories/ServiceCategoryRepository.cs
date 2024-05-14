@@ -1,5 +1,5 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
-using HomeService.Domain.Core.DTOs;
+using HomeService.Domain.Core.DTOs.CategoryDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
@@ -18,8 +18,7 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
         var newModel = new ServiceCategory()
         {
             Name = serviceCategoryCreateDto.Name,
-            ServiceSubCategories = serviceCategoryCreateDto.ServiceSubCategories,
-            Image = serviceCategoryCreateDto.Image,
+           Image = serviceCategoryCreateDto.Image,
         };
         await _context.ServiceCategories.AddAsync(newModel, cancellationToken);
 
@@ -49,7 +48,7 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
 
         targetModel.Name = serviceCategoryUpdateDto.Name;
         targetModel.ServiceSubCategories = serviceCategoryUpdateDto.ServiceSubCategories;
-        targetModel.Image = serviceCategoryUpdateDto.Image;
+       targetModel.Image = serviceCategoryUpdateDto.Image;
 
         await _context.SaveChangesAsync(cancellationToken);
 
@@ -57,5 +56,5 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
     }
 
     private async Task<ServiceCategory> FindServiceCategory(int id, CancellationToken cancellationToken)
-   => await _context.ServiceCategories.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+   => await _context.ServiceCategories.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

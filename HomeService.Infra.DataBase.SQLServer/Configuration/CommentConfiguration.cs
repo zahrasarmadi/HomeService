@@ -18,6 +18,20 @@ public class CommentConfiguration : IEntityTypeConfiguration<Comment>
             .WithMany(c => c.Comments)
             .OnDelete(DeleteBehavior.NoAction);
 
-        
+        builder.HasData(
+            new Comment
+            {
+                Id = 1,
+                CustomerId = 1,
+                ExpertId = 1,
+                IsAccept = false,
+                Description="کارش عالی بود",
+                IsDeleted = false,
+                Score = 4,
+                Title="عالی",
+                CreatedAt=DateTime.Now,
+            }
+            );
+        ;
     }
 }

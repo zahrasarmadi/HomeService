@@ -8,7 +8,7 @@ public class AddressConfiguration : IEntityTypeConfiguration<Address>
 {
     public void Configure(EntityTypeBuilder<Address> builder)
     {
-        builder.HasKey(c=>c.Id);
+        builder.HasKey(c => c.Id);
 
         builder.HasOne(c => c.Customer)
             .WithMany(c => c.Addresses)
@@ -19,7 +19,7 @@ public class AddressConfiguration : IEntityTypeConfiguration<Address>
             .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasOne(c => c.City)
-            .WithMany(c=>c.Address)
+            .WithMany(c => c.Address)
             .OnDelete(DeleteBehavior.NoAction);
     }
 }

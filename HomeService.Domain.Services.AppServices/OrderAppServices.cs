@@ -1,35 +1,38 @@
 ﻿using HomeService.Domain.Core.Contracts.AppServices;
-using HomeService.Domain.Core.DTOs;
+using HomeService.Domain.Core.Contracts.Services;
+using HomeService.Domain.Core.DTOs.OrderDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Enums;
-using HomeService.Domain.Services.Services;
 
 namespace HomeService.Domain.Services.AppServices;
 
 public class OrderAppServices : IOrderAppServices
 {
-    private readonly OrderServices _orderService;
+    private readonly IOrderServices _orderServices;
 
-    public OrderAppServices(OrderServices orderService)
+    public OrderAppServices(IOrderServices orderServices)
     {
-        _orderService = orderService;
+        _orderServices = orderServices;
     }
 
-    public Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken)
-        => _orderService.ChangeStatus(status, orderId, cancellationToken);
+    public async Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken)
+     => await _orderServices.ChangeStatus(status, orderId, cancellationToken);
 
-    public Task<bool> Create(OrderCreateDto orderCreateDto, CancellationToken cancellationToken)
-       => _orderService.Create(orderCreateDto, cancellationToken);
+    public async Task<bool> Create(OrderCreateDto orderCreateDto, CancellationToken cancellationToken)
+      => await _orderServices.Create(orderCreateDto, cancellationToken);
 
-    public Task<bool> Delete(int orderId, CancellationToken cancellationToken)
-       => _orderService.Delete(orderId, cancellationToken);
+    public async Task<bool> Delete(int orderId, CancellationToken cancellationToken)
+      => await _orderServices.Delete(orderId, cancellationToken);
 
-    public Task<List<Order>> GetAll(CancellationToken cancellationToken)
-      => _orderService.GetAll(cancellationToken);
+    public async Task<List<Order>> GetAll(CancellationToken cancellationToken)
+      => await _orderServices.GetAll(cancellationToken);
 
-    public Task<Order> GetById(int orderId, CancellationToken cancellationToken)
-      => _orderService.GetById(orderId, cancellationToken);
+    public async Task<Order> GetById(int orderId, CancellationToken cancellationToken)
+      => await _orderServices.GetById(orderId, cancellationToken);
 
-    public Task<bool> Update(OrderUpdateDto orderUpdateDto, CancellationToken cancellationToken)
-      => _orderService.Update(orderUpdateDto, cancellationToken);
+    public async Task<int> OrderCount(CancellationToken cancellationToken)
+      => await _orderServices.OrderCount(cancellationToken);
+
+    public async Task<bool> Update(OrderUpdateDto orderUpdateDto, CancellationToken cancellationToken)
+      => await _orderServices.Update(orderUpdateDto, cancellationToken);
 }

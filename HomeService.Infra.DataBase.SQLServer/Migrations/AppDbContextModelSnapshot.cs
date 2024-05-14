@@ -47,7 +47,8 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("Area")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("CityId")
                         .HasColumnType("int");
@@ -62,7 +63,8 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FullAddress")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<bool>("IsDefault")
                         .HasColumnType("bit");
@@ -72,15 +74,18 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("PostalCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Street")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -108,11 +113,13 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
@@ -122,15 +129,18 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.HasKey("Id");
 
@@ -140,7 +150,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 83, DateTimeKind.Local).AddTicks(6845),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 248, DateTimeKind.Local).AddTicks(1985),
                             Email = "zahrasarmadi17@gmail.com",
                             FirstName = "زهرا",
                             Gender = 1,
@@ -164,7 +174,8 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -174,187 +185,187 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3532),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6004),
                             Name = "آذربایجان شرقی"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3535),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6008),
                             Name = "آذربایجان غربی"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3536),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6010),
                             Name = "اردبیل"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3538),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6012),
                             Name = "اصفهان"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3539),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6014),
                             Name = "البرز"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3541),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6090),
                             Name = "ایلام"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3543),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6092),
                             Name = "بوشهر"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3544),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6095),
                             Name = "تهران"
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3545),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6097),
                             Name = "چهارمحال و بختیاری"
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3547),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6099),
                             Name = "خراسان جنوبی"
                         },
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3548),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6102),
                             Name = "خراسان رضوی"
                         },
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3550),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6104),
                             Name = "خراسان شمالی"
                         },
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3551),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6106),
                             Name = "خوزستان"
                         },
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3553),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6109),
                             Name = "زنجان"
                         },
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3554),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6111),
                             Name = "سمنان"
                         },
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3555),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6113),
                             Name = "سیستان و بلوچستان"
                         },
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3557),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6116),
                             Name = "فارس"
                         },
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3558),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6118),
                             Name = "قزوین"
                         },
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3560),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6120),
                             Name = "قم"
                         },
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3561),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6122),
                             Name = "کردستان"
                         },
                         new
                         {
                             Id = 21,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3563),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6125),
                             Name = "کرمان"
                         },
                         new
                         {
                             Id = 22,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3564),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6127),
                             Name = "کرمانشاه"
                         },
                         new
                         {
                             Id = 23,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3566),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6130),
                             Name = "کهگیلویه و بویراحمد"
                         },
                         new
                         {
                             Id = 24,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3567),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6132),
                             Name = "گلستان"
                         },
                         new
                         {
                             Id = 25,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3569),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6134),
                             Name = "گیلان"
                         },
                         new
                         {
                             Id = 26,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3570),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6136),
                             Name = "لرستان"
                         },
                         new
                         {
                             Id = 27,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3572),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6138),
                             Name = "مازندران"
                         },
                         new
                         {
                             Id = 28,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3573),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6140),
                             Name = "مرکزی"
                         },
                         new
                         {
                             Id = 29,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3575),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6142),
                             Name = "هرمزگان"
                         },
                         new
                         {
                             Id = 30,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3576),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6144),
                             Name = "همدان"
                         },
                         new
                         {
                             Id = 31,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 85, DateTimeKind.Local).AddTicks(3579),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6146),
                             Name = "یزد"
                         });
                 });
@@ -375,20 +386,25 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("ExpertId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsAccept")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<float>("Score")
-                        .HasColumnType("real");
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -397,6 +413,20 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasIndex("ExpertId");
 
                     b.ToTable("Comments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 250, DateTimeKind.Local).AddTicks(818),
+                            CustomerId = 1,
+                            Description = "کارش عالی بود",
+                            ExpertId = 1,
+                            IsAccept = false,
+                            IsDeleted = false,
+                            Score = 4,
+                            Title = "عالی"
+                        });
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Customer", b =>
@@ -409,17 +439,20 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("BackUpPhoneNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.Property<string>("BankCardNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int?>("Gender")
                         .HasColumnType("int");
@@ -429,17 +462,13 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("LastUpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RegisteredAt")
-                        .HasColumnType("datetime2");
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.HasKey("Id");
 
@@ -451,28 +480,24 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                             Id = 1,
                             BackUpPhoneNumber = "09123669858",
                             BankCardNumber = "1234123412341234",
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8754),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 250, DateTimeKind.Local).AddTicks(5090),
                             FirstName = "سارا",
                             Gender = 1,
                             IsDeleted = false,
                             LastName = "محمودی",
-                            LastUpdatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8746),
-                            PhoneNumber = "09192365988",
-                            RegisteredAt = new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8754)
+                            PhoneNumber = "09192365988"
                         },
                         new
                         {
                             Id = 2,
                             BackUpPhoneNumber = "09123623258",
                             BankCardNumber = "1239684412341234",
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8759),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 250, DateTimeKind.Local).AddTicks(5096),
                             FirstName = "محمد",
                             Gender = 2,
                             IsDeleted = false,
                             LastName = "اصغری",
-                            LastUpdatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8757),
-                            PhoneNumber = "09199655988",
-                            RegisteredAt = new DateTime(2024, 4, 30, 18, 0, 18, 86, DateTimeKind.Local).AddTicks(8759)
+                            PhoneNumber = "09199655988"
                         });
                 });
 
@@ -486,17 +511,19 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("BankCardNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("CreatedAt")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
@@ -509,96 +536,34 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
-                    b.Property<DateTime>("RegisteredAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ProfileImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Experts");
-                });
-
-            modelBuilder.Entity("HomeService.Domain.Core.Entities.Image", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Alt")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("ExpertId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImageAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ServiceCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ServiceId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ServiceSubCategoryId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ExpertId")
-                        .IsUnique()
-                        .HasFilter("[ExpertId] IS NOT NULL");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ServiceCategoryId")
-                        .IsUnique()
-                        .HasFilter("[ServiceCategoryId] IS NOT NULL");
-
-                    b.HasIndex("ServiceId")
-                        .IsUnique()
-                        .HasFilter("[ServiceId] IS NOT NULL");
-
-                    b.HasIndex("ServiceSubCategoryId")
-                        .IsUnique()
-                        .HasFilter("[ServiceSubCategoryId] IS NOT NULL");
-
-                    b.ToTable("Images");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Alt = "ساختمان",
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 87, DateTimeKind.Local).AddTicks(9031),
-                            ImageAddress = "..\\HomeService\\HomeService.Endpoint.RazorPages.UI\\wwwroot\\img\\ServiceCategory\\f842e927-824f-49f6-8710-124e7f517ed6-mainCategory-icon.webp",
+                            BankCardNumber = "1234123412341234",
+                            BirthDate = new DateTime(1998, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(937),
+                            FirstName = "منصور",
+                            Gender = 2,
+                            IsConfrim = true,
                             IsDeleted = false,
-                            ServiceCategoryId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Alt = "تعمیرات اشیاء",
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 87, DateTimeKind.Local).AddTicks(9034),
-                            ImageAddress = "..\\HomeService\\HomeService.Endpoint.RazorPages.UI\\wwwroot\\img\\ServiceCategory\\08a5087d-cd08-49a2-82dd-4738cb2182bd-mainCategory-icon.webp",
-                            IsDeleted = false,
-                            ServiceCategoryId = 2
+                            LastName = "آموزگار",
+                            PhoneNumber = "09362356998"
                         });
                 });
 
@@ -618,13 +583,17 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<DateTime?>("DoneAt")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("ExpertId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -640,7 +609,8 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -651,6 +621,22 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasIndex("ServiceId");
 
                     b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(2614),
+                            CustomerId = 1,
+                            Description = "نظافت خونه صد متری هب طور کامل",
+                            DoneAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(2619),
+                            ExpertId = 1,
+                            IsDeleted = false,
+                            RequestedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(2623),
+                            ServiceId = 1,
+                            Status = 6,
+                            Title = "نظافت"
+                        });
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Service", b =>
@@ -664,20 +650,21 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ServiceSubCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubCategoryId")
+                    b.Property<int>("ServiceSubCategoryId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -690,29 +677,38 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(1998),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(3870),
                             IsDeleted = false,
                             Name = "سرویس عادی نظافت",
                             Price = 700000,
-                            SubCategoryId = 1
+                            ServiceSubCategoryId = 1
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(2001),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(3874),
                             IsDeleted = false,
                             Name = "سرویس لوکسن نظافت",
                             Price = 850000,
-                            SubCategoryId = 1
+                            ServiceSubCategoryId = 1
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(2003),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(3876),
                             IsDeleted = false,
                             Name = "سرویس ویژه نظافت",
                             Price = 1000000,
-                            SubCategoryId = 1
+                            ServiceSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(3879),
+                            IsDeleted = false,
+                            Name = "تعمیر و سرویس کولر آبی",
+                            Price = 200000,
+                            ServiceSubCategoryId = 4
                         });
                 });
 
@@ -727,12 +723,16 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -742,56 +742,56 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4811),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6621),
                             IsDeleted = false,
                             Name = "تمیزکاری"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4817),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6625),
                             IsDeleted = false,
                             Name = "ساختمان"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4819),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6629),
                             IsDeleted = false,
                             Name = "تعمیرات اشیاء"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4820),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6631),
                             IsDeleted = false,
                             Name = "اسباب کشی و حمل بار"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4822),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6634),
                             IsDeleted = false,
                             Name = "خودرو"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4824),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6637),
                             IsDeleted = false,
                             Name = "سازمان ها و مجتمع ها"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4825),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6639),
                             IsDeleted = false,
                             Name = "سلامت و زیبایی"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(4827),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6642),
                             IsDeleted = false,
                             Name = "کشکول"
                         });
@@ -808,12 +808,16 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("ServiceCategoryId")
                         .HasColumnType("int");
@@ -828,7 +832,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6414),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8505),
                             IsDeleted = false,
                             Name = "نظافت و پذیرایی",
                             ServiceCategoryId = 1
@@ -836,7 +840,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6419),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8509),
                             IsDeleted = false,
                             Name = "شستشو",
                             ServiceCategoryId = 1
@@ -844,7 +848,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6422),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8512),
                             IsDeleted = false,
                             Name = "کارواش و دیتیلینگ",
                             ServiceCategoryId = 1
@@ -852,7 +856,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6423),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8514),
                             IsDeleted = false,
                             Name = "سرمایش و گرمایش",
                             ServiceCategoryId = 3
@@ -860,7 +864,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6425),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8517),
                             IsDeleted = false,
                             Name = "نصب وتعمیر لوازم خانگی",
                             ServiceCategoryId = 3
@@ -868,7 +872,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6427),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8520),
                             IsDeleted = false,
                             Name = "کارواش و دیتیلینگ",
                             ServiceCategoryId = 3
@@ -876,7 +880,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6429),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8522),
                             IsDeleted = false,
                             Name = "خذمات کامپیوتری",
                             ServiceCategoryId = 3
@@ -884,7 +888,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6431),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8525),
                             IsDeleted = false,
                             Name = "تعمیرات موبایل",
                             ServiceCategoryId = 3
@@ -892,7 +896,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6432),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8527),
                             IsDeleted = false,
                             Name = "سرمایش و گرمایش",
                             ServiceCategoryId = 2
@@ -900,7 +904,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6434),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8530),
                             IsDeleted = false,
                             Name = "تعمیرا ساختمان",
                             ServiceCategoryId = 2
@@ -908,7 +912,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6436),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8532),
                             IsDeleted = false,
                             Name = "لوله کشی",
                             ServiceCategoryId = 2
@@ -916,7 +920,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6437),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8534),
                             IsDeleted = false,
                             Name = "طراحی و بازسازی ساختمان",
                             ServiceCategoryId = 2
@@ -924,7 +928,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6439),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8536),
                             IsDeleted = false,
                             Name = "برق کاری",
                             ServiceCategoryId = 2
@@ -932,7 +936,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6441),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8539),
                             IsDeleted = false,
                             Name = "چوب و کابینت",
                             ServiceCategoryId = 2
@@ -940,7 +944,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6443),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8541),
                             IsDeleted = false,
                             Name = "خدمات شیشه ای ساختمان",
                             ServiceCategoryId = 2
@@ -948,7 +952,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6444),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8544),
                             IsDeleted = false,
                             Name = "باغبانی و فضای سبز",
                             ServiceCategoryId = 2
@@ -956,7 +960,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6446),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8546),
                             IsDeleted = false,
                             Name = "باربری و جا به جایی",
                             ServiceCategoryId = 4
@@ -964,7 +968,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6448),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8549),
                             IsDeleted = false,
                             Name = "خدمات و تعمیرات خودرو",
                             ServiceCategoryId = 5
@@ -972,7 +976,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6450),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8551),
                             IsDeleted = false,
                             Name = "کارواش و دیتیلینگ",
                             ServiceCategoryId = 5
@@ -980,7 +984,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6452),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8554),
                             IsDeleted = false,
                             Name = "خدمات شرکتی",
                             ServiceCategoryId = 6
@@ -988,7 +992,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6454),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8557),
                             IsDeleted = false,
                             Name = "زیبایی بانوان",
                             ServiceCategoryId = 7
@@ -996,7 +1000,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6455),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8559),
                             IsDeleted = false,
                             Name = "پیرایش و زیبایی آقایان",
                             ServiceCategoryId = 7
@@ -1004,7 +1008,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6457),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8562),
                             IsDeleted = false,
                             Name = "پزشکی و پرستاری",
                             ServiceCategoryId = 7
@@ -1012,7 +1016,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedAt = new DateTime(2024, 4, 30, 18, 0, 18, 88, DateTimeKind.Local).AddTicks(6459),
+                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8564),
                             IsDeleted = false,
                             Name = "حیوانات خانگی",
                             ServiceCategoryId = 7
@@ -1032,7 +1036,8 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("ExpertId")
                         .HasColumnType("int");
@@ -1117,44 +1122,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Navigation("Expert");
                 });
 
-            modelBuilder.Entity("HomeService.Domain.Core.Entities.Image", b =>
-                {
-                    b.HasOne("HomeService.Domain.Core.Entities.Expert", "Expert")
-                        .WithOne("ProfileImage")
-                        .HasForeignKey("HomeService.Domain.Core.Entities.Image", "ExpertId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("HomeService.Domain.Core.Entities.Order", "Order")
-                        .WithMany("Images")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("HomeService.Domain.Core.Entities.ServiceCategory", "ServiceCategory")
-                        .WithOne("Image")
-                        .HasForeignKey("HomeService.Domain.Core.Entities.Image", "ServiceCategoryId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("HomeService.Domain.Core.Entities.Service", "Service")
-                        .WithOne("Image")
-                        .HasForeignKey("HomeService.Domain.Core.Entities.Image", "ServiceId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("HomeService.Domain.Core.Entities.ServiceSubCategory", "ServiceSubCategory")
-                        .WithOne("Image")
-                        .HasForeignKey("HomeService.Domain.Core.Entities.Image", "ServiceSubCategoryId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("Expert");
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Service");
-
-                    b.Navigation("ServiceCategory");
-
-                    b.Navigation("ServiceSubCategory");
-                });
-
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Order", b =>
                 {
                     b.HasOne("HomeService.Domain.Core.Entities.Customer", "Customer")
@@ -1186,7 +1153,8 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.HasOne("HomeService.Domain.Core.Entities.ServiceSubCategory", "ServiceSubCategory")
                         .WithMany("Services")
                         .HasForeignKey("ServiceSubCategoryId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.Navigation("ServiceSubCategory");
                 });
@@ -1244,37 +1212,26 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Navigation("Orders");
 
-                    b.Navigation("ProfileImage")
-                        .IsRequired();
-
                     b.Navigation("Suggestions");
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Order", b =>
                 {
-                    b.Navigation("Images");
-
                     b.Navigation("Suggestions");
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.Service", b =>
                 {
-                    b.Navigation("Image");
-
                     b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.ServiceCategory", b =>
                 {
-                    b.Navigation("Image");
-
                     b.Navigation("ServiceSubCategories");
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.ServiceSubCategory", b =>
                 {
-                    b.Navigation("Image");
-
                     b.Navigation("Services");
                 });
 #pragma warning restore 612, 618

@@ -31,7 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeService.Infra.DataAccse
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeService.Infra.DataBase.SQLServer", "HomeService.Infra.DataBase.SQLServer\HomeService.Infra.DataBase.SQLServer.csproj", "{E84AEDFC-ABE4-4921-A45E-863BAC186BD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeService.Endpoint.RazorPages.UI", "HomeService.Endpoint.RazorPages.UI\HomeService.Endpoint.RazorPages.UI.csproj", "{C9917195-8B6C-4797-B2DE-98B059BF3DDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeService.Endpoint.RazorPages.UI", "HomeService.Endpoint.RazorPages.UI\HomeService.Endpoint.RazorPages.UI.csproj", "{C9917195-8B6C-4797-B2DE-98B059BF3DDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00-Framework", "00-Framework", "{3D0EAA5E-EA55-431C-A2A9-DD293B70B330}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework", "Framework\Framework.csproj", "{3D74DC83-76EA-4759-909E-49350CD9FDB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +67,10 @@ Global
 		{C9917195-8B6C-4797-B2DE-98B059BF3DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9917195-8B6C-4797-B2DE-98B059BF3DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9917195-8B6C-4797-B2DE-98B059BF3DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D74DC83-76EA-4759-909E-49350CD9FDB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D74DC83-76EA-4759-909E-49350CD9FDB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D74DC83-76EA-4759-909E-49350CD9FDB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D74DC83-76EA-4759-909E-49350CD9FDB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +88,7 @@ Global
 		{F6FE4B8D-D34E-42AF-9413-4FB4F83C64B5} = {1E20ED79-E33D-4E10-84ED-16316332B423}
 		{E84AEDFC-ABE4-4921-A45E-863BAC186BD9} = {2D138883-FCAC-425C-AEE3-7A398E066AB4}
 		{C9917195-8B6C-4797-B2DE-98B059BF3DDA} = {BFB3386A-EED6-4ED9-8280-FC80D23AFAFE}
+		{3D74DC83-76EA-4759-909E-49350CD9FDB4} = {3D0EAA5E-EA55-431C-A2A9-DD293B70B330}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0AEE9BB3-1D0D-43A9-A4DA-45F66C68E4CB}

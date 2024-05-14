@@ -1,5 +1,5 @@
-﻿using Azure.Core;
-using HomeService.Domain.Core.Entities;
+﻿using HomeService.Domain.Core.Entities;
+using HomeService.Domain.Core.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -27,8 +27,24 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .WithOne(s=>s.Order)
             .OnDelete(DeleteBehavior.NoAction);
 
-        builder.HasMany(o=>o.Images)
-            .WithOne(i=>i.Order)
-            .OnDelete(DeleteBehavior.NoAction);
+      
+
+        builder.HasData(
+            new Order
+            {
+                Id=1,
+                CreatedAt = DateTime.Now,
+                CustomerId=1,
+                IsDeleted=false,
+                Description="نظافت خونه صد متری هب طور کامل",
+                ExpertId=1,
+                DoneAt= DateTime.Now,
+                RequestedAt= DateTime.Now,
+                ServiceId=1,
+                Title="نظافت",
+                Status=StatusEnum.Done,
+                
+            }
+            );
     }
 }

@@ -1,5 +1,5 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
-using HomeService.Domain.Core.DTOs;
+using HomeService.Domain.Core.DTOs.ExpertDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +38,7 @@ public class ExpertRepository : IExpertRepository
     {
         var targetModel = await FindExpert(expertId, cancellationToken);
         targetModel.IsDeleted = true;
+
         await _context.SaveChangesAsync();
         return true;
     }
@@ -64,11 +65,18 @@ public class ExpertRepository : IExpertRepository
         targetModel.BirthDate = expertUpdateDto.BirthDate;
         targetModel.ProfileImage = expertUpdateDto.ProfileImage;
         targetModel.Services = expertUpdateDto.Services;
+
         await _context.SaveChangesAsync(cancellationToken);
 
         return true;
     }
 
+    public async Task<int> ExpertCount(CancellationToken cancellationToken)
+    {
+      var count=  await _context.Experts.CountAsync(cancellationToken);
+        return count;
+    }
+
     private async Task<Expert> FindExpert(int id, CancellationToken cancellationToken)
-   => await _context.Experts.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+   => await _context.Experts.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

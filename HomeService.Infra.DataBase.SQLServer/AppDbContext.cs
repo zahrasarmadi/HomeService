@@ -19,7 +19,6 @@ public class AppDbContext : DbContext
         builder.ApplyConfiguration(new CustomerConfiguration());
         builder.ApplyConfiguration(new AddressConfiguration());
         builder.ApplyConfiguration(new ExpertConfiguration());
-        builder.ApplyConfiguration(new ImageConfiguration());
         builder.ApplyConfiguration(new ServiceConfiguration());
         builder.ApplyConfiguration(new ServiceCategoryConfiguration());
         builder.ApplyConfiguration(new ServiceSubCategoryConfiguration());
@@ -35,7 +34,6 @@ public class AppDbContext : DbContext
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Address> Addresses { get; set; }
     public DbSet<Expert> Experts { get; set; }
-    public DbSet<Image> Images { get; set; }
     public DbSet<Service> Services { get; set; }
     public DbSet<ServiceCategory> ServiceCategories { get; set; }
     public DbSet<ServiceSubCategory> ServiceSubCategories { get; set; }

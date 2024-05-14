@@ -1,5 +1,5 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
-using HomeService.Domain.Core.DTOs;
+using HomeService.Domain.Core.DTOs.AdminDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +30,6 @@ public class AdminRepository : IAdminRepository
         await _context.Admins.AddAsync(newModel,cancellationToken);
         _context.SaveChangesAsync(cancellationToken);
         return true;
-
     }
 
     public async Task<bool> Delete(int adminId, CancellationToken cancellationToken)

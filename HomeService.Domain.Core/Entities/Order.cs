@@ -1,16 +1,16 @@
 ﻿using HomeService.Domain.Core.Enums;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace HomeService.Domain.Core.Entities;
 
 public class Order
 {
     public int Id { get; set; }
-    [DisplayName("عنوان")]
+    [MaxLength(50)]
     public string Title { get; set; }
-    [DisplayName("توضیحات")]
+    [MaxLength(500)]
     public string Description { get; set; }
-    [DisplayName("وضعیت")]
     public StatusEnum Status { get; set; }
     public Customer Customer { get; set; }
     public int CustomerId { get; set; }
@@ -20,7 +20,7 @@ public class Order
     public Service Service { get; set; }
     public int ServiceId { get; set; }
     [DisplayName("عکس ها")]
-    public List<Image>? Images { get; set; }
+    public string? Image { get; set; }
     public bool IsDeleted { get; set; }=false;
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public DateTime RequestedAt { get; set; } = DateTime.Now;

@@ -1,5 +1,5 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
-using HomeService.Domain.Core.DTOs;
+using HomeService.Domain.Core.DTOs.SuggestionDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
@@ -61,5 +61,5 @@ public class SuggestionRepository : ISuggestionRepository
     }
 
     private async Task<Suggestion> FindSuggestion(int id, CancellationToken cancellationToken)
-   => await _context.Suggestions.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+   => await _context.Suggestions.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

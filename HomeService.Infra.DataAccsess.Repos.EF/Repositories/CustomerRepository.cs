@@ -1,5 +1,5 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
-using HomeService.Domain.Core.DTOs;
+using HomeService.Domain.Core.DTOs.CustomerDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
@@ -67,6 +67,9 @@ public class CustomerRepository : ICustomerRepository
 
         return true;
     }
+
+    public async Task<int> CustomerCount(CancellationToken cancellationToken)
+      => await _context.Customers.CountAsync(cancellationToken);
 
     private async Task<Customer> FindCustomer(int id, CancellationToken cancellationToken)
        => await _context.Customers.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);

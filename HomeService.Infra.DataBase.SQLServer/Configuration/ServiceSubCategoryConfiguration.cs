@@ -18,9 +18,6 @@ public class ServiceSubCategoryConfiguration : IEntityTypeConfiguration<ServiceS
             .WithMany(s => s.ServiceSubCategories)
             .OnDelete(DeleteBehavior.NoAction);
 
-        builder.HasOne(s => s.Image)
-            .WithOne(i => i.ServiceSubCategory)
-            .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasData
             (

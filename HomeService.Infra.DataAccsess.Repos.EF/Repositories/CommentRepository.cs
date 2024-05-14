@@ -1,5 +1,5 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
-using HomeService.Domain.Core.DTOs;
+using HomeService.Domain.Core.DTOs.CommentDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +14,7 @@ public class CommentRepository : ICommentRepository
     {
         _context = context;
     }
+
     public async Task<bool> Create(CommentCreateDto commentCreateDto, CancellationToken cancellationToken)
     {
         var newModel = new Comment()
@@ -21,10 +22,8 @@ public class CommentRepository : ICommentRepository
             Title = commentCreateDto.Title,
             Description = commentCreateDto.Description,
             Score = commentCreateDto.Score,
-            Customer = commentCreateDto.Customer,
             CustomerId = commentCreateDto.CustomerId,
             ExpertId = commentCreateDto.ExpertId,
-            Expert = commentCreateDto.Expert,
         };
         await _context.Comments.AddAsync(newModel, cancellationToken);
 
@@ -40,14 +39,28 @@ public class CommentRepository : ICommentRepository
         return true;
     }
 
-    public async Task<List<Comment>> GetAll(CancellationToken cancellationToken)
-        => await _context.Comments.AsNoTracking().ToListAsync(cancellationToken);
-
+    public async Task<List<GetCommentsDto>> GetAll(CancellationToken cancellationToken)
+    {
+        var comments = await _context.Comments.AsNoTracking()
+             .Select(c => new GetCommentsDto
+             {
+                 Id = c.Id,
+                 Title = c.Title,
+                 CustomerName = c.Customer.FirstName,
+                 CustomerFamily = c.Customer.LastName,
+                 CustomerId = c.CustomerId,
+                 ExpertName = c.Expert.FirstName,
+                 ExpertFamily = c.Expert.LastName,
+                 ExpertId = c.ExpertId,
+                 Description = c.Description,
+                 IsActive = c.IsAccept,
+                 IsDeleted = c.IsDeleted,
+             }).ToListAsync(cancellationToken);
+        return comments;
+    }
 
     public async Task<Comment> GetById(int commentId, CancellationToken cancellationToken)
        => await FindComment(commentId, cancellationToken);
-
-
 
     public async Task<bool> Update(CommentUpdateDto commentUpdateDto, CancellationToken cancellationToken)
     {
@@ -62,16 +75,54 @@ public class CommentRepository : ICommentRepository
         return true;
     }
 
-    public async Task<bool> SetScore(int expertId,int  score, CancellationToken cancellationToken)
+    public async Task<bool> SetScore(int expertId, int score, CancellationToken cancellationToken)
     {
-        var targetModel = await _context.Comments.FirstOrDefaultAsync(c => c.ExpertId == expertId,cancellationToken);
+        var targetModel = await _context.Comments.FirstOrDefaultAsync(c => c.ExpertId == expertId, cancellationToken);
 
-        targetModel.Score=score;
+        targetModel.Score = score;
         await _context.SaveChangesAsync(cancellationToken);
 
         return true;
     }
 
+    public async Task AcceptComment(int commentId, CancellationToken cancellationToken)
+    {
+        var targetModel = await FindComment(commentId, cancellationToken);
+        targetModel.IsAccept = true;
+
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task RejectComment(int commentId, CancellationToken cancellationToken)
+    {
+        var targetModel = await FindComment(commentId, cancellationToken);
+        targetModel.IsAccept = false;
+
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task<List<RecentCommentDto>> GetRecentComments(int count,CancellationToken cancellationToken)
+    {
+        var recentComments = await _context.Comments.
+            Select(c => new RecentCommentDto
+            {
+                Id = c.Id,
+                Title = c.Title,
+                Score = c.Score,
+                Expert = c.Expert,
+                CreateAt = c.CreatedAt,
+            })
+            .OrderByDescending(c => c.CreateAt)
+            .Take(count)
+            .ToListAsync(cancellationToken);
+
+        return recentComments;
+    }
+
+
+    public async Task<int> CommentCount(CancellationToken cancellationToken)
+      => await _context.Comments.CountAsync(cancellationToken);
+
     private async Task<Comment> FindComment(int id, CancellationToken cancellationToken)
-       => await _context.Comments.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+       => await _context.Comments.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

@@ -13,10 +13,7 @@ internal class ServiceCategoryConfiguration : IEntityTypeConfiguration<ServiceCa
         builder.HasMany(s => s.ServiceSubCategories)
             .WithOne(s => s.ServiceCategory)
             .OnDelete(DeleteBehavior.NoAction);
-
-        builder.HasOne(s => s.Image)
-            .WithOne(i => i.ServiceCategory)
-            .OnDelete(DeleteBehavior.NoAction);
+;
 
         builder.HasData
             (

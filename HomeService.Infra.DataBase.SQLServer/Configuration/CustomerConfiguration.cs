@@ -33,9 +33,7 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
                 BackUpPhoneNumber = "09123669858",
                 BankCardNumber = "1234123412341234",
                 CreatedAt = DateTime.Now,
-                RegisteredAt = DateTime.Now,
                 IsDeleted = false,
-               
             },
             new Customer
             {
@@ -47,7 +45,6 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
                 BackUpPhoneNumber = "09123623258",
                 BankCardNumber = "1239684412341234",
                 CreatedAt = DateTime.Now,
-                RegisteredAt= DateTime.Now,
                 IsDeleted = false,
             }
             );;

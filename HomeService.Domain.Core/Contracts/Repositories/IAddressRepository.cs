@@ -1,4 +1,4 @@
-﻿using HomeService.Domain.Core.DTOs;
+﻿using HomeService.Domain.Core.DTOs.AddressDTO;
 using HomeService.Domain.Core.Entities;
 
 namespace HomeService.Domain.Core.Contracts.Repositories;

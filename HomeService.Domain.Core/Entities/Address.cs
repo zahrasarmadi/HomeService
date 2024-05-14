@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace HomeService.Domain.Core.Entities;
 
@@ -14,19 +15,19 @@ public class Address
     public Customer? Customer { get; set; }
     public int? ExpertId { get; set; }
     public Expert? Expert { get; set; }
-    [DisplayName("عنوان")]
+    [MaxLength(50)]
     public string Title { get; set; }
     public int CityId { get; set; }
-    [DisplayName("شهر")]
+    [MaxLength(50)]
     public City? City { get; set; }
-    [DisplayName("[خیابان")]
+    [MaxLength(50)]
     public string Street { get; set; }
-    [DisplayName("منطقه و کوچه و آپارتمان و ...")]
+    [MaxLength(500)]
     public string Area { get; set; }
+    [MaxLength(1000)]
     public string? FullAddress { get; private set; }
-    [DisplayName("کدپستی")]
+    [MaxLength(10)]
     public string PostalCode { get; set; }
-    [DisplayName("پیش فرض")]
     public bool IsDefault { get; set; }
     public bool IsDeleted { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;

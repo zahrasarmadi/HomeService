@@ -1,10 +1,9 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
-using HomeService.Domain.Core.DTOs;
+using HomeService.Domain.Core.DTOs.OrderDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Enums;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 
@@ -26,7 +25,7 @@ public class OrderRepository : IOrderRepository
             CustomerId = orderCreateDto.CustomerId,
             Service = orderCreateDto.Service,
             ServiceId = orderCreateDto.ServiceId,
-            Images = orderCreateDto.Images,
+            Image = orderCreateDto.Image,
         };
         await _context.Orders.AddAsync(newModel, cancellationToken);
 
@@ -61,7 +60,7 @@ public class OrderRepository : IOrderRepository
         targetModel.ExpertId = orderUpdateDto.ExpertId;
         targetModel.Service = orderUpdateDto.Service;
         targetModel.ServiceId = orderUpdateDto.ServiceId;
-        targetModel.Images = orderUpdateDto.Images;
+       targetModel.Image = orderUpdateDto.Image;
         targetModel.DoneAt = orderUpdateDto.DoneAt;
         targetModel.Suggestions = orderUpdateDto.Suggestions;
 
@@ -79,6 +78,10 @@ public class OrderRepository : IOrderRepository
         return true;
     }
 
+    public async Task<int> OrderCount(CancellationToken cancellationToken)
+      => await _context.Orders.CountAsync(cancellationToken);
+    
+
     private async Task<Order> FindOrder(int id, CancellationToken cancellationToken)
-      => await _context.Orders.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+      => await _context.Orders.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }
