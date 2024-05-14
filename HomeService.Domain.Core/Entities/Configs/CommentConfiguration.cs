@@ -2,5 +2,5 @@
 
 public class CommentConfiguration
 {
-    public int ResentCount { get; set; }
+    public int RecentCount { get; set; }
 }

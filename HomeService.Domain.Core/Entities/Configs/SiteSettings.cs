@@ -2,6 +2,6 @@
 
 public class SiteSettings
 {
-    public CommentConfiguration commentConfiguration { get; set; }
+    public CommentConfiguration CommentConfiguration { get; set; }
     public SqlConfiguration SqlConfiguration { get; set; }
 }

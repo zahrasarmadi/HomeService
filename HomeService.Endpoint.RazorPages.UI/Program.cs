@@ -76,6 +76,12 @@ var configuration = new ConfigurationBuilder()
 
 var siteSettings = configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>();
 
+builder.Services.AddLogging(LoggingBuilder =>
+{
+    LoggingBuilder.ClearProviders();
+    LoggingBuilder.AddSeq(configuration.GetSection("SiteSettings:Seq"));
+});
+
 builder.Services.AddSingleton(siteSettings);
 
 builder.Services.AddDbContext<AppDbContext>(options

@@ -43,7 +43,7 @@ public class CommentAppServices : ICommentAppServices
       => await _commentServices.CommentCount(cancellationToken);
     public async Task<List<RecentCommentDto>> GetRecentComments(CancellationToken cancellationToken)
     {
-        var resentCount = _siteSettings.commentConfiguration.ResentCount;
+        var resentCount = _siteSettings.CommentConfiguration.RecentCount;
         return await _commentServices.GetRecentComments(resentCount, cancellationToken);
     }
 
