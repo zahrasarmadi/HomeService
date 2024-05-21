@@ -1,9 +1,12 @@
 ﻿using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer.Configuration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 namespace HomeService.Infra.DataBase.SQLServer;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
@@ -23,6 +26,8 @@ public class AppDbContext : DbContext
         builder.ApplyConfiguration(new ServiceCategoryConfiguration());
         builder.ApplyConfiguration(new ServiceSubCategoryConfiguration());
         builder.ApplyConfiguration(new SuggestionConfiguration());
+
+        UserConfigurations.SeedUsers(builder);
 
         base.OnModelCreating(builder);
     }

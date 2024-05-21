@@ -26,10 +26,9 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
             new Customer
             {
                 Id = 1,
-                FirstName = "سارا",
+                FirstName = "سحر",
                 LastName = "محمودی",
                 Gender = GenderEnum.Female,
-                PhoneNumber = "09192365988",
                 BackUpPhoneNumber = "09123669858",
                 BankCardNumber = "1234123412341234",
                 CreatedAt = DateTime.Now,
@@ -41,7 +40,6 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
                 FirstName = "محمد",
                 LastName = "اصغری",
                 Gender = GenderEnum.Male,
-                PhoneNumber = "09199655988",
                 BackUpPhoneNumber = "09123623258",
                 BankCardNumber = "1239684412341234",
                 CreatedAt = DateTime.Now,

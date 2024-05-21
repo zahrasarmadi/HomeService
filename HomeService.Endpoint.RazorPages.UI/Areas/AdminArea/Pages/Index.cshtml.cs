@@ -4,7 +4,7 @@ using HomeService.Endpoint.RazorPages.UI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HomeService.Endpoint.RazorPages.UI.Pages;
+namespace HomeService.Endpoint.RazorPages.UI.Areas.AdminArea.Pages;
 
 public class IndexModel : PageModel
 {
@@ -25,14 +25,14 @@ public class IndexModel : PageModel
     public List<RecentCommentDto> ResentComment { get; set; }
 
     [BindProperty]
-    public CountViewModel CountViewModel { get; set; }
+    public CountViewModel CountViewModel { get; set; } = new CountViewModel();
 
     public async Task OnGet(CancellationToken cancellationToken)
     {
-        ResentComment =await _commentAppServices.GetRecentComments(cancellationToken);
-        //CountViewModel.ExpertCount =  _expertAppServices.ExpertCount(cancellationToken);
-        //CountViewModel.CommentCount =  _commentAppServices.CommentCount(cancellationToken);
-        //CountViewModel.CommentCount =  _orderAppServices.OrderCount(cancellationToken);
-        //CountViewModel.CustomerCount =  _orderAppServices.OrderCount(cancellationToken);
+        ResentComment = await _commentAppServices.GetRecentComments(cancellationToken);
+        CountViewModel.ExpertCount = await _expertAppServices.ExpertCount(cancellationToken);
+        CountViewModel.CommentCount = await _commentAppServices.CommentCount(cancellationToken);
+        CountViewModel.CommentCount =  await _orderAppServices.OrderCount(cancellationToken);
+        CountViewModel.CustomerCount = await _orderAppServices.OrderCount(cancellationToken);
     }
 }

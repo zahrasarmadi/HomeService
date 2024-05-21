@@ -17,7 +17,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -111,11 +111,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -132,16 +127,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Admins");
@@ -150,14 +135,186 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 248, DateTimeKind.Local).AddTicks(1985),
-                            Email = "zahrasarmadi17@gmail.com",
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 204, DateTimeKind.Local).AddTicks(7004),
                             FirstName = "زهرا",
                             Gender = 1,
                             IsDeleted = false,
-                            LastName = "سرمدی",
-                            Password = "zahrasarmadi",
-                            PhoneNumber = "09927848276"
+                            LastName = "سرمدی"
+                        });
+                });
+
+            modelBuilder.Entity("HomeService.Domain.Core.Entities.ApplicationUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AdminId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("ExpertId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("ExpertId");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccessFailedCount = 0,
+                            AdminId = 1,
+                            ConcurrencyStamp = "ed2a6cbf-90a0-4510-ab64-a968de82804f",
+                            Email = "Zahrasarmadi17@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ZAHRASARMADI17@GMAIL.COM",
+                            NormalizedUserName = "ZAHRASARMADI17@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBKbdquuh0jURNpf2D5v4VxBFOfVm5K6UB7dB45BmvtKnRmCm5UMOm4XwZSLMaL09w==",
+                            PhoneNumber = "09927848276",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "9b7de613-0c0d-4402-9a2e-8835c4e3b38d",
+                            TwoFactorEnabled = false,
+                            UserName = "Zahrasarmadi17@gmail.com"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "f0b6afac-3044-4396-96dc-ff14b262eddc",
+                            Email = "Ali@gmail.com",
+                            EmailConfirmed = false,
+                            ExpertId = 1,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ALI@GMAIL.COM",
+                            NormalizedUserName = "ALI@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMeEU2qC17SWb1aNPWouNIj9/oibq0Np3sdPBUhyblTBlg3Z0Mnbl58a58rwrKphLA==",
+                            PhoneNumber = "09377507920",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "6ac827be-180c-4d43-9833-4cd4b381bec6",
+                            TwoFactorEnabled = false,
+                            UserName = "Ali@gmail.com"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "8a2833d6-3d2c-43d6-845e-2d09bd46ae6b",
+                            CustomerId = 1,
+                            Email = "Sahar@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SAHAR@GMAIL.COM",
+                            NormalizedUserName = "SAHAR@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIbxEVvCyEVBPypHXbDxbN8HDL6uQPOqSrTliHm8p0aR1WKrYY3obtjRHTrW4OFroA==",
+                            PhoneNumber = "09377507920",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "e71818a7-bd4c-46fa-acb3-ca060addc950",
+                            TwoFactorEnabled = false,
+                            UserName = "Sahar@gmail.com"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "aa2d77b4-e76a-4236-adba-b6c6e99d69b3",
+                            Email = "Sara@gmail.com",
+                            EmailConfirmed = false,
+                            ExpertId = 2,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SARA@GMAIL.COM",
+                            NormalizedUserName = "SARA@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAED2JJXxwza07o0JIYtvhBnafXmHD+23tJgbsUqVj71TXt8FBAjnl9YWWdqwGMU3Hjw==",
+                            PhoneNumber = "09377507920",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "a816ce8a-47f0-4b35-8009-114a582a0349",
+                            TwoFactorEnabled = false,
+                            UserName = "Sara@gmail.com"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7627cae6-e494-4f0a-bf9d-887060b1fa17",
+                            CustomerId = 2,
+                            Email = "Mohammad@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "MOHAMMAD@GMAIL.COM",
+                            NormalizedUserName = "MOHAMMAD@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHtmMXbixFY0oFt2PHbWYUpvw+59gmU6L6Hqn4Gic4WipB181n00Y4dwZakMoFIlcg==",
+                            PhoneNumber = "09377507920",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "d6f0cedf-b7b1-47e5-b005-cb1a9bc22334",
+                            TwoFactorEnabled = false,
+                            UserName = "Mohammad@gmail.com"
                         });
                 });
 
@@ -185,187 +342,187 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6004),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3350),
                             Name = "آذربایجان شرقی"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6008),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3352),
                             Name = "آذربایجان غربی"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6010),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3354),
                             Name = "اردبیل"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6012),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3356),
                             Name = "اصفهان"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6014),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3358),
                             Name = "البرز"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6090),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3359),
                             Name = "ایلام"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6092),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3360),
                             Name = "بوشهر"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6095),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3362),
                             Name = "تهران"
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6097),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3364),
                             Name = "چهارمحال و بختیاری"
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6099),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3375),
                             Name = "خراسان جنوبی"
                         },
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6102),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3377),
                             Name = "خراسان رضوی"
                         },
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6104),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3395),
                             Name = "خراسان شمالی"
                         },
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6106),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3397),
                             Name = "خوزستان"
                         },
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6109),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3399),
                             Name = "زنجان"
                         },
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6111),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3400),
                             Name = "سمنان"
                         },
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6113),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3402),
                             Name = "سیستان و بلوچستان"
                         },
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6116),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3403),
                             Name = "فارس"
                         },
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6118),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3405),
                             Name = "قزوین"
                         },
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6120),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3407),
                             Name = "قم"
                         },
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6122),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3408),
                             Name = "کردستان"
                         },
                         new
                         {
                             Id = 21,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6125),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3410),
                             Name = "کرمان"
                         },
                         new
                         {
                             Id = 22,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6127),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3411),
                             Name = "کرمانشاه"
                         },
                         new
                         {
                             Id = 23,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6130),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3413),
                             Name = "کهگیلویه و بویراحمد"
                         },
                         new
                         {
                             Id = 24,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6132),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3414),
                             Name = "گلستان"
                         },
                         new
                         {
                             Id = 25,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6134),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3416),
                             Name = "گیلان"
                         },
                         new
                         {
                             Id = 26,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6136),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3417),
                             Name = "لرستان"
                         },
                         new
                         {
                             Id = 27,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6138),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3419),
                             Name = "مازندران"
                         },
                         new
                         {
                             Id = 28,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6140),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3421),
                             Name = "مرکزی"
                         },
                         new
                         {
                             Id = 29,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6142),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3422),
                             Name = "هرمزگان"
                         },
                         new
                         {
                             Id = 30,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6144),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3424),
                             Name = "همدان"
                         },
                         new
                         {
                             Id = 31,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(6146),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(3425),
                             Name = "یزد"
                         });
                 });
@@ -418,7 +575,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 250, DateTimeKind.Local).AddTicks(818),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 206, DateTimeKind.Local).AddTicks(8262),
                             CustomerId = 1,
                             Description = "کارش عالی بود",
                             ExpertId = 1,
@@ -465,11 +622,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
@@ -480,24 +632,22 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                             Id = 1,
                             BackUpPhoneNumber = "09123669858",
                             BankCardNumber = "1234123412341234",
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 250, DateTimeKind.Local).AddTicks(5090),
-                            FirstName = "سارا",
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 207, DateTimeKind.Local).AddTicks(2049),
+                            FirstName = "سحر",
                             Gender = 1,
                             IsDeleted = false,
-                            LastName = "محمودی",
-                            PhoneNumber = "09192365988"
+                            LastName = "محمودی"
                         },
                         new
                         {
                             Id = 2,
                             BackUpPhoneNumber = "09123623258",
                             BankCardNumber = "1239684412341234",
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 250, DateTimeKind.Local).AddTicks(5096),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 207, DateTimeKind.Local).AddTicks(2087),
                             FirstName = "محمد",
                             Gender = 2,
                             IsDeleted = false,
-                            LastName = "اصغری",
-                            PhoneNumber = "09199655988"
+                            LastName = "اصغری"
                         });
                 });
 
@@ -557,13 +707,26 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                             Id = 1,
                             BankCardNumber = "1234123412341234",
                             BirthDate = new DateTime(1998, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(937),
-                            FirstName = "منصور",
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 207, DateTimeKind.Local).AddTicks(9906),
+                            FirstName = "علی",
                             Gender = 2,
                             IsConfrim = true,
                             IsDeleted = false,
                             LastName = "آموزگار",
                             PhoneNumber = "09362356998"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BankCardNumber = "1234123412341255",
+                            BirthDate = new DateTime(1998, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 207, DateTimeKind.Local).AddTicks(9911),
+                            FirstName = "سارا",
+                            Gender = 2,
+                            IsConfrim = true,
+                            IsDeleted = false,
+                            LastName = "همتی",
+                            PhoneNumber = "09362357998"
                         });
                 });
 
@@ -626,13 +789,13 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(2614),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 205, DateTimeKind.Local).AddTicks(9756),
                             CustomerId = 1,
                             Description = "نظافت خونه صد متری هب طور کامل",
-                            DoneAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(2619),
+                            DoneAt = new DateTime(2024, 5, 20, 22, 29, 36, 205, DateTimeKind.Local).AddTicks(9761),
                             ExpertId = 1,
                             IsDeleted = false,
-                            RequestedAt = new DateTime(2024, 5, 13, 22, 26, 8, 249, DateTimeKind.Local).AddTicks(2623),
+                            RequestedAt = new DateTime(2024, 5, 20, 22, 29, 36, 205, DateTimeKind.Local).AddTicks(9767),
                             ServiceId = 1,
                             Status = 6,
                             Title = "نظافت"
@@ -658,8 +821,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -677,7 +839,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(3870),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(3435),
                             IsDeleted = false,
                             Name = "سرویس عادی نظافت",
                             Price = 700000,
@@ -686,7 +848,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(3874),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(3439),
                             IsDeleted = false,
                             Name = "سرویس لوکسن نظافت",
                             Price = 850000,
@@ -695,7 +857,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(3876),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(3441),
                             IsDeleted = false,
                             Name = "سرویس ویژه نظافت",
                             Price = 1000000,
@@ -704,7 +866,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(3879),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(3443),
                             IsDeleted = false,
                             Name = "تعمیر و سرویس کولر آبی",
                             Price = 200000,
@@ -742,56 +904,56 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6621),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(7477),
                             IsDeleted = false,
                             Name = "تمیزکاری"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6625),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(7480),
                             IsDeleted = false,
                             Name = "ساختمان"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6629),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(7482),
                             IsDeleted = false,
                             Name = "تعمیرات اشیاء"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6631),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(7483),
                             IsDeleted = false,
                             Name = "اسباب کشی و حمل بار"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6634),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(7485),
                             IsDeleted = false,
                             Name = "خودرو"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6637),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(7487),
                             IsDeleted = false,
                             Name = "سازمان ها و مجتمع ها"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6639),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(7489),
                             IsDeleted = false,
                             Name = "سلامت و زیبایی"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(6642),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(7491),
                             IsDeleted = false,
                             Name = "کشکول"
                         });
@@ -832,7 +994,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8505),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9324),
                             IsDeleted = false,
                             Name = "نظافت و پذیرایی",
                             ServiceCategoryId = 1
@@ -840,7 +1002,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8509),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9327),
                             IsDeleted = false,
                             Name = "شستشو",
                             ServiceCategoryId = 1
@@ -848,7 +1010,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8512),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9329),
                             IsDeleted = false,
                             Name = "کارواش و دیتیلینگ",
                             ServiceCategoryId = 1
@@ -856,7 +1018,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8514),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9331),
                             IsDeleted = false,
                             Name = "سرمایش و گرمایش",
                             ServiceCategoryId = 3
@@ -864,7 +1026,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8517),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9333),
                             IsDeleted = false,
                             Name = "نصب وتعمیر لوازم خانگی",
                             ServiceCategoryId = 3
@@ -872,7 +1034,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8520),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9335),
                             IsDeleted = false,
                             Name = "کارواش و دیتیلینگ",
                             ServiceCategoryId = 3
@@ -880,7 +1042,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8522),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9337),
                             IsDeleted = false,
                             Name = "خذمات کامپیوتری",
                             ServiceCategoryId = 3
@@ -888,7 +1050,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8525),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9339),
                             IsDeleted = false,
                             Name = "تعمیرات موبایل",
                             ServiceCategoryId = 3
@@ -896,7 +1058,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8527),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9341),
                             IsDeleted = false,
                             Name = "سرمایش و گرمایش",
                             ServiceCategoryId = 2
@@ -904,7 +1066,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8530),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9343),
                             IsDeleted = false,
                             Name = "تعمیرا ساختمان",
                             ServiceCategoryId = 2
@@ -912,7 +1074,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8532),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9344),
                             IsDeleted = false,
                             Name = "لوله کشی",
                             ServiceCategoryId = 2
@@ -920,7 +1082,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8534),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9346),
                             IsDeleted = false,
                             Name = "طراحی و بازسازی ساختمان",
                             ServiceCategoryId = 2
@@ -928,7 +1090,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8536),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9348),
                             IsDeleted = false,
                             Name = "برق کاری",
                             ServiceCategoryId = 2
@@ -936,7 +1098,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8539),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9350),
                             IsDeleted = false,
                             Name = "چوب و کابینت",
                             ServiceCategoryId = 2
@@ -944,7 +1106,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8541),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9352),
                             IsDeleted = false,
                             Name = "خدمات شیشه ای ساختمان",
                             ServiceCategoryId = 2
@@ -952,7 +1114,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8544),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9353),
                             IsDeleted = false,
                             Name = "باغبانی و فضای سبز",
                             ServiceCategoryId = 2
@@ -960,7 +1122,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8546),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9355),
                             IsDeleted = false,
                             Name = "باربری و جا به جایی",
                             ServiceCategoryId = 4
@@ -968,7 +1130,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8549),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9357),
                             IsDeleted = false,
                             Name = "خدمات و تعمیرات خودرو",
                             ServiceCategoryId = 5
@@ -976,7 +1138,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8551),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9359),
                             IsDeleted = false,
                             Name = "کارواش و دیتیلینگ",
                             ServiceCategoryId = 5
@@ -984,7 +1146,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8554),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9360),
                             IsDeleted = false,
                             Name = "خدمات شرکتی",
                             ServiceCategoryId = 6
@@ -992,7 +1154,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8557),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9362),
                             IsDeleted = false,
                             Name = "زیبایی بانوان",
                             ServiceCategoryId = 7
@@ -1000,7 +1162,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8559),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9364),
                             IsDeleted = false,
                             Name = "پیرایش و زیبایی آقایان",
                             ServiceCategoryId = 7
@@ -1008,7 +1170,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8562),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9365),
                             IsDeleted = false,
                             Name = "پزشکی و پرستاری",
                             ServiceCategoryId = 7
@@ -1016,7 +1178,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedAt = new DateTime(2024, 5, 13, 22, 26, 8, 251, DateTimeKind.Local).AddTicks(8564),
+                            CreatedAt = new DateTime(2024, 5, 20, 22, 29, 36, 208, DateTimeKind.Local).AddTicks(9367),
                             IsDeleted = false,
                             Name = "حیوانات خانگی",
                             ServiceCategoryId = 7
@@ -1063,6 +1225,186 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.ToTable("Suggestions");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Expert",
+                            NormalizedName = "EXPERT"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            RoleId = 2
+                        },
+                        new
+                        {
+                            UserId = 3,
+                            RoleId = 3
+                        },
+                        new
+                        {
+                            UserId = 4,
+                            RoleId = 2
+                        },
+                        new
+                        {
+                            UserId = 5,
+                            RoleId = 3
+                        });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
             modelBuilder.Entity("ExpertService", b =>
                 {
                     b.HasOne("HomeService.Domain.Core.Entities.Expert", null)
@@ -1097,6 +1439,27 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("City");
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Expert");
+                });
+
+            modelBuilder.Entity("HomeService.Domain.Core.Entities.ApplicationUser", b =>
+                {
+                    b.HasOne("HomeService.Domain.Core.Entities.Admin", "Admin")
+                        .WithMany()
+                        .HasForeignKey("AdminId");
+
+                    b.HasOne("HomeService.Domain.Core.Entities.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId");
+
+                    b.HasOne("HomeService.Domain.Core.Entities.Expert", "Expert")
+                        .WithMany()
+                        .HasForeignKey("ExpertId");
+
+                    b.Navigation("Admin");
 
                     b.Navigation("Customer");
 
@@ -1187,6 +1550,57 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Navigation("Expert");
 
                     b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<int>", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.HasOne("HomeService.Domain.Core.Entities.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.HasOne("HomeService.Domain.Core.Entities.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<int>", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HomeService.Domain.Core.Entities.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.HasOne("HomeService.Domain.Core.Entities.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("HomeService.Domain.Core.Entities.City", b =>

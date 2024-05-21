@@ -15,6 +15,9 @@ public class OrderServices : IOrderServices
         _orderRepository = orderRepository;
     }
 
+    public async Task AcceptStatus(int orderId, CancellationToken cancellationToken)
+      => await _orderRepository.AcceptStatus(orderId, cancellationToken);
+
     public async Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken)
         => await _orderRepository.ChangeStatus(status, orderId, cancellationToken);
 
@@ -29,6 +32,9 @@ public class OrderServices : IOrderServices
 
     public async Task<Order> GetById(int orderId, CancellationToken cancellationToken)
       => await _orderRepository.GetById(orderId, cancellationToken);
+
+    public async Task<List<GetOrderDto>> GetOrders(int customerId, CancellationToken cancellationToken)
+      => await _orderRepository.GetOrders(customerId, cancellationToken);
 
     public async Task<int> OrderCount(CancellationToken cancellationToken)
       => await _orderRepository.OrderCount(cancellationToken);

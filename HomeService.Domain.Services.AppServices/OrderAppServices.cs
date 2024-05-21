@@ -15,6 +15,9 @@ public class OrderAppServices : IOrderAppServices
         _orderServices = orderServices;
     }
 
+    public Task AcceptStatus(int orderId, CancellationToken cancellationToken)
+      =>_orderServices.AcceptStatus(orderId, cancellationToken);
+
     public async Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken)
      => await _orderServices.ChangeStatus(status, orderId, cancellationToken);
 
@@ -29,6 +32,9 @@ public class OrderAppServices : IOrderAppServices
 
     public async Task<Order> GetById(int orderId, CancellationToken cancellationToken)
       => await _orderServices.GetById(orderId, cancellationToken);
+
+    public async Task<List<GetOrderDto>> GetOrders(int customerId, CancellationToken cancellationToken)
+      =>await _orderServices.GetOrders(customerId, cancellationToken);  
 
     public async Task<int> OrderCount(CancellationToken cancellationToken)
       => await _orderServices.OrderCount(cancellationToken);

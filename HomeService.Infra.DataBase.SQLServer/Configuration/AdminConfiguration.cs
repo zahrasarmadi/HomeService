@@ -17,13 +17,9 @@ public class AdminConfiguration : IEntityTypeConfiguration<Admin>
                 Id=1,
                 FirstName = "زهرا",
                 LastName = "سرمدی",
-                Email = "zahrasarmadi17@gmail.com",
                 Gender = GenderEnum.Female,
-                Password = "zahrasarmadi",
-                PhoneNumber = "09927848276",
                 CreatedAt = DateTime.Now,
                 IsDeleted=false,
-    
             }
         );
     }

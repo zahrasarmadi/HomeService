@@ -34,8 +34,8 @@ public class ServiceCategoryAppServices: IServiceCategoryAppServices
     public async Task<ServiceCategory> GetById(int serviceCategoryId, CancellationToken cancellationToken)
       =>await _serviceCategoryServices.GetById(serviceCategoryId, cancellationToken);
 
-    public Task<List<CategoryNameDto>> GetCategorisName(CancellationToken cancellationToken)
-      =>_serviceCategoryServices.GetCategorisName(cancellationToken);
+    public async Task<List<CategoryNameDto>> GetCategorisName(CancellationToken cancellationToken)
+      =>await _serviceCategoryServices.GetCategorisName(cancellationToken);
 
     public async Task<bool> Update(ServiceCategoryUpdateDto serviceCategoryUpdateDto, IFormFile image, CancellationToken cancellationToken)
     {

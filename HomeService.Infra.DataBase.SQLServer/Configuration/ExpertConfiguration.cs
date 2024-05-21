@@ -26,7 +26,7 @@ public class ExpertConfiguration : IEntityTypeConfiguration<Expert>
             new Expert
             {
                 Id = 1,
-                FirstName = "منصور",
+                FirstName = "علی",
                 LastName = "آموزگار",
                 BirthDate = new DateTime(1998, 12, 03),
                 PhoneNumber = "09362356998",
@@ -35,7 +35,20 @@ public class ExpertConfiguration : IEntityTypeConfiguration<Expert>
                 BankCardNumber = "1234123412341234",
                 CreatedAt = DateTime.Now,
                 IsDeleted = false,
-            }
+            },
+             new Expert
+             {
+                 Id = 2,
+                 FirstName = "سارا",
+                 LastName = "همتی",
+                 BirthDate = new DateTime(1998, 12, 03),
+                 PhoneNumber = "09362357998",
+                 Gender = GenderEnum.Male,
+                 IsConfrim = true,
+                 BankCardNumber = "1234123412341255",
+                 CreatedAt = DateTime.Now,
+                 IsDeleted = false,
+             }
             );
         ;
     }

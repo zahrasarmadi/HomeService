@@ -43,18 +43,18 @@ public class OrderRepository : IOrderRepository
 
     public async Task<List<GetOrderDto>> GetAll(CancellationToken cancellationToken)
     {
-       var orders= await _context.Orders.AsNoTracking()
-            .Select(o=>new GetOrderDto
-            {
-                Id = o.Id,
-                Title = o.Title,
-                Description = o.Description,
-                Status = o.Status,
-                Customer = o.Customer,
-                Expert=o.Expert,
-                Service = o.Service,
-                Suggestions = o.Suggestions
-            }).ToListAsync(cancellationToken);
+        var orders = await _context.Orders.AsNoTracking()
+             .Select(o => new GetOrderDto
+             {
+                 Id = o.Id,
+                 Title = o.Title,
+                 Description = o.Description,
+                 Status = o.Status,
+                 Customer = o.Customer,
+                 Expert = o.Expert,
+                 Service = o.Service,
+                 Suggestions = o.Suggestions
+             }).ToListAsync(cancellationToken);
 
         return orders;
     }
@@ -75,7 +75,7 @@ public class OrderRepository : IOrderRepository
         targetModel.ExpertId = orderUpdateDto.ExpertId;
         targetModel.Service = orderUpdateDto.Service;
         targetModel.ServiceId = orderUpdateDto.ServiceId;
-       targetModel.Image = orderUpdateDto.Image;
+        targetModel.Image = orderUpdateDto.Image;
         targetModel.DoneAt = orderUpdateDto.DoneAt;
         targetModel.Suggestions = orderUpdateDto.Suggestions;
 
@@ -95,7 +95,31 @@ public class OrderRepository : IOrderRepository
 
     public async Task<int> OrderCount(CancellationToken cancellationToken)
       => await _context.Orders.CountAsync(cancellationToken);
-    
+
+    public async Task<List<GetOrderDto>> GetOrders(int customerId, CancellationToken cancellationToken)
+    {
+        return await _context.Orders.Where(o => o.Customer.Id == customerId && o.IsDeleted == false)
+            .Select(o => new GetOrderDto
+            {
+                Customer = o.Customer,
+                Description = o.Description,
+                Expert = o.Expert,
+                Image = o.Image,
+                Id = o.Id,
+                Service = o.Service,
+                Status = o.Status,
+                Title = o.Title,
+                Suggestions = o.Suggestions
+
+            }).ToListAsync(cancellationToken);
+    }
+
+    public async Task AcceptStatus(int orderId, CancellationToken cancellationToken)
+    {
+        var target = await FindOrder(orderId, cancellationToken);
+        target.Status = StatusEnum.Confirmed;
+        await _context.SaveChangesAsync(cancellationToken);
+    }
 
     private async Task<Order> FindOrder(int id, CancellationToken cancellationToken)
       => await _context.Orders.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);

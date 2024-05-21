@@ -22,7 +22,6 @@ public class CustomerRepository : ICustomerRepository
             FirstName = customerCreateDto.FirstName,
             LastName = customerCreateDto.LastName,
             Gender = customerCreateDto.Gender,
-            PhoneNumber = customerCreateDto.PhoneNumber,
             BackUpPhoneNumber = customerCreateDto.BackUpPhoneNumber,
             BankCardNumber = customerCreateDto.BankCardNumber,
             Addresses = customerCreateDto.Addresses,
@@ -59,7 +58,6 @@ public class CustomerRepository : ICustomerRepository
         targetModel.FirstName = customerUpdateDto.FirstName;
         targetModel.LastName = customerUpdateDto.LastName;
         targetModel.Gender = customerUpdateDto.Gender;
-        targetModel.PhoneNumber = customerUpdateDto.PhoneNumber;
         targetModel.BackUpPhoneNumber = customerUpdateDto.BackUpPhoneNumber;
         targetModel.BankCardNumber = customerUpdateDto.BankCardNumber;
 
@@ -67,6 +65,24 @@ public class CustomerRepository : ICustomerRepository
 
         return true;
     }
+
+    public async Task<CustomerSummaryDto> GetCustomerSummary(int id, CancellationToken cancellationToken)
+    {
+        return await _context.Customers.Where(a => a.IsDeleted == false)
+            .Select(c => new CustomerSummaryDto
+            {
+                Id = c.Id,
+                FirstName = c.FirstName,
+                LastName = c.LastName,
+                BankCardNumber = c.BankCardNumber,
+                BackUpPhoneNumber = c.BackUpPhoneNumber,
+                Gender = c.Gender,
+                Addresses = c.Addresses,
+                Comments = c.Comments,
+                Orders = c.Orders
+            }).FirstOrDefaultAsync(cancellationToken);
+    }
+
 
     public async Task<int> CustomerCount(CancellationToken cancellationToken)
       => await _context.Customers.CountAsync(cancellationToken);

@@ -10,4 +10,5 @@ public interface ISuggestionAppServices
     Task<bool> Delete(int suggestionId, CancellationToken cancellationToken);
     Task<Suggestion> GetById(int suggestionId, CancellationToken cancellationToken);
     Task<List<Suggestion>> GetAll(CancellationToken cancellationToken);
+    Task<bool> AcceptSuggestion(int id, int orderid, CancellationToken cancellationToken);
 }

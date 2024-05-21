@@ -5,11 +5,11 @@ using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Entities.Configs;
 using HomeService.Domain.Services.AppServices;
 using HomeService.Domain.Services.Services;
-using HomeService.Endpoint.RazorPages.UI.Infrastructure;
+using HomeService.Framework;
 using HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 using HomeService.Infra.DataBase.SQLServer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 
@@ -74,7 +74,26 @@ builder.Services.AddScoped<IExpertAppServices, ExpertAppServices>();
 builder.Services.AddScoped<IBaseSevices, BaseService>();
 builder.Services.AddScoped<IBaseAppServices, BaseAppServices>();
 
+
 builder.Services.AddMemoryCache();
+
+//User Account Service
+builder.Services.AddScoped<IAccountAppServices, AccountAppServices>();
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>
+	(options =>
+	{
+		options.SignIn.RequireConfirmedAccount = false;
+		options.Password.RequireDigit = false;
+		options.Password.RequiredLength = 6;
+		options.Password.RequireNonAlphanumeric = false;
+		options.Password.RequireUppercase = false;
+		options.Password.RequireLowercase = false;
+	})
+	.AddRoles<IdentityRole<int>>()
+	.AddEntityFrameworkStores<AppDbContext>()
+	.AddErrorDescriber<PersianIdentityErrorDescriber>();
+
 
 var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
@@ -82,12 +101,6 @@ var configuration = new ConfigurationBuilder()
 
 var siteSettings = configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>();
 
-//builder.Services.AddLogging(LoggingBuilder =>
-//{
-//    LoggingBuilder.ClearProviders();
-//    LoggingBuilder.AddConsole();
-//    LoggingBuilder.AddSeq(serverUrl: configuration.GetSection("SiteSettings:Seq:ServerUrl"),apiKey:configuration.GetSection("SiteSettings:Seq:ApiKey"));
-//});
 
 builder.Host.ConfigureLogging(loggingBuilder =>
 {
@@ -108,6 +121,8 @@ builder.Services.AddDbContext<AppDbContext>(options
 
 var app = builder.Build();
 
+
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -116,7 +131,10 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.CustomExceptionHandlingMiddleware();
+app.MapControllerRoute(
+name: "Areas",
+pattern: "{area:exists}/{controller=Customer}/{action=Index}/{id?}");
+//app.CustomExceptionHandlingMiddleware();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

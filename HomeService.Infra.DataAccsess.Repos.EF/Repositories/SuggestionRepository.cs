@@ -1,6 +1,7 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
 using HomeService.Domain.Core.DTOs.SuggestionDTO;
 using HomeService.Domain.Core.Entities;
+using HomeService.Domain.Core.Enums;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
 
@@ -58,6 +59,19 @@ public class SuggestionRepository : ISuggestionRepository
         await _context.SaveChangesAsync(cancellationToken);
 
         return true;
+    }
+
+    public async Task AcceptSuggestion(int id,CancellationToken cancellationToken)
+    {
+      var targetSuggestion=  await _context.Suggestions.FirstOrDefaultAsync(s => s.Id == id,cancellationToken);
+        targetSuggestion.Status = StatusEnum.Confirmed;
+
+        _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task<int> ConfrimedStatusCount(int orderId,CancellationToken cancellationToken)
+    {
+      return await _context.Suggestions.Where(s =>s.OrderId==orderId && s.Status == StatusEnum.Confirmed).CountAsync(cancellationToken);
     }
 
     private async Task<Suggestion> FindSuggestion(int id, CancellationToken cancellationToken)

@@ -42,7 +42,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
                 RequestedAt= DateTime.Now,
                 ServiceId=1,
                 Title="نظافت",
-                Status=StatusEnum.Done,
+                Status=StatusEnum.Confirmed,
             }
             );
     }

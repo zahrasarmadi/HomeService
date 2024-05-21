@@ -8,10 +8,25 @@ namespace HomeService.Domain.Services.AppServices;
 public class SuggestionAppServices : ISuggestionAppServices
 {
     private readonly ISuggestionServices _suggestionServices;
+    private readonly IOrderServices _orderServices;
 
-    public SuggestionAppServices(ISuggestionServices suggestionServices)
+    public SuggestionAppServices(ISuggestionServices suggestionServices, IOrderServices orderServices)
     {
         _suggestionServices = suggestionServices;
+        _orderServices = orderServices;
+    }
+
+    public async Task<bool> AcceptSuggestion(int id, int orderid, CancellationToken cancellationToken)
+    {
+        var confrimedCount = await _suggestionServices.ConfrimedStatusCount(orderid, cancellationToken);
+
+        if (confrimedCount == 0)
+        {
+            await _suggestionServices.AcceptSuggestion(id, cancellationToken);
+            await _orderServices.AcceptStatus(orderid, cancellationToken);
+            return true;
+        }
+        return false;
     }
 
     public async Task<bool> Create(SuggestionCreateDto suggestionCreateDto, CancellationToken cancellationToken)

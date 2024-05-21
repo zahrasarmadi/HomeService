@@ -11,17 +11,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
     <PackageReference Include="Seq.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Framework\Framework.csproj" />
     <ProjectReference Include="..\HomeService.Domain.Services.AppServices\HomeService.Domain.Services.AppServices.csproj" />
     <ProjectReference Include="..\HomeService.Domain.Services.Services\HomeService.Domain.Services.Services.csproj" />
     <ProjectReference Include="..\HomeService.Infra.DataAccsess.Repos.EF\HomeService.Infra.DataAccsess.Repos.EF.csproj" />
@@ -37,7 +40,86 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Account\Pages\AccessDenied.cshtml" />
+    <None Include="Areas\Account\Pages\Login.cshtml" />
+    <None Include="Areas\Account\Pages\Logout.cshtml" />
+    <None Include="Areas\Account\Pages\Register.cshtml" />
+    <None Include="Areas\Account\Pages\_ValidationScriptsPartial.cshtml" />
+    <None Include="Areas\Account\Pages\_ViewImports.cshtml" />
+    <None Include="Areas\Account\Pages\_ViewStart.cshtml" />
     <None Include="Areas\AdminArea\Pages\Service.cshtml" />
+    <None Include="wwwroot\assets\css\fonts\fa-brands-400.svg" />
+    <None Include="wwwroot\assets\css\fonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\assets\css\fonts\fa-regular-400.svg" />
+    <None Include="wwwroot\assets\css\fonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\assets\css\fonts\fa-solid-900.svg" />
+    <None Include="wwwroot\assets\css\fonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\assets\css\fonts\Flaticon.svg" />
+    <None Include="wwwroot\assets\css\fonts\houses.svg" />
+    <None Include="wwwroot\assets\css\fonts\icofont.woff2" />
+    <None Include="wwwroot\assets\css\fonts\LineIcons.svg" />
+    <None Include="wwwroot\assets\css\fonts\LineIcons.woff2" />
+    <None Include="wwwroot\assets\css\fonts\themify9f249f24.svg" />
+    <None Include="wwwroot\assets\img\verify.svg" />
+    <None Include="wwwroot\assets\js\bootstrap.min.js" />
+    <None Include="wwwroot\assets\js\counterup.js" />
+    <None Include="wwwroot\assets\js\custom.js" />
+    <None Include="wwwroot\assets\js\daterangepicker-fa-ex.js" />
+    <None Include="wwwroot\assets\js\daterangepicker.js" />
+    <None Include="wwwroot\assets\js\dropzone.js" />
+    <None Include="wwwroot\assets\js\filepond.js" />
+    <None Include="wwwroot\assets\js\jquery.magnific-popup.min.js" />
+    <None Include="wwwroot\assets\js\jquery.min.js" />
+    <None Include="wwwroot\assets\js\jQuery.style.switcher.js" />
+    <None Include="wwwroot\assets\js\leaflet.js" />
+    <None Include="wwwroot\assets\js\lightbox.js" />
+    <None Include="wwwroot\assets\js\moment-jalaali.js" />
+    <None Include="wwwroot\assets\js\moment.js" />
+    <None Include="wwwroot\assets\js\moment.min.js" />
+    <None Include="wwwroot\assets\js\plugins\dashboard-2.js" />
+    <None Include="wwwroot\assets\js\plugins\morris.js\morris.min.js" />
+    <None Include="wwwroot\assets\js\plugins\raphael\raphael.min.js" />
+    <None Include="wwwroot\assets\js\popper.min.js" />
+    <None Include="wwwroot\assets\js\slick.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
   </ItemGroup>
 
   <ItemGroup>

@@ -14,6 +14,12 @@ public class SuggestionServices : ISuggestionServices
         _suggestionRepository = suggestionRepository;
     }
 
+    public async Task AcceptSuggestion(int id, CancellationToken cancellationToken)
+       =>await _suggestionRepository.AcceptSuggestion(id, cancellationToken);
+
+    public async Task<int> ConfrimedStatusCount(int orderId, CancellationToken cancellationToken)
+     =>await _suggestionRepository.ConfrimedStatusCount(orderId, cancellationToken);
+
     public async Task<bool> Create(SuggestionCreateDto suggestionCreateDto, CancellationToken cancellationToken)
       => await _suggestionRepository.Create(suggestionCreateDto, cancellationToken);
 

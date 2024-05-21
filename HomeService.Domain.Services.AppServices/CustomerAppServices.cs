@@ -29,6 +29,9 @@ public class CustomerAppServices:ICustomerAppServices
     public async Task<Customer> GetById(int customerId, CancellationToken cancellationToken)
       =>await _customerServices.GetById(customerId, cancellationToken);
 
+    public async Task<CustomerSummaryDto> GetCustomerSummary(int id, CancellationToken cancellationToken)
+      =>await _customerServices.GetCustomerSummary(id, cancellationToken);
+
     public async Task<bool> Update(CustomerUpdateDto customerUpdateDto, CancellationToken cancellationToken)
       =>await _customerServices.Update(customerUpdateDto, cancellationToken);
 }

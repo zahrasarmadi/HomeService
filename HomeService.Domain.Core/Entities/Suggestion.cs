@@ -14,6 +14,7 @@ public class Suggestion
     public Order Order { get; set; }
     public int OrderId { get; set; }
     public int Price { get; set; }
+    public DateTime SuggestedDate { get; set; }
     public StatusEnum Status { get; set; } = StatusEnum.AwaitingCustomerConfirmation;
     public DateTime CreateAt { get; set; }
     public bool IsDeleted { get; set; } = false;

@@ -5,7 +5,7 @@ using HomeService.Domain.Core.Entities;
 
 namespace HomeService.Domain.Services.Services;
 
-public class CustomerServices:ICustomerServices
+public class CustomerServices : ICustomerServices
 {
     private readonly ICustomerRepository _customerRepository;
 
@@ -14,21 +14,24 @@ public class CustomerServices:ICustomerServices
         _customerRepository = customerRepository;
     }
 
-    public Task<bool> Create(CustomerCreateDto customerCreateDto, CancellationToken cancellationToken)
-      =>_customerRepository.Create(customerCreateDto, cancellationToken);
+    public async Task<bool> Create(CustomerCreateDto customerCreateDto, CancellationToken cancellationToken)
+      => await _customerRepository.Create(customerCreateDto, cancellationToken);
 
-    public Task<int> CustomerCount(CancellationToken cancellationToken)
-      =>_customerRepository.CustomerCount(cancellationToken);
+    public async Task<int> CustomerCount(CancellationToken cancellationToken)
+      => await _customerRepository.CustomerCount(cancellationToken);
 
-    public Task<bool> Delete(int customerId, CancellationToken cancellationToken)
-      =>_customerRepository.Delete(customerId, cancellationToken);
+    public async Task<bool> Delete(int customerId, CancellationToken cancellationToken)
+      => await _customerRepository.Delete(customerId, cancellationToken);
 
-    public Task<List<Customer>> GetAll(CancellationToken cancellationToken)
-      =>_customerRepository.GetAll(cancellationToken);
+    public async Task<List<Customer>> GetAll(CancellationToken cancellationToken)
+      =>await _customerRepository.GetAll(cancellationToken);
 
-    public Task<Customer> GetById(int customerId, CancellationToken cancellationToken)
-      =>_customerRepository.GetById(customerId, cancellationToken);
+    public async Task<Customer> GetById(int customerId, CancellationToken cancellationToken)
+      =>await _customerRepository.GetById(customerId, cancellationToken);
 
-    public Task<bool> Update(CustomerUpdateDto customerUpdateDto, CancellationToken cancellationToken)
-      =>_customerRepository.Update(customerUpdateDto, cancellationToken);
+    public async Task<CustomerSummaryDto> GetCustomerSummary(int id, CancellationToken cancellationToken)
+      =>await _customerRepository.GetCustomerSummary(id, cancellationToken);
+
+    public async Task<bool> Update(CustomerUpdateDto customerUpdateDto, CancellationToken cancellationToken)
+      =>await _customerRepository.Update(customerUpdateDto, cancellationToken);
 }

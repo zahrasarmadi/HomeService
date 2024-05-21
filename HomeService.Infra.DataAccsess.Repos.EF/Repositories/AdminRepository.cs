@@ -21,10 +21,7 @@ public class AdminRepository : IAdminRepository
         {
             FirstName = adminCreateDto.FirstName,
             LastName = adminCreateDto.LastName,
-            Email = adminCreateDto.Email,
             Gender = adminCreateDto.Gender,
-            Password = adminCreateDto.Password,
-            PhoneNumber = adminCreateDto.PhoneNumber,
         };
 
         await _context.Admins.AddAsync(newModel,cancellationToken);
@@ -55,10 +52,7 @@ public class AdminRepository : IAdminRepository
 
         targetModel.FirstName = adminUpdateDto.FirstName;
         targetModel.LastName = adminUpdateDto.LastName;
-        targetModel.Email = adminUpdateDto.Email;
         targetModel.Gender = adminUpdateDto.Gender;
-        targetModel.Password = adminUpdateDto.Password;
-        targetModel.PhoneNumber = adminUpdateDto.PhoneNumber;
 
         _context.SaveChangesAsync(cancellationToken);
         return true;

@@ -7,7 +7,7 @@
     ViewData["Dashboard"] = " active open";
     ViewData["PageTitle"] = "داشبورد";
 }
-<div class="container-xxl flex-grow-1 container-p-y">
+ @* div class="container-xxl flex-grow-1 container-p-y">
     <div class="row g-4 mb-4">
         <div class="col-sm-6 col-xl-3">
             <div class="card">
@@ -16,9 +16,9 @@
                         <div class="content-left">
                             <span class="secondary-font fw-medium">درخواست</span>
                             <div class="d-flex align-items-baseline mt-2">
-                                @* <h4 class="mb-0 me-2">
+                                <h4 class="mb-0 me-2">
                                     @Model.CountViewModel.OrderCount
-                                </h4> *@
+                                </h4>
                             </div>
                             <small>مجموع درخواست‌ها</small>
                         </div>
@@ -36,9 +36,9 @@
                         <div class="content-left">
                             <span class="secondary-font fw-medium">کامنت</span>
                             <div class="d-flex align-items-baseline mt-2">
-                                @* <h4 class="mb-0 me-2">
+                                <h4 class="mb-0 me-2">
                                 @Model.CountViewModel.CommentCount
-                                </h4> *@
+                                </h4>
                             </div>
                             <small>مجموع کامنت‌ها</small>
                         </div>
@@ -56,9 +56,9 @@
                         <div class="content-left">
                             <span class="secondary-font fw-medium">متخصص</span>
                             <div class="d-flex align-items-baseline mt-2">
-                                @*  <h4 class="mb-0 me-2">
+                                 <h4 class="mb-0 me-2">
                                 @Model.CountViewModel.ExpertCount
-                                </h4> *@
+                                </h4>
                             </div>
                             <small>مجموع متخصصین</small>
                         </div>
@@ -76,9 +76,9 @@
                         <div class="content-left">
                             <span class="secondary-font fw-medium">مشتری</span>
                             <div class="d-flex align-items-baseline mt-2">
-                                @* <h4 class="mb-0 me-2">
+                                <h4 class="mb-0 me-2">
                                 @Model.CountViewModel.CustomerCount
-                                </h4> *@
+                                </h4>
                             </div>
                             <small>مجموع مشتری ها</small>
                         </div>
@@ -111,7 +111,7 @@
                             <th>عنوان</th>
                             <th>متخصص</th>
                             <th>امتیاز</th>
-                            @* <th>وضعیت</th> *@
+                       <th>وضعیت</th>
                             <th>عملیات</th>
                         </tr>
                     </thead>
@@ -125,13 +125,13 @@
                                 <td class="text-nowrap">@comment.Title</td>
                                 <td>@comment.Expert.FirstName @comment.Expert.LastName</td>
                                 <td>@comment.Score</td>
-                                @*  <td>
+                                  <td>
                             @if (comment.IsAccept == true)
                             {
                             <span class="badge bg-label-success">تایید شده</span>
                             }
                             <span class="badge bg-label-secondary">تایید نشده</span>
-                            </td> *@
+                            </td> 
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn p-0" type="button" id="action1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -149,4 +149,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>  *@

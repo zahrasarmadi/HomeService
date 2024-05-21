@@ -2,6 +2,7 @@
 @using HomeService.Domain.Core.Enums
 @model HomeService.Endpoint.RazorPages.UI.Areas.AdminArea.Pages.ChangeStatusModel
 @{
+    Layout = "_AdminLayout";
 }
 <div class="col-xxl">
     <div class="card mb-4">
@@ -17,13 +18,13 @@
                         <select asp-for="@Model.Status" class="select2 form-select form-select-lg" data-allow-clear="true">
 
                             <option value="@StatusEnum.AwaitingCustomerConfirmation">@StatusEnum.AwaitingCustomerConfirmation</option>
-                            <option value="@StatusEnum.AwaitingPayment">@StatusEnum.AwaitingPayment</option>
+                        @*     <option value="@StatusEnum.AwaitingPayment">@StatusEnum.AwaitingPayment</option> *@
                             <option value="@StatusEnum.AwaitingSuggestionExperts">@StatusEnum.AwaitingSuggestionExperts</option>
-                            <option value="@StatusEnum.Canceled">@StatusEnum.Canceled</option>
-                            <option value="@StatusEnum.Done">@StatusEnum.Done</option>
-                            <option value="@StatusEnum.Paied">@StatusEnum.Paied</option>
+                          @*   <option value="@StatusEnum.Canceled">@StatusEnum.Canceled</option> *@
+                          @*   <option value="@StatusEnum.Done">@StatusEnum.Done</option>
+                            <option value="@StatusEnum.Paied">@StatusEnum.Paied</option> *@
                             <option value="@StatusEnum.Confirmed">@StatusEnum.Confirmed</option>
-                            <option value="@StatusEnum.NotConfirmed">@StatusEnum.NotConfirmed</option>
+                           @*  <option value="@StatusEnum.NotConfirmed">@StatusEnum.NotConfirmed</option> *@
                             }
                         </select>
                     </div>

@@ -1,7 +1,5 @@
 ﻿using HomeService.Domain.Core.Enums;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Reflection;
 
 namespace HomeService.Domain.Core.Entities;
 
@@ -14,15 +12,12 @@ public class Customer
     public string LastName { get; set; }
     public GenderEnum? Gender { get; set; }
     [MaxLength(11)]
-    public string PhoneNumber { get; set; }
-    [MaxLength(11)]
-    public string BackUpPhoneNumber { get; set; }
+    public string? BackUpPhoneNumber { get; set; }
     [MaxLength(16)]
     public string? BankCardNumber { get; set; }
     public List<Address>? Addresses { get; set; }
     public List<Comment>? Comments { get; set; }
     public List<Order>? Orders { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
-    public bool IsDeleted { get; set; }= false;
+    public bool IsDeleted { get; set; } = false;
 }
-

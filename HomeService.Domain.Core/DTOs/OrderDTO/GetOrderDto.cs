@@ -16,4 +16,5 @@ public class GetOrderDto
     public Expert? Expert { get; set; }
     public List<Suggestion>? Suggestions { get; set; }
     public Service Service { get; set; }
+    public string? Image { get; set; }
 }
