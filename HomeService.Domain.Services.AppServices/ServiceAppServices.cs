@@ -19,8 +19,8 @@ public class ServiceAppServices : IServiceAppServices
 
     public async Task<bool> Create(ServiceCreateDto serviceCreateDto, CancellationToken cancellationToken,IFormFile image)
     {
-        var imageAddress=await _baseSevices.UploadImage(image);
-        serviceCreateDto.Image = imageAddress;
+        var imageAddress= _baseSevices.UploadImage(image);
+        serviceCreateDto.Image =await imageAddress;
        return await _serviceServices.Create(serviceCreateDto, cancellationToken);
     }
 
@@ -32,6 +32,9 @@ public class ServiceAppServices : IServiceAppServices
 
     public async Task<Service> GetById(int serviceId, CancellationToken cancellationToken)
       => await _serviceServices.GetById(serviceId, cancellationToken);
+
+    public async Task<List<ServicesNameDto>> GetServicesName(CancellationToken cancellationToken)
+      =>await _serviceServices.GetServicesName(cancellationToken);
 
     public async Task<bool> Update(ServiceUpdateDto serviceUpdateDto, CancellationToken cancellationToken)
       => await _serviceServices.Update(serviceUpdateDto, cancellationToken);

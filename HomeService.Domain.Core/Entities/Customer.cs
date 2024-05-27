@@ -6,6 +6,8 @@ namespace HomeService.Domain.Core.Entities;
 public class Customer
 {
     public int Id { get; set; }
+    public ApplicationUser ApplicationUser { get; set; }
+    public int ApplicationUserId { get; set; }
     [MaxLength(20)]
     public string FirstName { get; set; }
     [MaxLength(50)]

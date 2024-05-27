@@ -3,26 +3,35 @@ using HomeService.Domain.Core.Contracts.Services;
 using HomeService.Domain.Core.DTOs.OrderDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Enums;
+using Microsoft.AspNetCore.Http;
 
 namespace HomeService.Domain.Services.AppServices;
 
 public class OrderAppServices : IOrderAppServices
 {
     private readonly IOrderServices _orderServices;
+    private readonly IBaseSevices _baseSevices;
 
-    public OrderAppServices(IOrderServices orderServices)
+    public OrderAppServices(IOrderServices orderServices, IBaseSevices baseSevices)
     {
         _orderServices = orderServices;
+        _baseSevices = baseSevices;
     }
 
     public Task AcceptStatus(int orderId, CancellationToken cancellationToken)
-      =>_orderServices.AcceptStatus(orderId, cancellationToken);
+      => _orderServices.AcceptStatus(orderId, cancellationToken);
 
     public async Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken)
      => await _orderServices.ChangeStatus(status, orderId, cancellationToken);
 
-    public async Task<bool> Create(OrderCreateDto orderCreateDto, CancellationToken cancellationToken)
-      => await _orderServices.Create(orderCreateDto, cancellationToken);
+    public async Task<bool> Create(OrderCreateDto orderCreateDto, IFormFile image, string runTime, CancellationToken cancellationToken)
+    {
+        var gregorianDate =_baseSevices.PersianToGregorian(runTime);
+        var imageUrl =await _baseSevices.UploadImage(image);
+        orderCreateDto.Image = imageUrl;
+        orderCreateDto.Date = gregorianDate;
+        return await _orderServices.Create(orderCreateDto, cancellationToken);
+    }
 
     public async Task<bool> Delete(int orderId, CancellationToken cancellationToken)
       => await _orderServices.Delete(orderId, cancellationToken);
@@ -34,7 +43,7 @@ public class OrderAppServices : IOrderAppServices
       => await _orderServices.GetById(orderId, cancellationToken);
 
     public async Task<List<GetOrderDto>> GetOrders(int customerId, CancellationToken cancellationToken)
-      =>await _orderServices.GetOrders(customerId, cancellationToken);  
+      => await _orderServices.GetOrders(customerId, cancellationToken);
 
     public async Task<int> OrderCount(CancellationToken cancellationToken)
       => await _orderServices.OrderCount(cancellationToken);

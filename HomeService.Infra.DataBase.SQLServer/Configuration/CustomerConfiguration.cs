@@ -33,6 +33,7 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
                 BankCardNumber = "1234123412341234",
                 CreatedAt = DateTime.Now,
                 IsDeleted = false,
+                ApplicationUserId=3
             },
             new Customer
             {
@@ -44,6 +45,7 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
                 BankCardNumber = "1239684412341234",
                 CreatedAt = DateTime.Now,
                 IsDeleted = false,
+                ApplicationUserId=5
             }
             );;
     }

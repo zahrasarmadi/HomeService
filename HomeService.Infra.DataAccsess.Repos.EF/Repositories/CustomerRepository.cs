@@ -57,9 +57,6 @@ public class CustomerRepository : ICustomerRepository
 
         targetModel.FirstName = customerUpdateDto.FirstName;
         targetModel.LastName = customerUpdateDto.LastName;
-        targetModel.Gender = customerUpdateDto.Gender;
-        targetModel.BackUpPhoneNumber = customerUpdateDto.BackUpPhoneNumber;
-        targetModel.BankCardNumber = customerUpdateDto.BankCardNumber;
 
         await _context.SaveChangesAsync(cancellationToken);
 
@@ -68,7 +65,7 @@ public class CustomerRepository : ICustomerRepository
 
     public async Task<CustomerSummaryDto> GetCustomerSummary(int id, CancellationToken cancellationToken)
     {
-        return await _context.Customers.Where(a => a.IsDeleted == false)
+        var target = await _context.Customers.Where(a => a.Id == id && a.IsDeleted == false)
             .Select(c => new CustomerSummaryDto
             {
                 Id = c.Id,
@@ -81,6 +78,19 @@ public class CustomerRepository : ICustomerRepository
                 Comments = c.Comments,
                 Orders = c.Orders
             }).FirstOrDefaultAsync(cancellationToken);
+
+        if (target is not null)
+        {
+            return target;
+        }
+        return new CustomerSummaryDto();
+    }
+
+    public async Task<int> FindCustomerIdWithApplicationUser(int applicationUserId, CancellationToken cancellationToken)
+    {
+        var targetCustomer = await _context.Customers.FirstOrDefaultAsync(c => c.ApplicationUserId == applicationUserId, cancellationToken);
+        var customerId = targetCustomer.Id;
+        return customerId;
     }
 
 
@@ -88,5 +98,5 @@ public class CustomerRepository : ICustomerRepository
       => await _context.Customers.CountAsync(cancellationToken);
 
     private async Task<Customer> FindCustomer(int id, CancellationToken cancellationToken)
-       => await _context.Customers.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+       => await _context.Customers.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

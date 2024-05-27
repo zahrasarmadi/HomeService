@@ -20,6 +20,7 @@ public class AdminConfiguration : IEntityTypeConfiguration<Admin>
                 Gender = GenderEnum.Female,
                 CreatedAt = DateTime.Now,
                 IsDeleted=false,
+                ApplicationUserId = 1
             }
         );
     }

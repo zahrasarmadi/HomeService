@@ -26,7 +26,6 @@ public class ServiceSubCategoryConfiguration : IEntityTypeConfiguration<ServiceS
             new ServiceSubCategory { Id = 3, Name = "کارواش و دیتیلینگ", ServiceCategoryId = 1, CreatedAt = DateTime.Now, IsDeleted = false },
             new ServiceSubCategory { Id = 4, Name = "سرمایش و گرمایش", ServiceCategoryId = 3, CreatedAt = DateTime.Now, IsDeleted = false },
             new ServiceSubCategory { Id = 5, Name = "نصب وتعمیر لوازم خانگی", ServiceCategoryId = 3, CreatedAt = DateTime.Now, IsDeleted = false },
-            new ServiceSubCategory { Id = 6, Name = "کارواش و دیتیلینگ", ServiceCategoryId = 3, CreatedAt = DateTime.Now, IsDeleted = false },
             new ServiceSubCategory { Id = 7, Name = "خذمات کامپیوتری", ServiceCategoryId = 3, CreatedAt = DateTime.Now, IsDeleted = false },
             new ServiceSubCategory { Id = 8, Name = "تعمیرات موبایل", ServiceCategoryId = 3, CreatedAt = DateTime.Now, IsDeleted = false },
             new ServiceSubCategory { Id = 9, Name = "سرمایش و گرمایش", ServiceCategoryId = 2, CreatedAt = DateTime.Now, IsDeleted = false },
@@ -44,7 +43,14 @@ public class ServiceSubCategoryConfiguration : IEntityTypeConfiguration<ServiceS
             new ServiceSubCategory { Id = 21, Name = "زیبایی بانوان", ServiceCategoryId = 7, CreatedAt = DateTime.Now, IsDeleted = false },
             new ServiceSubCategory { Id = 22, Name = "پیرایش و زیبایی آقایان", ServiceCategoryId = 7, CreatedAt = DateTime.Now, IsDeleted = false },
             new ServiceSubCategory { Id = 23, Name = "پزشکی و پرستاری", ServiceCategoryId = 7, CreatedAt = DateTime.Now, IsDeleted = false },
-            new ServiceSubCategory { Id = 24, Name = "حیوانات خانگی", ServiceCategoryId = 7, CreatedAt = DateTime.Now, IsDeleted = false }
+            new ServiceSubCategory { Id = 24, Name = "حیوانات خانگی", ServiceCategoryId = 7, CreatedAt = DateTime.Now, IsDeleted = false },
+            new ServiceSubCategory { Id = 25, Name = "تندرستی و ورزش", ServiceCategoryId = 7, CreatedAt = DateTime.Now, IsDeleted = false }
+            //new ServiceSubCategory { Id = 26, Name = "خیاطی و تعمیرات لباس", ServiceCategoryId = 8, CreatedAt = DateTime.Now, IsDeleted = false },
+            //new ServiceSubCategory { Id = 27, Name = "مجالس و رویداد‌ها", ServiceCategoryId = 8, CreatedAt = DateTime.Now, IsDeleted = false },
+            //new ServiceSubCategory { Id = 28, Name = "آموزش", ServiceCategoryId = 8, CreatedAt = DateTime.Now, IsDeleted = false },
+            //new ServiceSubCategory { Id = 29, Name = "همه‌فن حذیف", ServiceCategoryId = 8, CreatedAt = DateTime.Now, IsDeleted = false },
+            //new ServiceSubCategory { Id = 30, Name = "خدمات فوری آیدو", ServiceCategoryId = 8, CreatedAt = DateTime.Now, IsDeleted = false },
+            //new ServiceSubCategory { Id = 31, Name = "کودک", ServiceCategoryId = 8, CreatedAt = DateTime.Now, IsDeleted = false }
             );
     }
 }

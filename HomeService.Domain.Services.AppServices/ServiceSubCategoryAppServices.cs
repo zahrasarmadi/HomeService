@@ -1,6 +1,5 @@
 ﻿using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.Contracts.Services;
-using HomeService.Domain.Core.DTOs.ServiceDTO;
 using HomeService.Domain.Core.DTOs.SubCategoryDTO;
 using HomeService.Domain.Core.Entities;
 using Microsoft.AspNetCore.Http;
@@ -20,8 +19,8 @@ public class ServiceSubCategoryAppServices : IServicSubCategoryAppServices
 
     public async Task<bool> Create(ServiceSubCategoryCreateDto serviceSubCategoryCreateDto, CancellationToken cancellationToken, IFormFile image)
     {
-        var imageAddress = await _baseSevices.UploadImage(image);
-        serviceSubCategoryCreateDto.Image = imageAddress;
+        var imageAddress =  _baseSevices.UploadImage(image);
+        serviceSubCategoryCreateDto.Image = await imageAddress;
         return  await _serviceSubCategoryServices.Create(serviceSubCategoryCreateDto, cancellationToken);
     }
 
@@ -42,8 +41,8 @@ public class ServiceSubCategoryAppServices : IServicSubCategoryAppServices
 
     public async Task<bool> Update(ServiceSubCategoryUpdateDto serviceSubCategoryUpdateDto, IFormFile image, CancellationToken cancellationToken)
     {
-        var imageAddress = await _baseSevices.UploadImage(image);
-        serviceSubCategoryUpdateDto.Image = imageAddress;
+        var imageAddress = _baseSevices.UploadImage(image);
+        serviceSubCategoryUpdateDto.Image =await imageAddress;
         return await _serviceSubCategoryServices.Update(serviceSubCategoryUpdateDto, cancellationToken);
     }
 }

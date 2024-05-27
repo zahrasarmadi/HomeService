@@ -1,6 +1,7 @@
 ﻿using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.Entities;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace HomeService.Domain.Services.Services;
 public class AccountAppServices : IAccountAppServices
@@ -23,7 +24,7 @@ public class AccountAppServices : IAccountAppServices
 
         user.UserName = email;
         user.Email = email;
-       
+
         if (isCustomer)
         {
             role = "Customer";
@@ -46,6 +47,20 @@ public class AccountAppServices : IAccountAppServices
 
         var result = await _userManager.CreateAsync(user, password);
 
+        if (isCustomer)
+        {
+
+            var userCustomerId = user.Customer!.Id;
+            await _userManager.AddClaimAsync(user, new Claim("userCustomerId", userCustomerId.ToString()));
+        }
+
+        if(isExpert)
+        {
+
+            var userExpertId = user.Expert!.Id;
+            await _userManager.AddClaimAsync(user, new Claim("userExpertId", userExpertId.ToString()));
+        }
+
         if (result.Succeeded)
             await _userManager.AddToRoleAsync(user, role);
 
@@ -55,7 +70,6 @@ public class AccountAppServices : IAccountAppServices
     public async Task<bool> Login(string email, string password)
     {
         var result = await _signInManager.PasswordSignInAsync(email, password, true, lockoutOnFailure: false);
-
         return result.Succeeded;
     }
 

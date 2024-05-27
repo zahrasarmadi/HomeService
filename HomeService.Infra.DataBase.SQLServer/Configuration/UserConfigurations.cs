@@ -21,7 +21,6 @@ public class UserConfigurations
 				NormalizedEmail = "ZAHRASARMADI17@GMAIL.COM",
 				LockoutEnabled = false,
 				PhoneNumber = "09927848276",
-				AdminId=1,
 				SecurityStamp = Guid.NewGuid().ToString()
 
 			},
@@ -34,7 +33,6 @@ public class UserConfigurations
 				NormalizedEmail = "ALI@GMAIL.COM",
 				LockoutEnabled = false,
 				PhoneNumber = "09377507920",
-			    ExpertId=1,
 				SecurityStamp = Guid.NewGuid().ToString()
 			},
 			new ApplicationUser()
@@ -46,7 +44,6 @@ public class UserConfigurations
 				NormalizedEmail = "SAHAR@GMAIL.COM",
 				LockoutEnabled = false,
 				PhoneNumber = "09377507920",
-				CustomerId=1,
 				SecurityStamp = Guid.NewGuid().ToString()
 			},
 			new ApplicationUser()
@@ -58,7 +55,6 @@ public class UserConfigurations
 				NormalizedEmail = "SARA@GMAIL.COM",
 				LockoutEnabled = false,
 				PhoneNumber = "09377507920",
-				ExpertId=2,
 				SecurityStamp = Guid.NewGuid().ToString()
 			},
 			new ApplicationUser()
@@ -70,7 +66,6 @@ public class UserConfigurations
 				NormalizedEmail = "MOHAMMAD@GMAIL.COM",
 				LockoutEnabled = false,
 				PhoneNumber = "09377507920",
-			    CustomerId=2,
 				SecurityStamp = Guid.NewGuid().ToString()
 			}
 		};

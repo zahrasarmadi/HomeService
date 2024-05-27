@@ -43,11 +43,11 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
             .Select(s => new GetSubCategoryDto
             {
                 Name = s.Name,
-                Id=s.Id,
-                Image=s.Image,
-                ServiceCategory=s.ServiceCategory,
-                ServiceCategoryId=s.ServiceCategoryId,
-                 IsDeleted=s.IsDeleted
+                Id = s.Id,
+                Image = s.Image,
+                ServiceCategory = s.ServiceCategory,
+                ServiceCategoryId = s.ServiceCategoryId,
+                IsDeleted = s.IsDeleted
 
             }).ToListAsync(cancellationToken);
         return subcategories;
@@ -87,4 +87,9 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
 
     private async Task<ServiceSubCategory> FindServiceSubCategory(int id, CancellationToken cancellationToken)
     => await _context.ServiceSubCategories.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+
+    public async Task<List<ServiceSubCategory>> GetAllByCategoryId(int id,CancellationToken cancellationToken)
+    {
+       return await _context.ServiceSubCategories.Where(x=>x.ServiceCategoryId == id).ToListAsync(cancellationToken);
+    }
 }

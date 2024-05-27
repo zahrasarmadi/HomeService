@@ -1,18 +1,19 @@
 ﻿using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.DTOs.OrderDTO;
+using HomeService.Domain.Core.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HomeService.Endpoint.RazorPages.UI.Areas.Zahra;
+namespace HomeService.Endpoint.RazorPages.UI.Areas.CustomerArea;
 
 [Authorize(Roles = "Customer")]
-public class CustomerProfile_RequestsModel : PageModel
+public class CustomerProfile_OrdersModel : PageModel
 {
     private readonly IOrderAppServices _orderAppServices;
     private readonly ISuggestionAppServices _suggestionAppServices;
 
-    public CustomerProfile_RequestsModel(IOrderAppServices orderAppServices, ISuggestionAppServices suggestionAppServices)
+    public CustomerProfile_OrdersModel(IOrderAppServices orderAppServices, ISuggestionAppServices suggestionAppServices)
     {
         _orderAppServices = orderAppServices;
         _suggestionAppServices = suggestionAppServices;
@@ -23,8 +24,8 @@ public class CustomerProfile_RequestsModel : PageModel
 
     public async Task OnGet(CancellationToken cancellationToken)
     {
-        var userId = int.Parse(User.Claims.First().Value);
-        Orders = await _orderAppServices.GetOrders(userId, cancellationToken);
+        var userCustomerId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "userCustomerId").Value);
+        Orders = await _orderAppServices.GetOrders(userCustomerId, cancellationToken);
     }
 
     public async Task OnGetAcceptSuggestion (int id,int orderId,CancellationToken cancellationToken)

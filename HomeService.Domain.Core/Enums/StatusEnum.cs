@@ -5,11 +5,11 @@ namespace HomeService.Domain.Core.Enums;
 public enum StatusEnum
 {
     [Display(Name = "در انتظار پیشنهاد متخصصان")]
-    AwaitingSuggestionExperts,
+    AwaitingSuggestionExperts =1,
     [Display(Name = "در انتظار تایید مشتری")]
-    AwaitingCustomerConfirmation,
+    AwaitingCustomerConfirmation=2,
     [Display(Name = "تایید شد")]
-    Confirmed,
+    Confirmed=3,
     //[Display(Name = "تایید نشد")]
     //NotConfirmed,
     //[Display(Name = "در انتظار پرداخت")]

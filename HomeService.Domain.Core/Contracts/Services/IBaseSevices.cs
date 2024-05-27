@@ -5,5 +5,6 @@ namespace HomeService.Domain.Core.Contracts.Services;
 
 public interface IBaseSevices
 {
+    DateTime PersianToGregorian(string persianDateString);
     Task<string> UploadImage(IFormFile image);
 }

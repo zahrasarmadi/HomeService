@@ -26,6 +26,9 @@ public class ServiceServices : IServiceServices
     public async Task<Service> GetById(int serviceId, CancellationToken cancellationToken)
       => await _serviceRepository.GetById(serviceId, cancellationToken);
 
+    public async Task<List<ServicesNameDto>> GetServicesName(CancellationToken cancellationToken)
+      => await _serviceRepository.GetServicesName(cancellationToken);
+
     public async Task<bool> Update(ServiceUpdateDto serviceUpdateDto, CancellationToken cancellationToken)
       => await _serviceRepository.Update(serviceUpdateDto, cancellationToken);
 }

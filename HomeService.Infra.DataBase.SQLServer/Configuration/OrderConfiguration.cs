@@ -39,7 +39,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
                 Description="نظافت خونه صد متری هب طور کامل",
                 ExpertId=1,
                 DoneAt= DateTime.Now,
-                RequestedAt= DateTime.Now,
+                RequesteForTime= DateTime.Now,
                 ServiceId=1,
                 Title="نظافت",
                 Status=StatusEnum.Confirmed,

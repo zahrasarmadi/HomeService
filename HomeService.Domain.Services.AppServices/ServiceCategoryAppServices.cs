@@ -20,8 +20,8 @@ public class ServiceCategoryAppServices: IServiceCategoryAppServices
 
     public async Task<bool> Create(ServiceCategoryCreateDto serviceCategoryCreateDto, IFormFile image, CancellationToken cancellationToken)
     {
-        var imageAddress = await _baseSevices.UploadImage(image);
-        serviceCategoryCreateDto.Image = imageAddress;
+        var imageAddress =  _baseSevices.UploadImage(image);
+        serviceCategoryCreateDto.Image =await imageAddress;
         return await _serviceCategoryServices.Create(serviceCategoryCreateDto, cancellationToken);
     }
 
@@ -39,8 +39,8 @@ public class ServiceCategoryAppServices: IServiceCategoryAppServices
 
     public async Task<bool> Update(ServiceCategoryUpdateDto serviceCategoryUpdateDto, IFormFile image, CancellationToken cancellationToken)
     {
-        var imageAddress = await _baseSevices.UploadImage(image);
-        serviceCategoryUpdateDto.Image = imageAddress;
+        var imageAddress =  _baseSevices.UploadImage(image);
+        serviceCategoryUpdateDto.Image = await imageAddress;
         return  await _serviceCategoryServices.Update(serviceCategoryUpdateDto, cancellationToken);
     }
 }

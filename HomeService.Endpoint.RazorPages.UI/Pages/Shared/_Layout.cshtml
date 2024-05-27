@@ -35,7 +35,7 @@
             <div class="container">
                 <nav id="navigation" class="navigation navigation-landscape">
                     <div class="nav-header">
-                        <a class="nav-brand" href="#">
+                        <a class="nav-brand" asp-page="Index">
                             <img src="~/assets/img/logo/1716061360566.png" style="height:43px" />
                         </a>
                         <div class="nav-toggle"></div>
@@ -127,11 +127,11 @@
                                 <a href="javascript:void(0);">پنل کاربری</a>
                                 <ul class="nav-dropdown nav-submenu">
                                     <li>
-                                        <a href="dashboard.html">
-                                            <i class="lni lni-dashboard ms-2"></i>داشبورد
+                                        <a asp-page="Index" asp-area="CustomerArea">
+                                            <i class="lni lni-dashboard ms-2"></i>پروفایل من
                                         </a>
                                     </li>
-                                    <li>
+                                    @* <li>
                                         <a href="dashboard-my-listings.html">
                                             <i class="lni lni-files ms-2"></i>آگهی های من
                                         </a>
@@ -170,7 +170,7 @@
                                         <a href="dashboard-change-password.html">
                                             <i class="lni lni-lock-alt ms-2"></i>تغییر رمز عبور
                                         </a>
-                                    </li>
+                                    </li> *@
                                 </ul>
                             </li>
 
@@ -214,8 +214,8 @@
 
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="footer_widget">
-                                <img src="~/assets/img/logo/1716061360566.png" class="img-footer small mb-2" />
-
+                             <a asp-page="Index"> <img src="~/assets/img/logo/1716061360566.png" class="img-footer small mb-2" />
+                                </a>
                                 <div class="address mt-2">
                                     ایران، تهران، میدان آزادی جنب مترو شادمان<br> کوچه شکوفه پلاک 8
                                 </div>

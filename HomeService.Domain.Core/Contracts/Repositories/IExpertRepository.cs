@@ -11,4 +11,8 @@ public interface IExpertRepository
     Task<Expert> GetById(int expertId, CancellationToken cancellationToken);
     Task<List<Expert>> GetAll(CancellationToken cancellationToken);
     Task<int> ExpertCount(CancellationToken cancellationToken);
+    Task<ExpertSummaryDto> GetExpertSummary(int id, CancellationToken cancellationToken);
+	Task<int> ExpertCommentCount(int id, CancellationToken cancellationToken);
+	Task<int> ExpertAverageScores(int id, CancellationToken cancellationToken);
+	Task<int> ExpertOrderCount(int id, CancellationToken cancellationToken);
 }

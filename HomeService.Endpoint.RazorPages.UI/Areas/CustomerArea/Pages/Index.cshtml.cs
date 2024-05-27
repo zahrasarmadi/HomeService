@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HomeService.Endpoint.RazorPages.UI.Areas.Zahra
+namespace HomeService.Endpoint.RazorPages.UI.Areas.CustomerArea
 {
     [Authorize(Roles = "Customer")]
     public class IndexModel : PageModel

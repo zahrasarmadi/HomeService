@@ -11,4 +11,5 @@ public interface IServiceAppServices
     Task<bool> Delete(int serviceId, CancellationToken cancellationToken);
     Task<Service> GetById(int serviceId, CancellationToken cancellationToken);
     Task<List<GetServiceDto>> GetAll(CancellationToken cancellationToken);
+    Task<List<ServicesNameDto>> GetServicesName(CancellationToken cancellationToken);
 }

@@ -3,6 +3,7 @@ using HomeService.Domain.Core.DTOs.ServiceDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 
@@ -57,7 +58,17 @@ public class ServiceRepository : IServiceRepository
 
         return services;
     }
-    
+
+
+    public async Task<List<ServicesNameDto>> GetServicesName(CancellationToken cancellationToken)
+    {
+        return await _context.Services.Select(s => new ServicesNameDto
+        {
+            Id = s.Id,
+            Name = s.Name,
+            Price = s.Price
+        }).ToListAsync(cancellationToken);
+    }
 
     public async Task< Service> GetById(int serviceId, CancellationToken cancellationToken)
         => await FindService(serviceId,cancellationToken);

@@ -11,11 +11,9 @@ public class OrderCreateDto
     [DisplayName("توضیحات")]
     public string Description { get; set; }
     [DisplayName("وضعیت")]
-    public Customer Customer { get; set; }
     public int CustomerId { get; set; }
-
-    public Service Service { get; set; }
     public int ServiceId { get; set; }
     [DisplayName("عکس ها")]
-     public string? Image { get; set; }
+    public string? Image { get; set; }
+    public DateTime Date { get; set; }
 }

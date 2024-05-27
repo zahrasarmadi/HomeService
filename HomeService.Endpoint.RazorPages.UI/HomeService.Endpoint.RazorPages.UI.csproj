@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Content Remove="Areas\AdminArea\Pages\Service.cshtml" />
+    <Content Remove="Areas\CustomerArea\Pages\CustomerProfileSetting.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +38,7 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Areas\AdminArea\Pages\Service.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\CustomerArea\Pages\CustomerProfileSetting.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,6 +50,7 @@
     <None Include="Areas\Account\Pages\_ViewImports.cshtml" />
     <None Include="Areas\Account\Pages\_ViewStart.cshtml" />
     <None Include="Areas\AdminArea\Pages\Service.cshtml" />
+    <None Include="Areas\CustomerArea\Pages\CustomerProfileSetting.cshtml" />
     <None Include="wwwroot\assets\css\fonts\fa-brands-400.svg" />
     <None Include="wwwroot\assets\css\fonts\fa-brands-400.woff2" />
     <None Include="wwwroot\assets\css\fonts\fa-regular-400.svg" />
@@ -81,6 +84,8 @@
     <None Include="wwwroot\assets\js\plugins\raphael\raphael.min.js" />
     <None Include="wwwroot\assets\js\popper.min.js" />
     <None Include="wwwroot\assets\js\slick.js" />
+    <None Include="wwwroot\calendar-dist\jalalidatepicker.js" />
+    <None Include="wwwroot\calendar-dist\jalalidatepicker.min.js" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
@@ -124,6 +129,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\CustomerArea\Pages\CustomerProfileSetting.cshtml" />
   </ItemGroup>
 
 </Project>

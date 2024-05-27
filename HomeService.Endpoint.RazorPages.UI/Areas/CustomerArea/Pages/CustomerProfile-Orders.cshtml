@@ -2,10 +2,10 @@
 @using Framework
 @using HomeService.Domain.Core.Enums
 @using HomeService.Framework
-@model HomeService.Endpoint.RazorPages.UI.Areas.Zahra.CustomerProfile_RequestsModel
+@model CustomerProfile_OrdersModel
 @{
     Layout = "_CustomerProfileLayout";
-    ViewData["MyOrder"] = "class=\"active\"";
+    ViewData["MyOrder"] = "active";
 }
 @foreach (var item in Model.Orders)
 {
@@ -20,7 +20,6 @@
                 {
                     <img src="@item.Image" class="img-fluid" alt="" />
                 }
-
             </div>
             <div class="col">
                 <div class="card">
@@ -28,7 +27,7 @@
                         <h4 class="card-title">@item.Title</h4>
                         <h5 class="card-title">@item.Service.Name</h5>
                         <p class="card-text">@item.Description</p>
-                        <a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash ms-1"></i>حذف</a>
+                @*         <a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash ms-1"></i>حذف</a> *@
                         <button class="btn btn-primary me-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                             لیست پیشنهادات
                         </button>
@@ -59,17 +58,19 @@
                                                     <td>@suggest.Expert.FirstName @suggest.Expert.LastName</td>
                                                     <td>@suggest.Price</td>
                                                     <td>@suggest.SuggestedDate.ToPersianString("dddd, dd MMMM,yyyy")</td>
-                                                    <td>@suggest.Status.GetEnumDisplayName()</td>
+                                                   @* <td>@suggest.Status.GetEnumDisplayName()</td> *@
                                                     <td>
-                                                        @if (suggest.Status == StatusEnum.AwaitingCustomerConfirmation)
+
+
+                                                        @if (suggest.Status ==(int) StatusEnum.AwaitingCustomerConfirmation)
                                                         {
-                                                            <a class="btn btn-success" asp-page-handler="ConfrimSuggest" asp-route-id="@suggest.Id" asp-route-orderId="@item.Id">تایید متخصص</a>
-                                                            <a class="btn btn-seccendry" asp-page-handler="ExpertDetail" asp-route-expertId="@suggest.ExpertId">دیدن اطلاعات متخصص</a>
+                                                            <a class="btn btn-success" asp-page-handler="AcceptSuggestion" asp-route-id="@suggest.Id" asp-route-orderId="@item.Id">تایید متخصص</a>
+                                                            <a class="btn btn-warning" asp-page="ExpertDetails" asp-route-expertId="@suggest.ExpertId">دیدن اطلاعات متخصص</a>
                                                         }
-                                                        else if (suggest.Status == StatusEnum.Confirmed)
+                                                        else if (suggest.Status == (int)StatusEnum.Confirmed)
                                                         {
                                                             <a class="btn btn-seccendry disable"> تایید شده</a>
-                                                            <a class="btn btn-seccendry" asp-page-handler="ExpertDetail" asp-route-expertId="@suggest.ExpertId">دیدن اطلاعات متخصص</a>
+                                                            <a class="btn btn-warning" asp-page="ExpertDetails" asp-route-expertId="@suggest.ExpertId">دیدن اطلاعات متخصص</a>
                                                         }
                                                     </td>
                                                 </tr>

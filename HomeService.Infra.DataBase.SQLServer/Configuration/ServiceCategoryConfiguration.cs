@@ -23,8 +23,8 @@ internal class ServiceCategoryConfiguration : IEntityTypeConfiguration<ServiceCa
             new ServiceCategory() { Id = 4, Name = "اسباب کشی و حمل بار", CreatedAt = DateTime.Now, IsDeleted = false },
             new ServiceCategory() { Id = 5, Name = "خودرو", CreatedAt = DateTime.Now, IsDeleted = false },
             new ServiceCategory() { Id = 6, Name = "سازمان ها و مجتمع ها", CreatedAt = DateTime.Now, IsDeleted = false },
-            new ServiceCategory() { Id = 7, Name = "سلامت و زیبایی", CreatedAt = DateTime.Now, IsDeleted = false },
-            new ServiceCategory() { Id = 8, Name = "کشکول", CreatedAt = DateTime.Now, IsDeleted = false }
+            new ServiceCategory() { Id = 7, Name = "سلامت و زیبایی", CreatedAt = DateTime.Now, IsDeleted = false }
+            //new ServiceCategory() { Id = 8, Name = "کشکول", CreatedAt = DateTime.Now, IsDeleted = false }
             );
     }
 }

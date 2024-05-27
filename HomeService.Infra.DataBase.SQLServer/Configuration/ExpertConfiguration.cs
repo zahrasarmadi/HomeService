@@ -35,6 +35,7 @@ public class ExpertConfiguration : IEntityTypeConfiguration<Expert>
                 BankCardNumber = "1234123412341234",
                 CreatedAt = DateTime.Now,
                 IsDeleted = false,
+                ApplicationUserId=2
             },
              new Expert
              {
@@ -48,6 +49,7 @@ public class ExpertConfiguration : IEntityTypeConfiguration<Expert>
                  BankCardNumber = "1234123412341255",
                  CreatedAt = DateTime.Now,
                  IsDeleted = false,
+                 ApplicationUserId=4
              }
             );
         ;
