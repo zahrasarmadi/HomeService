@@ -24,6 +24,9 @@ public class ServiceSubCategoryServices : IServiceSubCategoryServices
     public async Task<List<ServiceSubCategory>> GetAll(CancellationToken cancellationToken)
       => await _serviceSubCategoryRepository.GetAll(cancellationToken);
 
+    public Task<List<GetByCategoryIdDto>> GetAllByCategoryId(int id, CancellationToken cancellationToken)
+      =>_serviceSubCategoryRepository.GetAllByCategoryId(id, cancellationToken);
+
     public async Task<ServiceSubCategory> GetById(int serviceSubCategoryId, CancellationToken cancellationToken)
       => await _serviceSubCategoryRepository.GetById(serviceSubCategoryId, cancellationToken);
 

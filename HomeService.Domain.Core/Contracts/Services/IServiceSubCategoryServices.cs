@@ -12,4 +12,5 @@ public interface IServiceSubCategoryServices
     Task<List<ServiceSubCategory>> GetAll(CancellationToken cancellationToken);
     Task<List<SubCategoryNameDto>> GetCategorisName(CancellationToken cancellationToken);
     Task<List<GetSubCategoryDto>> GetSubCategories(CancellationToken cancellationToken);
+    Task<List<GetByCategoryIdDto>> GetAllByCategoryId(int id, CancellationToken cancellationToken);
 }

@@ -43,6 +43,8 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
                {
                    Id = s.Id,
                    Name = s.Name,
+                   Image=s.Image
+
                }).ToListAsync(cancellationToken);
         return categories;
     }

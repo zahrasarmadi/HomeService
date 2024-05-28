@@ -14,7 +14,7 @@ public class Order
     public StatusEnum Status { get; set; }
     public Customer Customer { get; set; }
     public int CustomerId { get; set; }
-    public Expert? Expert { get; set; }
+    public Expert? Expert { get; set; } 
     public int? ExpertId { get; set; }
     public List<Suggestion>? Suggestions  { get; set; }
     public Service Service { get; set; }

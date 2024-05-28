@@ -1,7 +1,6 @@
 ﻿using HomeService.Domain.Core.DTOs.SubCategoryDTO;
 using HomeService.Domain.Core.Entities;
 using Microsoft.AspNetCore.Http;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace HomeService.Domain.Core.Contracts.AppServices;
 
@@ -14,4 +13,5 @@ public interface IServicSubCategoryAppServices
     Task<List<ServiceSubCategory>> GetAll(CancellationToken cancellationToken);
     Task<List<SubCategoryNameDto>> GetCategorisName(CancellationToken cancellationToken);
     Task<List<GetSubCategoryDto>> GetSubCategories(CancellationToken cancellationToken);
+    Task<List<GetByCategoryIdDto>> GetAllByCategoryId(int id, CancellationToken cancellationToken);
 }

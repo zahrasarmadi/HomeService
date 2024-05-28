@@ -11,4 +11,6 @@ public interface IServiceServices
     Task<Service> GetById(int serviceId, CancellationToken cancellationToken);
     Task<List<GetServiceDto>> GetAll(CancellationToken cancellationToken);
     Task<List<ServicesNameDto>> GetServicesName(CancellationToken cancellationToken);
+    Task<List<GetByCategorySubIdDto>> GetAllBySubCategoryId(int id, CancellationToken cancellationToken);
+
 }

@@ -18,7 +18,7 @@ public class BaseService : IBaseSevices
 
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
-                 image.CopyToAsync(stream);
+                 await image.CopyToAsync(stream);
             }
             return "/uploads/" + uniqueFileName;
         }

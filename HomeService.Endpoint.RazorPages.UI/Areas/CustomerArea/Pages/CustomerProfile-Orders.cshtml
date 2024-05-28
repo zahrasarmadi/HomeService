@@ -62,12 +62,12 @@
                                                     <td>
 
 
-                                                        @if (suggest.Status ==(int) StatusEnum.AwaitingCustomerConfirmation)
+                                                        @if (suggest.Status ==StatusEnum.AwaitingCustomerConfirmation)
                                                         {
                                                             <a class="btn btn-success" asp-page-handler="AcceptSuggestion" asp-route-id="@suggest.Id" asp-route-orderId="@item.Id">تایید متخصص</a>
                                                             <a class="btn btn-warning" asp-page="ExpertDetails" asp-route-expertId="@suggest.ExpertId">دیدن اطلاعات متخصص</a>
                                                         }
-                                                        else if (suggest.Status == (int)StatusEnum.Confirmed)
+                                                        else if (suggest.Status ==StatusEnum.Confirmed)
                                                         {
                                                             <a class="btn btn-seccendry disable"> تایید شده</a>
                                                             <a class="btn btn-warning" asp-page="ExpertDetails" asp-route-expertId="@suggest.ExpertId">دیدن اطلاعات متخصص</a>

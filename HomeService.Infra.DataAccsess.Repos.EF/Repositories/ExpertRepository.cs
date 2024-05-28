@@ -89,6 +89,7 @@ public class ExpertRepository : IExpertRepository
 					Score=x.Score,
 					Title=x.Title,	
 					Description=x.Description,
+
 				}).ToList(),
 				FirstName = e.FirstName,
 				Gender = e.Gender,

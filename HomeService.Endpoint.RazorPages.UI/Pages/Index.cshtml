@@ -50,16 +50,15 @@
                 </div>
             </div>
         </div>
-
         <!-- row -->
         
         <div class="row align-items-center">
             @foreach (var item in await ServiceCategoryAppServices.GetCategorisName(default))
             {
-                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="col">
                     <div class="cats-wrap text-center">
-                    <a asp-page="SubServices" asp-route-id="@item.Id" class="Goodup-catg-wrap">
-                        <div class="Goodup-catg-icon"></div>
+                        <a asp-page="SubCategory" asp-route-id="@item.Id" class="Goodup-catg-wrap">
+                        <div class="Goodup-catg-icon"><img style="width:35px" src="@item.Image"/></div>
                         <div class="Goodup-catg-caption">
                             <h4 class="fs-md mb-0 ft-medium m-catrio">@item.Name</h4>
                         </div>

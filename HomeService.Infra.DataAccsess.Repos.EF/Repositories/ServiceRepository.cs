@@ -3,7 +3,6 @@ using HomeService.Domain.Core.DTOs.ServiceDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 
@@ -86,7 +85,16 @@ public class ServiceRepository : IServiceRepository
         return true;
     }
 
+    public async Task<List<GetByCategorySubIdDto>> GetAllBySubCategoryId(int id, CancellationToken cancellationToken)
+    {
+        return await _context.Services.Where(x => x.ServiceSubCategoryId == id).AsNoTracking()
+            .Select(c => new GetByCategorySubIdDto
+            {
+                Id = c.Id,
+                Name = c.Name
+            })
+            .ToListAsync(cancellationToken);
+    }
     private async Task<Service> FindService(int id, CancellationToken cancellationToken)
        => await _context.Services.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
-
 }

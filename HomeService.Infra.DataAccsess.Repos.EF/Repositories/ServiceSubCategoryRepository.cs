@@ -85,11 +85,19 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
         return true;
     }
 
+    public async Task<List<GetByCategoryIdDto>> GetAllByCategoryId(int id, CancellationToken cancellationToken)
+    {
+        return await _context.ServiceSubCategories.Where(x => x.ServiceCategoryId == id).AsNoTracking()
+            .Select(c=>new GetByCategoryIdDto
+            {
+                Id= c.Id,
+                Image = c.Image,
+                Name= c.Name
+            })
+            .ToListAsync(cancellationToken);
+    }
+
     private async Task<ServiceSubCategory> FindServiceSubCategory(int id, CancellationToken cancellationToken)
     => await _context.ServiceSubCategories.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 
-    public async Task<List<ServiceSubCategory>> GetAllByCategoryId(int id,CancellationToken cancellationToken)
-    {
-       return await _context.ServiceSubCategories.Where(x=>x.ServiceCategoryId == id).ToListAsync(cancellationToken);
-    }
 }

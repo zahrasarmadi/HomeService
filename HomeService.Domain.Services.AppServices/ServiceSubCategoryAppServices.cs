@@ -30,6 +30,9 @@ public class ServiceSubCategoryAppServices : IServicSubCategoryAppServices
     public async Task<List<ServiceSubCategory>> GetAll(CancellationToken cancellationToken)
       => await _serviceSubCategoryServices.GetAll(cancellationToken);
 
+    public Task<List<GetByCategoryIdDto>> GetAllByCategoryId(int id, CancellationToken cancellationToken)
+      =>_serviceSubCategoryServices.GetAllByCategoryId(id, cancellationToken);
+
     public async Task<ServiceSubCategory> GetById(int serviceSubCategoryId, CancellationToken cancellationToken)
       => await _serviceSubCategoryServices.GetById(serviceSubCategoryId, cancellationToken);
 
@@ -38,6 +41,7 @@ public class ServiceSubCategoryAppServices : IServicSubCategoryAppServices
 
     public async Task<List<GetSubCategoryDto>> GetSubCategories(CancellationToken cancellationToken)
       => await _serviceSubCategoryServices.GetSubCategories(cancellationToken);
+
 
     public async Task<bool> Update(ServiceSubCategoryUpdateDto serviceSubCategoryUpdateDto, IFormFile image, CancellationToken cancellationToken)
     {

@@ -1,0 +1,42 @@
+﻿@page
+@model HomeService.Endpoint.RazorPages.UI.Pages.ServiceModel
+@{
+}
+<section class="gray py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Item Wrap Start -->
+            <div class="col-xl-12 col-lg-8 col-md-12 col-sm-12">
+
+                <!-- row -->
+                <div class="row justify-content-center g-2">
+
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                        <div class="d-block grouping-listings">
+                            @foreach (var item in Model.Services)
+                            {
+                                <!-- Single Item -->
+                                <div class="grouping-listings-single">
+                                    <div class="vrt-list-wrap">
+                                        <div class="vrt-list-wrap-head">
+                                            <div>
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-0 ft-medium">@item.Name</h4>
+                                                <a class="btn btn-md full-width theme-bg text-light rounded ft-medium">ثبت درخواست</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!-- row -->
+
+            </div>
+
+        </div>
+    </div>
+</section>

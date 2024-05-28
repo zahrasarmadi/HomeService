@@ -19,7 +19,6 @@ public class ServiceConfiguration : IEntityTypeConfiguration<Service>
             .WithOne(o => o.Service)
             .OnDelete(DeleteBehavior.NoAction);
 
-
         builder.HasData
             (
             new Service { Id = 1, Name = "سرویس عادی نظافت", Price = 700000, ServiceSubCategoryId = 1, CreatedAt = DateTime.Now, IsDeleted = false },
@@ -32,7 +31,8 @@ public class ServiceConfiguration : IEntityTypeConfiguration<Service>
             new Service { Id = 8, Name = "کارگر ساده", Price = 1000000, ServiceSubCategoryId = 1, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 9, Name = "سمپاشی فضای داخلی", Price = 1000000, ServiceSubCategoryId = 1, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 10, Name = "ضدعفونی منزل و محل کار", Price = 1000000, ServiceSubCategoryId = 1, CreatedAt = DateTime.Now, IsDeleted = false },
-            new Service { Id = 11, Name = "شستشوی مبل ،فرش و موکت در محل", Price = 1000000, ServiceSubCategoryId = 2, CreatedAt = DateTime.Now, IsDeleted = false }, new Service { Id = 3, Name = "قالیشویی", Price = 1000000, ServiceSubCategoryId = 2, CreatedAt = DateTime.Now, IsDeleted = false },
+            new Service { Id = 11, Name = "شستشوی مبل ،فرش و موکت در محل", Price = 1000000, ServiceSubCategoryId = 2, CreatedAt = DateTime.Now, IsDeleted = false },
+            new Service { Id = 262, Name = "قالیشویی", Price = 1000000, ServiceSubCategoryId = 2, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 12, Name = "خشکشویی", Price = 1000000, ServiceSubCategoryId = 2, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 13, Name = "پرده شویی", Price = 1000000, ServiceSubCategoryId = 2, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 14, Name = "سرامیک خودرو", Price = 1000000, ServiceSubCategoryId = 3, CreatedAt = DateTime.Now, IsDeleted = false },
@@ -62,7 +62,7 @@ public class ServiceConfiguration : IEntityTypeConfiguration<Service>
             new Service { Id = 38, Name = "جوشکاری و آهنگری ، درب و پنجره آهنی", Price = 1000000, ServiceSubCategoryId = 10, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 39, Name = "دوخت و نصب پرده", Price = 1000000, ServiceSubCategoryId = 10, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 40, Name = "کاشی کاری و سرامیک", Price = 1000000, ServiceSubCategoryId = 10, CreatedAt = DateTime.Now, IsDeleted = false },
-            new Service { Id = 40, Name = "بنایی", Price = 1000000, ServiceSubCategoryId = 10, CreatedAt = DateTime.Now, IsDeleted = false },
+            new Service { Id = 41, Name = "بنایی", Price = 1000000, ServiceSubCategoryId = 10, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 42, Name = "کلید سازی", Price = 1000000, ServiceSubCategoryId = 10, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 43, Name = "نصب و تعمیر انواع کفپوش و دیوارپوش", Price = 1000000, ServiceSubCategoryId = 10, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 44, Name = "کچ کاری و رابیتس کاری", Price = 1000000, ServiceSubCategoryId = 10, CreatedAt = DateTime.Now, IsDeleted = false },
@@ -129,7 +129,7 @@ public class ServiceConfiguration : IEntityTypeConfiguration<Service>
             new Service { Id = 105, Name = "تعمیر و ساخت کمد دیواری", Price = 1000000, ServiceSubCategoryId = 14, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 106, Name = "شیشه بری و آینه کاری", Price = 1000000, ServiceSubCategoryId = 14, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 107, Name = "ساخت ، رگلاژ درب و پنجره آلمینیومی و UPVC", Price = 1000000, ServiceSubCategoryId = 15, CreatedAt = DateTime.Now, IsDeleted = false },
-            new Service { Id = 107, Name = "شیشه ریلی و جام بالکن", Price = 1000000, ServiceSubCategoryId = 15, CreatedAt = DateTime.Now, IsDeleted = false },
+            new Service { Id = 108, Name = "شیشه ریلی و جام بالکن", Price = 1000000, ServiceSubCategoryId = 15, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 109, Name = "نصب و تعمیر درب اتوماتیک", Price = 1000000, ServiceSubCategoryId = 15, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 110, Name = "شیشه ریلی اسلاید", Price = 1000000, ServiceSubCategoryId = 15, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 111, Name = "ساخت کابین دوش", Price = 1000000, ServiceSubCategoryId = 15, CreatedAt = DateTime.Now, IsDeleted = false },
@@ -252,7 +252,7 @@ public class ServiceConfiguration : IEntityTypeConfiguration<Service>
             new Service { Id = 228, Name = "مش ، لایت ، بالیاژ و آمبره بانوان", Price = 1000000, ServiceSubCategoryId = 21, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 229, Name = "لیفت و لمینت مژه و ابرو بانوان", Price = 1000000, ServiceSubCategoryId = 21, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 230, Name = "کاشت و اکستنشن مژه بانوان در خانه", Price = 1000000, ServiceSubCategoryId = 21, CreatedAt = DateTime.Now, IsDeleted = false },
-            new Service { Id = 230, Name = "کراتینه و ویتامینه مو بانوان", Price = 1000000, ServiceSubCategoryId = 21, CreatedAt = DateTime.Now, IsDeleted = false },
+            new Service { Id = 261, Name = "کراتینه و ویتامینه مو بانوان", Price = 1000000, ServiceSubCategoryId = 21, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 231, Name = "پاکسازی و لایه برداری پوست بانوان", Price = 1000000, ServiceSubCategoryId = 21, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 232, Name = "شینیون مو بانوان در خانه", Price = 1000000, ServiceSubCategoryId = 21, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 233, Name = "آرایش صورت بانوان در خانه", Price = 1000000, ServiceSubCategoryId = 21, CreatedAt = DateTime.Now, IsDeleted = false },
@@ -282,7 +282,7 @@ public class ServiceConfiguration : IEntityTypeConfiguration<Service>
             new Service { Id = 257, Name = "برنامه ورزشی و تغذیه", Price = 1000000, ServiceSubCategoryId = 25, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 258, Name = "کلاس یوگا در خانه", Price = 1000000, ServiceSubCategoryId = 25, CreatedAt = DateTime.Now, IsDeleted = false },
             new Service { Id = 259, Name = "کلاس پیلاتس در خانه", Price = 1000000, ServiceSubCategoryId = 25, CreatedAt = DateTime.Now, IsDeleted = false },
-            new Service { Id = 300, Name = "حرکات اصلاحی", Price = 1000000, ServiceSubCategoryId = 25, CreatedAt = DateTime.Now, IsDeleted = false }
+            new Service { Id = 260, Name = "حرکات اصلاحی", Price = 1000000, ServiceSubCategoryId = 25, CreatedAt = DateTime.Now, IsDeleted = false }
             );
     }
 }

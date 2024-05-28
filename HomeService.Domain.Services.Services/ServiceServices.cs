@@ -23,6 +23,9 @@ public class ServiceServices : IServiceServices
     public async Task<List<GetServiceDto>> GetAll(CancellationToken cancellationToken)
       => await _serviceRepository.GetAll(cancellationToken);
 
+    public async Task<List<GetByCategorySubIdDto>> GetAllBySubCategoryId(int id, CancellationToken cancellationToken)
+      => await _serviceRepository.GetAllBySubCategoryId(id, cancellationToken);
+
     public async Task<Service> GetById(int serviceId, CancellationToken cancellationToken)
       => await _serviceRepository.GetById(serviceId, cancellationToken);
 
