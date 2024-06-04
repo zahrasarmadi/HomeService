@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.5" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+		<PackageReference Include="Seq.Extensions.Logging" Version="8.0.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+		<PackageReference Include="Serilog.Sinks.Seq" Version="7.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\HomeService.Domain.Core\HomeService.Domain.Core.csproj" />
+	  <ProjectReference Include="..\HomeService.Domain.Services.AppServices\HomeService.Domain.Services.AppServices.csproj" />
+	  <ProjectReference Include="..\HomeService.Domain.Services.Services\HomeService.Domain.Services.Services.csproj" />
+	  <ProjectReference Include="..\HomeService.Infra.DataAccsess.Repos.EF\HomeService.Infra.DataAccsess.Repos.EF.csproj" />
+	  <ProjectReference Include="..\HomeService.Infra.DataBase.SQLServer\HomeService.Infra.DataBase.SQLServer.csproj" />
+	</ItemGroup>
+	
+</Project>

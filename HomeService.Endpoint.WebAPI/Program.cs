@@ -5,7 +5,6 @@ using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Entities.Configs;
 using HomeService.Domain.Services.AppServices;
 using HomeService.Domain.Services.Services;
-using HomeService.Endpoint.RazorPages.UI.Infrastructure;
 using HomeService.Framework;
 using HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 using HomeService.Infra.DataBase.SQLServer;
@@ -17,10 +16,12 @@ using Serilog.Events;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages()
-    .AddRazorRuntimeCompilation();
 
-//Admin Services
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IAdminServices, AdminServices>();
 builder.Services.AddScoped<IAdminAppServices, AdminAppServices>();
@@ -53,7 +54,7 @@ builder.Services.AddScoped<ICommentAppServices, CommentAppServices>();
 //Suggestion Services
 builder.Services.AddScoped<ISuggestionRepository, SuggestionRepository>();
 builder.Services.AddScoped<ISuggestionServices, SuggestionServices>();
-builder.Services.AddScoped<ISuggestionAppServices, SuggestionAppServices>(); 
+builder.Services.AddScoped<ISuggestionAppServices, SuggestionAppServices>();
 
 //Address Services
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
@@ -78,22 +79,21 @@ builder.Services.AddScoped<IBaseAppServices, BaseAppServices>();
 
 builder.Services.AddMemoryCache();
 
-//User Account Service
 builder.Services.AddScoped<IAccountAppServices, AccountAppServices>();
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>
-	(options =>
-	{
-		options.SignIn.RequireConfirmedAccount = false;
-		options.Password.RequireDigit = false;
-		options.Password.RequiredLength = 6;
-		options.Password.RequireNonAlphanumeric = false;
-		options.Password.RequireUppercase = false;
-		options.Password.RequireLowercase = false;
-	})
-	.AddRoles<IdentityRole<int>>()
-	.AddEntityFrameworkStores<AppDbContext>()
-	.AddErrorDescriber<PersianIdentityErrorDescriber>();
+    (options =>
+    {
+        options.SignIn.RequireConfirmedAccount = false;
+        options.Password.RequireDigit = false;
+        options.Password.RequiredLength = 6;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequireLowercase = false;
+    })
+    .AddRoles<IdentityRole<int>>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddErrorDescriber<PersianIdentityErrorDescriber>();
 
 
 var configuration = new ConfigurationBuilder()
@@ -110,7 +110,7 @@ builder.Host.ConfigureLogging(loggingBuilder =>
 }).UseSerilog((context, config) =>
 {
     config.WriteTo.Console();
-    config.WriteTo.Seq(siteSettings.Seq.ServerUrl,LogEventLevel.Information,apiKey:siteSettings.Seq.ApiKey);
+    config.WriteTo.Seq(siteSettings.Seq.ServerUrl, LogEventLevel.Information, apiKey: siteSettings.Seq.ApiKey);
 });
 
 
@@ -122,25 +122,19 @@ builder.Services.AddDbContext<AppDbContext>(options
 
 var app = builder.Build();
 
-
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-app.CustomExceptionHandlingMiddleware();
-
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 
-app.UseRouting();
-
-app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapRazorPages();
+app.UseAuthentication();
+
+app.MapControllers();
 
 app.Run();

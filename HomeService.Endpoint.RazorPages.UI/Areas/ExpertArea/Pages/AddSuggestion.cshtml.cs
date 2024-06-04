@@ -30,11 +30,12 @@ public class AddSuggestionModel : PageModel
         OrderId = Id;
     }
 
-    public async Task OnPostCreateSuggestion(SuggestionCreateDto suggestionCreate, string suggestionDate, CancellationToken cancellationToken)
+    public async Task<IActionResult> OnPostCreateSuggestion(SuggestionCreateDto suggestionCreate, string suggestionDate, CancellationToken cancellationToken)
     {
         var expertId = int.Parse(User.Claims.FirstOrDefault(u => u.Type == "userExpertId").Value);
         suggestionCreate.ExpertId = expertId;
-        //suggestionCreate.OrderId = OrderId;
         await _suggestionAppServices.Create(suggestionCreate,suggestionDate,cancellationToken);
+
+        return RedirectToPage("ExpertSuggestions");
     }
 }

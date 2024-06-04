@@ -7,7 +7,14 @@
     @if (SignInManager.IsSignedIn(User))
     {
         <li>
-            <a class="nav-link text-dark" asp-area="Account" asp-page="Profile" title="پروفایل">@User.Identity?.Name</a>
+            @if (User.IsInRole("Expert"))
+            {
+                <a class="nav-link text-dark" asp-area="ExpertArea" asp-page="Index" title="پروفایل">@User.Identity?.Name</a>
+            }
+            else if (User.IsInRole("Customer"))
+            {
+                <a class="nav-link text-dark" asp-area="CustomerArea" asp-page="Index" title="پروفایل">@User.Identity?.Name</a>
+            }
         </li>
         <li>
             <form class="form-inline" asp-area="Account" asp-page="Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">

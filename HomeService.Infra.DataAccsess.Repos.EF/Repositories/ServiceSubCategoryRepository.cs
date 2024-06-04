@@ -3,6 +3,8 @@ using HomeService.Domain.Core.DTOs.SubCategoryDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Immutable;
+using System.Threading;
 
 
 namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
@@ -54,7 +56,33 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
     }
 
     public async Task<List<ServiceSubCategory>> GetAll(CancellationToken cancellationToken)
-        => await _context.ServiceSubCategories.AsNoTracking().ToListAsync(cancellationToken);
+    {
+       return await _context.ServiceSubCategories.AsNoTracking()
+            .Select(s=>new ServiceSubCategory()
+            {
+                Id=s.Id,
+                Name=s.Name,
+                Image=s.Image,
+                CreatedAt = s.CreatedAt,
+                IsDeleted = s.IsDeleted,
+                ServiceCategory=s.ServiceCategory,
+                ServiceCategoryId=s.ServiceCategoryId,
+                Services=s.Services.Select(x=>new Service()
+                {
+                    Id = x.Id,
+                    Image=x.Image,
+                    Experts=x.Experts,
+                    Price=x.Price,
+                    Name=x.Name,
+                    CreatedAt=x.CreatedAt,
+                    IsDeleted=x.IsDeleted,
+                    Orders=x.Orders,
+                    ServiceSubCategory=x.ServiceSubCategory,
+                    ServiceSubCategoryId=x.ServiceSubCategoryId
+                }).ToList()
+            })
+            .ToListAsync(cancellationToken);
+    }
 
 
     public async Task<ServiceSubCategory> GetById(int serviceSubCategoryId, CancellationToken cancellationToken)

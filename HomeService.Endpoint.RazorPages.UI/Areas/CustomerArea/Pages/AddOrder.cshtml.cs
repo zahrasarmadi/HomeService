@@ -42,7 +42,7 @@ public class AddOrderModel : PageModel
             var userCustomerId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "userCustomerId").Value);
             order.CustomerId = userCustomerId;
             await _orderAppServices.Create(order, image, date, cancellationToken);
-            return RedirectToAction("CustomerProfile-Orders");
+            return RedirectToPage("CustomerOrders");
         }
         return Page();
     }
