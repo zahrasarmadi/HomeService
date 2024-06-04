@@ -127,9 +127,18 @@
                                 <a href="javascript:void(0);">پنل کاربری</a>
                                 <ul class="nav-dropdown nav-submenu">
                                     <li>
-                                        <a asp-page="Index" asp-area="CustomerArea">
-                                            <i class="lni lni-dashboard ms-2"></i>پروفایل من
-                                        </a>
+                                        @if (User.IsInRole("Expert"))
+                                        {
+                                            <a asp-page="Index" asp-area="ExpertArea">
+                                                <i class="lni lni-dashboard ms-2"></i>پروفایل من
+                                            </a>
+                                        }
+                                        else if (User.IsInRole("Expert"))
+                                        {
+                                            <a asp-page="Index" asp-area="CustomerArea">
+                                                <i class="lni lni-dashboard ms-2"></i>پروفایل من
+                                            </a>
+                                        }
                                     </li>
                                     @* <li>
                                         <a href="dashboard-my-listings.html">

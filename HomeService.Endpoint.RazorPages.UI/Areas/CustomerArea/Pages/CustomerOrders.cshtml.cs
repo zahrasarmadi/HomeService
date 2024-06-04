@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace HomeService.Endpoint.RazorPages.UI.Areas.CustomerArea;
 
 [Authorize(Roles = "Customer")]
-public class CustomerProfile_OrdersModel : PageModel
+public class CustomerOrdersModel : PageModel
 {
     private readonly IOrderAppServices _orderAppServices;
     private readonly ISuggestionAppServices _suggestionAppServices;
 
-    public CustomerProfile_OrdersModel(IOrderAppServices orderAppServices, ISuggestionAppServices suggestionAppServices)
+    public CustomerOrdersModel(IOrderAppServices orderAppServices, ISuggestionAppServices suggestionAppServices)
     {
         _orderAppServices = orderAppServices;
         _suggestionAppServices = suggestionAppServices;

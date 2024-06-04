@@ -1,4 +1,5 @@
 ﻿using HomeService.Domain.Core.Contracts.AppServices;
+using HomeService.Domain.Core.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -24,7 +25,7 @@ public class RegisterModel : PageModel
         public string Email { get; set; }
         public string Password { get; set; }
         public bool IsExpert { get; set; }
-        public bool IsCustomer { get; set; }
+        public GenderEnum Gender { get; set; }
     }
 
 
@@ -34,16 +35,10 @@ public class RegisterModel : PageModel
 
     public async Task<IActionResult> OnPostAsync(string returnUrl = null)
     {
-        if (Input.IsExpert && Input.IsCustomer)
-        {
-            ModelState.AddModelError(string.Empty, "همزمان نمیتوانید هم متخصص باشید هم مشتری");
-            return Page();
-        }
-
         returnUrl ??= Url.Content("~/");
 
         var result = await _accountAppServices.Register(Input.FisrtName,Input.LastName, Input.Email, Input.Password,
-            Input.IsExpert, Input.IsCustomer);
+            Input.IsExpert,Input.Gender);
 
         if (result.Count == 0)
         {

@@ -14,5 +14,7 @@ public interface IOrderRepository
     Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken);
     Task<int> OrderCount(CancellationToken cancellationToken);
     Task<List<GetOrderDto>> GetOrders(int customerId, CancellationToken cancellationToken);
-    Task AcceptStatus(int orderId, CancellationToken cancellationToken);
+    Task AcceptOrder(int orderId, CancellationToken cancellationToken);
+    Task DoneOrder(int id, CancellationToken cancellationToken);
+    Task<List<OrdersByServiceIdsDto>> GetOrdersByServiceIds(List<int> serviceIds, CancellationToken cancellationToken);
 }

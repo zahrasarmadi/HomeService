@@ -9,6 +9,7 @@
   <ItemGroup>
     <Content Remove="Areas\AdminArea\Pages\Service.cshtml" />
     <Content Remove="Areas\CustomerArea\Pages\CustomerProfileSetting.cshtml" />
+    <Content Remove="Areas\ExpertArea\Pages\AddSuggestion.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,6 +40,7 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Areas\AdminArea\Pages\Service.cshtml" />
     <_ContentIncludedByDefault Remove="Areas\CustomerArea\Pages\CustomerProfileSetting.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\ExpertArea\Pages\AddSuggestion.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,6 +53,7 @@
     <None Include="Areas\Account\Pages\_ViewStart.cshtml" />
     <None Include="Areas\AdminArea\Pages\Service.cshtml" />
     <None Include="Areas\CustomerArea\Pages\CustomerProfileSetting.cshtml" />
+    <None Include="Areas\ExpertArea\Pages\AddSuggestion.cshtml" />
     <None Include="wwwroot\assets\css\fonts\fa-brands-400.svg" />
     <None Include="wwwroot\assets\css\fonts\fa-brands-400.woff2" />
     <None Include="wwwroot\assets\css\fonts\fa-regular-400.svg" />
@@ -149,6 +152,72 @@
     <None Include="wwwroot\lib\jquery\dist\jquery.js" />
     <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
     <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\select2\js\i18n\af.js" />
+    <None Include="wwwroot\select2\js\i18n\ar.js" />
+    <None Include="wwwroot\select2\js\i18n\az.js" />
+    <None Include="wwwroot\select2\js\i18n\bg.js" />
+    <None Include="wwwroot\select2\js\i18n\bn.js" />
+    <None Include="wwwroot\select2\js\i18n\bs.js" />
+    <None Include="wwwroot\select2\js\i18n\ca.js" />
+    <None Include="wwwroot\select2\js\i18n\cs.js" />
+    <None Include="wwwroot\select2\js\i18n\da.js" />
+    <None Include="wwwroot\select2\js\i18n\de.js" />
+    <None Include="wwwroot\select2\js\i18n\dsb.js" />
+    <None Include="wwwroot\select2\js\i18n\el.js" />
+    <None Include="wwwroot\select2\js\i18n\en.js" />
+    <None Include="wwwroot\select2\js\i18n\eo.js" />
+    <None Include="wwwroot\select2\js\i18n\es.js" />
+    <None Include="wwwroot\select2\js\i18n\et.js" />
+    <None Include="wwwroot\select2\js\i18n\eu.js" />
+    <None Include="wwwroot\select2\js\i18n\fa.js" />
+    <None Include="wwwroot\select2\js\i18n\fi.js" />
+    <None Include="wwwroot\select2\js\i18n\fr.js" />
+    <None Include="wwwroot\select2\js\i18n\gl.js" />
+    <None Include="wwwroot\select2\js\i18n\he.js" />
+    <None Include="wwwroot\select2\js\i18n\hi.js" />
+    <None Include="wwwroot\select2\js\i18n\hr.js" />
+    <None Include="wwwroot\select2\js\i18n\hsb.js" />
+    <None Include="wwwroot\select2\js\i18n\hu.js" />
+    <None Include="wwwroot\select2\js\i18n\hy.js" />
+    <None Include="wwwroot\select2\js\i18n\id.js" />
+    <None Include="wwwroot\select2\js\i18n\is.js" />
+    <None Include="wwwroot\select2\js\i18n\it.js" />
+    <None Include="wwwroot\select2\js\i18n\ja.js" />
+    <None Include="wwwroot\select2\js\i18n\ka.js" />
+    <None Include="wwwroot\select2\js\i18n\km.js" />
+    <None Include="wwwroot\select2\js\i18n\ko.js" />
+    <None Include="wwwroot\select2\js\i18n\lt.js" />
+    <None Include="wwwroot\select2\js\i18n\lv.js" />
+    <None Include="wwwroot\select2\js\i18n\mk.js" />
+    <None Include="wwwroot\select2\js\i18n\ms.js" />
+    <None Include="wwwroot\select2\js\i18n\nb.js" />
+    <None Include="wwwroot\select2\js\i18n\ne.js" />
+    <None Include="wwwroot\select2\js\i18n\nl.js" />
+    <None Include="wwwroot\select2\js\i18n\pa.js" />
+    <None Include="wwwroot\select2\js\i18n\pl.js" />
+    <None Include="wwwroot\select2\js\i18n\ps.js" />
+    <None Include="wwwroot\select2\js\i18n\pt-BR.js" />
+    <None Include="wwwroot\select2\js\i18n\pt.js" />
+    <None Include="wwwroot\select2\js\i18n\ro.js" />
+    <None Include="wwwroot\select2\js\i18n\ru.js" />
+    <None Include="wwwroot\select2\js\i18n\sk.js" />
+    <None Include="wwwroot\select2\js\i18n\sl.js" />
+    <None Include="wwwroot\select2\js\i18n\sq.js" />
+    <None Include="wwwroot\select2\js\i18n\sr-Cyrl.js" />
+    <None Include="wwwroot\select2\js\i18n\sr.js" />
+    <None Include="wwwroot\select2\js\i18n\sv.js" />
+    <None Include="wwwroot\select2\js\i18n\te.js" />
+    <None Include="wwwroot\select2\js\i18n\th.js" />
+    <None Include="wwwroot\select2\js\i18n\tk.js" />
+    <None Include="wwwroot\select2\js\i18n\tr.js" />
+    <None Include="wwwroot\select2\js\i18n\uk.js" />
+    <None Include="wwwroot\select2\js\i18n\vi.js" />
+    <None Include="wwwroot\select2\js\i18n\zh-CN.js" />
+    <None Include="wwwroot\select2\js\i18n\zh-TW.js" />
+    <None Include="wwwroot\select2\js\select2.full.js" />
+    <None Include="wwwroot\select2\js\select2.full.min.js" />
+    <None Include="wwwroot\select2\js\select2.js" />
+    <None Include="wwwroot\select2\js\select2.min.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -157,6 +226,10 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Areas\CustomerArea\Pages\CustomerProfileSetting.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\ExpertArea\Pages\AddSuggestion.cshtml" />
   </ItemGroup>
 
 </Project>

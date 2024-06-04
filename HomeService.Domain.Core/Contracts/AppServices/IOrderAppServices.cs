@@ -15,5 +15,7 @@ public interface IOrderAppServices
     Task<List<GetOrderDto>> GetAll(CancellationToken cancellationToken);
     Task<int> OrderCount(CancellationToken cancellationToken);
     Task<List<GetOrderDto>> GetOrders(int customerId, CancellationToken cancellationToken);
-    Task AcceptStatus(int orderId, CancellationToken cancellationToken);
+    Task AcceptOrder(int orderId, CancellationToken cancellationToken);
+    Task DoneOrder(int id, int suggestionId, CancellationToken cancellationToken);
+    Task<List<OrdersByServiceIdsDto>> GetOrdersByServiceIds(int exoertId, CancellationToken cancellationToken);
 }

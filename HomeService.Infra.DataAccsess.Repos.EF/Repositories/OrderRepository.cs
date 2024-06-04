@@ -20,11 +20,11 @@ public class OrderRepository : IOrderRepository
         {
             Title = orderCreateDto.Title,
             Description = orderCreateDto.Description,
-            Status = StatusEnum.AwaitingSuggestionExperts,
+            Status = StatusEnum.AwaitingCustomerConfirmation,
             CustomerId = orderCreateDto.CustomerId,
             ServiceId = orderCreateDto.ServiceId,
             Image = orderCreateDto.Image,
-            RequesteForTime=orderCreateDto.Date
+            RequesteForTime = orderCreateDto.Date
         };
         await _context.Orders.AddAsync(newModel, cancellationToken);
 
@@ -50,7 +50,6 @@ public class OrderRepository : IOrderRepository
                  Description = o.Description,
                  Status = o.Status,
                  Customer = o.Customer,
-                 Expert = o.Expert,
                  Service = o.Service,
                  Suggestions = o.Suggestions
              }).ToListAsync(cancellationToken);
@@ -70,8 +69,6 @@ public class OrderRepository : IOrderRepository
         targetModel.Title = orderUpdateDto.Title;
         targetModel.Description = orderUpdateDto.Description;
         targetModel.Status = orderUpdateDto.Status;
-        targetModel.Expert = orderUpdateDto.Expert;
-        targetModel.ExpertId = orderUpdateDto.ExpertId;
         targetModel.Service = orderUpdateDto.Service;
         targetModel.ServiceId = orderUpdateDto.ServiceId;
         targetModel.Image = orderUpdateDto.Image;
@@ -97,26 +94,25 @@ public class OrderRepository : IOrderRepository
 
     public async Task<List<GetOrderDto>> GetOrders(int customerId, CancellationToken cancellationToken)
     {
-        var target= await _context.Orders.Where(o => o.Customer.Id == customerId && o.IsDeleted == false)
+        var target = await _context.Orders.Where(o => o.Customer.Id == customerId && o.IsDeleted == false)
             .Select(o => new GetOrderDto
             {
                 Customer = o.Customer,
                 Description = o.Description,
-                Expert = o.Expert,
                 Image = o.Image,
                 Id = o.Id,
                 Service = o.Service,
                 Status = o.Status,
                 Title = o.Title,
-                Suggestions = o.Suggestions.Select(x=>new Suggestion()
+                Suggestions = o.Suggestions.Select(x => new Suggestion()
                 {
-                    ExpertId=x.ExpertId,
-                    Expert=x.Expert,
-                    Id=x.Id,
-                    Description=x.Description,
-                    Price=x.Price,
-                    SuggestedDate=x.SuggestedDate,
-                    Status=x.Status,
+                    ExpertId = x.ExpertId,
+                    Expert = x.Expert,
+                    Id = x.Id,
+                    Description = x.Description,
+                    Price = x.Price,
+                    SuggestedDate = x.SuggestedDate,
+                    Status = x.Status,
                 }).ToList()
 
             }).ToListAsync(cancellationToken);
@@ -124,11 +120,39 @@ public class OrderRepository : IOrderRepository
         return target;
     }
 
-    public async Task AcceptStatus(int orderId, CancellationToken cancellationToken)
+    public async Task AcceptOrder(int orderId, CancellationToken cancellationToken)
     {
-        var target = await _context.Orders.FirstOrDefaultAsync(o=>o.Id== orderId, cancellationToken);
-        target.Status = StatusEnum.Confirmed;
+        var target = await _context.Orders.FirstOrDefaultAsync(o => o.Id == orderId, cancellationToken);
+        target.Status =StatusEnum.Confirmed;
+
         await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task DoneOrder(int id, CancellationToken cancellationToken)
+    {
+        var targetOrder = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id, cancellationToken);
+        targetOrder.Status = StatusEnum.Done;
+        targetOrder.DoneAt = DateTime.Now;
+
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task<List<OrdersByServiceIdsDto>> GetOrdersByServiceIds(List<int> serviceIds, CancellationToken cancellationToken)
+    {
+      return await _context.Orders.Where(o => serviceIds.Contains(o.ServiceId))
+            .Select(o=>new OrdersByServiceIdsDto
+            {
+                Id=o.Id,
+                Title=o.Title,
+                Description=o.Description,
+                Image=o.Image,
+                CustomerId=o.CustomerId,
+                Customer=o.Customer,
+                Service= o.Service,
+                ServiceId = o.ServiceId,
+                Status=o.Status
+                
+            }).ToListAsync(cancellationToken);
     }
 
     private async Task<Order> FindOrder(int id, CancellationToken cancellationToken)

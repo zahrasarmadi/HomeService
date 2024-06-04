@@ -26,10 +26,7 @@ public class LoginModel : PageModel
 
         [Required]
         public string Password { get; set; }
-
     }
-
-
 
     public void OnGet()
     {
@@ -54,5 +51,4 @@ public class LoginModel : PageModel
         }
 
     }
-
 }

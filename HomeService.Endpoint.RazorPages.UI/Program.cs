@@ -52,8 +52,7 @@ builder.Services.AddScoped<ICommentAppServices, CommentAppServices>();
 //Suggestion Services
 builder.Services.AddScoped<ISuggestionRepository, SuggestionRepository>();
 builder.Services.AddScoped<ISuggestionServices, SuggestionServices>();
-builder.Services.AddScoped<ISuggestionAppServices, SuggestionAppServices>();
-
+builder.Services.AddScoped<ISuggestionAppServices, SuggestionAppServices>(); 
 
 //Address Services
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
@@ -70,6 +69,7 @@ builder.Services.AddScoped<ICustomerAppServices, CustomerAppServices>();
 builder.Services.AddScoped<IExpertRepository, ExpertRepository>();
 builder.Services.AddScoped<IExpertServices, ExpertServices>();
 builder.Services.AddScoped<IExpertAppServices, ExpertAppServices>();
+
 //Base Services
 builder.Services.AddScoped<IBaseSevices, BaseService>();
 builder.Services.AddScoped<IBaseAppServices, BaseAppServices>();
@@ -122,7 +122,6 @@ builder.Services.AddDbContext<AppDbContext>(options
 var app = builder.Build();
 
 
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -131,9 +130,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.MapControllerRoute(
-name: "Areas",
-pattern: "{area:exists}/{controller=Customer}/{action=Index}/{id?}");
 //app.CustomExceptionHandlingMiddleware();
 
 app.UseHttpsRedirection();
@@ -141,6 +137,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

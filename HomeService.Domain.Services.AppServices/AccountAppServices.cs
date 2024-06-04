@@ -1,5 +1,6 @@
 ﻿using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.Entities;
+using HomeService.Domain.Core.Enums;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
@@ -16,7 +17,7 @@ public class AccountAppServices : IAccountAppServices
         _userManager = userManager;
     }
 
-    public async Task<List<IdentityError>> Register(string fisrtName, string lastName, string email, string password, bool isExpert, bool isCustomer)
+    public async Task<List<IdentityError>> Register(string fisrtName, string lastName, string email, string password, bool isExpert, GenderEnum gender)
     {
         var role = string.Empty;
 
@@ -25,16 +26,6 @@ public class AccountAppServices : IAccountAppServices
         user.UserName = email;
         user.Email = email;
 
-        if (isCustomer)
-        {
-            role = "Customer";
-            user.Customer = new Customer()
-            {
-                FirstName = fisrtName,
-                LastName = lastName,
-            };
-        }
-
         if (isExpert)
         {
             role = "Expert";
@@ -42,23 +33,33 @@ public class AccountAppServices : IAccountAppServices
             {
                 FirstName = fisrtName,
                 LastName = lastName,
+                Gender = gender
+            };
+        }
+        else
+        {
+            role = "Customer";
+            user.Customer = new Customer()
+            {
+                FirstName = fisrtName,
+                LastName = lastName,
+                Gender = gender
             };
         }
 
         var result = await _userManager.CreateAsync(user, password);
 
-        if (isCustomer)
-        {
-
-            var userCustomerId = user.Customer!.Id;
-            await _userManager.AddClaimAsync(user, new Claim("userCustomerId", userCustomerId.ToString()));
-        }
-
-        if(isExpert)
+        if (isExpert)
         {
 
             var userExpertId = user.Expert!.Id;
             await _userManager.AddClaimAsync(user, new Claim("userExpertId", userExpertId.ToString()));
+        }
+        else
+        {
+
+            var userCustomerId = user.Customer!.Id;
+            await _userManager.AddClaimAsync(user, new Claim("userCustomerId", userCustomerId.ToString()));
         }
 
         if (result.Succeeded)

@@ -2,9 +2,9 @@
 @using Framework
 @using HomeService.Domain.Core.Enums
 @using HomeService.Framework
-@model CustomerProfile_OrdersModel
+@model CustomerOrdersModel
 @{
-    Layout = "_CustomerProfileLayout";
+    Layout = "_CustomerLayout";
     ViewData["MyOrder"] = "active";
 }
 @foreach (var item in Model.Orders)
@@ -28,7 +28,7 @@
                         <h5 class="card-title">@item.Service.Name</h5>
                         <p class="card-text">@item.Description</p>
                 @*         <a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash ms-1"></i>حذف</a> *@
-                        <button class="btn btn-primary me-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary me-1" href="#collapseExample" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                             لیست پیشنهادات
                         </button>
                         <div class="collapse" id="collapseExample">
@@ -58,10 +58,8 @@
                                                     <td>@suggest.Expert.FirstName @suggest.Expert.LastName</td>
                                                     <td>@suggest.Price</td>
                                                     <td>@suggest.SuggestedDate.ToPersianString("dddd, dd MMMM,yyyy")</td>
-                                                   @* <td>@suggest.Status.GetEnumDisplayName()</td> *@
+                                                    <td>@suggest.Status.GetEnumDisplayName()</td>
                                                     <td>
-
-
                                                         @if (suggest.Status ==StatusEnum.AwaitingCustomerConfirmation)
                                                         {
                                                             <a class="btn btn-success" asp-page-handler="AcceptSuggestion" asp-route-id="@suggest.Id" asp-route-orderId="@item.Id">تایید متخصص</a>

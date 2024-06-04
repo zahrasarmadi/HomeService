@@ -19,11 +19,13 @@ public class SuggestionRepository : ISuggestionRepository
         var newModel = new Suggestion()
         {
             Description = suggestionCreateDto.Description,
-            Expert = suggestionCreateDto.Expert,
             ExpertId = suggestionCreateDto.ExpertId,
-            Order = suggestionCreateDto.Order,
             OrderId = suggestionCreateDto.OrderId,
             Price = suggestionCreateDto.Price,
+            SuggestedDate = suggestionCreateDto.SuggastionDate,
+            CreateAt = DateTime.Now,
+            IsDeleted = false,
+            Status = StatusEnum.AwaitingCustomerConfirmation,
         };
         await _context.Suggestions.AddAsync(newModel, cancellationToken);
 
@@ -61,19 +63,65 @@ public class SuggestionRepository : ISuggestionRepository
         return true;
     }
 
-    public async Task AcceptSuggestion(int id,CancellationToken cancellationToken)
+    public async Task AcceptSuggestion(int id, CancellationToken cancellationToken)
     {
-      var targetSuggestion=  await _context.Suggestions.FirstOrDefaultAsync(s => s.Id == id,cancellationToken);
-        targetSuggestion.Status =StatusEnum.Confirmed;
+        var targetSuggestion = await _context.Suggestions.FirstOrDefaultAsync(s => s.Id == id, cancellationToken);
 
-        _context.SaveChangesAsync(cancellationToken);
+        var orderId = targetSuggestion.OrderId;
+
+        var otherSuggestions = await _context.Suggestions.Where(s => s.OrderId == orderId).ToListAsync(cancellationToken);
+
+        foreach (var suggestion in otherSuggestions)
+        {
+            if (suggestion.Id == id)
+            {
+                suggestion.Status = StatusEnum.Confirmed;
+            }
+            else
+            {
+                suggestion.Status = StatusEnum.NotConfirmed;
+            }
+        }
+
+        await _context.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task<int> ConfrimedStatusCount(int orderId,CancellationToken cancellationToken)
+    public async Task<int> ConfrimedStatusCount(int orderId, CancellationToken cancellationToken)
     {
-      return await _context.Suggestions.Where(s =>s.OrderId==orderId && s.Status == StatusEnum.Confirmed).CountAsync(cancellationToken);
+        return await _context.Suggestions.Where(s => s.OrderId == orderId && s.Status == StatusEnum.Confirmed).CountAsync(cancellationToken);
     }
-    
+
+    public async Task<List<SuggestionsByExpertIdDto>> GetSuggestionsByExperId(int id, CancellationToken cancellationToken)
+    {
+        return await _context.Suggestions.Where(s => s.ExpertId == id)
+            .Select(s => new SuggestionsByExpertIdDto
+            {
+                Id = s.Id,
+                Description = s.Description,
+                ExpertId = s.ExpertId,
+                Price = s.Price,
+                Status = s.Status,
+                SuggestedDate = s.SuggestedDate,
+                OrderId = s.OrderId,
+                Order = new Order()
+                {
+                    Service = s.Order.Service,
+                    Title = s.Order.Title,
+                    Description = s.Order.Description,
+                    Image = s.Order.Image
+                }
+            })
+           .ToListAsync(cancellationToken);
+    }
+
+    public async Task DoneSuggestion(int id, CancellationToken cancellationToken)
+    {
+        var targetSuggestion = await _context.Suggestions.FirstOrDefaultAsync(s => s.Id == id, cancellationToken);
+        targetSuggestion.Status = StatusEnum.Done;
+
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+
     private async Task<Suggestion> FindSuggestion(int id, CancellationToken cancellationToken)
    => await _context.Suggestions.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

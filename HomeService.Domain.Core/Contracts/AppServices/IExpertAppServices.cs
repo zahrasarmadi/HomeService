@@ -1,12 +1,13 @@
 ﻿using HomeService.Domain.Core.DTOs.ExpertDTO;
 using HomeService.Domain.Core.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace HomeService.Domain.Core.Contracts.AppServices;
 
 public interface IExpertAppServices
 {
     Task<bool> Create(ExpertCreateDto expertCreateDto, CancellationToken cancellationToken);
-    Task<bool> Update(ExpertUpdateDto expertUpdateDto, CancellationToken cancellationToken);
+    Task<bool> Update(ExpertUpdateDto expertUpdateDto, IFormFile image, string birthDate,CancellationToken cancellationToken);
     Task<bool> Delete(int expertId, CancellationToken cancellationToken);
     Task<Expert> GetById(int expertId, CancellationToken cancellationToken);
     Task<List<Expert>> GetAll(CancellationToken cancellationToken);
@@ -15,4 +16,6 @@ public interface IExpertAppServices
 	Task<int> ExpertCommentCount(int id, CancellationToken cancellationToken);
 	Task<int> ExpertAverageScores(int id, CancellationToken cancellationToken);
 	Task<int> ExpertOrderCount(int id, CancellationToken cancellationToken);
+    Task<List<int>> GetExpertServiceIds(int id, CancellationToken cancellationToken);
+    Task<ExpertUpdateDto> GetExpertUpdateInfo(int id, CancellationToken cancellationToken);
 }

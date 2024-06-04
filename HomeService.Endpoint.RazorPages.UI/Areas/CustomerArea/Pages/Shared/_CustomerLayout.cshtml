@@ -212,14 +212,14 @@
                     <div class="goodup-dashboard-inner">
                         <ul data-submenu-title="منو">
                             <li class="@ViewData["Dashboard"]"><a asp-page="Index"><i class="lni lni-dashboard ms-2"></i>داشبورد</a></li>
-                            <li class="@ViewData["MyOrder"]"><a asp-page="CustomerProfile-Orders"><i class="lni lni-files ms-2"></i>آگهی های من</a></l>
+                            <li class="@ViewData["MyOrder"]"><a asp-page="CustomerOrders"><i class="lni lni-files ms-2"></i>آگهی های من</a></l>
                             <li class="@ViewData["AddOrder"]"><a asp-page="AddOrder"><i class="lni lni-add-files ms-2"></i>افزودن آگهی</a></li>
                         </ul>
                         <ul data-submenu-title="حساب کاربری">
                             <li class="@ViewData["ProfileSetting"]"><a asp-page="CustomerProfileSetting"><i class="lni lni-user ms-2"></i>تنظیمات </a></li>
                             @* <li class="@ViewData["ChangePass"]"><a asp-page=""><i class="lni lni-lock-alt ms-2"></i>تغییر رمز عبور</a></li> *@
                             <li>
-                                <<form class="form-inline" asp-area="Account" asp-page="Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                                <form class="form-inline" asp-area="Account" asp-page="Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
                                     <button type="submit" class="nav-link btn btn-link text-dark">خروج<i class="bx bx-power-off me-2"></i></button>
                                 </form>
                             </li>
@@ -229,11 +229,9 @@
             </div>
 
             <div class="goodup-dashboard-content">
-
-
                 <div class="dashboard-widg-bar d-block">
                     <div class="row">
-                        @RenderBody();
+                        @RenderBody()
                     </div>
                 </div>
             </div>

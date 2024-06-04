@@ -1,7 +1,7 @@
 ﻿@page
 @model HomeService.Endpoint.RazorPages.UI.Areas.CustomerArea.Pages.AddOrderModel
 @{
-    Layout = "_CustomerProfileLayout";
+    Layout = "_CustomerLayout";
     ViewData["AddOrder"] = "active";
 }
 <form method="post" asp-page-handler="AddOrder" enctype="multipart/form-data">
@@ -35,7 +35,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="form-group">
                         <label class="mb-1">تاریخ</label>
-                        <input asp-for="@Model.Date"  data-jdp placeholder="min Today" data-jdp-min-date="today" class="form-control rounded" />
+                        <input asp-for="@Model.Date" data-jdp data-jdp-min-date="today" class="form-control rounded" />
                     </div>
                 </div>
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">

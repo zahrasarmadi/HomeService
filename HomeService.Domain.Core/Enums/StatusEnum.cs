@@ -10,10 +10,10 @@ public enum StatusEnum
     AwaitingCustomerConfirmation=2,
     [Display(Name = "تایید شد")]
     Confirmed=3,
-    //[Display(Name = "تایید نشد")]
-    //NotConfirmed,
-    //[Display(Name = "در انتظار پرداخت")]
-    //AwaitingPayment,
+    [Display(Name = "تایید نشد")]
+    NotConfirmed,
+    [Display(Name = "انجام شد")]
+    Done,
     //[Display(Name = "پرداخت شد")]
     //Paied,
     //[Display(Name = "انجام شد")]

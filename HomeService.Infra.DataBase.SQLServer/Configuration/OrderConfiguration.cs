@@ -15,10 +15,6 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .WithMany(c => c.Orders)
             .OnDelete(DeleteBehavior.NoAction);
 
-        builder.HasOne(o => o.Expert)
-            .WithMany(c => c.Orders)
-            .OnDelete(DeleteBehavior.NoAction);
-
         builder.HasOne(o => o.Service)
             .WithMany(c => c.Orders)
             .OnDelete(DeleteBehavior.NoAction);
@@ -37,7 +33,6 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
                 CustomerId=1,
                 IsDeleted=false,
                 Description="نظافت خونه صد متری هب طور کامل",
-                ExpertId=1,
                 DoneAt= DateTime.Now,
                 RequesteForTime= DateTime.Now,
                 ServiceId=1,

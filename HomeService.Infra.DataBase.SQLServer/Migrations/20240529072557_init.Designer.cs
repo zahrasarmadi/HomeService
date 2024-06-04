@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HomeService.Infra.DataBase.SQLServer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240528074749_init")]
+    [Migration("20240529072557_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -145,7 +145,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         {
                             Id = 1,
                             ApplicationUserId = 1,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 456, DateTimeKind.Local).AddTicks(4094),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 660, DateTimeKind.Local).AddTicks(2556),
                             FirstName = "زهرا",
                             Gender = 1,
                             IsDeleted = false,
@@ -225,16 +225,16 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e5489d1a-479a-47ed-b983-7e1bba6278ce",
+                            ConcurrencyStamp = "3870a589-347b-4404-a6d5-f801913b4beb",
                             Email = "Zahrasarmadi17@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ZAHRASARMADI17@GMAIL.COM",
                             NormalizedUserName = "ZAHRASARMADI17@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHarsVhcelM+k9+ybkEYVu5ONoax9vD0GxJ3d/NWaHpjbelmxBx9pkpXxwl6qohNDw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECWFW25GZdkrhDiqB0lct4PM2muLWSDcV74aYJZhNoXcowNa9Dc3intjXZ5dlroF1w==",
                             PhoneNumber = "09927848276",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "09bb7d81-21d6-498b-9c25-afe2adaf77ca",
+                            SecurityStamp = "c29f8106-4124-4bcd-9816-9e1d5d1213c9",
                             TwoFactorEnabled = false,
                             UserName = "Zahrasarmadi17@gmail.com"
                         },
@@ -242,16 +242,16 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a34ff08d-48e1-4bbb-849c-56e542dae1f5",
+                            ConcurrencyStamp = "856058bf-75f9-44de-8288-bf9f0581ce8c",
                             Email = "Ali@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ALI@GMAIL.COM",
                             NormalizedUserName = "ALI@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEwLqNXpvXLxSHkGH3Ogg67zHz2l8HhB+AukcvhZEjLjGyHEib786LwL/ACSDsZ6ig==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE0yaO2W8Mj42NbLbyvN03e0pA6l6YvDoenJStou8rN8dPjMxeU9LLiip8ew0Oa17w==",
                             PhoneNumber = "09377507920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "453f40ee-999a-4b4c-a0f7-354e318c3cd3",
+                            SecurityStamp = "91de2bfb-9f2b-4b78-8a47-eb5f7d50c396",
                             TwoFactorEnabled = false,
                             UserName = "Ali@gmail.com"
                         },
@@ -259,16 +259,16 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a8a8c201-2388-4112-9b77-7ee6d15c146c",
+                            ConcurrencyStamp = "b230f65f-be03-4e1c-adf2-4c5f9647ab6d",
                             Email = "Sahar@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SAHAR@GMAIL.COM",
                             NormalizedUserName = "SAHAR@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELK/yKOTvgP7Qv00VrUcL6lD5P6jAxkZVBltGslGl4/Qiu8WhgCE0zRrKr+Os3W5IA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEAo4nsYU1XsWNw7fZubUUVehcIQ0M7CRtYtIdkedkZmj4TY/SUjsYMktOICcTiDnA==",
                             PhoneNumber = "09377507920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "714ebc22-c601-4d24-9aad-376a72d711f4",
+                            SecurityStamp = "d4ab07ba-9d7d-4126-af57-fd950e7c5fda",
                             TwoFactorEnabled = false,
                             UserName = "Sahar@gmail.com"
                         },
@@ -276,16 +276,16 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         {
                             Id = 4,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "82aab10a-530a-4f70-96bf-66f7d7ff586b",
+                            ConcurrencyStamp = "a2eb3c46-cdfe-4152-ac8c-b8c555f6e9ca",
                             Email = "Sara@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SARA@GMAIL.COM",
                             NormalizedUserName = "SARA@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIrA1qO8umJhagfV2nUxabRFmHMBXaHQTMc9dodcO7c9UavFOPnWiH0S5GZT7f9LJw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKd0YAu/V6SYJq9ebHwguOn+Hn3m6eKyzTnD17npqSBj+2qtRGlAirBAMg8EmtlNRg==",
                             PhoneNumber = "09377507920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ea07a475-3f82-4a93-9ef0-b07a1a1daaf5",
+                            SecurityStamp = "58670b19-5780-42a3-86ef-f78d676bd542",
                             TwoFactorEnabled = false,
                             UserName = "Sara@gmail.com"
                         },
@@ -293,16 +293,16 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         {
                             Id = 5,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "32f1378d-b223-4f6d-b915-8f2d8e5e6663",
+                            ConcurrencyStamp = "f591d54f-b398-4ddc-aee1-92fdf25c993f",
                             Email = "Mohammad@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "MOHAMMAD@GMAIL.COM",
                             NormalizedUserName = "MOHAMMAD@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELvuIG6kuwgME8Lutx7yHZ0W6SLwvtTSml5Xi+0PtjBgeD1h9Eds1ijzOAt4E6FAuA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEASI2n4wCYQXLQCmWxU0R+nSrwRVg3QFCtIj9xgwz2HgNM0GmW45Mz3DkFBcOgUv9w==",
                             PhoneNumber = "09377507920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "24daf68a-e89e-4e0c-bfc5-651bdefedb7c",
+                            SecurityStamp = "b20e1499-9c5b-4221-aaaf-1bf1e785ddc1",
                             TwoFactorEnabled = false,
                             UserName = "Mohammad@gmail.com"
                         });
@@ -332,187 +332,187 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(7968),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2671),
                             Name = "آذربایجان شرقی"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(7970),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2673),
                             Name = "آذربایجان غربی"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(7972),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2675),
                             Name = "اردبیل"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(7974),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2676),
                             Name = "اصفهان"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(7975),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2678),
                             Name = "البرز"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(7978),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2680),
                             Name = "ایلام"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(7979),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2681),
                             Name = "بوشهر"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(7981),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2683),
                             Name = "تهران"
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(7982),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2684),
                             Name = "چهارمحال و بختیاری"
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(7993),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2693),
                             Name = "خراسان جنوبی"
                         },
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(7995),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2695),
                             Name = "خراسان رضوی"
                         },
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8015),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2715),
                             Name = "خراسان شمالی"
                         },
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8017),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2717),
                             Name = "خوزستان"
                         },
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8018),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2719),
                             Name = "زنجان"
                         },
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8020),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2720),
                             Name = "سمنان"
                         },
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8021),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2722),
                             Name = "سیستان و بلوچستان"
                         },
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8023),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2724),
                             Name = "فارس"
                         },
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8024),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2725),
                             Name = "قزوین"
                         },
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8026),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2727),
                             Name = "قم"
                         },
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8027),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2728),
                             Name = "کردستان"
                         },
                         new
                         {
                             Id = 21,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8029),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2730),
                             Name = "کرمان"
                         },
                         new
                         {
                             Id = 22,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8030),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2731),
                             Name = "کرمانشاه"
                         },
                         new
                         {
                             Id = 23,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8032),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2733),
                             Name = "کهگیلویه و بویراحمد"
                         },
                         new
                         {
                             Id = 24,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8033),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2734),
                             Name = "گلستان"
                         },
                         new
                         {
                             Id = 25,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8035),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2736),
                             Name = "گیلان"
                         },
                         new
                         {
                             Id = 26,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8036),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2737),
                             Name = "لرستان"
                         },
                         new
                         {
                             Id = 27,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8038),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2739),
                             Name = "مازندران"
                         },
                         new
                         {
                             Id = 28,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8039),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2740),
                             Name = "مرکزی"
                         },
                         new
                         {
                             Id = 29,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8041),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2742),
                             Name = "هرمزگان"
                         },
                         new
                         {
                             Id = 30,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8042),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2743),
                             Name = "همدان"
                         },
                         new
                         {
                             Id = 31,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(8044),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(2745),
                             Name = "یزد"
                         });
                 });
@@ -565,7 +565,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 458, DateTimeKind.Local).AddTicks(2439),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 661, DateTimeKind.Local).AddTicks(6775),
                             CustomerId = 1,
                             Description = "کارش عالی بود",
                             ExpertId = 1,
@@ -628,7 +628,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                             ApplicationUserId = 3,
                             BackUpPhoneNumber = "09123669858",
                             BankCardNumber = "1234123412341234",
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 458, DateTimeKind.Local).AddTicks(6493),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 662, DateTimeKind.Local).AddTicks(1038),
                             FirstName = "سحر",
                             Gender = 1,
                             IsDeleted = false,
@@ -640,7 +640,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                             ApplicationUserId = 5,
                             BackUpPhoneNumber = "09123623258",
                             BankCardNumber = "1239684412341234",
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 458, DateTimeKind.Local).AddTicks(6497),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 662, DateTimeKind.Local).AddTicks(1042),
                             FirstName = "محمد",
                             Gender = 2,
                             IsDeleted = false,
@@ -711,7 +711,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                             ApplicationUserId = 2,
                             BankCardNumber = "1234123412341234",
                             BirthDate = new DateTime(1998, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(2032),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 662, DateTimeKind.Local).AddTicks(8221),
                             FirstName = "علی",
                             Gender = 2,
                             IsConfrim = true,
@@ -725,7 +725,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                             ApplicationUserId = 4,
                             BankCardNumber = "1234123412341255",
                             BirthDate = new DateTime(1998, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(2038),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 662, DateTimeKind.Local).AddTicks(8225),
                             FirstName = "سارا",
                             Gender = 2,
                             IsConfrim = true,
@@ -757,9 +757,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                     b.Property<DateTime?>("DoneAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ExpertId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -784,8 +781,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.HasIndex("ExpertId");
-
                     b.HasIndex("ServiceId");
 
                     b.ToTable("Orders");
@@ -794,13 +789,12 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(4494),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 660, DateTimeKind.Local).AddTicks(9464),
                             CustomerId = 1,
                             Description = "نظافت خونه صد متری هب طور کامل",
-                            DoneAt = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(4498),
-                            ExpertId = 1,
+                            DoneAt = new DateTime(2024, 5, 29, 10, 55, 52, 660, DateTimeKind.Local).AddTicks(9467),
                             IsDeleted = false,
-                            RequesteForTime = new DateTime(2024, 5, 28, 11, 17, 47, 457, DateTimeKind.Local).AddTicks(4502),
+                            RequesteForTime = new DateTime(2024, 5, 29, 10, 55, 52, 660, DateTimeKind.Local).AddTicks(9471),
                             ServiceId = 1,
                             Status = 3,
                             Title = "نظافت"
@@ -844,7 +838,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4755),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4481),
                             IsDeleted = false,
                             Name = "سرویس عادی نظافت",
                             Price = 700000,
@@ -853,7 +847,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4758),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4486),
                             IsDeleted = false,
                             Name = "سرویس لوکس نظافت",
                             Price = 850000,
@@ -862,7 +856,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4877),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4489),
                             IsDeleted = false,
                             Name = "سرویس ویژه نظافت",
                             Price = 1000000,
@@ -871,7 +865,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4880),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4492),
                             IsDeleted = false,
                             Name = "سرویس ویژه نظافت",
                             Price = 1000000,
@@ -880,7 +874,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4883),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4494),
                             IsDeleted = false,
                             Name = "نظافت راه‌پله",
                             Price = 1000000,
@@ -889,7 +883,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4886),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4497),
                             IsDeleted = false,
                             Name = "سرویس نظافت فوری",
                             Price = 1000000,
@@ -898,7 +892,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4888),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4499),
                             IsDeleted = false,
                             Name = "پذیرایی",
                             Price = 1000000,
@@ -907,7 +901,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4890),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4502),
                             IsDeleted = false,
                             Name = "کارگر ساده",
                             Price = 1000000,
@@ -916,7 +910,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4894),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4504),
                             IsDeleted = false,
                             Name = "سمپاشی فضای داخلی",
                             Price = 1000000,
@@ -925,7 +919,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4896),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4507),
                             IsDeleted = false,
                             Name = "ضدعفونی منزل و محل کار",
                             Price = 1000000,
@@ -934,7 +928,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4901),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4510),
                             IsDeleted = false,
                             Name = "شستشوی مبل ،فرش و موکت در محل",
                             Price = 1000000,
@@ -943,7 +937,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 262,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4903),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4512),
                             IsDeleted = false,
                             Name = "قالیشویی",
                             Price = 1000000,
@@ -952,7 +946,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4905),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4515),
                             IsDeleted = false,
                             Name = "خشکشویی",
                             Price = 1000000,
@@ -961,7 +955,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4907),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4520),
                             IsDeleted = false,
                             Name = "پرده شویی",
                             Price = 1000000,
@@ -970,7 +964,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4909),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4523),
                             IsDeleted = false,
                             Name = "سرامیک خودرو",
                             Price = 1000000,
@@ -979,7 +973,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4911),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4526),
                             IsDeleted = false,
                             Name = "کارواش نانو",
                             Price = 1000000,
@@ -988,7 +982,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4913),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4528),
                             IsDeleted = false,
                             Name = "کارواش با آب",
                             Price = 1000000,
@@ -997,7 +991,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4915),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4531),
                             IsDeleted = false,
                             Name = "واکس و پولیش خودرو",
                             Price = 1000000,
@@ -1006,7 +1000,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4916),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4533),
                             IsDeleted = false,
                             Name = "صفرشویی خودرو",
                             Price = 1000000,
@@ -1015,7 +1009,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4918),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4535),
                             IsDeleted = false,
                             Name = "موتورشویی خودرو",
                             Price = 1000000,
@@ -1024,7 +1018,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4920),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4539),
                             IsDeleted = false,
                             Name = "پکیج کارواش VIP",
                             Price = 1000000,
@@ -1033,7 +1027,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4922),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4542),
                             IsDeleted = false,
                             Name = "شفاف سازی چراغ خودرو",
                             Price = 1000000,
@@ -1042,7 +1036,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4924),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4544),
                             IsDeleted = false,
                             Name = "احیای رنگ خودرو",
                             Price = 1000000,
@@ -1051,7 +1045,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4926),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4546),
                             IsDeleted = false,
                             Name = "صافکاری و نقاشی خودرو",
                             Price = 1000000,
@@ -1060,7 +1054,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4928),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4549),
                             IsDeleted = false,
                             Name = "نصب شیشه دودی خودرو در محل",
                             Price = 1000000,
@@ -1069,7 +1063,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4930),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4552),
                             IsDeleted = false,
                             Name = "تعمیر و سرویس کولر آبی",
                             Price = 1000000,
@@ -1078,7 +1072,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(4932),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4555),
                             IsDeleted = false,
                             Name = "تعمیر کولر گازی و داکت اسپلیت",
                             Price = 1000000,
@@ -1087,7 +1081,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5091),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4646),
                             IsDeleted = false,
                             Name = "تعمیر و سرویس پکیج",
                             Price = 1000000,
@@ -1096,7 +1090,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5095),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4649),
                             IsDeleted = false,
                             Name = "تعمیر و سرویس ابگرمکن",
                             Price = 1000000,
@@ -1105,7 +1099,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5097),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4651),
                             IsDeleted = false,
                             Name = "کانال سازی کولر",
                             Price = 1000000,
@@ -1114,7 +1108,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 30,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5099),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4654),
                             IsDeleted = false,
                             Name = "نصب و تعمیر رادیاتور شوفاژ",
                             Price = 1000000,
@@ -1123,7 +1117,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 31,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5101),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4656),
                             IsDeleted = false,
                             Name = "تعمیر و نگهداری موتورخانه",
                             Price = 1000000,
@@ -1132,7 +1126,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 32,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5102),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4659),
                             IsDeleted = false,
                             Name = "سرویس و تعمیر چیلر",
                             Price = 1000000,
@@ -1141,7 +1135,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 33,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5104),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4661),
                             IsDeleted = false,
                             Name = "تعمیر و سرویس فن کویل",
                             Price = 1000000,
@@ -1150,7 +1144,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 34,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5106),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4663),
                             IsDeleted = false,
                             Name = "نصب و تعمیر بخاری گازی و شومینه",
                             Price = 1000000,
@@ -1159,7 +1153,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 35,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5108),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4666),
                             IsDeleted = false,
                             Name = "نصب و تعمیر VRF و DVR",
                             Price = 1000000,
@@ -1168,7 +1162,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 36,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5110),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4669),
                             IsDeleted = false,
                             Name = "بهبود آلاینده‌های موتورخانه با دستگاه آنالیز",
                             Price = 1000000,
@@ -1177,7 +1171,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 37,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5112),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4671),
                             IsDeleted = false,
                             Name = "ساخت و نصب توری",
                             Price = 1000000,
@@ -1186,7 +1180,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 38,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5113),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4673),
                             IsDeleted = false,
                             Name = "جوشکاری و آهنگری ، درب و پنجره آهنی",
                             Price = 1000000,
@@ -1195,7 +1189,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 39,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5115),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4677),
                             IsDeleted = false,
                             Name = "دوخت و نصب پرده",
                             Price = 1000000,
@@ -1204,7 +1198,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 40,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5117),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4683),
                             IsDeleted = false,
                             Name = "کاشی کاری و سرامیک",
                             Price = 1000000,
@@ -1213,7 +1207,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 41,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5119),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4689),
                             IsDeleted = false,
                             Name = "بنایی",
                             Price = 1000000,
@@ -1222,7 +1216,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 42,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5121),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4695),
                             IsDeleted = false,
                             Name = "کلید سازی",
                             Price = 1000000,
@@ -1231,7 +1225,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 43,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5122),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4697),
                             IsDeleted = false,
                             Name = "نصب و تعمیر انواع کفپوش و دیوارپوش",
                             Price = 1000000,
@@ -1240,7 +1234,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 44,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5124),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4700),
                             IsDeleted = false,
                             Name = "کچ کاری و رابیتس کاری",
                             Price = 1000000,
@@ -1249,7 +1243,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 45,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5126),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4702),
                             IsDeleted = false,
                             Name = "آچار فرانسه",
                             Price = 1000000,
@@ -1258,7 +1252,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 46,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5129),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4705),
                             IsDeleted = false,
                             Name = "دریل کاری",
                             Price = 1000000,
@@ -1267,7 +1261,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 47,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5131),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4707),
                             IsDeleted = false,
                             Name = "نصب ایزوگام ، قیرگونی و آسفالت",
                             Price = 1000000,
@@ -1276,7 +1270,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 48,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5133),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4710),
                             IsDeleted = false,
                             Name = "تعمیرات نما و نماشویی",
                             Price = 1000000,
@@ -1285,7 +1279,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 49,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5134),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4713),
                             IsDeleted = false,
                             Name = "کفسابی",
                             Price = 1000000,
@@ -1294,7 +1288,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 50,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5136),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4715),
                             IsDeleted = false,
                             Name = "تخریب",
                             Price = 1000000,
@@ -1303,7 +1297,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 51,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5138),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4717),
                             IsDeleted = false,
                             Name = "سقف و دیوار PVC و اسمان مجازی",
                             Price = 1000000,
@@ -1312,7 +1306,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 52,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5140),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4720),
                             IsDeleted = false,
                             Name = "شیروانی و ایرانیت",
                             Price = 1000000,
@@ -1321,7 +1315,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 53,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5142),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4722),
                             IsDeleted = false,
                             Name = "تعمیر و نگهداری استخر",
                             Price = 1000000,
@@ -1330,7 +1324,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 54,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5143),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4724),
                             IsDeleted = false,
                             Name = "کپسول آتش‌ نشانی",
                             Price = 1000000,
@@ -1339,7 +1333,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 55,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5145),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4727),
                             IsDeleted = false,
                             Name = "کناف کاری",
                             Price = 1000000,
@@ -1348,7 +1342,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 56,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5147),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4729),
                             IsDeleted = false,
                             Name = "نصب و تعمیر شیرآلات",
                             Price = 1000000,
@@ -1357,7 +1351,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 57,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5149),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4732),
                             IsDeleted = false,
                             Name = "تخلیه چاه و لوله بازکنی",
                             Price = 1000000,
@@ -1366,7 +1360,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 58,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5150),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4736),
                             IsDeleted = false,
                             Name = "لوله کشی آب و فاضلاب",
                             Price = 1000000,
@@ -1375,7 +1369,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 59,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5152),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4738),
                             IsDeleted = false,
                             Name = "نصب و سرویس توالت فرنگی و ایرانی",
                             Price = 1000000,
@@ -1384,7 +1378,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 60,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5154),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4740),
                             IsDeleted = false,
                             Name = "تشخیص و ترمیم ترکیدگی لوله",
                             Price = 1000000,
@@ -1393,7 +1387,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 61,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5156),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4743),
                             IsDeleted = false,
                             Name = "پمپ و منبع آب",
                             Price = 1000000,
@@ -1402,7 +1396,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 62,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5158),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4746),
                             IsDeleted = false,
                             Name = "نصب و تعمیر دستگاه تصفیه آب",
                             Price = 1000000,
@@ -1411,7 +1405,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 63,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5160),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4748),
                             IsDeleted = false,
                             Name = "نصب و تعمیر فلاش تانک و سیفون",
                             Price = 1000000,
@@ -1420,7 +1414,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 64,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5161),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4751),
                             IsDeleted = false,
                             Name = "لوله کشی گاز",
                             Price = 1000000,
@@ -1429,7 +1423,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 65,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5164),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4753),
                             IsDeleted = false,
                             Name = "نصب سینک ظرفشویی",
                             Price = 1000000,
@@ -1438,7 +1432,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 66,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5167),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4756),
                             IsDeleted = false,
                             Name = "نصب روشویی",
                             Price = 1000000,
@@ -1447,7 +1441,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 67,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5168),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4758),
                             IsDeleted = false,
                             Name = "نصب و تعمیر وال هنگ",
                             Price = 1000000,
@@ -1456,7 +1450,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 68,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5170),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4760),
                             IsDeleted = false,
                             Name = "اتصال به شبکه فاضلاب شهری",
                             Price = 1000000,
@@ -1465,7 +1459,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 69,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5172),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4763),
                             IsDeleted = false,
                             Name = "مشاوره و بازسازی ساختمان",
                             Price = 1000000,
@@ -1474,7 +1468,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 70,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5174),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4765),
                             IsDeleted = false,
                             Name = "دکوراسیون و طراحی ساختمان",
                             Price = 1000000,
@@ -1483,7 +1477,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 71,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5175),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4768),
                             IsDeleted = false,
                             Name = "رفع اتصالی",
                             Price = 1000000,
@@ -1492,7 +1486,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 72,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5177),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4770),
                             IsDeleted = false,
                             Name = "نصب و تعمیر آیفون صوتی و تصویری",
                             Price = 1000000,
@@ -1501,7 +1495,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 73,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5179),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4773),
                             IsDeleted = false,
                             Name = "نصب لوستر و چراغ",
                             Price = 1000000,
@@ -1510,7 +1504,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 74,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5181),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4775),
                             IsDeleted = false,
                             Name = "سیم کشی تلفن و نصب سانترال",
                             Price = 1000000,
@@ -1519,7 +1513,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 75,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5183),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4777),
                             IsDeleted = false,
                             Name = "نصب و تعمیر آنتن تلویزیون",
                             Price = 1000000,
@@ -1528,7 +1522,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 76,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5184),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4780),
                             IsDeleted = false,
                             Name = "نصب و تعمیر دوربین مداربسته",
                             Price = 1000000,
@@ -1537,7 +1531,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 77,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5186),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4783),
                             IsDeleted = false,
                             Name = "کلید و پریز",
                             Price = 1000000,
@@ -1546,7 +1540,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 78,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5188),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4786),
                             IsDeleted = false,
                             Name = "تعمیر و سرویس آسانسور",
                             Price = 1000000,
@@ -1555,7 +1549,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 79,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5190),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4788),
                             IsDeleted = false,
                             Name = "نصب و تعمیر کرکره برقی",
                             Price = 1000000,
@@ -1564,7 +1558,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 80,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5192),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4791),
                             IsDeleted = false,
                             Name = "نصب و تعمیر جک پارکینگ و آرام بند",
                             Price = 1000000,
@@ -1573,7 +1567,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 81,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5193),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4793),
                             IsDeleted = false,
                             Name = "هواکش و تهویه مطبوع",
                             Price = 1000000,
@@ -1582,7 +1576,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 82,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5195),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4796),
                             IsDeleted = false,
                             Name = "ساخت و تعمیر تابلو روان و چلنیوم",
                             Price = 1000000,
@@ -1591,7 +1585,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 83,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5197),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4798),
                             IsDeleted = false,
                             Name = "نصب و تعمیر بالابر",
                             Price = 1000000,
@@ -1600,7 +1594,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 84,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5200),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4801),
                             IsDeleted = false,
                             Name = "نصب و تعمیر دزدگیر اماکن",
                             Price = 1000000,
@@ -1609,7 +1603,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 85,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5202),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4804),
                             IsDeleted = false,
                             Name = "سیم پیجی",
                             Price = 1000000,
@@ -1618,7 +1612,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 86,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5203),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4806),
                             IsDeleted = false,
                             Name = "خدمات برق صنعتی و سه فاز",
                             Price = 1000000,
@@ -1627,7 +1621,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 87,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5205),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4809),
                             IsDeleted = false,
                             Name = "نصب سنسور و تایمر",
                             Price = 1000000,
@@ -1636,7 +1630,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 88,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5207),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4811),
                             IsDeleted = false,
                             Name = "نصب محافظ برق و استابلایزر",
                             Price = 1000000,
@@ -1645,7 +1639,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 89,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5209),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4814),
                             IsDeleted = false,
                             Name = "ساهت و تعمیر تابلو برق",
                             Price = 1000000,
@@ -1654,7 +1648,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 90,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5210),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4817),
                             IsDeleted = false,
                             Name = "طراحی و اجرای نور مخفی",
                             Price = 1000000,
@@ -1663,7 +1657,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 91,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5212),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4819),
                             IsDeleted = false,
                             Name = "نصب داکت و ترانکینگ",
                             Price = 1000000,
@@ -1672,7 +1666,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 92,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5214),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4822),
                             IsDeleted = false,
                             Name = "نصب و تعمیر زنراتور و برق اضطراری",
                             Price = 1000000,
@@ -1681,7 +1675,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 93,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5216),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4825),
                             IsDeleted = false,
                             Name = "نصب و تعمیر اگزاست‌فن و سانتریفیوژ",
                             Price = 1000000,
@@ -1690,7 +1684,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 94,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5217),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4827),
                             IsDeleted = false,
                             Name = "طراحی و علامت گذاری جعبه فیوز",
                             Price = 1000000,
@@ -1699,7 +1693,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 95,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5219),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4830),
                             IsDeleted = false,
                             Name = "سیستم اعلام و اطفاء جریق",
                             Price = 1000000,
@@ -1708,7 +1702,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 96,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5221),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4833),
                             IsDeleted = false,
                             Name = "سیم کشی ارت",
                             Price = 1000000,
@@ -1717,7 +1711,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 97,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5223),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4836),
                             IsDeleted = false,
                             Name = "هوشمندسازی ساختمان",
                             Price = 1000000,
@@ -1726,7 +1720,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 98,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5224),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4838),
                             IsDeleted = false,
                             Name = "طراحی و اجرای فنس الکتریکی",
                             Price = 1000000,
@@ -1735,7 +1729,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 99,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5226),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4841),
                             IsDeleted = false,
                             Name = "نصب و تعمیر راه بند",
                             Price = 1000000,
@@ -1744,7 +1738,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 100,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5228),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4843),
                             IsDeleted = false,
                             Name = "نصب و سرویس پله برقی",
                             Price = 1000000,
@@ -1753,7 +1747,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 101,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5230),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4846),
                             IsDeleted = false,
                             Name = "ساخت ، نصب و تعمیر کابینت",
                             Price = 1000000,
@@ -1762,7 +1756,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 102,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5231),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4848),
                             IsDeleted = false,
                             Name = "نجاری",
                             Price = 1000000,
@@ -1771,7 +1765,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 103,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5234),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4851),
                             IsDeleted = false,
                             Name = "تعمیرا مبلمان",
                             Price = 1000000,
@@ -1780,7 +1774,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 104,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5236),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4854),
                             IsDeleted = false,
                             Name = "خدمات درب چوبی و ضدسرقت",
                             Price = 1000000,
@@ -1789,7 +1783,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 105,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5268),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4856),
                             IsDeleted = false,
                             Name = "تعمیر و ساخت کمد دیواری",
                             Price = 1000000,
@@ -1798,7 +1792,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 106,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5270),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4859),
                             IsDeleted = false,
                             Name = "شیشه بری و آینه کاری",
                             Price = 1000000,
@@ -1807,7 +1801,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 107,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5272),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4861),
                             IsDeleted = false,
                             Name = "ساخت ، رگلاژ درب و پنجره آلمینیومی و UPVC",
                             Price = 1000000,
@@ -1816,7 +1810,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 108,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5274),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4864),
                             IsDeleted = false,
                             Name = "شیشه ریلی و جام بالکن",
                             Price = 1000000,
@@ -1825,7 +1819,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 109,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5276),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4866),
                             IsDeleted = false,
                             Name = "نصب و تعمیر درب اتوماتیک",
                             Price = 1000000,
@@ -1834,7 +1828,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 110,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5278),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4869),
                             IsDeleted = false,
                             Name = "شیشه ریلی اسلاید",
                             Price = 1000000,
@@ -1843,7 +1837,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 111,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5280),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4871),
                             IsDeleted = false,
                             Name = "ساخت کابین دوش",
                             Price = 1000000,
@@ -1852,7 +1846,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 112,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5282),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4874),
                             IsDeleted = false,
                             Name = "باغبانی",
                             Price = 1000000,
@@ -1861,7 +1855,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 113,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5284),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4876),
                             IsDeleted = false,
                             Name = "نگهداری از گیاهان آپارتمانی",
                             Price = 1000000,
@@ -1870,7 +1864,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 114,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5286),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4880),
                             IsDeleted = false,
                             Name = "سمپاچی باغچه و فضای سبز",
                             Price = 1000000,
@@ -1879,7 +1873,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 115,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5287),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4883),
                             IsDeleted = false,
                             Name = "مشاوره گل و گیاه",
                             Price = 1000000,
@@ -1888,7 +1882,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 116,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5289),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4885),
                             IsDeleted = false,
                             Name = "طراحی و اجرای فضای سبز",
                             Price = 1000000,
@@ -1897,7 +1891,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 117,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5291),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4888),
                             IsDeleted = false,
                             Name = "روف گاردن",
                             Price = 1000000,
@@ -1906,7 +1900,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 118,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5293),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4890),
                             IsDeleted = false,
                             Name = "هرس درختان",
                             Price = 1000000,
@@ -1915,7 +1909,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 119,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5295),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4893),
                             IsDeleted = false,
                             Name = "تعمیر و سرویس کولر آبی",
                             Price = 1000000,
@@ -1924,7 +1918,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 120,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5297),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4896),
                             IsDeleted = false,
                             Name = "تعمیر کولر گازی و اسپلیت",
                             Price = 1000000,
@@ -1933,7 +1927,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 121,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5298),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4899),
                             IsDeleted = false,
                             Name = "تعمیر و سرویس پکیج",
                             Price = 1000000,
@@ -1942,7 +1936,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 122,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5301),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4901),
                             IsDeleted = false,
                             Name = "تعمیر و سرویس آبگرمکن",
                             Price = 1000000,
@@ -1951,7 +1945,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 123,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5303),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4904),
                             IsDeleted = false,
                             Name = "کانال سازی کولر",
                             Price = 1000000,
@@ -1960,7 +1954,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 124,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5305),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4906),
                             IsDeleted = false,
                             Name = "نصب و تعمیر رادیاتور شوفاژ",
                             Price = 1000000,
@@ -1969,7 +1963,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 125,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5307),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4909),
                             IsDeleted = false,
                             Name = "تعمیر و نگهداری موتورخانه",
                             Price = 1000000,
@@ -1978,7 +1972,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 126,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5308),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4911),
                             IsDeleted = false,
                             Name = "سرویس و تعمیر چیلر",
                             Price = 1000000,
@@ -1987,7 +1981,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 127,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5310),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4914),
                             IsDeleted = false,
                             Name = "نصب و سرویس فن کویل",
                             Price = 1000000,
@@ -1996,7 +1990,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 128,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5312),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4916),
                             IsDeleted = false,
                             Name = "نصب و تعمیر بخاری و شومینه",
                             Price = 1000000,
@@ -2005,7 +1999,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 129,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5314),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4983),
                             IsDeleted = false,
                             Name = "نصب و تعمیر VRF و DVR",
                             Price = 1000000,
@@ -2014,7 +2008,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 130,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5316),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4986),
                             IsDeleted = false,
                             Name = "بهبود الاینده‌های موتورخانه با دستگاه آنالیز",
                             Price = 1000000,
@@ -2023,7 +2017,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 131,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5317),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4989),
                             IsDeleted = false,
                             Name = "نصب و تعمیر یخچال و فریزر",
                             Price = 1000000,
@@ -2032,7 +2026,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 132,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5319),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4991),
                             IsDeleted = false,
                             Name = "نصب و تعمیر ماشین لباسشویی",
                             Price = 1000000,
@@ -2041,7 +2035,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 133,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5321),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4995),
                             IsDeleted = false,
                             Name = "نصب و تعمیر اجاق گاز",
                             Price = 1000000,
@@ -2050,7 +2044,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 134,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5323),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(4997),
                             IsDeleted = false,
                             Name = "نصب و تعمیر ماشین ظرفشویی",
                             Price = 1000000,
@@ -2059,7 +2053,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 135,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5325),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5000),
                             IsDeleted = false,
                             Name = "تعمیرات تخصصی تلویزیون",
                             Price = 1000000,
@@ -2068,7 +2062,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 136,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5327),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5002),
                             IsDeleted = false,
                             Name = "نصب تلویزیون و لوازم صوتی تصویری",
                             Price = 1000000,
@@ -2077,7 +2071,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 137,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5328),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5005),
                             IsDeleted = false,
                             Name = "نصب و تعمیر مایکروویو و سولاردام",
                             Price = 1000000,
@@ -2086,7 +2080,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 138,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5330),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5007),
                             IsDeleted = false,
                             Name = "نصب و تعمیر هود آشپزخانه",
                             Price = 1000000,
@@ -2095,7 +2089,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 139,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5332),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5010),
                             IsDeleted = false,
                             Name = "نصب و تعمیر جاروبرقی",
                             Price = 1000000,
@@ -2104,7 +2098,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 140,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5334),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5012),
                             IsDeleted = false,
                             Name = "نصب و تعمیر چرخ خیاطی",
                             Price = 1000000,
@@ -2113,7 +2107,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 141,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5337),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5014),
                             IsDeleted = false,
                             Name = "نصب و تعمیر تردمیل",
                             Price = 1000000,
@@ -2122,7 +2116,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 142,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5338),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5017),
                             IsDeleted = false,
                             Name = "تعمیر چایی ساز و قهوه ساز",
                             Price = 1000000,
@@ -2131,7 +2125,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 143,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5340),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5019),
                             IsDeleted = false,
                             Name = "تعمیر دستگاه بخور",
                             Price = 1000000,
@@ -2140,7 +2134,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 144,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5342),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5021),
                             IsDeleted = false,
                             Name = "تعمیر پنکه",
                             Price = 1000000,
@@ -2149,7 +2143,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 145,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5344),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5024),
                             IsDeleted = false,
                             Name = "نصب و تعمیر فر",
                             Price = 1000000,
@@ -2158,7 +2152,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 146,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5345),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5026),
                             IsDeleted = false,
                             Name = "تعمیر اتو",
                             Price = 1000000,
@@ -2167,7 +2161,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 147,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5347),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5029),
                             IsDeleted = false,
                             Name = "تعمیر آبمیوه گیری و مخلوط کن",
                             Price = 1000000,
@@ -2176,7 +2170,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 148,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5349),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5031),
                             IsDeleted = false,
                             Name = "تعمیر ساندبار و اسپیکر",
                             Price = 1000000,
@@ -2185,7 +2179,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 149,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5351),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5034),
                             IsDeleted = false,
                             Name = "تعمیر کنسول بازی",
                             Price = 1000000,
@@ -2194,7 +2188,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 150,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5353),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5036),
                             IsDeleted = false,
                             Name = "تعمیر بخارشور",
                             Price = 1000000,
@@ -2203,7 +2197,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 151,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5355),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5039),
                             IsDeleted = false,
                             Name = "تعمیر غذاساز و خردکن",
                             Price = 1000000,
@@ -2212,7 +2206,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 152,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5356),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5043),
                             IsDeleted = false,
                             Name = "تعمیرات ریش تراش و اپلیدی",
                             Price = 1000000,
@@ -2221,7 +2215,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 153,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5358),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5045),
                             IsDeleted = false,
                             Name = "تعمیر سینمای خانگی",
                             Price = 1000000,
@@ -2230,7 +2224,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 154,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5360),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5048),
                             IsDeleted = false,
                             Name = "تعمیر چرخ گوشت",
                             Price = 1000000,
@@ -2239,7 +2233,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 155,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5362),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5050),
                             IsDeleted = false,
                             Name = "تعمیر رادیو و ضبط صوت",
                             Price = 1000000,
@@ -2248,7 +2242,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 156,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5364),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5053),
                             IsDeleted = false,
                             Name = "تعمیر صندلی ماساژور",
                             Price = 1000000,
@@ -2257,7 +2251,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 157,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5365),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5056),
                             IsDeleted = false,
                             Name = "تعمیر سرخ کن",
                             Price = 1000000,
@@ -2266,7 +2260,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 158,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5367),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5058),
                             IsDeleted = false,
                             Name = "تعمیر بخارپز و پلوپز",
                             Price = 1000000,
@@ -2275,7 +2269,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 159,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5369),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5061),
                             IsDeleted = false,
                             Name = "تعمیر سشوار",
                             Price = 1000000,
@@ -2284,7 +2278,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 160,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5372),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5064),
                             IsDeleted = false,
                             Name = "تعمیر شوفاژ برقی",
                             Price = 1000000,
@@ -2293,7 +2287,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 161,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5374),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5066),
                             IsDeleted = false,
                             Name = "ترمیم و بازسازی ظروف آشپزخانه",
                             Price = 1000000,
@@ -2302,7 +2296,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 162,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5375),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5069),
                             IsDeleted = false,
                             Name = "تعمیر کامپیوتر و لپ تاپ",
                             Price = 1000000,
@@ -2311,7 +2305,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 163,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5377),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5071),
                             IsDeleted = false,
                             Name = "تعمیر ماشین‌های اداری",
                             Price = 1000000,
@@ -2320,7 +2314,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 164,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5379),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5074),
                             IsDeleted = false,
                             Name = "پشتیبانی شبکه و سرور",
                             Price = 1000000,
@@ -2329,7 +2323,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 165,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5380),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5077),
                             IsDeleted = false,
                             Name = "مودم و اینترنت",
                             Price = 1000000,
@@ -2338,7 +2332,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 166,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5382),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5079),
                             IsDeleted = false,
                             Name = "طراحی سایت و لوگو",
                             Price = 1000000,
@@ -2347,7 +2341,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 167,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5384),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5082),
                             IsDeleted = false,
                             Name = "نصب و راه‌اندازی VoIP",
                             Price = 1000000,
@@ -2356,7 +2350,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 168,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5386),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5085),
                             IsDeleted = false,
                             Name = "تعمیر دستگاه کارتخوان و بارکدخوان",
                             Price = 1000000,
@@ -2365,7 +2359,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 169,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5388),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5087),
                             IsDeleted = false,
                             Name = "خدمات تاچ و ال سی دی",
                             Price = 1000000,
@@ -2374,7 +2368,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 170,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5390),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5090),
                             IsDeleted = false,
                             Name = "خدمات باتری",
                             Price = 1000000,
@@ -2383,7 +2377,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 171,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5391),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5092),
                             IsDeleted = false,
                             Name = "خدمات عیب‌یابی و تعمیر برد",
                             Price = 1000000,
@@ -2392,7 +2386,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 172,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5393),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5095),
                             IsDeleted = false,
                             Name = "خدمات نرم افزاری",
                             Price = 1000000,
@@ -2401,7 +2395,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 173,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5395),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5097),
                             IsDeleted = false,
                             Name = "مشاوره خرید موبایل و کالاهای دیجیتال",
                             Price = 1000000,
@@ -2410,7 +2404,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 174,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5397),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5100),
                             IsDeleted = false,
                             Name = "خدمات اسپیکر",
                             Price = 1000000,
@@ -2419,7 +2413,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 175,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5398),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5102),
                             IsDeleted = false,
                             Name = "خدمات فریم و قاب",
                             Price = 1000000,
@@ -2428,7 +2422,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 176,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5400),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5105),
                             IsDeleted = false,
                             Name = "خدمات دوربین",
                             Price = 1000000,
@@ -2437,7 +2431,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 177,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5402),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5107),
                             IsDeleted = false,
                             Name = "خدمات سنسور",
                             Price = 1000000,
@@ -2446,7 +2440,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 178,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5404),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5110),
                             IsDeleted = false,
                             Name = "اسباب کشی با خاور و کامیون",
                             Price = 1000000,
@@ -2455,7 +2449,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 179,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5406),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5112),
                             IsDeleted = false,
                             Name = "اسباب کشی و حمل بار بین شهری",
                             Price = 1000000,
@@ -2464,7 +2458,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 180,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5408),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5115),
                             IsDeleted = false,
                             Name = "اسباب کشی با وانت و نیسان",
                             Price = 1000000,
@@ -2473,7 +2467,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 181,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5410),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5117),
                             IsDeleted = false,
                             Name = "سرویس بسته بندی",
                             Price = 1000000,
@@ -2482,7 +2476,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 182,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5412),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5119),
                             IsDeleted = false,
                             Name = "کارگر جا به جایی",
                             Price = 1000000,
@@ -2491,7 +2485,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 183,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5413),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5122),
                             IsDeleted = false,
                             Name = "جا به جایی گاو صندوق",
                             Price = 1000000,
@@ -2500,7 +2494,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 184,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5415),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5124),
                             IsDeleted = false,
                             Name = "حمل نخاله و ضایعات ساختمانی",
                             Price = 1000000,
@@ -2509,7 +2503,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 185,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5417),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5127),
                             IsDeleted = false,
                             Name = "اسباب کشی شرکت ها و سازمان ها",
                             Price = 1000000,
@@ -2518,7 +2512,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 186,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5419),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5129),
                             IsDeleted = false,
                             Name = "خرید ملزومات بسته بندی",
                             Price = 1000000,
@@ -2527,7 +2521,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 187,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5420),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5131),
                             IsDeleted = false,
                             Name = "شارژ گاز کولر ماشین",
                             Price = 1000000,
@@ -2536,7 +2530,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 188,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5422),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5134),
                             IsDeleted = false,
                             Name = "تعویض باتری خودرو",
                             Price = 1000000,
@@ -2545,7 +2539,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 189,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5424),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5136),
                             IsDeleted = false,
                             Name = "امداد خودرو",
                             Price = 1000000,
@@ -2554,7 +2548,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 190,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5426),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5140),
                             IsDeleted = false,
                             Name = "برق و باتری خودرو",
                             Price = 1000000,
@@ -2563,7 +2557,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 191,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5428),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5142),
                             IsDeleted = false,
                             Name = "مکانیگی خودرو",
                             Price = 1000000,
@@ -2572,7 +2566,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 192,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5429),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5145),
                             IsDeleted = false,
                             Name = "تست دیاگ و ریمپ ECU خودرو",
                             Price = 1000000,
@@ -2581,7 +2575,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 193,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5431),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5147),
                             IsDeleted = false,
                             Name = "حمل خودرو",
                             Price = 1000000,
@@ -2590,7 +2584,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 194,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5433),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5152),
                             IsDeleted = false,
                             Name = "تعویض روغن خودرو",
                             Price = 1000000,
@@ -2599,7 +2593,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 195,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5435),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5155),
                             IsDeleted = false,
                             Name = "پنچرگیری و تعویض لاستیک",
                             Price = 1000000,
@@ -2608,7 +2602,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 196,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5437),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5160),
                             IsDeleted = false,
                             Name = "کارشناسی خودرو",
                             Price = 1000000,
@@ -2617,7 +2611,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 197,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5438),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5163),
                             IsDeleted = false,
                             Name = "تعویض لنت خودرو",
                             Price = 1000000,
@@ -2626,7 +2620,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 198,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5441),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5167),
                             IsDeleted = false,
                             Name = "تعویض شمع و وایر خودرو",
                             Price = 1000000,
@@ -2635,7 +2629,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 199,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5443),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5171),
                             IsDeleted = false,
                             Name = "کاهش مصرف سوخت",
                             Price = 1000000,
@@ -2644,7 +2638,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 200,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5445),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5178),
                             IsDeleted = false,
                             Name = "سرویس دوره ای گیربکس اتوماتیک",
                             Price = 1000000,
@@ -2653,7 +2647,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 201,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5447),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5181),
                             IsDeleted = false,
                             Name = "نصب GPS خودرو",
                             Price = 1000000,
@@ -2662,7 +2656,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 202,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5448),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5183),
                             IsDeleted = false,
                             Name = "نصب دزدگیر خودرو",
                             Price = 1000000,
@@ -2671,7 +2665,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 203,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5450),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5186),
                             IsDeleted = false,
                             Name = "سپرسازی و جوش پلاستیک",
                             Price = 1000000,
@@ -2680,7 +2674,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 204,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5531),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5188),
                             IsDeleted = false,
                             Name = "تعویض شیشه خودرو",
                             Price = 1000000,
@@ -2689,7 +2683,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 205,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5533),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5191),
                             IsDeleted = false,
                             Name = "تعمیر موتورسیکلت",
                             Price = 1000000,
@@ -2698,7 +2692,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 206,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5535),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5193),
                             IsDeleted = false,
                             Name = "سوخت رسانی",
                             Price = 1000000,
@@ -2707,7 +2701,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 207,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5537),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5196),
                             IsDeleted = false,
                             Name = "ساخت سوئیچ و ریموت خودرو در محل",
                             Price = 1000000,
@@ -2716,7 +2710,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 208,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5538),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5198),
                             IsDeleted = false,
                             Name = "تعمیر و تعویض چراغ خودرو",
                             Price = 1000000,
@@ -2725,7 +2719,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 209,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5540),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5202),
                             IsDeleted = false,
                             Name = "سرامیک خودرو",
                             Price = 1000000,
@@ -2734,7 +2728,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 210,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5542),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5204),
                             IsDeleted = false,
                             Name = "کارواش نانو",
                             Price = 1000000,
@@ -2743,7 +2737,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 211,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5544),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5207),
                             IsDeleted = false,
                             Name = "کارواش با آب",
                             Price = 1000000,
@@ -2752,7 +2746,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 212,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5546),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5210),
                             IsDeleted = false,
                             Name = "واکس و پولیش خودرو",
                             Price = 1000000,
@@ -2761,7 +2755,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 213,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5547),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5212),
                             IsDeleted = false,
                             Name = "صفرشویی خودرو",
                             Price = 1000000,
@@ -2770,7 +2764,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 214,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5549),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5215),
                             IsDeleted = false,
                             Name = "موتورشویی خودرو",
                             Price = 1000000,
@@ -2779,7 +2773,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 215,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5551),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5218),
                             IsDeleted = false,
                             Name = "پکیج کارواش VIP",
                             Price = 1000000,
@@ -2788,7 +2782,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 216,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5553),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5221),
                             IsDeleted = false,
                             Name = "شفاف سازی چراغ خودرو",
                             Price = 1000000,
@@ -2797,7 +2791,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 217,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5556),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5223),
                             IsDeleted = false,
                             Name = "احیای رنگ خودرو",
                             Price = 1000000,
@@ -2806,7 +2800,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 218,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5558),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5226),
                             IsDeleted = false,
                             Name = "صافکاری و نقاشی خودرو",
                             Price = 1000000,
@@ -2815,7 +2809,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 219,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5560),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5229),
                             IsDeleted = false,
                             Name = "نصب شیشه دودی خودرو در محل",
                             Price = 1000000,
@@ -2824,7 +2818,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 220,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5562),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5232),
                             IsDeleted = false,
                             Name = "خدمات شرکتی ویژه شرکت ها کوچک و متوسط",
                             Price = 1000000,
@@ -2833,7 +2827,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 221,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5564),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5235),
                             IsDeleted = false,
                             Name = "خدمات شرکتی ویژه سازمان های بزرگ",
                             Price = 1000000,
@@ -2842,7 +2836,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 222,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5565),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5238),
                             IsDeleted = false,
                             Name = "خدمات ناخن",
                             Price = 1000000,
@@ -2851,7 +2845,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 223,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5567),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5240),
                             IsDeleted = false,
                             Name = "خدمات ویژه ناخن",
                             Price = 1000000,
@@ -2860,7 +2854,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 224,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5569),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5243),
                             IsDeleted = false,
                             Name = "اصلاح صورت و ابرو بانوان",
                             Price = 1000000,
@@ -2869,7 +2863,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 225,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5571),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5246),
                             IsDeleted = false,
                             Name = "اپیلاسیون بانوان در خانه",
                             Price = 1000000,
@@ -2878,7 +2872,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 226,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5573),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5249),
                             IsDeleted = false,
                             Name = "براشینگ مو بانوان",
                             Price = 1000000,
@@ -2887,7 +2881,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 227,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5575),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5252),
                             IsDeleted = false,
                             Name = "رنگ مو بانوان",
                             Price = 1000000,
@@ -2896,7 +2890,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 228,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5576),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5255),
                             IsDeleted = false,
                             Name = "مش ، لایت ، بالیاژ و آمبره بانوان",
                             Price = 1000000,
@@ -2905,7 +2899,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 229,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5578),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5257),
                             IsDeleted = false,
                             Name = "لیفت و لمینت مژه و ابرو بانوان",
                             Price = 1000000,
@@ -2914,7 +2908,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 230,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5580),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5260),
                             IsDeleted = false,
                             Name = "کاشت و اکستنشن مژه بانوان در خانه",
                             Price = 1000000,
@@ -2923,7 +2917,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 261,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5582),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5263),
                             IsDeleted = false,
                             Name = "کراتینه و ویتامینه مو بانوان",
                             Price = 1000000,
@@ -2932,7 +2926,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 231,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5584),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5324),
                             IsDeleted = false,
                             Name = "پاکسازی و لایه برداری پوست بانوان",
                             Price = 1000000,
@@ -2941,7 +2935,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 232,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5586),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5327),
                             IsDeleted = false,
                             Name = "شینیون مو بانوان در خانه",
                             Price = 1000000,
@@ -2950,7 +2944,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 233,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5588),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5330),
                             IsDeleted = false,
                             Name = "آرایش صورت بانوان در خانه",
                             Price = 1000000,
@@ -2959,7 +2953,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 234,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5589),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5333),
                             IsDeleted = false,
                             Name = "بافت مو بانوان در خانه",
                             Price = 1000000,
@@ -2968,7 +2962,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 235,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5592),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5336),
                             IsDeleted = false,
                             Name = "اکستنشن مو بانوان در خانه",
                             Price = 1000000,
@@ -2977,7 +2971,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 236,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5594),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5339),
                             IsDeleted = false,
                             Name = "میکروپیمنتیشن و میکروبلیدینگ بانوان",
                             Price = 1000000,
@@ -2986,7 +2980,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 237,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5596),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5342),
                             IsDeleted = false,
                             Name = "کوتاهی مو بانوان",
                             Price = 1000000,
@@ -2995,7 +2989,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 238,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5598),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5344),
                             IsDeleted = false,
                             Name = "درمان سرپایی در محل",
                             Price = 1000000,
@@ -3004,7 +2998,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 239,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5599),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5346),
                             IsDeleted = false,
                             Name = "تزریقات در منزل",
                             Price = 1000000,
@@ -3013,7 +3007,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 240,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5601),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5349),
                             IsDeleted = false,
                             Name = "پرستاری و مراقبت بیمار",
                             Price = 1000000,
@@ -3022,7 +3016,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 241,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5603),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5351),
                             IsDeleted = false,
                             Name = "پرستاری و مراقبت سالمند",
                             Price = 1000000,
@@ -3031,7 +3025,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 242,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5605),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5353),
                             IsDeleted = false,
                             Name = "آزمایش و نمونه گیری در منزل",
                             Price = 1000000,
@@ -3040,7 +3034,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 243,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5606),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5356),
                             IsDeleted = false,
                             Name = "ICU در منزل",
                             Price = 1000000,
@@ -3049,7 +3043,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 244,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5608),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5358),
                             IsDeleted = false,
                             Name = "معاینه پزشکی",
                             Price = 1000000,
@@ -3058,7 +3052,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 245,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5610),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5361),
                             IsDeleted = false,
                             Name = "فیزیوتراپی در منزل",
                             Price = 1000000,
@@ -3067,7 +3061,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 246,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5612),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5363),
                             IsDeleted = false,
                             Name = "اصلاح سر و صورت آقایان",
                             Price = 1000000,
@@ -3076,7 +3070,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 247,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5614),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5366),
                             IsDeleted = false,
                             Name = "سرویس ماهانه پیرایش اقایان",
                             Price = 1000000,
@@ -3085,7 +3079,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 248,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5615),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5368),
                             IsDeleted = false,
                             Name = "خدمات ناخن آقایان",
                             Price = 1000000,
@@ -3094,7 +3088,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 249,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5617),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5371),
                             IsDeleted = false,
                             Name = "مراقبت و زیبایی اقایان",
                             Price = 1000000,
@@ -3103,7 +3097,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 250,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5619),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5373),
                             IsDeleted = false,
                             Name = "گریم داماد",
                             Price = 1000000,
@@ -3112,7 +3106,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 251,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5621),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5376),
                             IsDeleted = false,
                             Name = "هتل های حیوانات خانگی",
                             Price = 1000000,
@@ -3121,7 +3115,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 252,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5623),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5378),
                             IsDeleted = false,
                             Name = "خدمات دامپزشکی در محل",
                             Price = 1000000,
@@ -3130,7 +3124,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 253,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5625),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5381),
                             IsDeleted = false,
                             Name = "خدمات تربیتی حیوانات خانگی",
                             Price = 1000000,
@@ -3139,7 +3133,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 254,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5627),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5384),
                             IsDeleted = false,
                             Name = "خدمات شستشو و آرایش حیوانات خانگی",
                             Price = 1000000,
@@ -3148,7 +3142,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 255,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5629),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5386),
                             IsDeleted = false,
                             Name = "پت شاپ",
                             Price = 1000000,
@@ -3157,7 +3151,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 256,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5631),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5389),
                             IsDeleted = false,
                             Name = "کلاس سی ایکس در خانه",
                             Price = 1000000,
@@ -3166,7 +3160,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 257,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5632),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5392),
                             IsDeleted = false,
                             Name = "برنامه ورزشی و تغذیه",
                             Price = 1000000,
@@ -3175,7 +3169,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 258,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5634),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5394),
                             IsDeleted = false,
                             Name = "کلاس یوگا در خانه",
                             Price = 1000000,
@@ -3184,7 +3178,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 259,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5636),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5397),
                             IsDeleted = false,
                             Name = "کلاس پیلاتس در خانه",
                             Price = 1000000,
@@ -3193,7 +3187,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 260,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(5638),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(5399),
                             IsDeleted = false,
                             Name = "حرکات اصلاحی",
                             Price = 1000000,
@@ -3231,7 +3225,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(8150),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(9785),
                             Image = "\\assets\\img\\category\\broom-solid.svg",
                             IsDeleted = false,
                             Name = "تمیزکاری"
@@ -3239,7 +3233,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(8153),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(9788),
                             Image = "\\assets\\img\\category\\building-solid.svg",
                             IsDeleted = false,
                             Name = "ساختمان"
@@ -3247,7 +3241,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(8155),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(9790),
                             Image = "\\assets\\img\\category\\screwdriver-wrench-solid.svg",
                             IsDeleted = false,
                             Name = "تعمیرات اشیاء"
@@ -3255,15 +3249,15 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(8157),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(9792),
                             Image = "\\assets\\img\\category\\truck-moving-solid.svg",
                             IsDeleted = false,
-                            Name = "اسباب کشی و حمل بار"
+                            Name = "اسباب‌کشی و حمل بار"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(8159),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(9794),
                             Image = "\\assets\\img\\category\\car-solid.svg",
                             IsDeleted = false,
                             Name = "خودرو"
@@ -3271,15 +3265,15 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(8161),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(9796),
                             Image = "\\assets\\img\\category\\building-flag-solid.svg",
                             IsDeleted = false,
-                            Name = "سازمان ها و مجتمع ها"
+                            Name = "سازمان‌ها و مجتمع‌ها"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(8163),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 663, DateTimeKind.Local).AddTicks(9798),
                             Image = "\\assets\\img\\category\\suitcase-medical-solid.svg",
                             IsDeleted = false,
                             Name = "سلامت و زیبایی"
@@ -3321,7 +3315,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9583),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1492),
                             Image = "\\assets\\img\\sub-category\\tamiz-kari\\nezafat-pazirayi.webp",
                             IsDeleted = false,
                             Name = "نظافت و پذیرایی",
@@ -3330,7 +3324,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9587),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1495),
                             Image = "\\assets\\img\\sub-category\\tamiz-kari\\shosteshu.webp",
                             IsDeleted = false,
                             Name = "شستشو",
@@ -3339,7 +3333,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9589),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1497),
                             Image = "\\assets\\img\\sub-category\\tamiz-kari\\carwash.webp",
                             IsDeleted = false,
                             Name = "کارواش و دیتیلینگ",
@@ -3348,7 +3342,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9591),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1499),
                             Image = "\\assets\\img\\sub-category\\tamirat\\sarmayesh-garmayesh.webp",
                             IsDeleted = false,
                             Name = "سرمایش و گرمایش",
@@ -3357,7 +3351,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9593),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1501),
                             Image = "\\assets\\img\\sub-category\\tamirat\\tamir-lavazem-khanegi.webp",
                             IsDeleted = false,
                             Name = "نصب وتعمیر لوازم خانگی",
@@ -3366,7 +3360,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9595),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1503),
                             Image = "\\assets\\img\\sub-category\\tamirat\\khadamat-computer.webp",
                             IsDeleted = false,
                             Name = "خذمات کامپیوتری",
@@ -3375,7 +3369,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9597),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1505),
                             Image = "\\assets\\img\\sub-category\\tamirat\\tamirat-mobile.webp",
                             IsDeleted = false,
                             Name = "تعمیرات موبایل",
@@ -3384,7 +3378,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9599),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1508),
                             Image = "\\assets\\img\\sub-category\\sakhtemen\\sarmayesh-garmayesh.webp",
                             IsDeleted = false,
                             Name = "سرمایش و گرمایش",
@@ -3393,7 +3387,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9601),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1509),
                             Image = "\\assets\\img\\sub-category\\sakhtemen\\tamirat-sakhteman.webp",
                             IsDeleted = false,
                             Name = "تعمیرا ساختمان",
@@ -3402,7 +3396,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9603),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1511),
                             Image = "\\assets\\img\\sub-category\\sakhtemen\\lule-keshi.webp",
                             IsDeleted = false,
                             Name = "لوله کشی",
@@ -3411,7 +3405,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9605),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1513),
                             Image = "\\assets\\img\\sub-category\\sakhtemen\\tarahi-sakhtemen.webp",
                             IsDeleted = false,
                             Name = "طراحی و بازسازی ساختمان",
@@ -3420,7 +3414,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9607),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1515),
                             Image = "\\assets\\img\\sub-category\\sakhtemen\\bargh-kari.webp",
                             IsDeleted = false,
                             Name = "برق کاری",
@@ -3429,7 +3423,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9609),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1517),
                             Image = "\\assets\\img\\sub-category\\sakhtemen\\chub-cabinet.webp",
                             IsDeleted = false,
                             Name = "چوب و کابینت",
@@ -3438,7 +3432,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9610),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1519),
                             Image = "\\assets\\img\\sub-category\\sakhtemen\\khadamat-shishei.webp",
                             IsDeleted = false,
                             Name = "خدمات شیشه ای ساختمان",
@@ -3447,7 +3441,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9612),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1521),
                             Image = "\\assets\\img\\sub-category\\sakhtemen\\baghbani.webp",
                             IsDeleted = false,
                             Name = "باغبانی و فضای سبز",
@@ -3456,7 +3450,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9614),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1523),
                             Image = "\\assets\\img\\sub-category\\barbari.webp",
                             IsDeleted = false,
                             Name = "باربری و جا به جایی",
@@ -3465,7 +3459,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9616),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1525),
                             Image = "\\assets\\img\\sub-category\\khodro\\khdamet-khodro.webp",
                             IsDeleted = false,
                             Name = "خدمات و تعمیرات خودرو",
@@ -3474,7 +3468,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9618),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1527),
                             Image = "\\assets\\img\\sub-category\\khodro\\carwash.webp",
                             IsDeleted = false,
                             Name = "کارواش و دیتیلینگ",
@@ -3483,7 +3477,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9620),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1529),
                             Image = "\\assets\\img\\sub-category\\khadamat-sherkati.webp",
                             IsDeleted = false,
                             Name = "خدمات شرکتی",
@@ -3492,7 +3486,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9622),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1531),
                             Image = "\\assets\\img\\sub-category\\salamat-zibayi\\zibayi-banovan.webp",
                             IsDeleted = false,
                             Name = "زیبایی بانوان",
@@ -3501,7 +3495,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9624),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1533),
                             Image = "\\assets\\img\\sub-category\\salamat-zibayi\\zibayi-aghayan.webp",
                             IsDeleted = false,
                             Name = "پیرایش و زیبایی آقایان",
@@ -3510,7 +3504,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9625),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1535),
                             Image = "\\assets\\img\\sub-category\\salamat-zibayi\\pezeshki.webp",
                             IsDeleted = false,
                             Name = "پزشکی و پرستاری",
@@ -3519,7 +3513,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9627),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1537),
                             Image = "\\assets\\img\\sub-category\\salamat-zibayi\\pet.webp",
                             IsDeleted = false,
                             Name = "حیوانات خانگی",
@@ -3528,7 +3522,7 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedAt = new DateTime(2024, 5, 28, 11, 17, 47, 459, DateTimeKind.Local).AddTicks(9629),
+                            CreatedAt = new DateTime(2024, 5, 29, 10, 55, 52, 664, DateTimeKind.Local).AddTicks(1539),
                             Image = "\\assets\\img\\sub-category\\salamat-zibayi\\varzesh.webp",
                             IsDeleted = false,
                             Name = "تندرستی و ورزش",
@@ -3859,11 +3853,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("HomeService.Domain.Core.Entities.Expert", "Expert")
-                        .WithMany("Orders")
-                        .HasForeignKey("ExpertId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
                     b.HasOne("HomeService.Domain.Core.Entities.Service", "Service")
                         .WithMany("Orders")
                         .HasForeignKey("ServiceId")
@@ -3871,8 +3860,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .IsRequired();
 
                     b.Navigation("Customer");
-
-                    b.Navigation("Expert");
 
                     b.Navigation("Service");
                 });
@@ -3998,8 +3985,6 @@ namespace HomeService.Infra.DataBase.SQLServer.Migrations
                         .IsRequired();
 
                     b.Navigation("Comments");
-
-                    b.Navigation("Orders");
 
                     b.Navigation("Suggestions");
                 });
