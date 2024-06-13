@@ -222,18 +222,14 @@
                             </li>
                             <li>
                                 <form class="form-inline" asp-area="Account" asp-page="Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-                                    <button type="submit" class="nav-link btn btn-link text-dark">خروج<i class="bx bx-power-off me-2"></i></button>
+                                    <button type="submit" class="nav-link btn btn-link text-dark"><i class="bx bx-power-off me-2"></i>خروج</button>
                                 </form>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-           
-                        @RenderBody()
-             
-
+            @RenderBody()
         </div>
         <!-- =====================  == dashboard Detail End ======================== -->
         <!-- ======================= All Types Listing ======================== -->

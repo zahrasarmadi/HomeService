@@ -6,8 +6,6 @@ namespace HomeService.Domain.Core.DTOs.AddressDTO;
 public class AddressUpdateDto
 {
     public int Id { get; set; }
-    [DisplayName("عنوان")]
-    public string Title { get; set; }
     public int CityId { get; set; }
     [DisplayName("شهر")]
     public City City { get; set; }

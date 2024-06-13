@@ -1,8 +1,9 @@
-using HomeService.Domain.Core.Contracts.AppServices;
+﻿using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.DTOs.SuggestionDTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
 
 namespace HomeService.Endpoint.RazorPages.UI.Areas.ExpertArea.Pages;
 
@@ -20,6 +21,9 @@ public class AddSuggestionModel : PageModel
     public SuggestionCreateDto SuggestionCreate { get; set; }
 
     [BindProperty]
+    [Required(ErrorMessage = "تاریخ نمی‌تواند بدون مقدار باشد")]
+    [RegularExpression("^((1[34]\\d{2}|140[0-3])\\/(0[1-9]|1[0-2])\\/(0[1-9]|[12]\\d|3[01]) (2[0-3]|[01]\\d):([0-5]\\d):([0-5]\\d))$", ErrorMessage = "فرمت تاریخ باید به صورت yyyy/mm/dd hh:mm:ss باشد.")]
+    [Length(19, 19, ErrorMessage = "تاریخ نمی‌تواند کمتر یا بیشتر از 19 کاراکتر باشد")]
     public string SuggestionDate { get; set; }
 
     [BindProperty]
@@ -32,10 +36,14 @@ public class AddSuggestionModel : PageModel
 
     public async Task<IActionResult> OnPostCreateSuggestion(SuggestionCreateDto suggestionCreate, string suggestionDate, CancellationToken cancellationToken)
     {
-        var expertId = int.Parse(User.Claims.FirstOrDefault(u => u.Type == "userExpertId").Value);
-        suggestionCreate.ExpertId = expertId;
-        await _suggestionAppServices.Create(suggestionCreate,suggestionDate,cancellationToken);
+        if (ModelState.IsValid)
+        {
+            var expertId = int.Parse(User.Claims.FirstOrDefault(u => u.Type == "userExpertId").Value);
+            suggestionCreate.ExpertId = expertId;
+            await _suggestionAppServices.Create(suggestionCreate, suggestionDate, cancellationToken);
 
-        return RedirectToPage("ExpertSuggestions");
+            return RedirectToPage("ExpertSuggestions");
+        }
+        return RedirectToAction("OnGet");
     }
 }

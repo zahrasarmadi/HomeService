@@ -25,18 +25,21 @@
                                     <label class="mb-1">توضیحات</label>
                                     <textarea asp-for=@Model.SuggestionCreate.Description type="text" class="form-control rounded">
                                         </textarea>
+                                        <span asp-validation-for="@Model.SuggestionCreate.Description" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-group">
                                     <label class="mb-1">قیمت پیشنهادی</label>
                                     <input asp-for=@Model.SuggestionCreate.Price type="number" class="form-control rounded" />
+                                        <span asp-validation-for="@Model.SuggestionCreate.Price" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-group">
                                     <label class="mb-1">تاریخ پیشنهادی</label>
                                     <input asp-for=@Model.SuggestionDate data-jdp data-jdp-min-date="today" class="form-control rounded" />
+                                        <span asp-validation-for="@Model.SuggestionDate" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -54,6 +57,9 @@
 </form>
 </div>
 @section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
     <script>
         jalaliDatepicker.startWatch({
             minDate: "attr",

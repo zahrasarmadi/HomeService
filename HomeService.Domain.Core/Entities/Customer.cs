@@ -14,10 +14,9 @@ public class Customer
     public string LastName { get; set; }
     public GenderEnum? Gender { get; set; }
     [MaxLength(11)]
-    public string? BackUpPhoneNumber { get; set; }
-    [MaxLength(16)]
-    public string? BankCardNumber { get; set; }
-    public List<Address>? Addresses { get; set; }
+    public string? PhoneNumber { get; set; }
+    public Address? Address { get; set; }
+    //public int AddressId { get; set; }
     public List<Comment>? Comments { get; set; }
     public List<Order>? Orders { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;

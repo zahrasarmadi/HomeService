@@ -16,7 +16,7 @@ public class CustomerSummaryDto
     public string BackUpPhoneNumber { get; set; }
     [MaxLength(16)]
     public string? BankCardNumber { get; set; }
-    public List<Address>? Addresses { get; set; }
+    public Address? Address { get; set; }
     public List<Comment>? Comments { get; set; }
     public List<Order>? Orders { get; set; }
 }

@@ -24,7 +24,7 @@ public class CityRepository : ICityRepository
             cities = await _context.Cities.AsNoTracking().ToListAsync(cancellationToken);
             _memoryCache.Set("Cities", cities, new MemoryCacheEntryOptions
             {
-                SlidingExpiration = TimeSpan.FromSeconds(200)
+                SlidingExpiration = TimeSpan.FromDays(90)
             });
         }
 

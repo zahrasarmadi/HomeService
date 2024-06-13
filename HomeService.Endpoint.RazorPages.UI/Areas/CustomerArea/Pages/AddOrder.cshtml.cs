@@ -1,9 +1,11 @@
-using HomeService.Domain.Core.Contracts.AppServices;
+﻿using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.DTOs.OrderDTO;
 using HomeService.Domain.Core.DTOs.ServiceDTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 namespace HomeService.Endpoint.RazorPages.UI.Areas.CustomerArea.Pages;
 
 [Authorize(Roles = "Customer")]
@@ -25,9 +27,13 @@ public class AddOrderModel : PageModel
     public List<ServicesNameDto> Services { get; set; } = new List<ServicesNameDto>();
 
     [BindProperty]
+    [Required(ErrorMessage = " عکس نمی‌تواند بدون مقدار باشد")]
     public IFormFile Image { get; set; }
 
     [BindProperty]
+    [Required(ErrorMessage = "تاریخ نمی‌تواند بدون مقدار باشد")]
+    [RegularExpression("^((1[34]\\d{2}|140[0-3])\\/(0[1-9]|1[0-2])\\/(0[1-9]|[12]\\d|3[01]) (2[0-3]|[01]\\d):([0-5]\\d):([0-5]\\d))$", ErrorMessage = "فرمت تاریخ باید به صورت yyyy/mm/dd hh:mm:ss باشد.")]
+    [Length(19 ,19, ErrorMessage = "تاریخ نمی‌تواند کمتر یا بیشتر از 19 کاراکتر باشد")]
     public string Date { get; set; }
 
     public async Task OnGet(CancellationToken cancellationToken)
@@ -44,6 +50,6 @@ public class AddOrderModel : PageModel
             await _orderAppServices.Create(order, image, date, cancellationToken);
             return RedirectToPage("CustomerOrders");
         }
-        return Page();
+        return RedirectToAction("OnGet");
     }
 }

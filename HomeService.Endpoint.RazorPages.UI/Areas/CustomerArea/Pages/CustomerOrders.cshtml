@@ -27,11 +27,11 @@
                         <h4 class="card-title">@item.Title</h4>
                         <h5 class="card-title">@item.Service.Name</h5>
                         <p class="card-text">@item.Description</p>
-                @*         <a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash ms-1"></i>حذف</a> *@
-                        <button class="btn btn-primary me-1" href="#collapseExample" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        @* <a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash ms-1"></i>حذف</a> *@
+                        <button class="btn btn-primary me-1" type="button" data-bs-toggle="collapse" data-bs-target="#@("collapse-" + item.Id)" aria-expanded="false" aria-controls="@("collapse-" + item.Id)">
                             لیست پیشنهادات
                         </button>
-                        <div class="collapse" id="collapseExample">
+                        <div class="collapse" id="@("collapse-" + item.Id)">
                             <div class="d-grid d-sm-flex p-3 border">
                                 @if (item.Suggestions == null)
                                 {
@@ -57,18 +57,27 @@
                                                 <tr>
                                                     <td>@suggest.Expert.FirstName @suggest.Expert.LastName</td>
                                                     <td>@suggest.Price</td>
-                                                    <td>@suggest.SuggestedDate.ToPersianString("dddd, dd MMMM,yyyy")</td>
+
+                                                    @{
+                                                        var suggestedDate = DateTime.Parse(suggest.SuggestedDate.ToString());
+                                                    }
+
+                                                    <td>@suggestedDate.ToPersianString("dddd, dd MMMM,yyyy")</td>
                                                     <td>@suggest.Status.GetEnumDisplayName()</td>
                                                     <td>
-                                                        @if (suggest.Status ==StatusEnum.AwaitingCustomerConfirmation)
+                                                        @if (suggest.Status == StatusEnum.AwaitingCustomerConfirmation)
                                                         {
                                                             <a class="btn btn-success" asp-page-handler="AcceptSuggestion" asp-route-id="@suggest.Id" asp-route-orderId="@item.Id">تایید متخصص</a>
                                                             <a class="btn btn-warning" asp-page="ExpertDetails" asp-route-expertId="@suggest.ExpertId">دیدن اطلاعات متخصص</a>
                                                         }
-                                                        else if (suggest.Status ==StatusEnum.Confirmed)
+                                                        else if (suggest.Status == StatusEnum.Confirmed)
                                                         {
                                                             <a class="btn btn-seccendry disable"> تایید شده</a>
                                                             <a class="btn btn-warning" asp-page="ExpertDetails" asp-route-expertId="@suggest.ExpertId">دیدن اطلاعات متخصص</a>
+                                                        }
+                                                        else if (suggest.Status == StatusEnum.Done)
+                                                        {
+                                                            <a class="btn btn-seccendry disable">تمام شد</a>
                                                         }
                                                     </td>
                                                 </tr>
@@ -85,3 +94,4 @@
         </div>
     </div>
 }
+

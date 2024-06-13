@@ -53,22 +53,24 @@ public class BaseService : IBaseSevices
     public DateTime PersianToGregorian(string persianDateString)
     {
         PersianCalendar pc = new PersianCalendar();
-        string[] separatedTimeAndDate = persianDateString.Split(' ');
-        string[] persianDateParts = separatedTimeAndDate[0].Split('/');
-        int year = int.Parse(persianDateParts[0]);
-        int month = int.Parse(persianDateParts[1]);
-        int day = int.Parse(persianDateParts[2]);
-
-        if (separatedTimeAndDate.Length > 1)
+        if (persianDateString.Length > 10)
         {
+            string[] separatedTimeAndDate = persianDateString.Split(' ');
+            string[] persianDateParts = separatedTimeAndDate[0].Split('/');
             string[] persianTimePart = separatedTimeAndDate[1].Split(':');
-
+            int year1 = int.Parse(persianDateParts[0]);
+            int month1 = int.Parse(persianDateParts[1]);
+            int day1 = int.Parse(persianDateParts[2]);
             int hour = int.Parse(persianTimePart[0]);
             int minute = int.Parse(persianTimePart[1]);
             int second = int.Parse(persianTimePart[2]);
-            return pc.ToDateTime(year, month, day, hour, minute, second, 0);
+            return pc.ToDateTime(year1, month1, day1, hour, minute, second, 0);
         }
 
+        string[] persianDateParts1 = persianDateString.Split('/');
+        int year = int.Parse(persianDateParts1[0]);
+        int month = int.Parse(persianDateParts1[1]);
+        int day = int.Parse(persianDateParts1[2]);
         return pc.ToDateTime(year, month, day, 0, 0, 0, 0);
     }
 }

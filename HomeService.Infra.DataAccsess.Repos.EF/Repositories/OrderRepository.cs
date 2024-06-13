@@ -20,7 +20,7 @@ public class OrderRepository : IOrderRepository
         {
             Title = orderCreateDto.Title,
             Description = orderCreateDto.Description,
-            Status = StatusEnum.AwaitingCustomerConfirmation,
+            Status = StatusEnum.AwaitingSuggestionExperts,
             CustomerId = orderCreateDto.CustomerId,
             ServiceId = orderCreateDto.ServiceId,
             Image = orderCreateDto.Image,

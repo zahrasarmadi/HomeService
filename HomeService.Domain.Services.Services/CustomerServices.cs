@@ -24,14 +24,17 @@ public class CustomerServices : ICustomerServices
       => await _customerRepository.Delete(customerId, cancellationToken);
 
     public async Task<List<Customer>> GetAll(CancellationToken cancellationToken)
-      =>await _customerRepository.GetAll(cancellationToken);
+      => await _customerRepository.GetAll(cancellationToken);
 
     public async Task<Customer> GetById(int customerId, CancellationToken cancellationToken)
-      =>await _customerRepository.GetById(customerId, cancellationToken);
+      => await _customerRepository.GetById(customerId, cancellationToken);
 
     public async Task<CustomerSummaryDto> GetCustomerSummary(int id, CancellationToken cancellationToken)
-      =>await _customerRepository.GetCustomerSummary(id, cancellationToken);
+      => await _customerRepository.GetCustomerSummary(id, cancellationToken);
+
+    public async Task<CustomerUpdateDto> GetCustomerUpdateInfo(int customerId, CancellationToken cancellationToken)
+      => await _customerRepository.GetCustomerUpdateInfo(customerId, cancellationToken);
 
     public async Task<bool> Update(CustomerUpdateDto customerUpdateDto, CancellationToken cancellationToken)
-      =>await _customerRepository.Update(customerUpdateDto, cancellationToken);
+      => await _customerRepository.Update(customerUpdateDto, cancellationToken);
 }

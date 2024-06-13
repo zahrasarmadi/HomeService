@@ -1,11 +1,11 @@
-using HomeService.Domain.Core.Contracts.AppServices;
+﻿using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.DTOs.ExpertDTO;
 using HomeService.Domain.Core.DTOs.ServiceDTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using HomeService.Framework;
-using System.Globalization;
+using System.ComponentModel.DataAnnotations;
 
 namespace HomeService.Endpoint.RazorPages.UI.Areas.ExpertArea.Pages;
 
@@ -34,6 +34,9 @@ public class ProfileSettingModel : PageModel
     public List<ServicesNameDto> ServicesNames { get; set; }
 
     [BindProperty]
+    [Required(ErrorMessage = "تاریخ تولد نمی‌تواند بدون مقدار باشد")]
+    [RegularExpression("^(\\d{4})/(\\d{2})/(\\d{2})$", ErrorMessage = "فرمت تاریخ باید به صورت yyyy/mm/dd باشد.")]
+    [Length(10, 10, ErrorMessage = "تاریخ نمی‌تواند کمتر یا بیشتر از 10 کاراکتر باشد")]
     public string BirthDate { get; set; }
 
     public async Task OnGet(CancellationToken cancellationToken)
@@ -56,6 +59,5 @@ public class ProfileSettingModel : PageModel
             return RedirectToAction("OnGet");
         }
         return RedirectToAction("OnGet");
-
     }
 }

@@ -1,6 +1,7 @@
 ﻿using HomeService.Domain.Core.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace HomeService.Infra.DataBase.SQLServer.Configuration;
 public class UserConfigurations
@@ -21,7 +22,7 @@ public class UserConfigurations
 				NormalizedEmail = "ZAHRASARMADI17@GMAIL.COM",
 				LockoutEnabled = false,
 				PhoneNumber = "09927848276",
-				SecurityStamp = Guid.NewGuid().ToString()
+				SecurityStamp = Guid.NewGuid().ToString(),
 
 			},
 			new ApplicationUser()

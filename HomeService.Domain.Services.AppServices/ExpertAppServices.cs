@@ -53,9 +53,13 @@ public class ExpertAppServices : IExpertAppServices
 
     public async Task<bool> Update(ExpertUpdateDto expertUpdateDto, IFormFile image, string birthDate, CancellationToken cancellationToken)
     {
+        if (image != null)
+        {
+            var imageUrl = await _baseSevices.UploadImage(image);
+            expertUpdateDto.ProfileImage = imageUrl;
+        }
         var GregorianbirthDate = _baseSevices.PersianToGregorian(birthDate);
-        var imageUrl = await _baseSevices.UploadImage(image);
-        expertUpdateDto.ProfileImage = imageUrl;
+        
         expertUpdateDto.BirthDate= GregorianbirthDate;
 
         return await _expertServices.Update(expertUpdateDto,cancellationToken);

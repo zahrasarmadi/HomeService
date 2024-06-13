@@ -17,9 +17,9 @@ public class ExpertConfiguration : IEntityTypeConfiguration<Expert>
             .WithOne(e => e.Expert)
             .OnDelete(DeleteBehavior.NoAction);
 
-        builder.HasOne(e => e.Address)
-            .WithOne(a => a.Expert)
-            .OnDelete(DeleteBehavior.NoAction);
+        //builder.HasOne(e => e.Address)
+        //    .WithOne(a => a.Expert)
+        //    .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasData
             (
@@ -32,7 +32,6 @@ public class ExpertConfiguration : IEntityTypeConfiguration<Expert>
                 PhoneNumber = "09362356998",
                 Gender = GenderEnum.Male,
                 IsConfrim = true,
-                BankCardNumber = "1234123412341234",
                 CreatedAt = DateTime.Now,
                 IsDeleted = false,
                 ApplicationUserId=2
@@ -46,7 +45,6 @@ public class ExpertConfiguration : IEntityTypeConfiguration<Expert>
                  PhoneNumber = "09362357998",
                  Gender = GenderEnum.Male,
                  IsConfrim = true,
-                 BankCardNumber = "1234123412341255",
                  CreatedAt = DateTime.Now,
                  IsDeleted = false,
                  ApplicationUserId=4

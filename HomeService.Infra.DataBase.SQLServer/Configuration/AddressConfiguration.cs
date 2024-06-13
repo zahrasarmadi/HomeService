@@ -11,12 +11,13 @@ public class AddressConfiguration : IEntityTypeConfiguration<Address>
         builder.HasKey(c => c.Id);
 
         builder.HasOne(c => c.Customer)
-            .WithMany(c => c.Addresses)
-            .OnDelete(DeleteBehavior.NoAction);
+            .WithOne(c => c.Address)
+              .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasOne(c => c.Expert)
             .WithOne(c => c.Address)
-            .OnDelete(DeleteBehavior.NoAction);
+          .OnDelete(DeleteBehavior.NoAction);
+
 
         builder.HasOne(c => c.City)
             .WithMany(c => c.Address)

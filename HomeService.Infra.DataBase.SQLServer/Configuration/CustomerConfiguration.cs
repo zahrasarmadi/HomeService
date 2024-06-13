@@ -17,9 +17,9 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
             .WithOne(c => c.Customer)
             .OnDelete(DeleteBehavior.NoAction);
 
-        builder.HasMany(c => c.Addresses)
-            .WithOne(c => c.Customer)
-            .OnDelete(DeleteBehavior.NoAction);
+        //builder.HasOne(c => c.Address)
+        //    .WithOne(c => c.Customer)
+        //    .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasData
             (
@@ -29,8 +29,7 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
                 FirstName = "سحر",
                 LastName = "محمودی",
                 Gender = GenderEnum.Female,
-                BackUpPhoneNumber = "09123669858",
-                BankCardNumber = "1234123412341234",
+                PhoneNumber = "09123669858",
                 CreatedAt = DateTime.Now,
                 IsDeleted = false,
                 ApplicationUserId=3
@@ -41,8 +40,7 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
                 FirstName = "محمد",
                 LastName = "اصغری",
                 Gender = GenderEnum.Male,
-                BackUpPhoneNumber = "09123623258",
-                BankCardNumber = "1239684412341234",
+                PhoneNumber = "09123623258",
                 CreatedAt = DateTime.Now,
                 IsDeleted = false,
                 ApplicationUserId=5

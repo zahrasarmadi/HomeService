@@ -54,7 +54,7 @@ public class SuggestionAppServices : ISuggestionAppServices
         var suggetionDates = Suggestions.Select(s => s.SuggestedDate).ToList();
         foreach (var item in Suggestions)
         {
-            item.SuggestedDateString = item.SuggestedDate.ToPersianString("yyyy/MM/dd");
+            item.SuggestedDateString = (DateTime.Parse(item.SuggestedDate.ToString())).ToPersianString("yyyy/MM/dd");
         }
         return Suggestions;
     }

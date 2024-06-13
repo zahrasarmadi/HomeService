@@ -60,6 +60,8 @@ builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 
 //City Services
 builder.Services.AddScoped<ICityRepository, CityRepository>();
+builder.Services.AddScoped<ICityServices, CityServices>();
+builder.Services.AddScoped<ICityAppServices, CityAppServices>();
 
 //Customer Services
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
@@ -131,7 +133,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.CustomExceptionHandlingMiddleware();
+//app.CustomExceptionHandlingMiddleware();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

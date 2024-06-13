@@ -3,8 +3,6 @@ using HomeService.Domain.Core.DTOs.CustomerDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
-using System.Threading;
-
 
 namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 
@@ -22,9 +20,8 @@ public class CustomerRepository : ICustomerRepository
             FirstName = customerCreateDto.FirstName,
             LastName = customerCreateDto.LastName,
             Gender = customerCreateDto.Gender,
-            BackUpPhoneNumber = customerCreateDto.BackUpPhoneNumber,
-            BankCardNumber = customerCreateDto.BankCardNumber,
-            Addresses = customerCreateDto.Addresses,
+            PhoneNumber = customerCreateDto.PhoneNumber,
+            Address = customerCreateDto.Address,
         };
         await _context.Customers.AddAsync(newModel, cancellationToken);
 
@@ -53,14 +50,38 @@ public class CustomerRepository : ICustomerRepository
 
     public async Task<bool> Update(CustomerUpdateDto customerUpdateDto, CancellationToken cancellationToken)
     {
-        var targetModel = await FindCustomer(customerUpdateDto.Id, cancellationToken);
+        var targetModel = await _context.Customers
+            .FirstOrDefaultAsync(c => c.Id == customerUpdateDto.Id, cancellationToken)
+;
+        if (targetModel  == null)
+            return false;
 
         targetModel.FirstName = customerUpdateDto.FirstName;
         targetModel.LastName = customerUpdateDto.LastName;
+        targetModel.PhoneNumber = customerUpdateDto.PhoneNumber;
+        targetModel.Address = customerUpdateDto.Address;
 
         await _context.SaveChangesAsync(cancellationToken);
 
         return true;
+    }
+
+    public async Task<CustomerUpdateDto> GetCustomerUpdateInfo(int customerId, CancellationToken cancellationToken)
+    {
+        var targetCustomer = await _context.Customers.AsNoTracking().Include(c => c.Address)
+             .Select(c => new CustomerUpdateDto()
+             {
+                 Id = c.Id,
+                 FirstName = c.FirstName,
+                 LastName = c.LastName,
+                 PhoneNumber = c.PhoneNumber,
+                 Address = c.Address,
+             }).FirstOrDefaultAsync(c => c.Id == customerId, cancellationToken);
+
+        if (targetCustomer is null)
+            return new CustomerUpdateDto();
+
+        return targetCustomer;
     }
 
     public async Task<CustomerSummaryDto> GetCustomerSummary(int id, CancellationToken cancellationToken)
@@ -71,10 +92,9 @@ public class CustomerRepository : ICustomerRepository
                 Id = c.Id,
                 FirstName = c.FirstName,
                 LastName = c.LastName,
-                BankCardNumber = c.BankCardNumber,
-                BackUpPhoneNumber = c.BackUpPhoneNumber,
+                BackUpPhoneNumber = c.PhoneNumber,
                 Gender = c.Gender,
-                Addresses = c.Addresses,
+                Address = c.Address,
                 Comments = c.Comments,
                 Orders = c.Orders
             }).FirstOrDefaultAsync(cancellationToken);

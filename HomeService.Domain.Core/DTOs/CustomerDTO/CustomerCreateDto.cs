@@ -13,9 +13,5 @@ public class CustomerCreateDto
     public GenderEnum? Gender { get; set; }
     [DisplayName("شماره تلفن")]
     public string PhoneNumber { get; set; }
-    [DisplayName("شماره تلفن ذخیره")]
-    public string BackUpPhoneNumber { get; set; }
-    [DisplayName("شماره کارت بانکی")]
-    public string BankCardNumber { get; set; }
-    public List<Address> Addresses { get; set; }
+    public Address Address { get; set; }
 }

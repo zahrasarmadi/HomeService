@@ -24,7 +24,6 @@ public class ExpertRepository : IExpertRepository
             LastName = expertCreateDto.LastName,
             Gender = expertCreateDto.Gender,
             PhoneNumber = expertCreateDto.PhoneNumber,
-            BankCardNumber = expertCreateDto.BankCardNumber,
             Address = expertCreateDto.Address,
             BirthDate = expertCreateDto.BirthDate,
             ProfileImage = expertCreateDto.ProfileImage,
@@ -57,7 +56,6 @@ public class ExpertRepository : IExpertRepository
 
     public async Task<bool> Update(ExpertUpdateDto expertUpdateDto,CancellationToken cancellationToken)
     {
-
         var targetModel = await _context.Experts
             .Include(e => e.Services)
             .FirstOrDefaultAsync(e => e.Id == expertUpdateDto.Id,cancellationToken);
@@ -80,9 +78,7 @@ public class ExpertRepository : IExpertRepository
             }
             targetModel.FirstName = expertUpdateDto.FirstName;
             targetModel.LastName = expertUpdateDto.LastName;
-            //targetModel.Gender = expertUpdateDto.Gender;
             targetModel.PhoneNumber = expertUpdateDto.PhoneNumber;
-            //targetModel.BankCardNumber = expertUpdateDto.BankCardNumber;
             //targetModel.Address = expertUpdateDto.Address;
             targetModel.BirthDate = expertUpdateDto.BirthDate;
 

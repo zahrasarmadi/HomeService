@@ -1,11 +1,7 @@
 ﻿using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.DTOs.OrderDTO;
-using HomeService.Domain.Core.DTOs.SubCategoryDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Enums;
-using HomeService.Domain.Services.Services;
-using HomeService.Infra.DataBase.SQLServer.Migrations;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeService.Endpoint.WebAPI.Controllers;
@@ -26,16 +22,16 @@ public class HomeServiceController : ControllerBase
     }
 
     [HttpGet]
-    [Route(nameof(GetServiceSubCategory))]
-    public async Task<List<ServiceSubCategory>> GetServiceSubCategory(CancellationToken cancellationToken)
+    [Route(nameof(GetServiceSubCategoryWithServices))]
+    public async Task<List<ServiceSubCategory>> GetServiceSubCategoryWithServices(CancellationToken cancellationToken)
     {
         var subCategories = await _servicSubCategoryAppServices.GetAll(cancellationToken);
         return subCategories;
     }
 
     [HttpGet]
-    [Route(nameof(GetRequests))]
-    public async Task<List<GetOrderDto>> GetRequests(CancellationToken cancellationToken)
+    [Route(nameof(GetOrders))]
+    public async Task<List<GetOrderDto>> GetOrders(CancellationToken cancellationToken)
     {
         var requests = await _orderAppServices.GetAll(cancellationToken);
         return requests;

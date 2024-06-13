@@ -23,8 +23,8 @@ public class AddressRepository : IAddressRepository
             PostalCode = addressCreateDto.PostalCode,
             Street = addressCreateDto.Street,
             CityId = addressCreateDto.CityId,
-            Title = addressCreateDto.Title,
-            IsDefault = addressCreateDto.IsDefault,
+            CreatedAt=DateTime.Now,
+            IsDeleted=false
         };
         await _context.Addresses.AddAsync(newModel);
 
@@ -53,12 +53,10 @@ public class AddressRepository : IAddressRepository
         var targetModel = await FindAddress(addrressUpdateDto.Id, cancellationToken);
 
         targetModel.Area = addrressUpdateDto.Area;
-        targetModel.Title = addrressUpdateDto.Title;
         targetModel.CityId = addrressUpdateDto.CityId;
         targetModel.City = addrressUpdateDto.City;
         targetModel.Street = addrressUpdateDto.Street;
         targetModel.PostalCode = addrressUpdateDto.PostalCode;
-        targetModel.IsDefault = addrressUpdateDto.IsDefault;
 
         await _context.SaveChangesAsync(cancellationToken);
 

@@ -9,7 +9,7 @@ public class Order
     public int Id { get; set; }
     [MaxLength(50)]
     public string Title { get; set; }
-    [MaxLength(500)]
+    [MaxLength(1000)]
     public string Description { get; set; }
     public StatusEnum Status { get; set; }
     public Customer Customer { get; set; }

@@ -27,11 +27,6 @@ public class ExpertSuggestionsModel : PageModel
     {
         var expertId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "userExpertId").Value);
         Suggestions = await _suggestionAppServices.GetSuggestionsByExperId(expertId, cancellationToken);
-        //    var suggetionDates = Suggestions.Select(s => s.SuggestedDate).ToList();
-        //    foreach(var item in Suggestions)
-        //    {
-        //        item.SuggestedDateString=item.SuggestedDate.ToPersianString("yyyy/MM/dd");
-        //    }
     }
 
     public async Task OnGetDoneOrder(int id, int suggestionId,CancellationToken cancellationToken)

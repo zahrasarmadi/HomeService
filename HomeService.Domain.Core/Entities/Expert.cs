@@ -18,13 +18,12 @@ public class Expert
     public string? PhoneNumber { get; set; }
     public DateTime? BirthDate { get; set; }
     public string? ProfileImage { get; set; }
-    [MaxLength(16)]
-    public string? BankCardNumber { get; set; }
     public List<Service>? Services { get; set; }
     public List<Suggestion>? Suggestions { get; set; }
     public List<Comment>? Comments { get; set; }
     [DisplayName("آدرس")]
     public Address? Address { get; set; }
+    //public int AddressId { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public bool IsConfrim { get; set; } = false;
     public bool IsDeleted { get; set; } = false;
