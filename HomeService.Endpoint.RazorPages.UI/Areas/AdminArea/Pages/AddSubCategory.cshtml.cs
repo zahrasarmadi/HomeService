@@ -4,10 +4,13 @@ using HomeService.Domain.Core.DTOs.ServiceDTO;
 using HomeService.Domain.Core.DTOs.SubCategoryDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Services.AppServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HomeService.Endpoint.RazorPages.UI.Areas.AdminArea.Pages;
+
+[Authorize(Roles = "Admin")]
 
 public class AddSubCategoryModel : PageModel
 {

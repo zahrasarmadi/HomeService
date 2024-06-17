@@ -2,11 +2,13 @@
 using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.DTOs.SubCategoryDTO;
 using HomeService.Domain.Core.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HomeService.Endpoint.RazorPages.UI.Areas.AdminArea.Pages;
 
+[Authorize(Roles = "Admin")]
 public class UpdateSubCategoryModel : PageModel
 {
     private readonly IServicSubCategoryAppServices _serviceSubCategoryAppServices;

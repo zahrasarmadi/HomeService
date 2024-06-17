@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.DTOs.SubCategoryDTO;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HomeService.Endpoint.RazorPages.UI.Areas.AdminArea.Pages;
 
+[Authorize(Roles = "Admin")]
 public class SubCategoryModel : PageModel
 {
     private readonly IServicSubCategoryAppServices _serviceSubCategoryAppServices;

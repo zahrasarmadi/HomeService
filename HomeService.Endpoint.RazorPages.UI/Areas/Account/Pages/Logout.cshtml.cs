@@ -19,7 +19,6 @@ namespace HomeService.Endpoint.RazorPages.UI.Areas.Account.Pages;
 
         }
 
-
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
             await _signInManager.SignOutAsync();
@@ -30,7 +29,6 @@ namespace HomeService.Endpoint.RazorPages.UI.Areas.Account.Pages;
             }
             else
             {
-
                 return RedirectToPage();
             }
         }

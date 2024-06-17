@@ -1,10 +1,12 @@
 using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.DTOs.CommentDTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HomeService.Endpoint.RazorPages.UI.Areas.AdminArea.Pages;
 
+[Authorize(Roles = "Admin")]
 public class CommentModel : PageModel
 {
     private readonly ICommentAppServices _commentAppServices;

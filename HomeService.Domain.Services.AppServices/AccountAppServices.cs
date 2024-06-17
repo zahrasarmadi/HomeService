@@ -1,7 +1,9 @@
 ﻿using HomeService.Domain.Core.Contracts.AppServices;
+using HomeService.Domain.Core.DTOs.AccountDto;
 using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Enums;
 using Microsoft.AspNetCore.Identity;
+using System.Data;
 using System.Security.Claims;
 
 namespace HomeService.Domain.Services.Services;
@@ -17,23 +19,23 @@ public class AccountAppServices : IAccountAppServices
         _userManager = userManager;
     }
 
-    public async Task<List<IdentityError>> Register(string fisrtName, string lastName, string email, string password, bool isExpert, GenderEnum gender)
+    public async Task<List<IdentityError>> Register(AccountRegisterDto accountRegisterDto)
     {
         var role = string.Empty;
 
         var user = CreateUser();
 
-        user.UserName = email;
-        user.Email = email;
+        user.UserName = accountRegisterDto.Email;
+        user.Email = accountRegisterDto.Email;
 
-        if (isExpert)
+        if (accountRegisterDto.isExpert)
         {
             role = "Expert";
             user.Expert = new Expert()
             {
-                FirstName = fisrtName,
-                LastName = lastName,
-                Gender = gender
+                FirstName = accountRegisterDto.FirstName,
+                LastName = accountRegisterDto.LastName,
+                Gender = accountRegisterDto.Gender
             };
         }
         else
@@ -41,15 +43,15 @@ public class AccountAppServices : IAccountAppServices
             role = "Customer";
             user.Customer = new Customer()
             {
-                FirstName = fisrtName,
-                LastName = lastName,
-                Gender = gender
+                FirstName = accountRegisterDto.FirstName,
+                LastName = accountRegisterDto.LastName,
+                Gender = accountRegisterDto.Gender
             };
         }
 
-        var result = await _userManager.CreateAsync(user, password);
+        var result = await _userManager.CreateAsync(user, accountRegisterDto.Password);
 
-        if (isExpert)
+        if (accountRegisterDto.isExpert)
         {
 
             var userExpertId = user.Expert!.Id;
@@ -68,9 +70,9 @@ public class AccountAppServices : IAccountAppServices
         return (List<IdentityError>)result.Errors;
     }
 
-    public async Task<bool> Login(string email, string password)
+    public async Task<bool> Login(AccountLoginDto accountLoginDto)
     {
-        var result = await _signInManager.PasswordSignInAsync(email, password, true, lockoutOnFailure: false);
+        var result = await _signInManager.PasswordSignInAsync(accountLoginDto.Email, accountLoginDto.Password, true, lockoutOnFailure: false);
         return result.Succeeded;
     }
 
@@ -86,5 +88,30 @@ public class AccountAppServices : IAccountAppServices
                                                 $"Ensure that '{nameof(ApplicationUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                                                 $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
         }
+    }
+
+    public async Task<List<IdentityError>> AdminRegister(AccountAdminRegisterDto accountAdminRegisterDto)
+    {
+        var user = CreateUser();
+
+        user.UserName = accountAdminRegisterDto.Email;
+        user.Email = accountAdminRegisterDto.Email;
+
+        user.Admin = new Admin()
+        {
+            FirstName = accountAdminRegisterDto.FirstName,
+            LastName = accountAdminRegisterDto.LastName,
+            Gender = accountAdminRegisterDto.Gender,
+        };
+
+        var result = await _userManager.CreateAsync(user, accountAdminRegisterDto.Password);
+
+        var userAdminId = user.Admin!.Id;
+        await _userManager.AddClaimAsync(user, new Claim("userAdminId", userAdminId.ToString()));
+
+        if (result.Succeeded)
+            await _userManager.AddToRoleAsync(user, "Admin");
+
+        return (List<IdentityError>)result.Errors;
     }
 }

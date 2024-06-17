@@ -23,7 +23,6 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .WithOne(s=>s.Order)
             .OnDelete(DeleteBehavior.NoAction);
 
-      
 
         builder.HasData(
             new Order

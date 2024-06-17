@@ -123,14 +123,19 @@
                             <div data-i18n="Wizard Examples">پروفایل</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item  @ViewData[" ViewProfile"]">
+                            <li class="menu-item  @ViewData["ViewProfile"]">
                                 <a asp-page="ViewProfile" asp-area="AdminArea" class="menu-link">
                                     <div data-i18n="Checkout">مشاهده پروفایل</div>
                                 </a>
                             </li>
-                            <li class="menu-item  @ViewData[" EditProfile"]">
+                            <li class="menu-item  @ViewData["EditProfile"]">
                                 <a asp-page="EditProfile" asp-area="AdminArea" class="menu-link">
                                     <div data-i18n="Property Listing">تنظیمات پروفایل</div>
+                                </a>
+                            </li>
+                            <li class="menu-item  @ViewData["Register"]">
+                                <a asp-page="Register" asp-area="AdminArea" class="menu-link">
+                                    <div data-i18n="Property Listing">افزودن ادمین جدید</div>
                                 </a>
                             </li>
                     </li>
@@ -138,7 +143,11 @@
                 <li class="menu-item">
                     <a href="tables-basic.html" class="menu-link">
                         <i class="menu-icon tf-icons bx bx-exit"></i>
-                        <div data-i18n="Tables">خروج</div>
+                        <div data-i18n="Tables">
+                            <form class="form-inline" asp-area="Account" asp-page="Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                                <button type="submit" class="nav-link btn btn-link">خروج</button>
+                            </form>
+                        </div>
                     </a>
                 </li>
 

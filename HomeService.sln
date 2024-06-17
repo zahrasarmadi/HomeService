@@ -37,7 +37,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00-Framework", "00-Framewor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework", "Framework\Framework.csproj", "{3D74DC83-76EA-4759-909E-49350CD9FDB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeService.Endpoint.WebAPI", "HomeService.Endpoint.WebAPI\HomeService.Endpoint.WebAPI.csproj", "{63CC5477-3E66-4E71-91EA-7DDDA90914C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeService.Endpoint.WebAPI", "HomeService.Endpoint.WebAPI\HomeService.Endpoint.WebAPI.csproj", "{63CC5477-3E66-4E71-91EA-7DDDA90914C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

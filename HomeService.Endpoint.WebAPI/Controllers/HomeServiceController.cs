@@ -1,4 +1,5 @@
 ﻿using HomeService.Domain.Core.Contracts.AppServices;
+using HomeService.Domain.Core.DTOs.AccountDto;
 using HomeService.Domain.Core.DTOs.OrderDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Enums;
@@ -39,10 +40,9 @@ public class HomeServiceController : ControllerBase
 
     [HttpPost]
     [Route(nameof(RegisterUser))]
-    public async Task<string> RegisterUser(string fisrtName, string lastName, string email, string password,
-            bool isExpert, GenderEnum gender)
+    public async Task<string> RegisterUser(AccountRegisterDto accountRegister)
     {
-        var result = await _accountAppServices.Register(fisrtName,lastName,email,password,isExpert,gender);
+        var result = await _accountAppServices.Register(accountRegister);
         if (result.Count == 0)
         {
             return "ثبت نام انجام شد";

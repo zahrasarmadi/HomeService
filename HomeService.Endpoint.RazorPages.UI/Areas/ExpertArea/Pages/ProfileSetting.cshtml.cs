@@ -37,16 +37,19 @@ public class ProfileSettingModel : PageModel
     [Required(ErrorMessage = "تاریخ تولد نمی‌تواند بدون مقدار باشد")]
     [RegularExpression("^(\\d{4})/(\\d{2})/(\\d{2})$", ErrorMessage = "فرمت تاریخ باید به صورت yyyy/mm/dd باشد.")]
     [Length(10, 10, ErrorMessage = "تاریخ نمی‌تواند کمتر یا بیشتر از 10 کاراکتر باشد")]
-    public string BirthDate { get; set; }
+    public string BirthDate { get; set; } 
 
     public async Task OnGet(CancellationToken cancellationToken)
     {
         var expertId = int.Parse(User.Claims.FirstOrDefault(u => u.Type == "userExpertId").Value);
         ExpertUpdate = await _expertAppServices.GetExpertUpdateInfo(expertId, cancellationToken);
         ServicesNames = await _serviceAppServices.GetServicesName(cancellationToken);
-        var stringBirthDate = ExpertUpdate.BirthDate.ToString();
-        var birthDate = DateTime.Parse(stringBirthDate);
-        BirthDate = birthDate.ToPersianString("yyyy/MM/dd");
+        if (ExpertUpdate.BirthDate != null)
+        {
+            var stringBirthDate = ExpertUpdate.BirthDate.ToString();
+            var birthDate = DateTime.Parse(stringBirthDate);
+            BirthDate = birthDate.ToPersianString("yyyy/MM/dd");
+        }
     }
 
     public async Task<IActionResult> OnPostUpdateProfile(ExpertUpdateDto expertUpdate, string birthDate, CancellationToken cancellationToken)
