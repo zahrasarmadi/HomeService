@@ -39,6 +39,9 @@ public class ExpertServices : IExpertServices
     public async Task<Expert> GetById(int expertId, CancellationToken cancellationToken)
       => await _expertRepository.GetById(expertId, cancellationToken);
 
+    public async Task<ExpertNameDto> GetExpertName(int id, CancellationToken cancellationToken)
+      => await _expertRepository.GetExpertName(id, cancellationToken);
+
     public async Task<List<int>> GetExpertServiceIds(int id, CancellationToken cancellationToken)
       => await _expertRepository.GetExpertServiceIds(id, cancellationToken);
 

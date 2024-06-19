@@ -3,8 +3,6 @@ using HomeService.Domain.Core.DTOs.AdminDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
-using System.Threading;
-
 namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 
 public class AdminRepository : IAdminRepository
@@ -48,14 +46,32 @@ public class AdminRepository : IAdminRepository
 
     public async Task<bool> Update(AdminUpdateDto adminUpdateDto, CancellationToken cancellationToken)
     {
-        var targetModel =await FindAdmin(adminUpdateDto.Id, cancellationToken);
+        var targetModel = await _context.Admins
+            .Include(a => a.ApplicationUser)
+            .FirstOrDefaultAsync(a => a.Id == adminUpdateDto.Id, cancellationToken);
 
         targetModel.FirstName = adminUpdateDto.FirstName;
         targetModel.LastName = adminUpdateDto.LastName;
-        targetModel.Gender = adminUpdateDto.Gender;
+        targetModel.ApplicationUser.Email = adminUpdateDto.Email;
+        targetModel.ApplicationUser.PhoneNumber = adminUpdateDto.PhoneNumber;
 
-        _context.SaveChangesAsync(cancellationToken);
+       await _context.SaveChangesAsync(cancellationToken);
         return true;
+    }
+
+
+    public async Task<AdminUpdateDto> AdminUpdateInfo(int id, CancellationToken cancellationToken)
+    {
+        var m =await _context.Admins.Select(a => new AdminUpdateDto
+        {
+            Id = a.Id,
+            Email = a.ApplicationUser.Email,
+            FirstName = a.FirstName,
+            LastName = a.LastName,
+            PhoneNumber = a.ApplicationUser.PhoneNumber
+
+        }).FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+        return m;
     }
 
     private async Task<Admin> FindAdmin(int id, CancellationToken cancellationToken)

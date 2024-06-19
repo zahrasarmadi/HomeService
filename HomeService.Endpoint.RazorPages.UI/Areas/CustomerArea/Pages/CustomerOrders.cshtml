@@ -72,12 +72,11 @@
                                                         }
                                                         else if (suggest.Status == StatusEnum.Confirmed)
                                                         {
-                                                            <a class="btn btn-seccendry disable"> تایید شده</a>
                                                             <a class="btn btn-warning" asp-page="ExpertDetails" asp-route-expertId="@suggest.ExpertId">دیدن اطلاعات متخصص</a>
                                                         }
                                                         else if (suggest.Status == StatusEnum.Done)
                                                         {
-                                                            <a class="btn btn-seccendry disable">تمام شد</a>
+                                                            <a class="btn btn-warning" asp-page="ExpertDetails" asp-route-expertId="@suggest.ExpertId">دیدن اطلاعات متخصص</a>
                                                         }
                                                     </td>
                                                 </tr>

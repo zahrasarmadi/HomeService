@@ -14,7 +14,7 @@
             <thead>
                 <tr>
                     <th>آیدی</th>
-                    @* <th>عکس</th> *@
+                    <th>عکس</th>
                     <th>نام سرویس</th>
                     <th>نام دسته بندی</th>
                     <th>عملیات</th>
@@ -26,36 +26,42 @@
                 {
                     @if (category.IsDeleted == false)
                     {
-                    <tr>
-                        <td>
-                            @category.Id
-                        </td>
-                        @* <td>
-
-                    @*  <img src="@service.Image.ImageAddress" alt="@service.Image.Alt" class="rounded-circle"> *@
-
-                        <td>@category.Name</td>
-                        <td>@category.ServiceCategory.Name</td>
-                        <td>
-                            <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a asp-page="UpdateSubCategory" asp-route-id="@category.Id">
-                                        <i class="bx bx-edit-alt me-1"></i>
-                                        ویرایش
-                                    </a>
-                                    <a asp-page-handler="Delete" asp-route-id="@category.Id" onclick="return confirm('مطمئنی؟')">
-                                        <i class="bx bx-trash me-1"></i> حذف
-                                    </a>
+                        <tr>
+                            <td>
+                                @category.Id
+                            </td>
+                            <td>
+                                @if (category.Image == null || category.Image==string.Empty)
+                                {
+                                    <img src="~/assets/img/none.png" class="rounded-circle " width="100px" height="100px" />
+                                }
+                                else
+                                {
+                                    <img src="@category.Image" alt="@category.Image" class="rounded-circle" width="100px" height="100px"  />
+                                }
+                            </td>
+                            <td>@category.Name</td>
+                            <td>@category.ServiceCategory.Name</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a asp-page="UpdateSubCategory" asp-route-id="@category.Id">
+                                            <i class="bx bx-edit-alt me-1"></i>
+                                            ویرایش
+                                        </a>
+                                        <a asp-page-handler="Delete" asp-route-id="@category.Id" onclick="return confirm('مطمئنی؟')">
+                                            <i class="bx bx-trash me-1"></i> حذف
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                }
+                            </td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>
     </div>
-    </div>
+</div>

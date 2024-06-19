@@ -1,9 +1,11 @@
 ﻿@page
+@using Framework
 @using HomeService.Domain.Core.Contracts.AppServices
 @using HomeService.Framework
 @model HomeService.Endpoint.RazorPages.UI.Pages.ExpertDetailsModel
 @inject IExpertAppServices ExpertAppServices;
 @{
+    int commentCount =await ExpertAppServices.ExpertCommentCount(Model.ExpertSummary.Id, default);
 }
 <section class="gray">
     <div class="container">
@@ -15,13 +17,13 @@
                         @if (Model.ExpertSummary.ProfileImage == null)
                         {
                             <div class="author-wrap-ngh-thumb">
-                                
                             </div>
-                        }else
+                        }
+                        else
                         {
-                        <div class="author-wrap-ngh-thumb">
-                            <img src="@Model.ExpertSummary.ProfileImage" class="img-fluid circle" alt="" />
-                        </div>
+                            <div class="author-wrap-ngh-thumb">
+                                <img src="@Model.ExpertSummary.ProfileImage" class="img-fluid circle" style="object-fit:cover; width: 100%; height: 100%;" />
+                            </div>
                         }
                         <div class="author-wrap-ngh-info">
                             <h5>@Model.ExpertSummary.FirstName @Model.ExpertSummary.LastName</h5>
@@ -34,7 +36,7 @@
                                 <li>
                                     <div class="gdup-kvty">
                                         <div class="gdup-kvty-icon bg-light-sky text-sky"><i class="fas fa-file"></i></div>
-                                        <div class="gdup-kvty-ctr"><h6 class="count"> @await ExpertAppServices.ExpertCommentCount(Model.ExpertSummary.Id, default);</h6></div>
+                                        <div class="gdup-kvty-ctr"><h6 class="count">@commentCount</h6></div>
                                         <div class="gdup-kvty-text">کامنت‌ها</div>
                                     </div>
                                 </li>
@@ -60,7 +62,7 @@
                             <li>
                                 <div class="jhk-list-inf">
                                     <div class="jhk-list-inf-ico"><i class="fas fa-envelope"></i></div>
-                                    <div class="jhk-list-inf-caption"><h5>جنسیت</h5><p>@Model.ExpertSummary.Gender</p></div>
+                                    <div class="jhk-list-inf-caption"><h5>جنسیت</h5><p>@Model.ExpertSummary.Gender.GetEnumDisplayName()</p></div>
                                 </div>
                             </li>
                             <li>
@@ -100,7 +102,7 @@
                                             <div class="reviews-comments-item-text">
                                                 <h4>@comment.Customer.FirstName @comment.Customer.LastName<span class="reviews-comments-item-date d-flex align-items-center"><i class="ti-calendar theme-cl ms-1"></i>@comment.CreatedAt.ToPersianString("dddd, dd MMMM,yyyy")</span></h4>
                                                 <div class="listing-rating high">
-                                                    @if (await ExpertAppServices.ExpertAverageScores(Model.ExpertSummary.Id, default) == 1)
+                                                    @if (comment.Score == 1)
                                                     {
                                                         <i class="fas fa-star active"></i>
                                                         <i class="fas fa-star "></i>
@@ -108,7 +110,7 @@
                                                         <i class="fas fa-star "></i>
                                                         <i class="fas fa-star "></i>
                                                     }
-                                                    else if (await ExpertAppServices.ExpertAverageScores(Model.ExpertSummary.Id, default) == 2)
+                                                    else if (comment.Score == 2)
                                                     {
                                                         <i class="fas fa-star active"></i>
                                                         <i class="fas fa-star active"></i>
@@ -116,7 +118,7 @@
                                                         <i class="fas fa-star "></i>
                                                         <i class="fas fa-star "></i>
                                                     }
-                                                    else if (await ExpertAppServices.ExpertAverageScores(Model.ExpertSummary.Id, default) == 3)
+                                                    else if (comment.Score == 3)
                                                     {
                                                         <i class="fas fa-star active"></i>
                                                         <i class="fas fa-star active"></i>
@@ -124,7 +126,7 @@
                                                         <i class="fas fa-star "></i>
                                                         <i class="fas fa-star "></i>
                                                     }
-                                                    else if (await ExpertAppServices.ExpertAverageScores(Model.ExpertSummary.Id, default) == 4)
+                                                    else if (comment.Score == 4)
                                                     {
                                                         <i class="fas fa-star active"></i>
                                                         <i class="fas fa-star active"></i>
@@ -132,7 +134,7 @@
                                                         <i class="fas fa-star active"></i>
                                                         <i class="fas fa-star "></i>
                                                     }
-                                                    else if (await ExpertAppServices.ExpertAverageScores(Model.ExpertSummary.Id, default) == 5)
+                                                    else if (comment.Score == 5)
                                                     {
                                                         <i class="fas fa-star active"></i>
                                                         <i class="fas fa-star active"></i>
@@ -162,32 +164,13 @@
                     </div>
                 </div>
                 <!-- /row -->
-
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span class="fas fa-arrow-circle-right"></span>
-                                    <span class="sr-only">قبل</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">18</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span class="fas fa-arrow-circle-left"></span>
-                                    <span class="sr-only">بعد</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
             </div>
+            @if (TempData["OrderNotDone"] != null)
+            {
+                <div class="alert alert-danger text-center col-lg-12" role="alert">
+                    <h6 class="alert-heading mb-1">@TempData["OrderNotDone"]</h6>
+                </div>
+            }
             @if (User.IsInRole("Customer"))
             {
                 <div class="bg-white rounded mb-4">
@@ -213,12 +196,14 @@
                                             <div class="form-group mb-3">
                                                 <label class="ft-medium small mb-1">عنوان</label>
                                                 <input asp-for="@Model.Comment.Title" class="form-control rounded" type="text">
+                                                <span asp-validation-for="@Model.Comment.Title" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                             <div class="form-group mb-3">
                                                 <label class="ft-medium small mb-1">متن نظر</label>
                                                 <textarea asp-for="@Model.Comment.Description" class="form-control rounded ht-140" placeholder="نظر خود را بنویسید"></textarea>
+                                                <span asp-validation-for="@Model.Comment.Description" class="text-danger"></span>
                                             </div>
                                         </div>
 

@@ -72,7 +72,7 @@ public class AccountAppServices : IAccountAppServices
 
     public async Task<bool> Login(AccountLoginDto accountLoginDto)
     {
-        var result = await _signInManager.PasswordSignInAsync(accountLoginDto.Email, accountLoginDto.Password, true, lockoutOnFailure: false);
+        var result = await _signInManager.PasswordSignInAsync(accountLoginDto.Email, accountLoginDto.Password, false, lockoutOnFailure: false);
         return result.Succeeded;
     }
 

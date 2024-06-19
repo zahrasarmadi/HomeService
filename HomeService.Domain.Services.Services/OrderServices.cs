@@ -32,7 +32,7 @@ public class OrderServices : IOrderServices
     public async Task<bool> Delete(int orderId, CancellationToken cancellationToken)
        => await _orderRepository.Delete(orderId, cancellationToken);
 
-    public async Task DoneOrder(int id,int suggestionId, CancellationToken cancellationToken)
+    public async Task DoneOrder(int id, int suggestionId, CancellationToken cancellationToken)
     {
         await _suggestionServices.DoneSuggestion(suggestionId, cancellationToken);
         await _orderRepository.DoneOrder(id, cancellationToken);
@@ -56,6 +56,9 @@ public class OrderServices : IOrderServices
 
     public async Task<int> OrderCount(CancellationToken cancellationToken)
       => await _orderRepository.OrderCount(cancellationToken);
+
+    public async Task<bool> OrderIsDone(int orderId, CancellationToken cancellationToken)
+      => await _orderRepository.OrderIsDone(orderId, cancellationToken);
 
     public async Task<bool> Update(OrderUpdateDto orderUpdateDto, CancellationToken cancellationToken)
       => await _orderRepository.Update(orderUpdateDto, cancellationToken);

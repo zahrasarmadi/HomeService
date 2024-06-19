@@ -1,9 +1,10 @@
-using HomeService.Domain.Core.Contracts.AppServices;
+﻿using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.DTOs.ServiceDTO;
 using HomeService.Domain.Core.DTOs.SubCategoryDTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
 
 namespace HomeService.Endpoint.RazorPages.UI.Areas.AdminArea.Pages;
 
@@ -24,16 +25,17 @@ public class AddServiceModel : PageModel
     [BindProperty]
     public ServiceCreateDto ServiceCreate { get; set; }
 
-    [BindProperty]
-    public IFormFile Image { get; set; }
-
     public async Task OnGet(CancellationToken cancellationToken)
     {
         SubCategoryNames = await _servicSubCategoryAppServices.GetCategorisName(cancellationToken);
     }
-    public async Task<IActionResult> OnPostAdd(ServiceCreateDto serviceCreate, CancellationToken cancellationToken, IFormFile image)
+    public async Task<IActionResult> OnPostAddService(ServiceCreateDto serviceCreate, CancellationToken cancellationToken)
     {
-        await _serviceAppServices.Create(serviceCreate, cancellationToken, image);
-        return RedirectToPage("SubCategory");
+        if (ModelState.IsValid)
+        {
+            await _serviceAppServices.Create(serviceCreate, cancellationToken);
+            return RedirectToPage("Service");
+        }
+        return Page();
     }
 }

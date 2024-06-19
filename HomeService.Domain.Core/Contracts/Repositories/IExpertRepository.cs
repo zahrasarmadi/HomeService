@@ -18,4 +18,5 @@ public interface IExpertRepository
     Task<List<int>> GetExpertServiceIds(int id, CancellationToken cancellationToken);
     Task<ExpertUpdateDto> GetExpertUpdateInfo(int id, CancellationToken cancellationToken);
     Task<bool> Update(ExpertUpdateDto expertUpdateDto, CancellationToken cancellationToken);
+    Task<ExpertNameDto> GetExpertName(int id, CancellationToken cancellationToken);
 }

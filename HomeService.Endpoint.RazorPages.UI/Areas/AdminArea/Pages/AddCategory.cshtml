@@ -2,24 +2,25 @@
 @model HomeService.Endpoint.RazorPages.UI.Areas.AdminArea.Pages.AddCategoryModel
 @{
     Layout = "_AdminLayout";
+    ViewData["Title"] = "  افزودن دسته بندی اصلی سرویس | آیدو";
+    ViewData["PageTitle"] = " افزودن دسته بندی اصلی";
 }
 <div class="col-xxl">
     <div class="card mb-4">
-        <div class="card-header d-flex align-items-center justify-content-between">
-            <small class="text-muted float-end primary-font">افزودن دسته بندی اصلی‌</small>
-        </div>
         <div class="card-body">
-            <form method="post" asp-page-handler="Add" enctype="multipart/form-data">
+            <form method="post" asp-page-handler="AddCategory" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" asp-for="@Model..Name"></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" asp-for="@Model.ServiceCategoryCreate.Name">
+                        <span asp-validation-for="@Model.ServiceCategoryCreate.Name" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" asp-for="@Model.Image">عکس</label>
                     <div class="col-sm-10">
                         <input type="file" class="form-control" asp-for="@Model.Image">
+                        <span asp-validation-for="@Model.Image" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -28,7 +29,13 @@
                             <button type="submit" class="btn btn-primary">ارسال</button>
                         </div>
                     </div>
+                </div>
             </form>
         </div>
     </div>
 </div>
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+}

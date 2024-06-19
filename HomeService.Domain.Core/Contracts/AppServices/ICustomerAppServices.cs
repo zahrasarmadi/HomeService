@@ -13,4 +13,5 @@ public interface ICustomerAppServices
     Task<int> CustomerCount(CancellationToken cancellationToken);
     Task<CustomerSummaryDto> GetCustomerSummary(int id, CancellationToken cancellationToken);
     Task<CustomerUpdateDto> GetCustomerUpdateInfo(int customerId, CancellationToken cancellationToken);
+    Task<Customer> CustomerInformation(int customerId, CancellationToken cancellationToken);
 }

@@ -15,10 +15,10 @@ public class IndexModel : PageModel
     }
 
     [BindProperty]
-    public List<CategoryNameDto> CategoryNames { get; set; }=new List<CategoryNameDto>();
+    public List<CategoryNameDto> CategoryNames { get; set; } = new List<CategoryNameDto>();
 
     public async Task OnGet(CancellationToken cancellationToken)
     {
-        CategoryNames=await _serviceCategoryAppServices.GetCategorisName(cancellationToken);
+        CategoryNames = await _serviceCategoryAppServices.GetCategorisName(cancellationToken);
     }
 }

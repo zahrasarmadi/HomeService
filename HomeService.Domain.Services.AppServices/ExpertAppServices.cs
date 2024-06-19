@@ -27,7 +27,11 @@ public class ExpertAppServices : IExpertAppServices
       => await _expertServices.ExpertAverageScores(id, cancellationToken);
 
     public async Task<int> ExpertCommentCount(int id, CancellationToken cancellationToken)
-      => await _expertServices.ExpertCommentCount(id, cancellationToken);
+    {
+        var m = await _expertServices.ExpertCommentCount(id, cancellationToken);
+        return m;
+    }
+    
 
     public async Task<int> ExpertCount(CancellationToken cancellationToken)
       => await _expertServices.ExpertCount(cancellationToken);
@@ -40,6 +44,9 @@ public class ExpertAppServices : IExpertAppServices
 
     public async Task<Expert> GetById(int expertId, CancellationToken cancellationToken)
       => await _expertServices.GetById(expertId, cancellationToken);
+
+    public async Task<ExpertNameDto> GetExpertName(int id, CancellationToken cancellationToken)
+      => await _expertServices.GetExpertName(id, cancellationToken);
 
     public async Task<List<int>> GetExpertServiceIds(int id, CancellationToken cancellationToken)
       => await _expertServices.GetExpertServiceIds(id, cancellationToken);
@@ -59,9 +66,9 @@ public class ExpertAppServices : IExpertAppServices
             expertUpdateDto.ProfileImage = imageUrl;
         }
         var GregorianbirthDate = _baseSevices.PersianToGregorian(birthDate);
-        
-        expertUpdateDto.BirthDate= GregorianbirthDate;
 
-        return await _expertServices.Update(expertUpdateDto,cancellationToken);
+        expertUpdateDto.BirthDate = GregorianbirthDate;
+
+        return await _expertServices.Update(expertUpdateDto, cancellationToken);
     }
 }

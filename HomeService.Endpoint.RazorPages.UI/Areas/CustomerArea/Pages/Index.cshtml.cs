@@ -1,5 +1,6 @@
 using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.DTOs.CustomerDTO;
+using HomeService.Domain.Core.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -20,8 +21,7 @@ public class IndexModel : PageModel
 
     public async Task OnGet(CancellationToken cancellationToken)
     {
-        var userId = int.Parse(User.Claims.First().Value);
-
+        var userId  = int.Parse(User.Claims.FirstOrDefault(u => u.Type == "userCustomerId").Value);
         CustomerSummary = await _customerAppServices.GetCustomerSummary(userId, cancellationToken);
     }
 }

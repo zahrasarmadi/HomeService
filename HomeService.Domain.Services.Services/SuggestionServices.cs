@@ -2,6 +2,7 @@
 using HomeService.Domain.Core.Contracts.Services;
 using HomeService.Domain.Core.DTOs.SuggestionDTO;
 using HomeService.Domain.Core.Entities;
+using HomeService.Domain.Core.Enums;
 
 namespace HomeService.Domain.Services.Services;
 
@@ -16,6 +17,9 @@ public class SuggestionServices : ISuggestionServices
 
     public async Task AcceptSuggestion(int id, CancellationToken cancellationToken)
       => await _suggestionRepository.AcceptSuggestion(id, cancellationToken);
+
+    public async Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken)
+      => await _suggestionRepository.ChangeStatus(status, orderId, cancellationToken);
 
     public async Task<int> ConfrimedStatusCount(int orderId, CancellationToken cancellationToken)
       => await _suggestionRepository.ConfrimedStatusCount(orderId, cancellationToken);

@@ -53,7 +53,7 @@ public class CustomerRepository : ICustomerRepository
         var targetModel = await _context.Customers
             .FirstOrDefaultAsync(c => c.Id == customerUpdateDto.Id, cancellationToken)
 ;
-        if (targetModel  == null)
+        if (targetModel == null)
             return false;
 
         targetModel.FirstName = customerUpdateDto.FirstName;
@@ -113,6 +113,14 @@ public class CustomerRepository : ICustomerRepository
         return customerId;
     }
 
+    public async Task<Customer> CustomerInformation(int customerId, CancellationToken cancellationToken)
+    {
+        return await _context.Customers
+             .Include(c => c.Orders)
+             .ThenInclude(x => x.Suggestions)
+             .ThenInclude(s => s.Expert)
+             .Include(x => x.Comments).FirstOrDefaultAsync(c => c.Id == customerId, cancellationToken);
+    }
 
     public async Task<int> CustomerCount(CancellationToken cancellationToken)
       => await _context.Customers.CountAsync(cancellationToken);

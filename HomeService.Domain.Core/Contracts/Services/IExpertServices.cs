@@ -18,5 +18,6 @@ public interface IExpertServices
 	Task<int> ExpertOrderCount(int id, CancellationToken cancellationToken);
     Task<List<int>> GetExpertServiceIds(int id, CancellationToken cancellationToken);
     Task<ExpertUpdateDto> GetExpertUpdateInfo(int id, CancellationToken cancellationToken);
+    Task<ExpertNameDto> GetExpertName(int id, CancellationToken cancellationToken);
 
 }

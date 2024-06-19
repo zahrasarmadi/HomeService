@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace HomeService.Domain.Services.AppServices;
 
-public class ServiceCategoryAppServices: IServiceCategoryAppServices
+public class ServiceCategoryAppServices : IServiceCategoryAppServices
 {
     private readonly IServiceCategoryServices _serviceCategoryServices;
     private readonly IBaseSevices _baseSevices;
@@ -20,27 +20,33 @@ public class ServiceCategoryAppServices: IServiceCategoryAppServices
 
     public async Task<bool> Create(ServiceCategoryCreateDto serviceCategoryCreateDto, IFormFile image, CancellationToken cancellationToken)
     {
-        var imageAddress =  _baseSevices.UploadImage(image);
-        serviceCategoryCreateDto.Image =await imageAddress;
+        var imageAddress = _baseSevices.UploadImage(image);
+        serviceCategoryCreateDto.Image = await imageAddress;
         return await _serviceCategoryServices.Create(serviceCategoryCreateDto, cancellationToken);
     }
 
     public async Task<bool> Delete(int serviceCategoryId, CancellationToken cancellationToken)
-       =>await _serviceCategoryServices.Delete(serviceCategoryId, cancellationToken);
+       => await _serviceCategoryServices.Delete(serviceCategoryId, cancellationToken);
 
     public async Task<List<GetCategoryDto>> GetAll(CancellationToken cancellationToken)
-      =>await _serviceCategoryServices.GetAll(cancellationToken);
+      => await _serviceCategoryServices.GetAll(cancellationToken);
 
     public async Task<ServiceCategory> GetById(int serviceCategoryId, CancellationToken cancellationToken)
-      =>await _serviceCategoryServices.GetById(serviceCategoryId, cancellationToken);
+      => await _serviceCategoryServices.GetById(serviceCategoryId, cancellationToken);
 
     public async Task<List<CategoryNameDto>> GetCategorisName(CancellationToken cancellationToken)
-      =>await _serviceCategoryServices.GetCategorisName(cancellationToken);
+      => await _serviceCategoryServices.GetCategorisName(cancellationToken);
+
+    public async Task<ServiceCategoryUpdateDto> ServiceCategoryUpdateInfo(int id, CancellationToken cancellationToken)
+      => await _serviceCategoryServices.ServiceCategoryUpdateInfo(id, cancellationToken);
 
     public async Task<bool> Update(ServiceCategoryUpdateDto serviceCategoryUpdateDto, IFormFile image, CancellationToken cancellationToken)
     {
-        var imageAddress =  _baseSevices.UploadImage(image);
-        serviceCategoryUpdateDto.Image = await imageAddress;
-        return  await _serviceCategoryServices.Update(serviceCategoryUpdateDto, cancellationToken);
+        if (image != null)
+        {
+            var imageAddress = _baseSevices.UploadImage(image);
+            serviceCategoryUpdateDto.Image = await imageAddress;
+        }
+        return await _serviceCategoryServices.Update(serviceCategoryUpdateDto, cancellationToken);
     }
 }

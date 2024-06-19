@@ -14,4 +14,5 @@ public interface IServicSubCategoryAppServices
     Task<List<SubCategoryNameDto>> GetCategorisName(CancellationToken cancellationToken);
     Task<List<GetSubCategoryDto>> GetSubCategories(CancellationToken cancellationToken);
     Task<List<GetByCategoryIdDto>> GetAllByCategoryId(int id, CancellationToken cancellationToken);
+    Task<ServiceSubCategoryUpdateDto> ServiceSubCategoryUpdateInfo(int id, CancellationToken cancellationToken);
 }

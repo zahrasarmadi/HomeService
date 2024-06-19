@@ -11,18 +11,23 @@ public class OrderAppServices : IOrderAppServices
 {
     private readonly IOrderServices _orderServices;
     private readonly IBaseSevices _baseSevices;
+    private readonly ISuggestionServices _suggestionServices;
 
-    public OrderAppServices(IOrderServices orderServices, IBaseSevices baseSevices)
+    public OrderAppServices(IOrderServices orderServices, IBaseSevices baseSevices, ISuggestionServices suggestionServices)
     {
         _orderServices = orderServices;
         _baseSevices = baseSevices;
+        _suggestionServices = suggestionServices;
     }
 
     public Task AcceptOrder(int orderId, CancellationToken cancellationToken)
       => _orderServices.AcceptOrder(orderId, cancellationToken);
 
     public async Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken)
-     => await _orderServices.ChangeStatus(status, orderId, cancellationToken);
+    {
+        await _suggestionServices.ChangeStatus(status, orderId, cancellationToken);
+        return await _orderServices.ChangeStatus(status, orderId, cancellationToken);
+    }
 
     public async Task<bool> Create(OrderCreateDto orderCreateDto, IFormFile image, string runTime, CancellationToken cancellationToken)
     {
@@ -36,8 +41,8 @@ public class OrderAppServices : IOrderAppServices
     public async Task<bool> Delete(int orderId, CancellationToken cancellationToken)
       => await _orderServices.Delete(orderId, cancellationToken);
 
-    public async Task DoneOrder(int id,int suggestionId, CancellationToken cancellationToken)
-      => await _orderServices.DoneOrder(id,suggestionId, cancellationToken);//;
+    public async Task DoneOrder(int id, int suggestionId, CancellationToken cancellationToken)
+      => await _orderServices.DoneOrder(id, suggestionId, cancellationToken);//;
 
     public async Task<List<GetOrderDto>> GetAll(CancellationToken cancellationToken)
       => await _orderServices.GetAll(cancellationToken);
@@ -53,6 +58,9 @@ public class OrderAppServices : IOrderAppServices
 
     public async Task<int> OrderCount(CancellationToken cancellationToken)
       => await _orderServices.OrderCount(cancellationToken);
+
+    public async Task<bool> OrderIsDone(int orderId, CancellationToken cancellationToken)
+      => await _orderServices.OrderIsDone(orderId, cancellationToken);
 
     public async Task<bool> Update(OrderUpdateDto orderUpdateDto, CancellationToken cancellationToken)
       => await _orderServices.Update(orderUpdateDto, cancellationToken);

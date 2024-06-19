@@ -3,9 +3,6 @@ using HomeService.Domain.Core.DTOs.SubCategoryDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Immutable;
-using System.Threading;
-
 
 namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 
@@ -41,7 +38,7 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
 
     public async Task<List<GetSubCategoryDto>> GetSubCategories(CancellationToken cancellationToken)
     {
-        var subcategories = await _context.ServiceSubCategories.AsNoTracking()
+        var subcategories = await _context.ServiceSubCategories.AsNoTracking().Where(c => c.IsDeleted == false)
             .Select(s => new GetSubCategoryDto
             {
                 Name = s.Name,
@@ -57,7 +54,7 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
 
     public async Task<List<ServiceSubCategory>> GetAll(CancellationToken cancellationToken)
     {
-       return await _context.ServiceSubCategories.AsNoTracking()
+       return await _context.ServiceSubCategories.AsNoTracking().Where(c => c.IsDeleted == false)
             .Select(s=>new ServiceSubCategory()
             {
                 Id=s.Id,
@@ -90,7 +87,7 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
 
     public async Task<List<SubCategoryNameDto>> GetCategorisName(CancellationToken cancellationToken)
     {
-        var subcategories = await _context.ServiceSubCategories.AsNoTracking()
+        var subcategories = await _context.ServiceSubCategories.AsNoTracking().Where(c => c.IsDeleted == false)
              .Select(s => new SubCategoryNameDto
              {
                  Id = s.Id,
@@ -103,19 +100,31 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
     {
         var targetModel = await FindServiceSubCategory(serviceSubCategoryUpdateDto.Id, cancellationToken);
 
-        targetModel.Name = serviceSubCategoryUpdateDto.Name;
-        targetModel.Image = serviceSubCategoryUpdateDto.Image;
-        //targetModel.Services = serviceSubCategoryUpdateDto.Services;
-        //targetModel.ServiceCategory = serviceSubCategoryUpdateDto.ServiceCategory;
+        targetModel.Name = serviceSubCategoryUpdateDto.CategoryName;
+        if(serviceSubCategoryUpdateDto.Image != null) targetModel.Image = serviceSubCategoryUpdateDto.Image;
+        targetModel.ServiceCategoryId = serviceSubCategoryUpdateDto.ServiceCategoryId;
 
         await _context.SaveChangesAsync(cancellationToken);
 
         return true;
     }
 
+    public async Task<ServiceSubCategoryUpdateDto> ServiceSubCategoryUpdateInfo(int id,CancellationToken cancellationToken)
+    {
+       return await _context.ServiceSubCategories.AsNoTracking().Where(c => c.IsDeleted == false)
+            .Select(s => new ServiceSubCategoryUpdateDto
+            {
+                Id = s.Id,
+                CategoryName = s.Name,
+                Image = s.Image,
+                ServiceCategoryId = s.ServiceCategoryId,
+
+            }).FirstOrDefaultAsync(s=>s.Id==id,cancellationToken);
+    }
+
     public async Task<List<GetByCategoryIdDto>> GetAllByCategoryId(int id, CancellationToken cancellationToken)
     {
-        return await _context.ServiceSubCategories.Where(x => x.ServiceCategoryId == id).AsNoTracking()
+        return await _context.ServiceSubCategories.Where(x => x.ServiceCategoryId == id && x.IsDeleted==false).AsNoTracking()
             .Select(c=>new GetByCategoryIdDto
             {
                 Id= c.Id,
@@ -124,6 +133,7 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
             })
             .ToListAsync(cancellationToken);
     }
+
 
     private async Task<ServiceSubCategory> FindServiceSubCategory(int id, CancellationToken cancellationToken)
     => await _context.ServiceSubCategories.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);

@@ -42,7 +42,7 @@ public class OrderRepository : IOrderRepository
 
     public async Task<List<GetOrderDto>> GetAll(CancellationToken cancellationToken)
     {
-        var orders = await _context.Orders.AsNoTracking()
+        var orders = await _context.Orders.AsNoTracking().Where(x=>x.IsDeleted==false).Include(x=>x.Suggestions).ThenInclude(s=>s.Expert)
              .Select(o => new GetOrderDto
              {
                  Id = o.Id,
@@ -51,7 +51,9 @@ public class OrderRepository : IOrderRepository
                  Status = o.Status,
                  Customer = o.Customer,
                  Service = o.Service,
+                 Image=o.Image,
                  Suggestions = o.Suggestions
+
              }).ToListAsync(cancellationToken);
 
         return orders;
@@ -123,7 +125,7 @@ public class OrderRepository : IOrderRepository
     public async Task AcceptOrder(int orderId, CancellationToken cancellationToken)
     {
         var target = await _context.Orders.FirstOrDefaultAsync(o => o.Id == orderId, cancellationToken);
-        target.Status =StatusEnum.Confirmed;
+        target.Status = StatusEnum.Confirmed;
 
         await _context.SaveChangesAsync(cancellationToken);
     }
@@ -139,20 +141,29 @@ public class OrderRepository : IOrderRepository
 
     public async Task<List<OrdersByServiceIdsDto>> GetOrdersByServiceIds(List<int> serviceIds, CancellationToken cancellationToken)
     {
-      return await _context.Orders.Where(o => serviceIds.Contains(o.ServiceId))
-            .Select(o=>new OrdersByServiceIdsDto
-            {
-                Id=o.Id,
-                Title=o.Title,
-                Description=o.Description,
-                Image=o.Image,
-                CustomerId=o.CustomerId,
-                Customer=o.Customer,
-                Service= o.Service,
-                ServiceId = o.ServiceId,
-                Status=o.Status
-                
-            }).ToListAsync(cancellationToken);
+        return await _context.Orders.Where(o => serviceIds.Contains(o.ServiceId))
+              .Select(o => new OrdersByServiceIdsDto
+              {
+                  Id = o.Id,
+                  Title = o.Title,
+                  Description = o.Description,
+                  Image = o.Image,
+                  CustomerId = o.CustomerId,
+                  Customer = o.Customer,
+                  Service = o.Service,
+                  ServiceId = o.ServiceId,
+                  Status = o.Status
+
+              }).ToListAsync(cancellationToken);
+    }
+
+    public async Task<bool> OrderIsDone(int orderId, CancellationToken cancellationToken)
+    {
+        var targetOrder = await _context.Orders.FirstOrDefaultAsync(o => o.Id == orderId, cancellationToken);
+
+        if (targetOrder.Status == StatusEnum.Done) return true;
+
+        return false;
     }
 
     private async Task<Order> FindOrder(int id, CancellationToken cancellationToken)

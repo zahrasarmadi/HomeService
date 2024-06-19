@@ -29,8 +29,8 @@ public class ExpertSuggestionsModel : PageModel
         Suggestions = await _suggestionAppServices.GetSuggestionsByExperId(expertId, cancellationToken);
     }
 
-    public async Task OnGetDoneOrder(int id, int suggestionId,CancellationToken cancellationToken)
+    public async Task OnGetDoneOrder(int suggestionId, int orderId, CancellationToken cancellationToken)
     {
-        await _orderAppServices.DoneOrder(id,suggestionId, cancellationToken);
+        await _orderAppServices.DoneOrder(orderId, suggestionId, cancellationToken);
     }
 }

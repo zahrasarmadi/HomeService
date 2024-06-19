@@ -17,6 +17,9 @@ public class CustomerServices : ICustomerServices
     public async Task<bool> Create(CustomerCreateDto customerCreateDto, CancellationToken cancellationToken)
       => await _customerRepository.Create(customerCreateDto, cancellationToken);
 
+    public async Task<Customer> CustomerInformation(int customerId, CancellationToken cancellationToken)
+      => await _customerRepository.CustomerInformation(customerId, cancellationToken);
+
     public async Task<int> CustomerCount(CancellationToken cancellationToken)
       => await _customerRepository.CustomerCount(cancellationToken);
 
@@ -37,4 +40,6 @@ public class CustomerServices : ICustomerServices
 
     public async Task<bool> Update(CustomerUpdateDto customerUpdateDto, CancellationToken cancellationToken)
       => await _customerRepository.Update(customerUpdateDto, cancellationToken);
+
+
 }

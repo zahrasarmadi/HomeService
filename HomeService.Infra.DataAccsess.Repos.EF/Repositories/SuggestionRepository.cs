@@ -122,6 +122,15 @@ public class SuggestionRepository : ISuggestionRepository
         await _context.SaveChangesAsync(cancellationToken);
     }
 
+    public async Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken)
+    {
+        var targetModel = await _context.Suggestions.FirstOrDefaultAsync(x => x.OrderId == orderId);
+        targetModel.Status = status;
+
+        await _context.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+
     private async Task<Suggestion> FindSuggestion(int id, CancellationToken cancellationToken)
    => await _context.Suggestions.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

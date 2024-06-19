@@ -1,5 +1,8 @@
 ﻿@page
+@using Framework
 @using HomeService.Domain.Core.Enums
+@using System.Reflection
+@using System.ComponentModel.DataAnnotations
 @model HomeService.Endpoint.RazorPages.UI.Areas.AdminArea.Pages.OrderModel
 @{
     Layout = "_AdminLayout";
@@ -14,7 +17,7 @@
             <thead>
                 <tr>
                     <th>آیدی</th>
-                    @* <th>عکس</th> *@
+                    <th>عکس</th>
                     <th>عنوان</th>
                     <th>توضیحات</th>
                     <th>نام مشتری</th>
@@ -32,21 +35,27 @@
                         <td>
                             @order.Id
                         </td>
-                        @* <td>
-
-                    @*  <img src="@service.Image.ImageAddress" alt="@service.Image.Alt" class="rounded-circle"> *@
-
+                        <td>
+                            <img src="@order.Image" alt="@order.Image" class="rounded-circle" width="100px" height="100px">
+                        </td>
                         <td>@order.Title</td>
                         <td>@order.Description</td>
                         <td>@order.Customer.FirstName @order.Customer.LastName</td>
-                        @if (order.Expert != null)
+                        @if (order.Suggestions != null)
                         {
-                            <td>@order.Expert.FirstName @order.Expert.LastName</td>
+                            foreach (var suggetion in order.Suggestions)
+                            {
+                                if (suggetion.Status == StatusEnum.Confirmed || suggetion.Status==StatusEnum.Done)
+                                {
+                                    <td>@suggetion.Expert.FirstName @suggetion.Expert.LastName</td>
+                                }
+                            }
                         }
                         else
                         {
                             <td>هنوز متخصصی تایید نشده</td>
                         }
+
 
                         @if (@order.Suggestions.Count != null)
                         {
@@ -57,15 +66,17 @@
                             <td>0</td>
                         }
                         <td>
-                            @order.Status
+                            @order.Status 
+                            @* .GetEnumDisplayName() *@
+
+                        </td>
+                        <td>
                             <a class="btn btn-success" asp-page="ChangeStatus" asp-route-id="@order.Id">
                                 <i class="bx bx-edit-alt me-1"></i>
                                 تغغیر وضغیت
                             </a>
-                        </td>
-                        <td>
 
-                            <a asp-page-handler="Delete" asp-route-id="@order.Id" onclick="return confirm('مطمئنی؟')">
+                            <a asp-page-handler="Delete" asp-route-id="@order.Id" class="btn btn-warning" onclick="return confirm('مطمئنی؟')">
                                 <i class="bx bx-trash me-1"></i> حذف
                             </a>
 

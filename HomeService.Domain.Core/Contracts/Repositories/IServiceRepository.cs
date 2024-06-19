@@ -12,4 +12,6 @@ public interface IServiceRepository
     Task<List<GetServiceDto>> GetAll(CancellationToken cancellationToken);
     Task<List<ServicesNameDto>> GetServicesName(CancellationToken cancellationToken);
     Task<List<GetByCategorySubIdDto>> GetAllBySubCategoryId(int id, CancellationToken cancellationToken);
+    Task<ServiceUpdateDto> ServiceUpdateInfo(int id, CancellationToken cancellationToken);
+    Task<ServiceNameAndPriceDto> GetServiceNameAndPrice(int id, CancellationToken cancellationToken);
 }

@@ -1,5 +1,6 @@
 ﻿using HomeService.Domain.Core.Contracts.Repositories;
 using HomeService.Domain.Core.DTOs.ServiceDTO;
+using HomeService.Domain.Core.DTOs.SubCategoryDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,6 @@ public class ServiceRepository : IServiceRepository
         {
             Name = serviceCreateDto.Name,
             ServiceSubCategoryId = serviceCreateDto.ServiceSubCategoryId,
-            Image = serviceCreateDto.Image,
             Price = serviceCreateDto.Price,
         };
         await _context.Services.AddAsync(newModel, cancellationToken);
@@ -61,7 +61,7 @@ public class ServiceRepository : IServiceRepository
 
     public async Task<List<ServicesNameDto>> GetServicesName(CancellationToken cancellationToken)
     {
-        return await _context.Services.Select(s => new ServicesNameDto
+        return await _context.Services.AsNoTracking().Where(c => c.IsDeleted == false).Select(s => new ServicesNameDto
         {
             Id = s.Id,
             Name = s.Name,
@@ -72,17 +72,46 @@ public class ServiceRepository : IServiceRepository
     public async Task< Service> GetById(int serviceId, CancellationToken cancellationToken)
         => await FindService(serviceId,cancellationToken);
 
+    public async Task<ServiceNameAndPriceDto> GetServiceNameAndPrice(int id,CancellationToken cancellationToken)
+    {
+        var targetSrtvice = await _context.Services.AsNoTracking().Where(s => s.Id == id)
+              .Select(s => new ServiceNameAndPriceDto
+              {
+                  Id = s.Id,
+                  Name = s.Name,
+                  Price = s.Price,
+              }).FirstOrDefaultAsync(cancellationToken);
+
+        if (targetSrtvice != null) return targetSrtvice;
+
+        return new ServiceNameAndPriceDto();
+       
+    }
+
     public async Task< bool> Update(ServiceUpdateDto serviceUpdateDto,CancellationToken cancellationToken)
     {
         var targetModel = await FindService(serviceUpdateDto.Id, cancellationToken);
 
-        targetModel.Name = serviceUpdateDto.Name;
-       //targetModel.Image = serviceUpdateDto.Image;
+        targetModel.Name = serviceUpdateDto.ServiceName;
         targetModel.Price = serviceUpdateDto.Price;
+        targetModel.ServiceSubCategoryId = serviceUpdateDto.SubCategoryId;
 
         await _context.SaveChangesAsync(cancellationToken);
 
         return true;
+    }
+
+    public async Task<ServiceUpdateDto> ServiceUpdateInfo(int id,CancellationToken cancellationToken)
+    {
+        return await _context.Services
+            .Select(s => new ServiceUpdateDto
+            {
+                Id = s.Id,
+                ServiceName = s.Name,
+                Price= s.Price,
+                SubCategoryId=s.ServiceSubCategoryId
+
+            }).FirstOrDefaultAsync(s => s.Id == id);
     }
 
     public async Task<List<GetByCategorySubIdDto>> GetAllBySubCategoryId(int id, CancellationToken cancellationToken)

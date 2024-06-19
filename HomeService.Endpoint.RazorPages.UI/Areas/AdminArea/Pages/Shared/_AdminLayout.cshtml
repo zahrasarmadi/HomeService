@@ -119,17 +119,12 @@
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">پروفایل</span></li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons fa fa-regular fa-user"></i>
+                            <i class="menu-icon tf-icons bx bx-user"></i>
                             <div data-i18n="Wizard Examples">پروفایل</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item  @ViewData["ViewProfile"]">
-                                <a asp-page="ViewProfile" asp-area="AdminArea" class="menu-link">
-                                    <div data-i18n="Checkout">مشاهده پروفایل</div>
-                                </a>
-                            </li>
-                            <li class="menu-item  @ViewData["EditProfile"]">
-                                <a asp-page="EditProfile" asp-area="AdminArea" class="menu-link">
+                            <li class="menu-item  @ViewData["ProfileSetting"]">
+                                <a asp-page="ProfileSetting" asp-area="AdminArea" class="menu-link">
                                     <div data-i18n="Property Listing">تنظیمات پروفایل</div>
                                 </a>
                             </li>
@@ -138,18 +133,17 @@
                                     <div data-i18n="Property Listing">افزودن ادمین جدید</div>
                                 </a>
                             </li>
+                        </ul>
+                    <li class="menu-item">
+                        <a class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-exit"></i>
+                            <div data-i18n="Tables">
+                                <form class="form-inline" asp-area="Account" asp-page="Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                                    <button type="submit" class="nav-link btn btn-link">خروج</button>
+                                </form>
+                            </div>
+                        </a>
                     </li>
-                </ul>
-                <li class="menu-item">
-                    <a href="tables-basic.html" class="menu-link">
-                        <i class="menu-icon tf-icons bx bx-exit"></i>
-                        <div data-i18n="Tables">
-                            <form class="form-inline" asp-area="Account" asp-page="Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-                                <button type="submit" class="nav-link btn btn-link">خروج</button>
-                            </form>
-                        </div>
-                    </a>
-                </li>
 
             </aside>
             <!-- / Menu -->
@@ -171,55 +165,7 @@
                             <ul class="navbar-nav flex-row align-items-center ms-auto">
 
                                 <!-- User -->
-                                <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                                    <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                                        <div class="avatar avatar-online">
-                                            <img src="../admin/assets/img/avatars/new.png" alt class="rounded-circle">
-                                        </div>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a class="dropdown-item" href="pages-account-settings-account.html">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-3">
-                                                        <div class="avatar avatar-online">
-                                                            <img src="../admin/assets/img/avatars/new.png" alt class="rounded-circle">
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <span class="fw-semibold d-block">زهرا سرمدی</span>
-                                                        <small>مدیر</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <div class="dropdown-divider"></div>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" hasp-page="ViewProfile" asp-area="AdminArea">
-                                                <i class="bx bx-user me-2"></i>
-                                                <span class="align-middle">پروفایل من</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" asp-page="EditProfile" asp-area="AdminArea">
-                                                <i class="bx bx-cog me-2"></i>
-                                                <span class="align-middle">تنظیمات</span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <div class="dropdown-divider"></div>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
-                                                <i class="bx bx-power-off me-2"></i>
-                                                <span class="align-middle">خروج</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <partial name="_AccountPartial" />
                                 <!--/ User -->
                             </ul>
                         </div>

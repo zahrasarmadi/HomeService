@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Areas\AdminArea\Pages\ProfileSetting.cshtml" />
     <Content Remove="Areas\AdminArea\Pages\Service.cshtml" />
     <Content Remove="Areas\CustomerArea\Pages\CustomerProfileSetting.cshtml" />
     <Content Remove="Areas\ExpertArea\Pages\AddSuggestion.cshtml" />
@@ -29,6 +30,7 @@
     <ProjectReference Include="..\Framework\Framework.csproj" />
     <ProjectReference Include="..\HomeService.Domain.Services.AppServices\HomeService.Domain.Services.AppServices.csproj" />
     <ProjectReference Include="..\HomeService.Domain.Services.Services\HomeService.Domain.Services.Services.csproj" />
+    <ProjectReference Include="..\HomeService.Infra.DataAccess.Repos.Dapper\HomeService.Infra.DataAccess.Repos.Dapper.csproj" />
     <ProjectReference Include="..\HomeService.Infra.DataAccsess.Repos.EF\HomeService.Infra.DataAccsess.Repos.EF.csproj" />
     <ProjectReference Include="..\HomeService.Infra.DataBase.SQLServer\HomeService.Infra.DataBase.SQLServer.csproj" />
   </ItemGroup>
@@ -38,6 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Areas\AdminArea\Pages\ProfileSetting.cshtml" />
     <_ContentIncludedByDefault Remove="Areas\AdminArea\Pages\Service.cshtml" />
     <_ContentIncludedByDefault Remove="Areas\CustomerArea\Pages\CustomerProfileSetting.cshtml" />
     <_ContentIncludedByDefault Remove="Areas\ExpertArea\Pages\AddSuggestion.cshtml" />
@@ -51,6 +54,7 @@
     <None Include="Areas\Account\Pages\_ValidationScriptsPartial.cshtml" />
     <None Include="Areas\Account\Pages\_ViewImports.cshtml" />
     <None Include="Areas\Account\Pages\_ViewStart.cshtml" />
+    <None Include="Areas\AdminArea\Pages\ProfileSetting.cshtml" />
     <None Include="Areas\AdminArea\Pages\Service.cshtml" />
     <None Include="Areas\CustomerArea\Pages\CustomerProfileSetting.cshtml" />
     <None Include="Areas\ExpertArea\Pages\AddSuggestion.cshtml" />
@@ -230,6 +234,17 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Areas\ExpertArea\Pages\AddSuggestion.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\AdminArea\Pages\ProfileSetting.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\AdminArea\Pages\Shared\_AccountPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

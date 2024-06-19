@@ -21,9 +21,6 @@ public class OrderModel : PageModel
     public List<GetOrderDto> Orders { get; set; }
 
     [BindProperty]
-    public StatusEnum Status { get; set; }
-
-    [BindProperty]
     public int OrderId { get; set; }
 
     public async Task OnGet(CancellationToken cancellationToken)

@@ -5,8 +5,8 @@ using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Entities.Configs;
 using HomeService.Domain.Services.AppServices;
 using HomeService.Domain.Services.Services;
-using HomeService.Endpoint.RazorPages.UI.Infrastructure;
 using HomeService.Framework;
+using HomeService.Infra.DataAccess.Repos.Dapper.Repositories;
 using HomeService.Infra.DataAccsess.Repos.EF.Repositories;
 using HomeService.Infra.DataBase.SQLServer;
 using Microsoft.AspNetCore.Identity;
@@ -59,7 +59,7 @@ builder.Services.AddScoped<ISuggestionAppServices, SuggestionAppServices>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 
 //City Services
-builder.Services.AddScoped<ICityRepository, CityRepository>();
+builder.Services.AddScoped<ICityRepository, CityDapperRepository>();
 builder.Services.AddScoped<ICityServices, CityServices>();
 builder.Services.AddScoped<ICityAppServices, CityAppServices>();
 

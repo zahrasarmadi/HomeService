@@ -1,10 +1,8 @@
-﻿
-using HomeService.Domain.Core.Contracts.Repositories;
+﻿using HomeService.Domain.Core.Contracts.Repositories;
 using HomeService.Domain.Core.DTOs.ExpertDTO;
 using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Enums;
 using HomeService.Infra.DataBase.SQLServer;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace HomeService.Infra.DataAccsess.Repos.EF.Repositories;
@@ -54,24 +52,24 @@ public class ExpertRepository : IExpertRepository
         return await FindExpert(expertId, cancellationToken);
     }
 
-    public async Task<bool> Update(ExpertUpdateDto expertUpdateDto,CancellationToken cancellationToken)
+    public async Task<bool> Update(ExpertUpdateDto expertUpdateDto, CancellationToken cancellationToken)
     {
         var targetModel = await _context.Experts
             .Include(e => e.Services)
-            .FirstOrDefaultAsync(e => e.Id == expertUpdateDto.Id,cancellationToken);
-       
+            .FirstOrDefaultAsync(e => e.Id == expertUpdateDto.Id, cancellationToken);
+
         if (targetModel != null)
         {
             targetModel.Services ??= new List<Service>();
-          
+
             targetModel.Services.Clear();
 
-            if(expertUpdateDto.ServiceIds is not null)
+            if (expertUpdateDto.ServiceIds is not null)
             {
-                foreach(var item in expertUpdateDto.ServiceIds)
+                foreach (var item in expertUpdateDto.ServiceIds)
                 {
-                    var service=await _context.Services
-                        .FirstOrDefaultAsync(c=>c.Id == item,cancellationToken);
+                    var service = await _context.Services
+                        .FirstOrDefaultAsync(c => c.Id == item, cancellationToken);
 
                     targetModel.Services.Add(service);
                 }
@@ -105,7 +103,7 @@ public class ExpertRepository : IExpertRepository
             .Select(e => new ExpertSummaryDto()
             {
                 Id = e.Id,
-                Comments = e.Comments.Select(x => new Comment()
+                Comments = e.Comments.Where(c => c.IsAccept == true && c.IsDeleted == false).Select(x => new Comment()
                 {
                     Customer = x.Customer,
                     Score = x.Score,
@@ -116,8 +114,7 @@ public class ExpertRepository : IExpertRepository
                 FirstName = e.FirstName,
                 Gender = e.Gender,
                 LastName = e.LastName,
-                ProfileImage = e.ProfileImage,
-                Services = e.Services,
+                ProfileImage = e.ProfileImage
 
 
             }).FirstOrDefaultAsync(cancellationToken);
@@ -126,7 +123,7 @@ public class ExpertRepository : IExpertRepository
 
     public async Task<int> ExpertCommentCount(int id, CancellationToken cancellationToken)
     {
-        var targetExpert = await _context.Experts.Where(e => e.Id == id).Select(e => e.Comments).CountAsync();
+        var targetExpert = await _context.Experts.Where(e => e.Id == id).SelectMany(e => e.Comments).CountAsync();
         return targetExpert;
     }
 
@@ -135,9 +132,9 @@ public class ExpertRepository : IExpertRepository
         var targetExpert = await _context.Experts.Include(o => o.Comments).FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
         if (targetExpert == null || targetExpert.Comments == null || !targetExpert.Comments.Any())
         {
-            return 0; 
+            return 0;
         }
-        var score = ((int)(targetExpert.Comments.Select(c => c.Score).Average()));
+        var score = (int)targetExpert.Comments.Select(c => c.Score).Average();
         return score;
     }
 
@@ -164,16 +161,32 @@ public class ExpertRepository : IExpertRepository
             LastName = e.LastName,
             PhoneNumber = e.PhoneNumber,
             BirthDate = e.BirthDate,
-            //Gender = e.Gender,
             ProfileImage = e.ProfileImage,
             ServiceIds = e.Services
-            .Select(s =>s.Id)
+            .Select(s => s.Id)
             .ToList()
         }).FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
 
 
     }
 
+    public async Task<ExpertNameDto> GetExpertName(int id, CancellationToken cancellationToken)
+    {
+        var targetExpert = await _context.Experts.AsNoTracking().Where(e => e.Id == id)
+              .Select(e => new ExpertNameDto
+              {
+                  FirstName = e.FirstName,
+                  LastName = e.LastName
+              })
+              .FirstOrDefaultAsync(cancellationToken);
+
+        if (targetExpert == null)
+            return new ExpertNameDto();
+
+        return targetExpert;
+    }
+
+
     private async Task<Expert> FindExpert(int id, CancellationToken cancellationToken)
-   => await _context.Experts.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+      => await _context.Experts.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
 }

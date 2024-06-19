@@ -19,9 +19,9 @@ public class ServiceSubCategoryAppServices : IServicSubCategoryAppServices
 
     public async Task<bool> Create(ServiceSubCategoryCreateDto serviceSubCategoryCreateDto, CancellationToken cancellationToken, IFormFile image)
     {
-        var imageAddress =  _baseSevices.UploadImage(image);
+        var imageAddress = _baseSevices.UploadImage(image);
         serviceSubCategoryCreateDto.Image = await imageAddress;
-        return  await _serviceSubCategoryServices.Create(serviceSubCategoryCreateDto, cancellationToken);
+        return await _serviceSubCategoryServices.Create(serviceSubCategoryCreateDto, cancellationToken);
     }
 
     public async Task<bool> Delete(int serviceSubCategoryId, CancellationToken cancellationToken)
@@ -31,7 +31,7 @@ public class ServiceSubCategoryAppServices : IServicSubCategoryAppServices
       => await _serviceSubCategoryServices.GetAll(cancellationToken);
 
     public Task<List<GetByCategoryIdDto>> GetAllByCategoryId(int id, CancellationToken cancellationToken)
-      =>_serviceSubCategoryServices.GetAllByCategoryId(id, cancellationToken);
+      => _serviceSubCategoryServices.GetAllByCategoryId(id, cancellationToken);
 
     public async Task<ServiceSubCategory> GetById(int serviceSubCategoryId, CancellationToken cancellationToken)
       => await _serviceSubCategoryServices.GetById(serviceSubCategoryId, cancellationToken);
@@ -42,11 +42,16 @@ public class ServiceSubCategoryAppServices : IServicSubCategoryAppServices
     public async Task<List<GetSubCategoryDto>> GetSubCategories(CancellationToken cancellationToken)
       => await _serviceSubCategoryServices.GetSubCategories(cancellationToken);
 
+    public async Task<ServiceSubCategoryUpdateDto> ServiceSubCategoryUpdateInfo(int id, CancellationToken cancellationToken)
+      => await _serviceSubCategoryServices.ServiceSubCategoryUpdateInfo(id, cancellationToken);
 
     public async Task<bool> Update(ServiceSubCategoryUpdateDto serviceSubCategoryUpdateDto, IFormFile image, CancellationToken cancellationToken)
     {
-        var imageAddress = _baseSevices.UploadImage(image);
-        serviceSubCategoryUpdateDto.Image =await imageAddress;
+        if (image != null)
+        {
+            var imageAddress = _baseSevices.UploadImage(image);
+            serviceSubCategoryUpdateDto.Image = await imageAddress;
+        }
         return await _serviceSubCategoryServices.Update(serviceSubCategoryUpdateDto, cancellationToken);
     }
 }

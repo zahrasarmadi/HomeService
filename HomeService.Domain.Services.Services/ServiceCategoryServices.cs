@@ -27,7 +27,10 @@ public class ServiceCategoryServices : IServiceCategoryServices
       => await _serviceCategoryRepository.GetById(serviceCategoryId, cancellationToken);
 
     public async Task<List<CategoryNameDto>> GetCategorisName(CancellationToken cancellationToken)
-      =>await _serviceCategoryRepository.GetCategorisName(cancellationToken);
+      => await _serviceCategoryRepository.GetCategorisName(cancellationToken);
+
+    public async Task<ServiceCategoryUpdateDto> ServiceCategoryUpdateInfo(int id, CancellationToken cancellationToken)
+      => await _serviceCategoryRepository.ServiceCategoryUpdateInfo(id, cancellationToken);
 
     public async Task<bool> Update(ServiceCategoryUpdateDto serviceCategoryUpdateDto, CancellationToken cancellationToken)
       => await _serviceCategoryRepository.Update(serviceCategoryUpdateDto, cancellationToken);

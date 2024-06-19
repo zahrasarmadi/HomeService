@@ -2,6 +2,7 @@
 using HomeService.Domain.Core.Contracts.Services;
 using HomeService.Domain.Core.DTOs.SuggestionDTO;
 using HomeService.Domain.Core.Entities;
+using HomeService.Domain.Core.Enums;
 using HomeService.Framework;
 
 namespace HomeService.Domain.Services.AppServices;
@@ -32,6 +33,9 @@ public class SuggestionAppServices : ISuggestionAppServices
         return false;
     }
 
+    public async Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken)
+      => await _suggestionServices.ChangeStatus(status, orderId, cancellationToken);
+
     public async Task<bool> Create(SuggestionCreateDto suggestionCreateDto, string suggestionDate, CancellationToken cancellationToken)
     {
         var gregorianDate = _baseSevices.PersianToGregorian(suggestionDate);
@@ -50,7 +54,7 @@ public class SuggestionAppServices : ISuggestionAppServices
 
     public async Task<List<SuggestionsByExpertIdDto>> GetSuggestionsByExperId(int id, CancellationToken cancellationToken)
     {
-       var Suggestions= await _suggestionServices.GetSuggestionsByExperId(id, cancellationToken);
+        var Suggestions = await _suggestionServices.GetSuggestionsByExperId(id, cancellationToken);
         var suggetionDates = Suggestions.Select(s => s.SuggestedDate).ToList();
         foreach (var item in Suggestions)
         {

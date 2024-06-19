@@ -12,4 +12,5 @@ public interface IServiceCategoryAppServices
     Task<ServiceCategory> GetById(int serviceCategoryId, CancellationToken cancellationToken);
     Task<List<GetCategoryDto>> GetAll(CancellationToken cancellationToken);
     Task<List<CategoryNameDto>> GetCategorisName(CancellationToken cancellationToken);
+    Task<ServiceCategoryUpdateDto> ServiceCategoryUpdateInfo(int id, CancellationToken cancellationToken);
 }

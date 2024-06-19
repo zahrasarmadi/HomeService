@@ -17,4 +17,5 @@ public interface IOrderRepository
     Task AcceptOrder(int orderId, CancellationToken cancellationToken);
     Task DoneOrder(int id, CancellationToken cancellationToken);
     Task<List<OrdersByServiceIdsDto>> GetOrdersByServiceIds(List<int> serviceIds, CancellationToken cancellationToken);
+    Task<bool> OrderIsDone(int orderId, CancellationToken cancellationToken);
 }

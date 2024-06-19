@@ -1,5 +1,6 @@
 ﻿using HomeService.Domain.Core.DTOs.SuggestionDTO;
 using HomeService.Domain.Core.Entities;
+using HomeService.Domain.Core.Enums;
 
 namespace HomeService.Domain.Core.Contracts.Services;
 
@@ -14,5 +15,6 @@ public interface ISuggestionServices
     Task<int> ConfrimedStatusCount(int orderId, CancellationToken cancellationToken);
     Task<List<SuggestionsByExpertIdDto>> GetSuggestionsByExperId(int id, CancellationToken cancellationToken);
     Task DoneSuggestion(int id, CancellationToken cancellationToken);
+    Task<bool> ChangeStatus(StatusEnum status, int orderId, CancellationToken cancellationToken);
 
 }
