@@ -67,7 +67,6 @@ public class ServiceSubCategoryRepository : IServiceSubCategoryRepository
                 Services=s.Services.Select(x=>new Service()
                 {
                     Id = x.Id,
-                    Image=x.Image,
                     Experts=x.Experts,
                     Price=x.Price,
                     Name=x.Name,

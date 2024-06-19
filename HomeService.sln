@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework", "Framework\Fram
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeService.Endpoint.WebAPI", "HomeService.Endpoint.WebAPI\HomeService.Endpoint.WebAPI.csproj", "{63CC5477-3E66-4E71-91EA-7DDDA90914C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeService.Infra.DataAccess.Repos.Dapper", "HomeService.Infra.DataAccess.Repos.Dapper\HomeService.Infra.DataAccess.Repos.Dapper.csproj", "{94655E26-C19A-488D-BBE2-2AA5A6E9A5DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeService.Infra.DataAccess.Repos.Dapper", "HomeService.Infra.DataAccess.Repos.Dapper\HomeService.Infra.DataAccess.Repos.Dapper.csproj", "{94655E26-C19A-488D-BBE2-2AA5A6E9A5DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,7 +102,7 @@ Global
 		{C9917195-8B6C-4797-B2DE-98B059BF3DDA} = {BFB3386A-EED6-4ED9-8280-FC80D23AFAFE}
 		{3D74DC83-76EA-4759-909E-49350CD9FDB4} = {3D0EAA5E-EA55-431C-A2A9-DD293B70B330}
 		{63CC5477-3E66-4E71-91EA-7DDDA90914C9} = {BFB3386A-EED6-4ED9-8280-FC80D23AFAFE}
-		{94655E26-C19A-488D-BBE2-2AA5A6E9A5DB} = {2D138883-FCAC-425C-AEE3-7A398E066AB4}
+		{94655E26-C19A-488D-BBE2-2AA5A6E9A5DB} = {1E20ED79-E33D-4E10-84ED-16316332B423}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0AEE9BB3-1D0D-43A9-A4DA-45F66C68E4CB}
