@@ -32,10 +32,10 @@ public class OrderServices : IOrderServices
     public async Task<bool> Delete(int orderId, CancellationToken cancellationToken)
        => await _orderRepository.Delete(orderId, cancellationToken);
 
-    public async Task DoneOrder(int id, int suggestionId, CancellationToken cancellationToken)
+    public async Task DoneOrder(int orderId, int suggestionId, CancellationToken cancellationToken)
     {
         await _suggestionServices.DoneSuggestion(suggestionId, cancellationToken);
-        await _orderRepository.DoneOrder(id, cancellationToken);
+        await _orderRepository.DoneOrder(orderId, cancellationToken);
     }
 
     public async Task<List<GetOrderDto>> GetAll(CancellationToken cancellationToken)
@@ -47,11 +47,10 @@ public class OrderServices : IOrderServices
     public async Task<List<GetOrderDto>> GetOrders(int customerId, CancellationToken cancellationToken)
       => await _orderRepository.GetOrders(customerId, cancellationToken);
 
-    public async Task<List<OrdersByServiceIdsDto>> GetOrdersByServiceIds(int exoertId, CancellationToken cancellationToken)
+    public async Task<List<OrdersByServiceIdsDto>> GetOrdersByExpertId(int exoertId, CancellationToken cancellationToken)
     {
         var serviceIds = await _expertServices.GetExpertServiceIds(exoertId, cancellationToken);
-        var x = await _orderRepository.GetOrdersByServiceIds(serviceIds, cancellationToken);
-        return x;
+        return await _orderRepository.GetOrdersByServiceIds(serviceIds, cancellationToken);
     }
 
     public async Task<int> OrderCount(CancellationToken cancellationToken)
