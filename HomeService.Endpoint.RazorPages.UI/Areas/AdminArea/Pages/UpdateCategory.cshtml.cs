@@ -33,8 +33,6 @@ public class UpdateCategoryModel : PageModel
 
     public async Task<IActionResult> OnPostUpdate(ServiceCategoryUpdateDto serviceCategoryUpdate, IFormFile? image, CancellationToken cancellationToken)
     {
-        //ModelState.Remove("Name");
-
         if (ModelState.IsValid)
         {
             await _serviceCategoryAppServices.Update(serviceCategoryUpdate, image, cancellationToken);

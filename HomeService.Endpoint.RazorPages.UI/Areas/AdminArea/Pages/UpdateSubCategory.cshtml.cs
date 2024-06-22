@@ -37,8 +37,6 @@ public class UpdateSubCategoryModel : PageModel
 
     public async Task<IActionResult> OnPostUpdate(ServiceSubCategoryUpdateDto? serviceSubCategoryUpdate,IFormFile? image, CancellationToken cancellationToken)
     {
-        ModelState.Remove("Name");
-
         if (ModelState.IsValid)
         {
             await _serviceSubCategoryAppServices.Update(serviceSubCategoryUpdate, image, cancellationToken);

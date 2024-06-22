@@ -34,8 +34,6 @@ public class UpdateServiceModel : PageModel
 
     public async Task<IActionResult> OnPostUpdate(ServiceUpdateDto serviceUpdate, CancellationToken cancellationToken)
     {
-        ModelState.Remove("Name");
-
         if (ModelState.IsValid)
         {
             await _serviceAppServices.Update(serviceUpdate, cancellationToken);
