@@ -5,7 +5,7 @@ namespace HomeService.Domain.Core.DTOs.AccountDto;
 public class AccountLoginDto
 {
     [Required(ErrorMessage = "وارد کردن رمزعبور اجباری است")]
-    [MinLength(6, ErrorMessage = "رمزعبور نمی‌تواند کمتر 6 کاراکتر باشد")]
+    [MinLength(4, ErrorMessage = "رمزعبور نمی‌تواند کمتر 4 کاراکتر باشد")]
     public string Password { get; set; }
     [Required(ErrorMessage = "وارد کردن ایمیل اجباری است")]
     [EmailAddress(ErrorMessage = "فرمت ایمیل اشتباه است")]

@@ -55,6 +55,8 @@ public class CommentRepository : ICommentRepository
                  Description = c.Description,
                  IsActive = c.IsAccept,
                  IsDeleted = c.IsDeleted,
+                 Score=c.Score
+
              }).ToListAsync(cancellationToken);
         return comments;
     }

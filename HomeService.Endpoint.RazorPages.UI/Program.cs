@@ -5,6 +5,7 @@ using HomeService.Domain.Core.Entities;
 using HomeService.Domain.Core.Entities.Configs;
 using HomeService.Domain.Services.AppServices;
 using HomeService.Domain.Services.Services;
+using HomeService.Endpoint.RazorPages.UI.Infrastructure;
 using HomeService.Framework;
 using HomeService.Infra.DataAccess.Repos.Dapper.Repositories;
 using HomeService.Infra.DataAccsess.Repos.EF.Repositories;
@@ -133,7 +134,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-//app.CustomExceptionHandlingMiddleware();
+app.CustomExceptionHandlingMiddleware();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

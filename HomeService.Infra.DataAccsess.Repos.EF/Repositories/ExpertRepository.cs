@@ -114,9 +114,8 @@ public class ExpertRepository : IExpertRepository
                 FirstName = e.FirstName,
                 Gender = e.Gender,
                 LastName = e.LastName,
-                ProfileImage = e.ProfileImage
-
-
+                ProfileImage = e.ProfileImage,
+                Services=e.Services
             }).FirstOrDefaultAsync(cancellationToken);
         return target;
     }

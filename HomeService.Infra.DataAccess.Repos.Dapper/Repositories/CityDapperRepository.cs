@@ -26,14 +26,13 @@ public class CityDapperRepository : ICityRepository
         {
             using (IDbConnection db = new SqlConnection(_siteSettings.SqlConfiguration.ConnectionsString))
             {
-                return (List<City>)await db.QueryAsync<City>("SELECT * FROM Cities");
+                cities = (List<City>)await db.QueryAsync<City>("SELECT * FROM Cities");
+                _memoryCache.Set("Cities", cities, new MemoryCacheEntryOptions
+                {
+                    SlidingExpiration = TimeSpan.FromDays(90)
+                });
             }
         }
-        _memoryCache.Set("Cities", cities, new MemoryCacheEntryOptions
-        {
-            SlidingExpiration = TimeSpan.FromDays(90)
-        });
-
         return cities;
     }
 

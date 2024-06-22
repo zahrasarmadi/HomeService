@@ -50,12 +50,13 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
                   Image = s.Image
 
               }).ToListAsync(cancellationToken);
+            _memoryCache.Set("Categories", categories, new MemoryCacheEntryOptions()
+            {
+                SlidingExpiration = TimeSpan.FromSeconds(2000)
+            });
             return categories;
         }
-        _memoryCache.Set("Categories", categories, new MemoryCacheEntryOptions()
-        {
-            SlidingExpiration = TimeSpan.FromSeconds(2000)
-        });
+
         return categories;
     }
 
@@ -89,13 +90,13 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
                    Image = c.Image,
                    IsDeleted = c.IsDeleted
                }).ToListAsync(cancellationToken);
-
+            _memoryCache.Set("Categories", categories, new MemoryCacheEntryOptions()
+            {
+                SlidingExpiration = TimeSpan.FromSeconds(200)
+            });
             return categories;
         }
-        _memoryCache.Set("Categories", categories, new MemoryCacheEntryOptions()
-        {
-            SlidingExpiration = TimeSpan.FromSeconds(200)
-        });
+
         return categories;
     }
 
