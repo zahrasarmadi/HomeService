@@ -1,12 +1,8 @@
-﻿
-using HomeService.Domain.Core.Contracts.AppServices;
+﻿using HomeService.Domain.Core.Contracts.AppServices;
 using HomeService.Domain.Core.DTOs.CategoryDTO;
-using HomeService.Domain.Core.DTOs.SubCategoryDTO;
-using HomeService.Domain.Core.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
 
 namespace HomeService.Endpoint.RazorPages.UI.Areas.AdminArea.Pages;
 
@@ -33,11 +29,12 @@ public class UpdateCategoryModel : PageModel
 
     public async Task<IActionResult> OnPostUpdate(ServiceCategoryUpdateDto serviceCategoryUpdate, IFormFile? image, CancellationToken cancellationToken)
     {
+        var model = new ServiceCategoryUpdateDto();
         if (ModelState.IsValid)
         {
             await _serviceCategoryAppServices.Update(serviceCategoryUpdate, image, cancellationToken);
             return RedirectToPage("Category");
         }
-        return Page();
+        return RedirectToPage();
     }
 }

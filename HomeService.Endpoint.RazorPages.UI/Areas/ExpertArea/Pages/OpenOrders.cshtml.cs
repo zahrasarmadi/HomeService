@@ -24,6 +24,6 @@ public class OpenOrdersModel : PageModel
     public async Task OnGet(CancellationToken cancellationToken)
     {
         var expertId = int.Parse(User.Claims.FirstOrDefault(u => u.Type == "userExpertId").Value);
-        Orders = await _orderAppServices.GetOrdersByServiceIds(expertId, cancellationToken);
+        Orders = await _orderAppServices.GetOrdersByExpertId(expertId, cancellationToken);
     }
 }

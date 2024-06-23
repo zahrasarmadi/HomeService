@@ -40,7 +40,7 @@ public class CityDapperRepository : ICityRepository
     {
         using (IDbConnection db = new SqlConnection(_siteSettings.SqlConfiguration.ConnectionsString))
         {
-            return await db.QueryFirstOrDefaultAsync<City>("SELECT * FROM Students WHERE Id = @Id", new { Id = cityId });
+            return await db.QueryFirstOrDefaultAsync<City>("SELECT * FROM Cities WHERE Id = @Id", new { Id = cityId });
         }
     }
 }

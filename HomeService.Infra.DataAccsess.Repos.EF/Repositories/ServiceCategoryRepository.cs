@@ -38,7 +38,7 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
 
     public async Task<List<CategoryNameDto>> GetCategorisName(CancellationToken cancellationToken)
     {
-        var categories = _memoryCache.Get<List<CategoryNameDto>>("Categories");
+        var categories = _memoryCache.Get<List<CategoryNameDto>>("CategoriesName");
 
         if (categories is null)
         {
@@ -50,7 +50,7 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
                   Image = s.Image
 
               }).ToListAsync(cancellationToken);
-            _memoryCache.Set("Categories", categories, new MemoryCacheEntryOptions()
+            _memoryCache.Set("CategoriesName", categories, new MemoryCacheEntryOptions()
             {
                 SlidingExpiration = TimeSpan.FromSeconds(2000)
             });
@@ -79,7 +79,7 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
 
     public async Task<List<GetCategoryDto>> GetAll(CancellationToken cancellationToken)
     {
-        var categories = _memoryCache.Get<List<GetCategoryDto>>("Categories");
+        var categories = _memoryCache.Get<List<GetCategoryDto>>("AllCategories");
         if (categories is null)
         {
             categories = await _context.ServiceCategories.AsNoTracking()
@@ -90,7 +90,7 @@ public class ServiceCategoryRepository : IServiceCategoryRepository
                    Image = c.Image,
                    IsDeleted = c.IsDeleted
                }).ToListAsync(cancellationToken);
-            _memoryCache.Set("Categories", categories, new MemoryCacheEntryOptions()
+            _memoryCache.Set("AllCategories", categories, new MemoryCacheEntryOptions()
             {
                 SlidingExpiration = TimeSpan.FromSeconds(200)
             });

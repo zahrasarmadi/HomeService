@@ -53,8 +53,8 @@ public class OrderAppServices : IOrderAppServices
     public async Task<List<GetOrderDto>> GetOrders(int customerId, CancellationToken cancellationToken)
       => await _orderServices.GetOrders(customerId, cancellationToken);
 
-    public async Task<List<OrdersByServiceIdsDto>> GetOrdersByServiceIds(int exoertId, CancellationToken cancellationToken)
-      => await _orderServices.GetOrdersByServiceIds(exoertId, cancellationToken);
+    public async Task<List<OrdersByServiceIdsDto>> GetOrdersByExpertId(int exoertId, CancellationToken cancellationToken)
+      => await _orderServices.GetOrdersByExpertId(exoertId, cancellationToken);
 
     public async Task<int> OrderCount(CancellationToken cancellationToken)
       => await _orderServices.OrderCount(cancellationToken);

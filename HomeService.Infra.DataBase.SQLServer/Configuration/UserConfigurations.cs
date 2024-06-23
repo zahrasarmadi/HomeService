@@ -25,50 +25,50 @@ public class UserConfigurations
 				SecurityStamp = Guid.NewGuid().ToString(),
 
 			},
-			new ApplicationUser()
-			{
-				Id = 2,
-				UserName = "Ali@gmail.com",
-				NormalizedUserName = "ALI@GMAIL.COM",
-				Email = "Ali@gmail.com",
-				NormalizedEmail = "ALI@GMAIL.COM",
-				LockoutEnabled = false,
-				PhoneNumber = "09377507920",
-				SecurityStamp = Guid.NewGuid().ToString()
-			},
-			new ApplicationUser()
-			{
-				Id = 3,
-				UserName = "Sahar@gmail.com",
-				NormalizedUserName = "SAHAR@GMAIL.COM",
-				Email = "Sahar@gmail.com",
-				NormalizedEmail = "SAHAR@GMAIL.COM",
-				LockoutEnabled = false,
-				PhoneNumber = "09377507920",
-				SecurityStamp = Guid.NewGuid().ToString()
-			},
-			new ApplicationUser()
-			{
-				Id = 4,
-				UserName = "Sara@gmail.com",
-				NormalizedUserName = "SARA@GMAIL.COM",
-				Email = "Sara@gmail.com",
-				NormalizedEmail = "SARA@GMAIL.COM",
-				LockoutEnabled = false,
-				PhoneNumber = "09377507920",
-				SecurityStamp = Guid.NewGuid().ToString()
-			},
-			new ApplicationUser()
-			{
-				Id = 5,
-				UserName = "Mohammad@gmail.com",
-				NormalizedUserName = "MOHAMMAD@GMAIL.COM",
-				Email = "Mohammad@gmail.com",
-				NormalizedEmail = "MOHAMMAD@GMAIL.COM",
-				LockoutEnabled = false,
-				PhoneNumber = "09377507920",
-				SecurityStamp = Guid.NewGuid().ToString()
-			}
+			//new ApplicationUser()
+			//{
+			//	Id = 2,
+			//	UserName = "Ali@gmail.com",
+			//	NormalizedUserName = "ALI@GMAIL.COM",
+			//	Email = "Ali@gmail.com",
+			//	NormalizedEmail = "ALI@GMAIL.COM",
+			//	LockoutEnabled = false,
+			//	PhoneNumber = "09377507920",
+			//	SecurityStamp = Guid.NewGuid().ToString()
+			//},
+			//new ApplicationUser()
+			//{
+			//	Id = 3,
+			//	UserName = "Sahar@gmail.com",
+			//	NormalizedUserName = "SAHAR@GMAIL.COM",
+			//	Email = "Sahar@gmail.com",
+			//	NormalizedEmail = "SAHAR@GMAIL.COM",
+			//	LockoutEnabled = false,
+			//	PhoneNumber = "09377507920",
+			//	SecurityStamp = Guid.NewGuid().ToString()
+			//},
+			//new ApplicationUser()
+			//{
+			//	Id = 4,
+			//	UserName = "Sara@gmail.com",
+			//	NormalizedUserName = "SARA@GMAIL.COM",
+			//	Email = "Sara@gmail.com",
+			//	NormalizedEmail = "SARA@GMAIL.COM",
+			//	LockoutEnabled = false,
+			//	PhoneNumber = "09377507920",
+			//	SecurityStamp = Guid.NewGuid().ToString()
+			//},
+			//new ApplicationUser()
+			//{
+			//	Id = 5,
+			//	UserName = "Mohammad@gmail.com",
+			//	NormalizedUserName = "MOHAMMAD@GMAIL.COM",
+			//	Email = "Mohammad@gmail.com",
+			//	NormalizedEmail = "MOHAMMAD@GMAIL.COM",
+			//	LockoutEnabled = false,
+			//	PhoneNumber = "09377507920",
+			//	SecurityStamp = Guid.NewGuid().ToString()
+			//}
 		};
 
 		foreach (var user in users)
@@ -88,11 +88,11 @@ public class UserConfigurations
 
 		//Seed Role To Users
 		builder.Entity<IdentityUserRole<int>>().HasData(
-			new IdentityUserRole<int>() { RoleId = 1, UserId = 1 },
-			new IdentityUserRole<int>() { RoleId = 2, UserId = 2 },
-			new IdentityUserRole<int>() { RoleId = 3, UserId = 3 },
-			new IdentityUserRole<int>() { RoleId = 2, UserId = 4 },
-			new IdentityUserRole<int>() { RoleId = 3, UserId = 5 }
+			new IdentityUserRole<int>() { RoleId = 1, UserId = 1 }
+			//new IdentityUserRole<int>() { RoleId = 2, UserId = 2 },
+			//new IdentityUserRole<int>() { RoleId = 3, UserId = 3 },
+			//new IdentityUserRole<int>() { RoleId = 2, UserId = 4 },
+			//new IdentityUserRole<int>() { RoleId = 3, UserId = 5 }
 		);
 	}
 }

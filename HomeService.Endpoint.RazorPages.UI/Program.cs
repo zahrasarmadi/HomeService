@@ -134,7 +134,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.CustomExceptionHandlingMiddleware();
+//app.CustomExceptionHandlingMiddleware();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
